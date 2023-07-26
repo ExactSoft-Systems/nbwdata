@@ -1,0 +1,10 @@
+entity.class_session.settings:
+  title: 'Class Session'
+  description: 'Configure a Class Session entity type.'
+  route_name:  entity.class_session.settings
+  parent: system.admin_structure
+entity.class_session.collection:
+  title: 'Class Sessions'
+  description: 'List of class sessions.'
+  route_name: entity.class_session.collection
+  parent: system.admin_content

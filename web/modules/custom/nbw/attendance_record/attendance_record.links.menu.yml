@@ -1,0 +1,10 @@
+entity.attendance_record.settings:
+  title: Attendance Record
+  description: Configure an Attendance Record entity type
+  route_name:  entity.attendance_record.settings
+  parent: system.admin_structure
+entity.attendance_record.collection:
+  title: Attendance Records
+  description: List of attendance records
+  route_name: entity.attendance_record.collection
+  parent: system.admin_content

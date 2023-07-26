@@ -1,0 +1,14 @@
+name: 'Webform User Registration Test Module'
+type: module
+description: 'Support module for webform user registration handler testing.'
+package: Testing
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - 'user:user'
+  - 'webform_user_registration:webform_user_registration'
+
+# Information added by Drupal.org packaging script on 2021-11-17
+version: '8.x-1.0-alpha1'
+project: 'webform_user_registration'
+datestamp: 1637152666

@@ -1,0 +1,13 @@
+system.admin_nbw_data_app:
+  title: 'NBW'
+  description: 'Main Landing Page for NBW Admins'
+  route_name: nbw_data_app.admin_landing
+  parent: 'system.admin'
+  weight: 7
+
+nbw_data_app.settings_form:
+  title: 'NBW Data App'
+  description: 'Configure NBW Data App.'
+  parent: system.admin_config_system
+  route_name: nbw_data_app.settings_form
+  weight: 10

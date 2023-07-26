@@ -1,0 +1,10 @@
+/**
+ * Main menu icons.
+ */
+.toolbar-icon-system-admin-nbw-data-app:before {
+    background-image: url(../images/icons/787878/nbw_tool_bw.svg);
+}
+.toolbar-icon-system-admin-nbw-data-app:active:before,
+.toolbar-icon-system-admin-nbw-data-app.is-active:before {
+    background-image: url(../images/icons/000000/nbw_tool.svg);
+}

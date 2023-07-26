@@ -1,0 +1,22 @@
+nbw_data_app.admin_landing:
+  path: '/nbw-dashboard'
+  defaults:
+    _title: 'NBW Data Admin Page'
+  requirements:
+    _permission: 'administer nbw_data_app configuration'
+
+nbw_data_app.example:
+  path: '/nbw-data-app/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\nbw_data_app\Controller\NbwDataAppController::build'
+  requirements:
+    _permission: 'access content'
+
+nbw_data_app.settings_form:
+  path: '/admin/config/system/nbw-data-app'
+  defaults:
+    _title: 'NBW Data App settings'
+    _form: 'Drupal\nbw_data_app\Form\SettingsForm'
+  requirements:
+    _permission: 'administer nbw_data_app configuration'

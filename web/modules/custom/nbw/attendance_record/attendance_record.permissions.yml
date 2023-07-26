@@ -1,0 +1,13 @@
+administer attendance record:
+  title: 'Administer attendance record settings'
+  restrict access: true
+access attendance record overview:
+  title: 'Access attendance record overview page'
+delete attendance record:
+  title: Delete attendance record
+create attendance record:
+  title: Create attendance record
+view attendance record:
+  title: View attendance record
+edit attendance record:
+  title: Edit attendance record

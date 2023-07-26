@@ -1,0 +1,22 @@
+entity.class_session.settings:
+  title: 'Settings'
+  route_name: entity.class_session.settings
+  base_route: entity.class_session.settings
+entity.class_session.view:
+  title: 'View'
+  route_name: entity.class_session.canonical
+  base_route: entity.class_session.canonical
+entity.class_session.edit_form:
+  title: 'Edit'
+  route_name: entity.class_session.edit_form
+  base_route: entity.class_session.canonical
+entity.class_session.delete_form:
+  title: 'Delete'
+  route_name: entity.class_session.delete_form
+  base_route: entity.class_session.canonical
+  weight: 10
+entity.class_session.collection:
+  title: 'Class Sessions'
+  route_name: entity.class_session.collection
+  base_route: system.admin_content
+  weight: 10

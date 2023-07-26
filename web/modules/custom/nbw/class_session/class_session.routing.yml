@@ -1,0 +1,23 @@
+entity.class_session.settings:
+  path: 'admin/structure/class-session'
+  defaults:
+    _form: '\Drupal\class_session\Form\ClassSessionSettingsForm'
+    _title: 'Class Session'
+  requirements:
+    _permission: 'administer class session'
+
+class_session.checkin_multiple:
+  path: 'class-session/checkin-multiple'
+  defaults:
+    _form: '\Drupal\class_session\Form\CheckInMultipleForm'
+    _title: 'Check-in Multiple Students For Class'
+  requirements:
+    _permission: 'access content'
+
+class_session.check_out_multiple:
+  path: 'class-session/check-out-multiple'
+  defaults:
+    _form: '\Drupal\class_session\Form\CheckOutMultipleForm'
+    _title: 'Check-Out Multiple Students From Class'
+  requirements:
+    _permission: 'access content'

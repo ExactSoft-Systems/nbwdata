@@ -1,0 +1,8 @@
+# Schema for the configuration files of the NBW Data App module.
+nbw_data_app.settings:
+  type: config_object
+  label: 'NBW Data App settings'
+  mapping:
+    example:
+      type: string
+      label: 'Example'

@@ -1,0 +1,5 @@
+name: NBW Data App
+type: module
+description: Provides functionality needed for Neighborhood Bike Works day-to-day operations
+package: NBW
+core_version_requirement: ^9 || ^10

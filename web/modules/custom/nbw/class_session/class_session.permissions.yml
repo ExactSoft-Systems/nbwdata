@@ -1,0 +1,3 @@
+administer class session:
+  title: 'Administer class session settings'
+  restrict access: true

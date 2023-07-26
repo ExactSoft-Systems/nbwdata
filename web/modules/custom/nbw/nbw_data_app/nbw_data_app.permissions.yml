@@ -1,0 +1,4 @@
+administer nbw_data_app configuration:
+  title: 'Administer nbw_data_app configuration'
+  description: 'Optional description.'
+  restrict access: true

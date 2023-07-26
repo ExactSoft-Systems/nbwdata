@@ -1,0 +1,9 @@
+name: 'NBW Users Registration plugin for Webform'
+type: module
+description: 'Create a new Youth user and a Guardian - if not found -  upon Youth Waver form submission!'
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: 'NBW'
+dependencies:
+  - 'webform:webform'
+  - 'drupal:webform_user_registration'

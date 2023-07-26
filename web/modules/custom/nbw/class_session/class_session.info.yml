@@ -1,0 +1,6 @@
+name: Class Session
+type: module
+description: 'Provides a class session entity.'
+package: NBW
+core_version_requirement: ^8 || ^9 || ^10
+configure: entity.class_session.settings

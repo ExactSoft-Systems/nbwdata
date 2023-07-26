@@ -1,0 +1,6 @@
+name: Attendance Record
+type: module
+description: 'Provides an attendance record entity.'
+package: NBW
+core_version_requirement: ^8 || ^9 || ^10
+configure: entity.attendance_record.settings
