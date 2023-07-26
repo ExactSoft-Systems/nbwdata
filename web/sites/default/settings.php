@@ -25,6 +25,25 @@ include __DIR__ . "/settings.pantheon.php";
  */
 // $settings['skip_permissions_hardening'] = TRUE;
 
+$settings['hash_salt'] = '';
+
+$settings['update_free_access'] = FALSE;
+
+$settings['file_private_path'] = 'sites/default/files/private';
+
+$settings['file_temp_path'] = 'sites/default/files/private';
+
+$settings['file_scan_ignore_directories'] = [
+  'node_modules',
+  'bower_components',
+];
+
+$settings['entity_update_batch_size'] = 50;
+
+$settings['entity_update_backup'] = TRUE;
+
+$settings['migrate_node_migrate_type_classic'] = FALSE;
+
 /**
  * If there is a local settings file, then include it
  */
