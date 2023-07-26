@@ -25,7 +25,7 @@ include __DIR__ . "/settings.pantheon.php";
  */
 // $settings['skip_permissions_hardening'] = TRUE;
 
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = 'Xrq5tJ5LvIGnXPp0ee/c7/6t1fGOO5k8Tt57fviSun8=';
 
 $settings['update_free_access'] = FALSE;
 
