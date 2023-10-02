@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * @file
+ * Provides a bike entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\bicycle\Entity\Bike;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function bicycle_theme() {
+  return [
+    'bike' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for bike templates.
+ *
+ * Default template: bike.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the bike information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_bike(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function bicycle_user_cancel($edit, UserInterface $account, $method) {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish bikes.
+      $storage = \Drupal::entityTypeManager()->getStorage('bike');
+      $bike_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->execute();
+      foreach ($storage->loadMultiple($bike_ids) as $bike) {
+        $bike->set('status', FALSE);
+        $bike->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize bikes.
+      $storage = \Drupal::entityTypeManager()->getStorage('bike');
+      $bike_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->execute();
+      foreach ($storage->loadMultiple($bike_ids) as $bike) {
+        $bike->setOwnerId(0);
+        $bike->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function bicycle_user_predelete(UserInterface $account) {
+  // Delete bikes.
+  $storage = \Drupal::entityTypeManager()->getStorage('bike');
+  $bike_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->execute();
+  $bikes = $storage->loadMultiple($bike_ids);
+  $storage->delete($bikes);
+  // Delete old revisions.
+  $bike_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->execute();
+  foreach (array_keys($bike_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}

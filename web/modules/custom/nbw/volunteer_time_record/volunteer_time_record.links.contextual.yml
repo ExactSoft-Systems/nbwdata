@@ -1,0 +1,10 @@
+entity.volunteer_time_record.edit_form:
+  route_name: entity.volunteer_time_record.edit_form
+  group: volunteer_time_record
+  title: Edit
+
+entity.volunteer_time_record.delete_form:
+  route_name: entity.volunteer_time_record.delete_form
+  group: volunteer_time_record
+  title: Delete
+  weight: 10

@@ -1,0 +1,3 @@
+administer volunteer time record:
+  title: 'Administer volunteer time record settings'
+  restrict access: true

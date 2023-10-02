@@ -1,0 +1,5 @@
+class_registration_submission.add_form:
+  title: 'Add class registration submission'
+  route_name: entity.class_registration_submission.add_form
+  appears_on:
+    - entity.class_registration_submission.collection

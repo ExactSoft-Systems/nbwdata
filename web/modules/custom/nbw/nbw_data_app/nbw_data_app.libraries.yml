@@ -5,3 +5,7 @@ toolbar:
       css/toolbar.icons.theme.css: {}
   dependencies:
     - 'toolbar/toolbar'
+nbw_style:
+  css:
+    theme:
+      css/nbw_style.css: {}

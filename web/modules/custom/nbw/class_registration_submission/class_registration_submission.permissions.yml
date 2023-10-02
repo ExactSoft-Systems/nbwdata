@@ -1,0 +1,3 @@
+administer class registration submission:
+  title: 'Administer class registration submission settings'
+  restrict access: true

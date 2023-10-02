@@ -1,0 +1,22 @@
+entity.bike_parts_item.settings:
+  title: 'Settings'
+  route_name: entity.bike_parts_item.settings
+  base_route: entity.bike_parts_item.settings
+entity.bike_parts_item.view:
+  title: 'View'
+  route_name: entity.bike_parts_item.canonical
+  base_route: entity.bike_parts_item.canonical
+entity.bike_parts_item.edit_form:
+  title: 'Edit'
+  route_name: entity.bike_parts_item.edit_form
+  base_route: entity.bike_parts_item.canonical
+entity.bike_parts_item.delete_form:
+  title: 'Delete'
+  route_name: entity.bike_parts_item.delete_form
+  base_route: entity.bike_parts_item.canonical
+  weight: 10
+entity.bike_parts_item.collection:
+  title: 'Bike Parts Items'
+  route_name: entity.bike_parts_item.collection
+  base_route: system.admin_content
+  weight: 10

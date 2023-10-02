@@ -1,0 +1,5 @@
+volunteer_time_record.add_form:
+  title: 'Add volunteer time record'
+  route_name: entity.volunteer_time_record.add_form
+  appears_on:
+    - entity.volunteer_time_record.collection

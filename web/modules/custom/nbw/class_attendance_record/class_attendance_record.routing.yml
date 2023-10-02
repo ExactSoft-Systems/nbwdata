@@ -1,0 +1,7 @@
+entity.class_attendance_record.settings:
+  path: 'admin/structure/class-attendance-record'
+  defaults:
+    _form: '\Drupal\class_attendance_record\Form\ClassAttendanceRecordSettingsForm'
+    _title: 'Class Attendance Record'
+  requirements:
+    _permission: 'administer class attendance record'

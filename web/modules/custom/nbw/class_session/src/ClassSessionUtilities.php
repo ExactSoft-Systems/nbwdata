@@ -43,7 +43,9 @@ class ClassSessionUtilities
         $email = $account->getEmail();
         $firstName = $address[0]['given_name'];
         $lastName = $address[0]['family_name'];
-        $students[$student_reference["target_id"]] = $firstName . " " . $lastName . " " . $email;;
+        $students[$student_reference["target_id"]]['first name'] = $firstName;
+        $students[$student_reference["target_id"]]['last name'] = $lastName;
+        $students[$student_reference["target_id"]]['email'] = $email;
       }
 
       $data = [
@@ -60,10 +62,19 @@ class ClassSessionUtilities
 
     $items = [];
 
+//    $query = \Drupal::entityQuery('node')
+//      ->condition('type', 'class_roster')
+//      ->condition('field_class_name', $classID)//field_class_name
+//      ->condition('status', 1)
+//      ->sort('title', 'ASC');
+//    $nid = $query->execute();
+//    \Drupal::messenger()->addMessage($nid);
+
     //$storage_session = \Drupal::entityTypeManager()->getStorage('class_session');
 
     $query = \Drupal::entityQuery('node')
       ->condition('type', 'class_roster')
+      ->condition('field_class_name', $class_id)//field_class_name
       ->condition('status', 1)
       ->sort('title', 'ASC');
 
@@ -90,35 +101,135 @@ class ClassSessionUtilities
     $start_date = $start_date->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
 
     $query = \Drupal::entityQuery('class_session')
-      ->condition('status', 1)
+      //->condition('status', 1)
       ->sort('created', 'DESC')
-      ->condition('field_check_in_time', $start_date, '>')
-      ->notExists('field_check_out_time');
+      ->condition('field_start_time', $start_date, '>')
+      ->notExists('field_end_time');
 
     $classSessionIds = $query->execute();
 
     foreach ($classSessionIds as $sessionID) {
-      $classSession =  \Drupal::entityTypeManager()->getStorage('class_session')->load($sessionID);
+      $classSession = \Drupal::entityTypeManager()->getStorage('class_session')->load($sessionID);
       $classEntityRef = $classSession->get('field_class_name')->first();
       $classID = $classEntityRef->get('entity')->getTargetIdentifier();
-      if ($classID != $class_id){
+      if ($classID != $class_id) {
         continue;
       }
-      $youthRefID =  $classSession->get('field_youth')->first();
-      $youthID = $youthRefID->get('entity')->getTargetIdentifier();
-      $account = \Drupal::entityTypeManager()->getStorage('user')->load($youthID);
-      $address =  $account->get('field_address')->getValue();
-      //$email = $account->get('mail')->getValue()[0]['value'];
-      $email = $account->getEmail();
-      $firstName = $address[0]['given_name'];
-      $lastName = $address[0]['family_name'];
-      //$arrCheckedInStudents[$youthID] = $firstName . " " . $lastName . " " . $email;
-      if(!in_array($youthID,$arrCheckedInStudents)){
-        $arrCheckedInStudents[] = $youthID;
+      //we need: sessionID, YouthId, CheckIn Time, Phone Number (from Youth user account)
+      //$youthRefID =  $classSession->get('field_youth_attending')->first();
+      $youthRefIDs = $classSession->get('field_youth_attending');
+      if (empty($youthRefIDs)) {
+        return array();
+      }
+      foreach ($youthRefIDs as $youthRefID) {
+
+        $checkInTime = $classSession->get('field_start_time')->first()->getValue();
+        /*      $localtime = strtotime("-4 hours", strtotime($checkInTime['value']));
+              $localTimeFormatted = date('Y-m-d H:i:s P', $localtime);*/
+        //dpm($checkInTime);
+        /*      $time1 = strtotime($checkInTime['value']);
+              //$timestamp =$checkInTime->getTimestamp();
+              $formatted = \Drupal::service('date.formatter')->format(
+                $time1, 'custom', 'Y-m-d H:i:s P'
+              );*/
+        //$today = date('d-m-YTH:i:s',strtotime($checkInTime['value']));
+        $today_date = new DrupalDateTime($checkInTime['value'], 'UTC');
+        $timezone = \Drupal::config('system.date')->get('timezone')['default'];
+        $today_date->setTimezone(new \DateTimeZone(date_default_timezone_get()));
+        $checkin_date_time = $today_date->format('d/m/Y h:i:s A');
+        $checkin_time = $today_date->format('h:i A');
+        $youthID = $youthRefID->get('entity')->getTargetIdentifier();
+        $account = \Drupal::entityTypeManager()->getStorage('user')->load($youthID);
+        $address = $account->get('field_address')->getValue();
+        //$email = $account->get('mail')->getValue()[0]['value'];
+        $email = $account->getEmail();
+        $phone = $account->get('field_primary_phone')->first()->getValue();
+        $firstName = $address[0]['given_name'];
+        $lastName = $address[0]['family_name'];
+        //$arrCheckedInStudents[$youthID] = $firstName . " " . $lastName . " " . $email;
+        if (!in_array($youthID, $arrCheckedInStudents)) {
+          $arrCheckedInStudents[$youthID] = array(
+            'session_id' => $sessionID,
+            'check_in_time' => $checkInTime,
+            'phone' => $phone,
+          );
+        }
       }
     }
 
     return $arrCheckedInStudents;
+  }
+
+  public static function getCheckedInYouthByAttRec($class_id): array
+  {
+    $arrCheckedInYouth = [];
+
+    $start = date('d-m-YT08:00:00',time());
+
+    $start_date = new DrupalDateTime($start);
+    $start_date->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
+    $start_date = $start_date->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+
+    $query = \Drupal::entityQuery('class_attendance_record')
+      //->condition('status', 1)
+      ->sort('created', 'DESC')
+      ->condition('field_class', $class_id)
+      ->condition('field_check_in_time', $start_date, '>')
+      ->notExists('field_check_out_time');
+
+    $classAttendRecordIds = $query->execute();
+
+    foreach ($classAttendRecordIds as $recordID) {
+      $attendRecord = \Drupal::entityTypeManager()->getStorage('class_attendance_record')->load($recordID);
+/*      $classEntityRef = $classSession->get('field_class_name')->first();
+      $classID = $classEntityRef->get('entity')->getTargetIdentifier();
+      if ($classID != $class_id) {
+        continue;
+      }*/
+      //we need: sessionID, YouthId, CheckIn Time, Phone Number (from Youth user account)
+      //$youthRefID =  $classSession->get('field_youth_attending')->first();
+      $youthRefID = $attendRecord->get('field_youth')->first();
+      if (empty($youthRefID)) {
+        continue;
+      }
+      //foreach ($youthRefIDs as $youthRefID) {
+
+        $checkInTime = $attendRecord->get('field_check_in_time')->first()->getValue();
+        /*      $localtime = strtotime("-4 hours", strtotime($checkInTime['value']));
+              $localTimeFormatted = date('Y-m-d H:i:s P', $localtime);*/
+        //dpm($checkInTime);
+        /*      $time1 = strtotime($checkInTime['value']);
+              //$timestamp =$checkInTime->getTimestamp();
+              $formatted = \Drupal::service('date.formatter')->format(
+                $time1, 'custom', 'Y-m-d H:i:s P'
+              );*/
+        //$today = date('d-m-YTH:i:s',strtotime($checkInTime['value']));
+        $today_date = new DrupalDateTime($checkInTime['value'], 'UTC');
+        $timezone = \Drupal::config('system.date')->get('timezone')['default'];
+        $today_date->setTimezone(new \DateTimeZone(date_default_timezone_get()));
+        $checkin_date_time = $today_date->format('d/m/Y h:i:s A');
+        $checkin_time = $today_date->format('h:i A');
+        $youthID = $youthRefID->get('entity')->getTargetIdentifier();
+        $account = \Drupal::entityTypeManager()->getStorage('user')->load($youthID);
+        $address = $account->get('field_address')->getValue();
+        //$email = $account->get('mail')->getValue()[0]['value'];
+        $email = $account->getEmail();
+        $phone = $account->get('field_primary_phone')->first()->getValue();
+        $firstName = $address[0]['given_name'];
+        $lastName = $address[0]['family_name'];
+        //$arrCheckedInStudents[$youthID] = $firstName . " " . $lastName . " " . $email;
+        if (!in_array($youthID, $arrCheckedInYouth)) {
+          $arrCheckedInYouth[$youthID] = array(
+            'attend_record_id' => $recordID,
+            'youth' => $firstName . " " . $lastName . " " . $email,
+            'check_in_time' => $checkInTime,
+            'phone' => $phone,
+          );
+        }
+      //}
+    }
+
+    return $arrCheckedInYouth;
   }
 
   public static function getTodaysClasses(): array
@@ -157,6 +268,50 @@ class ClassSessionUtilities
           $entity_type->getKey('bundle') => $this->getBundleValue(),
         ]);*/
     //$today = date('d-m-YT00:00:00',time());
+
+
+    $start = date('d-m-YT08:00:00',time());
+
+    $start_date = new DrupalDateTime($start);
+    $start_date->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
+    $start_date = $start_date->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+
+    $query = \Drupal::entityQuery('class_session')
+      //->condition('status', 1)
+      ->sort('created', 'DESC')
+      ->condition('field_start_time', $start_date, '>')
+      ->condition('field_class_name', $clas_id, '=')
+      ->notExists('field_end_time');
+
+    $sessionIDs = $query->execute();
+    foreach ($sessionIDs as $sessionID) {
+      $class_session =  \Drupal::entityTypeManager()->getStorage('class_session')->load($sessionID);
+
+      $youth_attending = $class_session->get('field_youth_attending');
+
+      foreach ($student_ids as $student) {
+        $youth_attending->appendItem($student);
+      }
+
+/*      $now = date('d-m-YTH:i:s',time());
+      $now_time = new DrupalDateTime($now);
+      $now_time->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
+      $now_time = $now_time->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+
+      $class_session->set('field_youth_attending', $now_time);*/
+      //$class_session->set('field_youth_attending', $youth_attenting);
+      try {
+        $class_session->save();
+      }
+      catch (\Exception $e) {
+        \Drupal::logger('CheckInMultipleForm::checkInStudents')->error(self::t('A problem occurred when addint new Youth to a session.'));
+        \Drupal::logger('CheckInMultipleForm::checkInStudents')->error($e->getMessage());
+      }
+
+
+    }
+    //return;
+
     $today = date('d-m-Y',time());
     $today_date = new DrupalDateTime($today);
     $today_date->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
@@ -168,10 +323,10 @@ class ClassSessionUtilities
     $now_time = $now_time->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
 
     foreach ($student_ids as $student) {
-      $storage = \Drupal::entityTypeManager()->getStorage('class_session');
+      $storage = \Drupal::entityTypeManager()->getStorage('class_attendance_record');
       // Create new content.
       $content = $storage->create([]);
-      $content->set('field_class_name', $clas_id);
+      $content->set('field_class', $clas_id);
       $content->set('field_youth', $student);
       $content->set('field_check_in_time', $now_time);
       $content->set('field_class_date', $today_date);
@@ -221,4 +376,24 @@ class ClassSessionUtilities
 
 
   }
+
+  public static function getEntity(){
+
+    $route_match = \Drupal::routeMatch();
+    // Entity will be found in the route parameters.
+    if (($route = $route_match->getRouteObject()) && ($parameters = $route->getOption('parameters'))) {
+      // Determine if the current route represents an entity.
+      foreach ($parameters as $name => $options) {
+        if (isset($options['type']) && strpos($options['type'], 'entity:') === 0) {
+          $entity = $route_match->getParameter($name);
+          if ($entity instanceof \Drupal\Core\Entity\ContentEntityInterface && $entity->hasLinkTemplate('canonical')) {
+            return $entity;
+          }
+          // Since entity was found, no need to iterate further.
+          return NULL;
+        }
+      }
+    }
+  }
+
 }

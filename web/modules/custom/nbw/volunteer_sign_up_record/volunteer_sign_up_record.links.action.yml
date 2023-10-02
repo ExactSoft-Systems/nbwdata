@@ -1,0 +1,5 @@
+volunteer_sign_up_and_waver.add_form:
+  title: 'Add volunteer sign up and waver'
+  route_name: entity.volunteer_sign_up_and_waver.add_form
+  appears_on:
+    - entity.volunteer_sign_up_and_waver.collection

@@ -1,6 +1,6 @@
-name: Class Session
+name: NBW Class Session
 type: module
-description: 'Provides a class session entity.'
+description: Class Session entity - the intent is - either an instructor will create the instance when a class is in session, or it will be auto-created upon first check-in
 package: NBW
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^9 || ^10
 configure: entity.class_session.settings

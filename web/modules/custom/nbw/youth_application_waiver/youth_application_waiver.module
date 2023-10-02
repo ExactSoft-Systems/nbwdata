@@ -1,0 +1,114 @@
+<?php
+
+/**
+ * @file
+ * Provides a youth application waiver entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\user\UserInterface;
+use Drupal\youth_application_waiver\Entity\YouthApplicationWaiver;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function youth_application_waiver_theme() {
+  return [
+    'youth_application_waiver' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function youth_application_waiver_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  $forms = ['youth_application_waiver_step_1_form', 'youth_application_waiver_step_2_form', 'youth_application_waiver_step_3_form',
+    'youth_application_waiver_step_4_form', 'youth_application_waiver_step_5_form', 'youth_application_waiver_step_6_form',
+    'youth_application_waiver_step_7_form', 'youth_application_waiver_step_8_form', 'youth_application_waiver_step_9_form',
+    'youth_application_waiver_edit_form'];
+  if (in_array($form_id, $forms)) {
+    // Prevent revision log box access
+    $form['revision_log']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_options_list_alter().
+ */
+function youth_application_waiver_options_list_alter(array &$options, array $context) {
+  unset($options['_none']);
+}
+
+/**
+ * Prepares variables for youth application waiver templates.
+ *
+ * Default template: youth-application-waiver.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the youth application waiver information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_youth_application_waiver(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function youth_application_waiver_user_cancel($edit, UserInterface $account, $method) {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish youth application waivers.
+      $storage = \Drupal::entityTypeManager()->getStorage('youth_application_waiver');
+      $youth_application_waiver_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->execute();
+      foreach ($storage->loadMultiple($youth_application_waiver_ids) as $youth_application_waiver) {
+        $youth_application_waiver->set('status', FALSE);
+        $youth_application_waiver->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize youth application waivers.
+      $storage = \Drupal::entityTypeManager()->getStorage('youth_application_waiver');
+      $youth_application_waiver_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->execute();
+      foreach ($storage->loadMultiple($youth_application_waiver_ids) as $youth_application_waiver) {
+        $youth_application_waiver->setOwnerId(0);
+        $youth_application_waiver->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function youth_application_waiver_user_predelete(UserInterface $account) {
+  // Delete youth application waivers.
+  $storage = \Drupal::entityTypeManager()->getStorage('youth_application_waiver');
+  $youth_application_waiver_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->execute();
+  $youth_application_waivers = $storage->loadMultiple($youth_application_waiver_ids);
+  $storage->delete($youth_application_waivers);
+  // Delete old revisions.
+  $youth_application_waiver_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->execute();
+  foreach (array_keys($youth_application_waiver_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}

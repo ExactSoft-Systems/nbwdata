@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * @file
+ * Provides an address entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\nbw_address\Entity\Address;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function nbw_address_theme() {
+  return [
+    'address' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for address templates.
+ *
+ * Default template: address.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the address information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_address(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function nbw_address_user_cancel($edit, UserInterface $account, $method) {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish addresses.
+      $storage = \Drupal::entityTypeManager()->getStorage('address');
+      $address_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->execute();
+      foreach ($storage->loadMultiple($address_ids) as $address) {
+        $address->set('status', FALSE);
+        $address->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize addresses.
+      $storage = \Drupal::entityTypeManager()->getStorage('address');
+      $address_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->execute();
+      foreach ($storage->loadMultiple($address_ids) as $address) {
+        $address->setOwnerId(0);
+        $address->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function nbw_address_user_predelete(UserInterface $account) {
+  // Delete addresses.
+  $storage = \Drupal::entityTypeManager()->getStorage('address');
+  $address_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->execute();
+  $addresses = $storage->loadMultiple($address_ids);
+  $storage->delete($addresses);
+  // Delete old revisions.
+  $address_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->execute();
+  foreach (array_keys($address_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}

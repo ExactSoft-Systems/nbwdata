@@ -1,0 +1,10 @@
+entity.bike.settings:
+  title: 'Bike'
+  description: 'Configure a Bike entity type.'
+  route_name:  entity.bike.settings
+  parent: system.admin_structure
+entity.bike.collection:
+  title: 'Bikes'
+  description: 'List of bikes.'
+  route_name: entity.bike.collection
+  parent: system.admin_content

@@ -1,0 +1,5 @@
+class_attendance_record.add_form:
+  title: 'Add class attendance record'
+  route_name: entity.class_attendance_record.add_form
+  appears_on:
+    - entity.class_attendance_record.collection

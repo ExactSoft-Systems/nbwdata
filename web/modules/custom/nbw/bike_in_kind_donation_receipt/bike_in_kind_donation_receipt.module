@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * @file
+ * Provides a bicycle/in-kind donation receipt entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\bike_in_kind_donation_receipt\Entity\BikeInKindDonation;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function bike_in_kind_donation_receipt_theme() {
+  return [
+    'bike_in_kind_donation' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for bicycle/in-kind donation receipt templates.
+ *
+ * Default template: bike-in-kind-donation.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the bicycle/in-kind donation receipt information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_bike_in_kind_donation(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function bike_in_kind_donation_receipt_user_cancel($edit, UserInterface $account, $method) {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish bicycle/in-kind donation receipts.
+      $storage = \Drupal::entityTypeManager()->getStorage('bike_in_kind_donation');
+      $bike_in_kind_donation_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->execute();
+      foreach ($storage->loadMultiple($bike_in_kind_donation_ids) as $bike_in_kind_donation) {
+        $bike_in_kind_donation->set('status', FALSE);
+        $bike_in_kind_donation->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize bicycle/in-kind donation receipts.
+      $storage = \Drupal::entityTypeManager()->getStorage('bike_in_kind_donation');
+      $bike_in_kind_donation_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->execute();
+      foreach ($storage->loadMultiple($bike_in_kind_donation_ids) as $bike_in_kind_donation) {
+        $bike_in_kind_donation->setOwnerId(0);
+        $bike_in_kind_donation->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function bike_in_kind_donation_receipt_user_predelete(UserInterface $account) {
+  // Delete bicycle/in-kind donation receipts.
+  $storage = \Drupal::entityTypeManager()->getStorage('bike_in_kind_donation');
+  $bike_in_kind_donation_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->execute();
+  $bike_in_kind_donations = $storage->loadMultiple($bike_in_kind_donation_ids);
+  $storage->delete($bike_in_kind_donations);
+  // Delete old revisions.
+  $bike_in_kind_donation_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->execute();
+  foreach (array_keys($bike_in_kind_donation_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}

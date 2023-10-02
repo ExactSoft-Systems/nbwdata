@@ -68,7 +68,6 @@ class ClassSessionListBuilder extends EntityListBuilder {
    */
   public function buildHeader() {
     $header['id'] = $this->t('ID');
-    $header['status'] = $this->t('Status');
     $header['uid'] = $this->t('Author');
     $header['created'] = $this->t('Created');
     $header['changed'] = $this->t('Updated');
@@ -81,7 +80,6 @@ class ClassSessionListBuilder extends EntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     /** @var \Drupal\class_session\ClassSessionInterface $entity */
     $row['id'] = $entity->toLink();
-    $row['status'] = $entity->get('status')->value ? $this->t('Enabled') : $this->t('Disabled');
     $row['uid']['data'] = [
       '#theme' => 'username',
       '#account' => $entity->getOwner(),

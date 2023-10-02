@@ -1,0 +1,5 @@
+name: NBW Bike Part Item
+type: module
+description: Bike part item entity for NBW inventory
+package: NBW
+core_version_requirement: ^9 || ^10

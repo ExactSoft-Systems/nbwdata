@@ -1,0 +1,5 @@
+name: NBW Volunteer Sign Up Record
+type: module
+description: Volunteer Sign Up and Waver form - the record created when a new Volunteer joins NBW
+package: NBW
+core_version_requirement: ^9 || ^10

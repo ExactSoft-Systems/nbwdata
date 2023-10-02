@@ -1,0 +1,22 @@
+entity.address.settings:
+  title: 'Settings'
+  route_name: entity.address.settings
+  base_route: entity.address.settings
+entity.address.view:
+  title: 'View'
+  route_name: entity.address.canonical
+  base_route: entity.address.canonical
+entity.address.edit_form:
+  title: 'Edit'
+  route_name: entity.address.edit_form
+  base_route: entity.address.canonical
+entity.address.delete_form:
+  title: 'Delete'
+  route_name: entity.address.delete_form
+  base_route: entity.address.canonical
+  weight: 10
+entity.address.collection:
+  title: 'Addresses'
+  route_name: entity.address.collection
+  base_route: system.admin_content
+  weight: 10

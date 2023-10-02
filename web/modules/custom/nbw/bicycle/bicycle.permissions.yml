@@ -1,0 +1,3 @@
+administer bike:
+  title: 'Administer bike settings'
+  restrict access: true

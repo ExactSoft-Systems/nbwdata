@@ -1,0 +1,3 @@
+administer class attendance record:
+  title: 'Administer class attendance record settings'
+  restrict access: true

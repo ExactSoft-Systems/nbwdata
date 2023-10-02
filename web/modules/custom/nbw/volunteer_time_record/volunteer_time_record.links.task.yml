@@ -1,0 +1,22 @@
+entity.volunteer_time_record.settings:
+  title: 'Settings'
+  route_name: entity.volunteer_time_record.settings
+  base_route: entity.volunteer_time_record.settings
+entity.volunteer_time_record.view:
+  title: 'View'
+  route_name: entity.volunteer_time_record.canonical
+  base_route: entity.volunteer_time_record.canonical
+entity.volunteer_time_record.edit_form:
+  title: 'Edit'
+  route_name: entity.volunteer_time_record.edit_form
+  base_route: entity.volunteer_time_record.canonical
+entity.volunteer_time_record.delete_form:
+  title: 'Delete'
+  route_name: entity.volunteer_time_record.delete_form
+  base_route: entity.volunteer_time_record.canonical
+  weight: 10
+entity.volunteer_time_record.collection:
+  title: 'Volunteer Time Records'
+  route_name: entity.volunteer_time_record.collection
+  base_route: system.admin_content
+  weight: 10

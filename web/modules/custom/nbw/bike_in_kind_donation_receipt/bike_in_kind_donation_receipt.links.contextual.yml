@@ -1,0 +1,10 @@
+entity.bike_in_kind_donation.edit_form:
+  route_name: entity.bike_in_kind_donation.edit_form
+  group: bike_in_kind_donation
+  title: Edit
+
+entity.bike_in_kind_donation.delete_form:
+  route_name: entity.bike_in_kind_donation.delete_form
+  group: bike_in_kind_donation
+  title: Delete
+  weight: 10

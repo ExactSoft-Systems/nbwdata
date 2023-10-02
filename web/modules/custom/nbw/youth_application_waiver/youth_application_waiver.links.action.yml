@@ -1,0 +1,5 @@
+youth_application_waiver.add_form:
+  title: 'Add youth application waiver'
+  route_name: youth_application_waiver.add
+  appears_on:
+    - entity.youth_application_waiver.collection

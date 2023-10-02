@@ -1,0 +1,87 @@
+entity.youth_application_waiver.settings:
+  path: 'admin/structure/youth-application-waiver'
+  defaults:
+    _form: '\Drupal\youth_application_waiver\Form\YouthApplicationWaiverSettingsForm'
+    _title: 'Youth Application Waiver'
+  requirements:
+    _permission: 'administer youth application waiver'
+
+youth_application_waiver.add:
+  path: '/youth-waivers/create'
+  defaults:
+    _entity_form: youth_application_waiver.step_1
+    _title: 'Step 1: Guardian Information'
+  requirements:
+    _entity_create_access: 'youth_application_waiver'
+
+youth_application_waiver.step1:
+  path: '/youth-waivers/create/{youth_application_waiver}'
+  defaults:
+    _entity_form: youth_application_waiver.step_1
+    _title: 'Step 1: Guardian Information'
+  requirements:
+    _entity_create_access: 'youth_application_waiver'
+
+youth_application_waiver.step2:
+  path: '/youth-waivers/create/step2/{youth_application_waiver}'
+  defaults:
+    _entity_form: youth_application_waiver.step_2
+    _title: 'Step 2: Youth Information'
+  requirements:
+    _entity_access: 'youth_application_waiver.update'
+
+youth_application_waiver.step3:
+  path: '/youth-waivers/create/step3/{youth_application_waiver}'
+  defaults:
+    _entity_form: youth_application_waiver.step_3
+    _title: 'Step 3: HEALTH & SAFETY'
+  requirements:
+    _entity_access: 'youth_application_waiver.update'
+
+youth_application_waiver.step4:
+  path: '/youth-waivers/create/step4/{youth_application_waiver}'
+  defaults:
+    _entity_form: youth_application_waiver.step_4
+    _title: 'Step 4: EMERGENCY CONTACT INFO'
+  requirements:
+    _entity_create_access: 'youth_application_waiver'
+
+youth_application_waiver.step5:
+  path: '/youth-waivers/create/step5/{youth_application_waiver}'
+  defaults:
+    _entity_form: youth_application_waiver.step_5
+    _title: 'Step 5: TRANSPORTATION'
+  requirements:
+    _entity_access: 'youth_application_waiver.update'
+
+youth_application_waiver.step6:
+  path: '/youth-waivers/create/step6/{youth_application_waiver}'
+  defaults:
+    _entity_form: youth_application_waiver.step_6
+    _title: 'Step 6: WORD ON THE STREET'
+  requirements:
+    _entity_access: 'youth_application_waiver.update'
+
+youth_application_waiver.step7:
+  path: '/youth-waivers/create/step7/{youth_application_waiver}'
+  defaults:
+    _entity_form: youth_application_waiver.step_7
+    _title: 'Step 7: LIABILITY WAIVER'
+  requirements:
+    _entity_create_access: 'youth_application_waiver'
+
+youth_application_waiver.step8:
+  path: '/youth-waivers/create/step8/{youth_application_waiver}'
+  defaults:
+    _entity_form: youth_application_waiver.step_8
+    _title: 'Step 8: MEDIA & FEEDBACK RELEASE'
+  requirements:
+    _entity_access: 'youth_application_waiver.update'
+
+youth_application_waiver.step9:
+  path: '/youth-waivers/create/step9/{youth_application_waiver}'
+  defaults:
+    _entity_form: youth_application_waiver.step_9
+    _title: 'Step 9: HAVE QUESTIONS FOR US?'
+  requirements:
+    _entity_access: 'youth_application_waiver.update'

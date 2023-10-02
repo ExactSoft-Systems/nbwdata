@@ -1,0 +1,10 @@
+entity.bike_parts_item.settings:
+  title: 'Bike Parts Item'
+  description: 'Configure a Bike Parts Item entity type.'
+  route_name:  entity.bike_parts_item.settings
+  parent: system.admin_structure
+entity.bike_parts_item.collection:
+  title: 'Bike Parts Items'
+  description: 'List of bike parts items.'
+  route_name: entity.bike_parts_item.collection
+  parent: system.admin_content

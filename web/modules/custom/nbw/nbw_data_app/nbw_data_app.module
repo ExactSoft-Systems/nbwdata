@@ -47,6 +47,7 @@ function nbw_data_app_preprocess_webform_confirmation(&$vars) {
 function nbw_data_app_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id): void {
   //dpm('from my module: ' . $form_id);
   //\Drupal::messenger()->addMessage(t("form id is - " . $form_id));
+  $form['#attached']['library'][] = 'nbw_data_app/nbw_style';
     if ($form_id == 'user_form') {
       //dpm($form['actions']);
 /*      \Drupal::messenger()->addMessage(t("We're about to edit this user!!"));*/
@@ -150,6 +151,31 @@ function nbw_data_app_element_info_alter(array &$types) {
     $types['toolbar']['#attached']['library'][] = 'nbw_data_app/toolbar';
   }
 }
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() to exclude specific templates.
+ */
+//function nbw_data_app_theme_suggestions_government_banner_alter(array &$suggestions, array $variables, $hook) {
+  // Specify the template you want to exclude.
+/*  $excluded_template = 'government_banner';
+
+  // Check if the current template should be excluded.
+  if ($hook === $excluded_template) {
+    // Add a suggestion that points to an empty template.
+    $suggestions[] = $excluded_template . '__excluded';
+  }*/
+/*  if (($key = array_search('government_banner', $suggestions)) !== false) {
+    // Remove the existing template suggestion.
+    unset($suggestions[$key]);
+  }*/
+//}
+//function nbw_data_app_preprocess_government_banner(array &$variables) {
+  // Modify variables or add custom logic here.
+  // For example, you can add or alter variables used in the template.
+  // Example:
+   //$variables['my_custom_variable'] = 'Custom value';
+//}
+
+
 
 /*function nbw_data_app_views_pre_execute(&$view) {
   dpq($view->build_info['query']);

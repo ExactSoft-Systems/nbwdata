@@ -1,0 +1,7 @@
+entity.bike_in_kind_donation.settings:
+  path: 'admin/structure/bike-in-kind-donation'
+  defaults:
+    _form: '\Drupal\bike_in_kind_donation_receipt\Form\BikeInKindDonationSettingsForm'
+    _title: 'Bicycle/In-Kind Donation Receipt'
+  requirements:
+    _permission: 'administer bicycle/in-kind donation receipt'

@@ -1,0 +1,22 @@
+entity.class_attendance_record.settings:
+  title: 'Settings'
+  route_name: entity.class_attendance_record.settings
+  base_route: entity.class_attendance_record.settings
+entity.class_attendance_record.view:
+  title: 'View'
+  route_name: entity.class_attendance_record.canonical
+  base_route: entity.class_attendance_record.canonical
+entity.class_attendance_record.edit_form:
+  title: 'Edit'
+  route_name: entity.class_attendance_record.edit_form
+  base_route: entity.class_attendance_record.canonical
+entity.class_attendance_record.delete_form:
+  title: 'Delete'
+  route_name: entity.class_attendance_record.delete_form
+  base_route: entity.class_attendance_record.canonical
+  weight: 10
+entity.class_attendance_record.collection:
+  title: 'Class Attendance Records'
+  route_name: entity.class_attendance_record.collection
+  base_route: system.admin_content
+  weight: 10

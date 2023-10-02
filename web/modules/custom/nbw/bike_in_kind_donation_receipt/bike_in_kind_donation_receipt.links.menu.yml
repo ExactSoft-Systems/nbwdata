@@ -1,0 +1,10 @@
+entity.bike_in_kind_donation.settings:
+  title: 'Bicycle/In-Kind Donation Receipt'
+  description: 'Configure a Bicycle/In-Kind Donation Receipt entity type.'
+  route_name:  entity.bike_in_kind_donation.settings
+  parent: system.admin_structure
+entity.bike_in_kind_donation.collection:
+  title: 'Bicycle/In-Kind Donation Receipts'
+  description: 'List of bicycle/in-kind donation receipts.'
+  route_name: entity.bike_in_kind_donation.collection
+  parent: system.admin_content

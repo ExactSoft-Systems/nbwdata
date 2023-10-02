@@ -1,0 +1,10 @@
+entity.adult_patron_waver.settings:
+  title: 'Bike Church Patron Waiver'
+  description: 'Configure a Bike Church Patron Waiver entity type.'
+  route_name:  entity.adult_patron_waver.settings
+  parent: system.admin_structure
+entity.adult_patron_waver.collection:
+  title: 'Bike Church Patron Waivers'
+  description: 'List of bike church patron waivers.'
+  route_name: entity.adult_patron_waver.collection
+  parent: system.admin_content

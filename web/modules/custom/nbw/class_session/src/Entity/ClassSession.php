@@ -8,7 +8,9 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\class_session\ClassSessionInterface;
+use Drupal\Core\Render\Markup;
 use Drupal\user\EntityOwnerTrait;
+use Drupal\class_session\ClassSessionUtilities;
 
 /**
  * Defines the class session entity class.
@@ -76,25 +78,17 @@ class ClassSession extends ContentEntityBase implements ClassSessionInterface {
 
     $fields = parent::baseFieldDefinitions($entity_type);
 
-    $fields['status'] = BaseFieldDefinition::create('boolean')
-      ->setLabel(t('Status'))
-      ->setDefaultValue(TRUE)
-      ->setSetting('on_label', 'Enabled')
+    $fields['notes'] = BaseFieldDefinition::create('text_long')
+      ->setLabel(t('Class Session Notes'))
       ->setDisplayOptions('form', [
-        'type' => 'boolean_checkbox',
-        'settings' => [
-          'display_label' => FALSE,
-        ],
-        'weight' => 0,
+        'type' => 'text_textarea',
+        'weight' => 10,
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', [
-        'type' => 'boolean',
+        'type' => 'text_default',
         'label' => 'above',
-        'weight' => 0,
-        'settings' => [
-          'format' => 'enabled-disabled',
-        ],
+        'weight' => 10,
       ])
       ->setDisplayConfigurable('view', TRUE);
 
@@ -140,5 +134,89 @@ class ClassSession extends ContentEntityBase implements ClassSessionInterface {
 
     return $fields;
   }
+
+  /**
+   * Returns a rendered table of the students registered for the class
+   * @return array drupal table render array
+   */
+  public function getClassSessionStudentsTable()
+  {
+  // \Drupal::messenger()->addMessage(' inside getClassSessionStudentsTable function.');
+    $sessionID = $this->id();
+    $classSession = \Drupal::entityTypeManager()->getStorage('class_session')->load($sessionID);
+    $classEntityRef = $classSession->get('field_class_name')->first();
+    $class_students = [];
+
+    $classID = $classEntityRef->get('entity')->getTargetIdentifier();
+    //dump($classID);
+//    $query = \Drupal::entityQuery('node')
+//      ->condition('type', 'class_roster')
+//      ->condition('field_class_name', $classID)//field_class_name
+//      ->condition('status', 1)
+//      ->sort('title', 'ASC');
+//    $nid = $query->execute();
+//    \Drupal::messenger()->addMessage($nid);
+
+    //dump($nid);
+    //kint($nid);
+
+    //$classID
+      //$class_students = ClassSessionUtilities::parseNodes($class_roster,$classID);
+    $class_students = ClassSessionUtilities::getClassRoster($classID);
+
+    if(!empty($class_students)){
+      $class_roster = \Drupal::entityTypeManager()
+        ->getStorage('node')->loadMultiple($nid);
+      /**
+       * $class_roster here holds an array of one element, most likely
+       */
+
+      //dump($class_roster);
+      kint($class_students);
+      //->getStorage('node')->load($nid);
+    }else{
+      dump('No Roster for this class!');
+      \Drupal::messenger()->addMessage(' No Roster for this class!');
+    }
+/*    $class_roster = \Drupal::entityTypeManager()
+      ->getStorage('node')->loadMultiple($nids);
+    dump($class_roster);
+      //->getStorage('node')->load($nid);*/
+    //$table = [];
+    $rows = [];
+    foreach ($class_students['students'] as $studentID => $studentData) {
+      $row = [
+
+        Markup::create($studentData['first name']),
+        Markup::create($studentData['last name']),
+        Markup::create($studentData['email'])
+      ];
+      $rows[$studentID] = $row;
+    }
+
+/*    $row = [
+
+      Markup::create('Registered Youth First Name'),
+      Markup::create('Last Name'),
+      Markup::create('Email')
+    ];
+    $rows[] = $row;*/
+
+    $table['table'] = [
+      '#type' => 'table',
+      '#caption' => t('Class Name: ' . $class_students['class_name'] . '. Youth Registered for this class: '),
+      '#header' => array(t('First Name'), t('Last Name'), t('Email')),
+      '#rows' => $rows,
+      '#empty' => t('No students to show. Enroll some!')
+    ];
+
+    return [
+      '#type' => '#markup',
+      '#markup' => \Drupal::service('renderer')->render($table)
+    ];
+
+  }
+
+
 
 }

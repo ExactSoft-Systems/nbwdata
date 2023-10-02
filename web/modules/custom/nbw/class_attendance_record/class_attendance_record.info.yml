@@ -1,0 +1,5 @@
+name: NBW Class Attendance Record
+type: module
+description: NBW Class Attendance Record entity - Youth will create this with the Youth Check-In form, teachers will use Chek-In Multiple form
+package: NBW
+core_version_requirement: ^9 || ^10

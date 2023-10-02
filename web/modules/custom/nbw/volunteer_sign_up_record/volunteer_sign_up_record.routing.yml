@@ -1,0 +1,7 @@
+entity.volunteer_sign_up_and_waver.settings:
+  path: 'admin/structure/volunteer-sign-up-and-waver'
+  defaults:
+    _form: '\Drupal\volunteer_sign_up_record\Form\VolunteerSignUpAndWaverSettingsForm'
+    _title: 'Volunteer Sign Up And Waver'
+  requirements:
+    _permission: 'administer volunteer sign up and waver'

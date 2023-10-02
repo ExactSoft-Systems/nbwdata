@@ -1,0 +1,7 @@
+entity.address.settings:
+  path: 'admin/structure/address'
+  defaults:
+    _form: '\Drupal\nbw_address\Form\AddressSettingsForm'
+    _title: 'Address'
+  requirements:
+    _permission: 'administer address'

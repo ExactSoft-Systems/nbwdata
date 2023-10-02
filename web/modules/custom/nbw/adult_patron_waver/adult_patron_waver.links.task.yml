@@ -1,0 +1,22 @@
+entity.adult_patron_waver.settings:
+  title: 'Settings'
+  route_name: entity.adult_patron_waver.settings
+  base_route: entity.adult_patron_waver.settings
+entity.adult_patron_waver.view:
+  title: 'View'
+  route_name: entity.adult_patron_waver.canonical
+  base_route: entity.adult_patron_waver.canonical
+entity.adult_patron_waver.edit_form:
+  title: 'Edit'
+  route_name: entity.adult_patron_waver.edit_form
+  base_route: entity.adult_patron_waver.canonical
+entity.adult_patron_waver.delete_form:
+  title: 'Delete'
+  route_name: entity.adult_patron_waver.delete_form
+  base_route: entity.adult_patron_waver.canonical
+  weight: 10
+entity.adult_patron_waver.collection:
+  title: 'Bike Church Patron Waivers'
+  route_name: entity.adult_patron_waver.collection
+  base_route: system.admin_content
+  weight: 10

@@ -1,0 +1,5 @@
+adult_patron_waver.add_form:
+  title: 'Add bike church patron waiver'
+  route_name: entity.adult_patron_waver.add_form
+  appears_on:
+    - entity.adult_patron_waver.collection

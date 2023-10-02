@@ -1,0 +1,10 @@
+entity.class_registration_submission.settings:
+  title: 'Class Registration Submission'
+  description: 'Configure a Class Registration Submission entity type.'
+  route_name:  entity.class_registration_submission.settings
+  parent: system.admin_structure
+entity.class_registration_submission.collection:
+  title: 'Class Registration Submissions'
+  description: 'List of class registration submissions.'
+  route_name: entity.class_registration_submission.collection
+  parent: system.admin_content

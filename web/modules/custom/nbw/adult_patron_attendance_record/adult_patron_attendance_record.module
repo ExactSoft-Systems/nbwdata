@@ -1,0 +1,100 @@
+<?php
+
+/**
+ * @file
+ * Provides an adult patron attendance record entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\adult_patron_attendance_record\Entity\AdultPatronAttendanceRecord;
+use Drupal\user\UserInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function adult_patron_attendance_record_theme() {
+  return [
+    'adult_patron_attendance_record' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+/**
+ * Implements hook_form_alter().
+ */
+function adult_patron_attendance_record_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+/*  $forms = ['youth_application_waiver_step_1_form', 'youth_application_waiver_step_2_form', 'youth_application_waiver_step_3_form',
+    'youth_application_waiver_step_4_form', 'youth_application_waiver_step_5_form', 'youth_application_waiver_step_6_form',
+    'youth_application_waiver_step_7_form', 'youth_application_waiver_step_8_form', 'youth_application_waiver_step_9_form',
+    'youth_application_waiver_edit_form'];
+  if (in_array($form_id, $forms)) {
+    // Prevent revision log box access
+    $form['revision_log']['#access'] = FALSE;
+  }*/
+  //kint($form);
+  if ($form_id = 'adult_patron_attendance_record_add_form'){
+    $form['field_public_assist']['widget']['#default_value'] = NULL;
+    $form['field_veteran_status']['widget']['#default_value'] = NULL;
+    $form['field_primary_mode']['widget']['#default_value'] = NULL;
+    $form['revision_log']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Prepares variables for adult patron attendance record templates.
+ *
+ * Default template: adult-patron-attendance-record.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the adult patron attendance record information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_adult_patron_attendance_record(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function adult_patron_attendance_record_user_cancel($edit, UserInterface $account, $method) {
+  switch ($method) {
+    case 'user_cancel_reassign':
+      // Anonymize adult patron attendance records.
+      $storage = \Drupal::entityTypeManager()->getStorage('adult_patron_attendance_record');
+      $adult_patron_attendance_record_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->execute();
+      foreach ($storage->loadMultiple($adult_patron_attendance_record_ids) as $adult_patron_attendance_record) {
+        $adult_patron_attendance_record->setOwnerId(0);
+        $adult_patron_attendance_record->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function adult_patron_attendance_record_user_predelete(UserInterface $account) {
+  // Delete adult patron attendance records.
+  $storage = \Drupal::entityTypeManager()->getStorage('adult_patron_attendance_record');
+  $adult_patron_attendance_record_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->execute();
+  $adult_patron_attendance_records = $storage->loadMultiple($adult_patron_attendance_record_ids);
+  $storage->delete($adult_patron_attendance_records);
+  // Delete old revisions.
+  $adult_patron_attendance_record_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->execute();
+  foreach (array_keys($adult_patron_attendance_record_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}

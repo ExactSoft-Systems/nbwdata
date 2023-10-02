@@ -1,0 +1,10 @@
+entity.youth_application_waiver.edit_form:
+  route_name: entity.youth_application_waiver.edit_form
+  group: youth_application_waiver
+  title: Edit
+
+entity.youth_application_waiver.delete_form:
+  route_name: entity.youth_application_waiver.delete_form
+  group: youth_application_waiver
+  title: Delete
+  weight: 10
