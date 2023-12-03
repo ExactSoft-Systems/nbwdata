@@ -22,7 +22,7 @@ settings:
       value: 'no'
       label: 'I am NOT a protected veteran'
     -
-      value: 'don''t want'
+      value: "don't want"
       label: 'I do not wish to self-identify'
   allowed_values_function: ''
 module: options

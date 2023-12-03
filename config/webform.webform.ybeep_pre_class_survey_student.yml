@@ -24,7 +24,8 @@ archive: false
 id: ybeep_pre_class_survey_student
 title: 'YBEEP Pre Class Survey STUDENT'
 description: 'An anonimous Pre Class YOUTH survey, to be filled by the student'
-category: 'NBW Forms'
+categories:
+  - 'NBW Forms'
 elements: |-
   today_s_date:
     '#type': date

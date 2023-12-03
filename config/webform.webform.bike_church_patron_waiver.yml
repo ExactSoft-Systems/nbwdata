@@ -1,9 +1,7 @@
 uuid: c603f190-c50d-4791-a015-a0f2bad11a31
 langcode: en
 status: open
-dependencies:
-  module:
-    - nbw_users_registration
+dependencies: {  }
 weight: 0
 open: null
 close: null
@@ -13,7 +11,7 @@ archive: false
 id: bike_church_patron_waiver
 title: 'Bike Church Patron Waiver'
 description: 'the waiver for an adult workshop (Bike Church)'
-category: 'NBW Forms'
+categories: {  }
 elements: |-
   welcome_to_bike_church_:
     '#type': webform_card
@@ -305,42 +303,5 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers:
-  nbw_bike_church_patron_users_registration:
-    id: nbw_users_registration
-    handler_id: nbw_bike_church_patron_users_registration
-    label: 'NBW Bike Church Patron Users Registration'
-    notes: ''
-    status: true
-    conditions: {  }
-    weight: 0
-    settings:
-      create_user:
-        enabled: true
-        roles:
-          bike_church_patron: bike_church_patron
-          authenticated: authenticated
-          content_editor: '0'
-          administrator: '0'
-          youth: '0'
-          volunteer: '0'
-          board_member: '0'
-          demo_region_admin: '0'
-          demo_region_user: '0'
-          staff: '0'
-          guardian: '0'
-          donor: '0'
-        admin_approval: false
-        admin_approval_message: ''
-        email_verification: true
-        email_verification_message: ''
-        success_message: ''
-      update_user:
-        enabled: false
-      user_field_mapping:
-        name_and_address: field_address
-        participant_telephone: field_primary_phone
-        participant_email: mail
-        emergency_contact_full_name: field_emergency_contact_name
-        emergency_contact_telephone: field_emergency_contact_phone
+handlers: {  }
 variants: {  }

@@ -11,7 +11,7 @@ archive: false
 id: pre_class_student_survey
 title: 'Pre-class student survey'
 description: ''
-category: ''
+categories: {  }
 elements: |-
   class_name:
     '#type': webform_entity_checkboxes

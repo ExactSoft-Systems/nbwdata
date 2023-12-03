@@ -11,7 +11,7 @@ archive: false
 id: add_youth_to_class
 title: 'Add Youth To Class'
 description: ''
-category: ''
+categories: {  }
 elements: null
 css: ''
 javascript: ''

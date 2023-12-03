@@ -1,9 +1,12 @@
 uuid: 165690de-a40e-461e-ab3d-e5809ed7fede
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - file
 id: donor
 label: Donor
 weight: 12
 is_admin: null
-permissions: {  }
+permissions:
+  - 'delete own files'

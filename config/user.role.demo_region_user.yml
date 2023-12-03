@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - file
     - system
     - toolbar
 id: demo_region_user
@@ -11,4 +12,5 @@ weight: 9
 is_admin: null
 permissions:
   - 'access toolbar'
+  - 'delete own files'
   - 'view the administration theme'

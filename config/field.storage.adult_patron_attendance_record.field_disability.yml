@@ -22,7 +22,7 @@ settings:
       value: 'no'
       label: 'NO, I DON’T HAVE A DISABILITY'
     -
-      value: 'don''t say'
+      value: "don't say"
       label: 'I DON’T WISH TO ANSWER'
   allowed_values_function: ''
 module: options

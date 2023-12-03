@@ -1,9 +1,12 @@
 uuid: ca166e90-e5ef-4e89-a868-78c4f6c22bc6
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - file
 id: board_member
 label: 'Board Member'
 weight: 6
 is_admin: null
-permissions: {  }
+permissions:
+  - 'delete own files'

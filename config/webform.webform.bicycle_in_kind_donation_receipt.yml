@@ -1,9 +1,7 @@
 uuid: 48807390-fb6a-456e-8aa9-5d6470ee133a
 langcode: en
 status: open
-dependencies:
-  module:
-    - nbw_users_registration
+dependencies: {  }
 weight: 0
 open: null
 close: null
@@ -13,7 +11,7 @@ archive: false
 id: bicycle_in_kind_donation_receipt
 title: 'Bicycle/In-Kind Donation Receipt'
 description: ''
-category: 'NBW Forms'
+categories: {  }
 elements: |-
   in_kind_donation_description_markup:
     '#type': webform_markup
@@ -255,40 +253,5 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers:
-  nbw_donor_users_registration:
-    id: nbw_users_registration
-    handler_id: nbw_donor_users_registration
-    label: 'NBW Donor Users Registration'
-    notes: ''
-    status: true
-    conditions: {  }
-    weight: 0
-    settings:
-      create_user:
-        enabled: true
-        roles:
-          donor: donor
-          authenticated: authenticated
-          content_editor: '0'
-          administrator: '0'
-          youth: '0'
-          volunteer: '0'
-          board_member: '0'
-          bike_church_patron: '0'
-          demo_region_admin: '0'
-          demo_region_user: '0'
-          staff: '0'
-          guardian: '0'
-        admin_approval: false
-        admin_approval_message: ''
-        email_verification: true
-        email_verification_message: ''
-        success_message: ''
-      update_user:
-        enabled: true
-      user_field_mapping:
-        donor_name_and_address: field_address
-        donor_email: mail
-        phone_number: field_primary_phone
+handlers: {  }
 variants: {  }

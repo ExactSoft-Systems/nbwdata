@@ -24,7 +24,8 @@ archive: false
 id: spring_2023_ride_class_attendanc
 title: 'Spring 2023 Ride Class Attendance record'
 description: ''
-category: 'NBW Forms'
+categories:
+  - 'NBW Forms'
 elements: |-
   select_class:
     '#type': webform_card

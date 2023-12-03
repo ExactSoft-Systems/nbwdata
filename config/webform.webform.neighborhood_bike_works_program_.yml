@@ -24,7 +24,8 @@ archive: false
 id: neighborhood_bike_works_program_
 title: 'Neighborhood Bike Works Program Evaluation'
 description: 'An anonimous Post Class PARENT survey, to be filled by Parent/Guardian'
-category: 'NBW Forms'
+categories:
+  - 'NBW Forms'
 elements: |-
   today_s_date:
     '#type': date

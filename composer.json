@@ -23,9 +23,9 @@
     "drupal/better_exposed_filters": "6.0.3",
     "drupal/block_field": "^1.0@RC",
     "drupal/clientside_validation": "^4.0",
-    "drupal/core-composer-scaffold": "^9.5",
-    "drupal/core-project-message": "^9.5",
-    "drupal/core-recommended": "^9.5",
+    "drupal/core-composer-scaffold": "^10",
+    "drupal/core-project-message": "^10",
+    "drupal/core-recommended": "^10",
     "drupal/devel": "^5.1",
     "drupal/devel_kint_extras": "^1.1",
     "drupal/download_statistics": "^1.0@beta",
@@ -38,7 +38,6 @@
     "drupal/file_download_link": "^2.0",
     "drupal/gatsby": "^2.0@RC",
     "drupal/group": "^1.5",
-    "drupal/hook_event_dispatcher": "^3.3",
     "drupal/imce": "^3.0",
     "drupal/jsonapi_extras": "^3.23",
     "drupal/layout_paragraphs": "^2.0",
@@ -54,7 +53,6 @@
     "drupal/smart_date_calendar_kit": "^2.1",
     "drupal/symfony_mailer": "^1.2",
     "drupal/token": "^1.11",
-    "drupal/topplus_lite": "^1.1",
     "drupal/twig_tweak": "^3.2",
     "drupal/uswds": "^2.7",
     "drupal/uswds_base": "^3.3",
@@ -64,15 +62,13 @@
     "drupal/webform": "^6.1",
     "drupal/webform_content_creator": "^4.0",
     "drupal/webform_mailchimp": "^5.10",
-    "drupal/webform_user_registration": "^1.0@alpha",
     "drupal/webform_views": "^5.1",
-    "drupal/webprofiler": "^9.0",
-    "drush/drush": "^11.4",
-    "drupal/upgrade_status": "^4.0",
-    "drupal/config_ignore": "^3.1"
+    "drush/drush": "^12",
+    "drupal/config_ignore": "^3.1",
+    "cweagans/composer-patches": "^1.7"
   },
   "require-dev": {
-    "drupal/core-dev": "9.5.11"
+    "drupal/core-dev": "^10"
   },
   "conflict": {
     "drupal/drupal": "*"
@@ -129,7 +125,12 @@
     "patchLevel": {
       "drupal/core": "-p2"
     },
-    "enable-patching": true
+    "enable-patching": true,
+    "patches": {
+      "drupal/ds": {
+        "Error using `ds_devel`": "https://www.drupal.org/files/issues/2023-04-04/3338860-5-d10-compatible_0.patch"
+      }
+    }
   },
   "autoload": {
     "classmap": [

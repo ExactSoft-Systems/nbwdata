@@ -1,9 +1,7 @@
 uuid: a8907168-8d3a-4690-8772-7760b47d8806
 langcode: en
 status: open
-dependencies:
-  module:
-    - webform_user_registration
+dependencies: {  }
 weight: 0
 open: null
 close: null
@@ -13,7 +11,7 @@ archive: false
 id: simple_create_user_form
 title: 'simple create user form'
 description: ''
-category: ''
+categories: {  }
 elements: |-
   user_email:
     '#type': email
@@ -215,39 +213,5 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers:
-  user_registration:
-    id: user_registration
-    handler_id: user_registration
-    label: 'User Registration'
-    notes: ''
-    status: true
-    conditions: {  }
-    weight: 0
-    settings:
-      create_user:
-        enabled: true
-        roles:
-          youth: youth
-          authenticated: authenticated
-          content_editor: '0'
-          administrator: '0'
-          volunteer: '0'
-          board_member: '0'
-          bike_church_patron: '0'
-          demo_region_admin: '0'
-          demo_region_user: '0'
-          staff: '0'
-        admin_approval: false
-        admin_approval_message: ''
-        email_verification: false
-        email_verification_message: ''
-        success_message: ''
-      update_user:
-        enabled: false
-      user_field_mapping:
-        user_email: mail
-        user_address: field_address
-        primary_phone: field_primary_phone
-        guardian_address: field_guardian_address
+handlers: {  }
 variants: {  }

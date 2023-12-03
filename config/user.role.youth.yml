@@ -1,9 +1,12 @@
 uuid: b256ee19-b3fd-420b-8ac5-85f95e4f3208
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - file
 id: youth
 label: Youth
 weight: 4
 is_admin: null
-permissions: {  }
+permissions:
+  - 'delete own files'

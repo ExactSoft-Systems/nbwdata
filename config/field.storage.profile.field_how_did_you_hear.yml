@@ -16,8 +16,8 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: 'Participant''s School'
-      label: 'Participant''s School'
+      value: "Participant's School"
+      label: "Participant's School"
     -
       value: Family
       label: Family

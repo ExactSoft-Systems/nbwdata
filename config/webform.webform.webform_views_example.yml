@@ -4,16 +4,16 @@ status: open
 dependencies: {  }
 _core:
   default_config_hash: 995cZngLkZzJMkwXH6OaKBRX2RcQotbaHEWLxemxwUc
+weight: 0
 open: null
 close: null
-weight: 0
 uid: 1
 template: false
 archive: false
 id: webform_views_example
 title: webform_views_example
 description: ''
-category: ''
+categories: {  }
 elements: |-
   checkbox:
     '#type': checkbox
@@ -141,6 +141,8 @@ settings:
   wizard_toggle: false
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
   preview: 0
   preview_label: ''
   preview_title: ''

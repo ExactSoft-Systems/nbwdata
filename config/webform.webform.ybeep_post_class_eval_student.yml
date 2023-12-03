@@ -24,7 +24,8 @@ archive: false
 id: ybeep_post_class_eval_student
 title: 'YBEEP Post Class Evaluation STUDENT'
 description: 'An anonimous Post Class YOUTH survey, to be filled by the student'
-category: 'NBW Forms'
+categories:
+  - 'NBW Forms'
 elements: |-
   today_s_date:
     '#type': date

@@ -3,7 +3,6 @@ langcode: en
 status: open
 dependencies:
   module:
-    - nbw_users_registration
     - webform_entity_print
 third_party_settings:
   webform_entity_print:
@@ -25,7 +24,7 @@ archive: false
 id: nbw_youth_application_waiver
 title: 'NBW YOUTH APPLICATION WAIVER'
 description: 'The primary form to registrate the Youth and create a Youth Authenticated User in the process'
-category: 'NBW Forms'
+categories: {  }
 elements: |-
   email_and_guardian_card:
     '#type': webform_card
@@ -578,80 +577,6 @@ access:
     users: {  }
     permissions: {  }
 handlers:
-  nbw_guardian_user_registration:
-    id: nbw_users_registration
-    handler_id: nbw_guardian_user_registration
-    label: 'NBW Guardian User Registration'
-    notes: 'It will create a Guardian if they are not in the database'
-    status: true
-    conditions: {  }
-    weight: 0
-    settings:
-      create_user:
-        enabled: true
-        roles:
-          guardian: guardian
-          authenticated: authenticated
-          content_editor: '0'
-          administrator: '0'
-          youth: '0'
-          volunteer: '0'
-          board_member: '0'
-          bike_church_patron: '0'
-          demo_region_admin: '0'
-          demo_region_user: '0'
-          staff: '0'
-        admin_approval: false
-        admin_approval_message: ''
-        email_verification: true
-        email_verification_message: ''
-        success_message: ''
-      update_user:
-        enabled: false
-      user_field_mapping:
-        email: mail
-        guardian_address: field_address
-        primary_phone: field_primary_phone
-        primary_phone_type: field_primary_phone_type
-        secondary_phone: field_secondary_phone
-        secondary_phone_type: field_secondary_phone_type
-  nbw_youth_user_registration:
-    id: nbw_users_registration
-    handler_id: nbw_youth_user_registration
-    label: 'NBW Youth User Registration'
-    notes: 'This will create a Youth user'
-    status: true
-    conditions: {  }
-    weight: 10
-    settings:
-      create_user:
-        enabled: true
-        roles:
-          youth: youth
-          authenticated: authenticated
-          content_editor: '0'
-          administrator: '0'
-          volunteer: '0'
-          board_member: '0'
-          bike_church_patron: '0'
-          demo_region_admin: '0'
-          demo_region_user: '0'
-          staff: '0'
-          guardian: '0'
-          donor: '0'
-        admin_approval: false
-        admin_approval_message: ''
-        email_verification: false
-        email_verification_message: ''
-        success_message: ''
-      update_user:
-        enabled: false
-      user_field_mapping:
-        youth_cell_phone: field_primary_phone
-        youth_email: mail
-        youth_address: field_address
-        emergency_contact_name: field_emergency_contact_name
-        emergency_contact_phone_number: field_emergency_contact_phone
   email:
     id: email
     handler_id: email

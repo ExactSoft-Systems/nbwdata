@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - file
     - system
     - toolbar
     - webform
@@ -13,4 +14,5 @@ is_admin: null
 permissions:
   - 'access toolbar'
   - 'access webform overview'
+  - 'delete own files'
   - 'view the administration theme'

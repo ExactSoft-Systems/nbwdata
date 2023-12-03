@@ -1,9 +1,12 @@
 uuid: 27162b3e-2b6c-4dfa-a59e-372d2cf5489d
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - file
 id: volunteer
 label: Volunteer
 weight: 5
 is_admin: null
-permissions: {  }
+permissions:
+  - 'delete own files'

@@ -11,7 +11,8 @@ archive: false
 id: record_volunteer_time
 title: 'Record Volunteer Time'
 description: ''
-category: 'NBW Forms'
+categories:
+  - 'NBW Forms'
 elements: |-
   add_volunteer_markup:
     '#type': webform_markup

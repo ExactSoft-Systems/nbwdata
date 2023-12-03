@@ -11,7 +11,7 @@ id: profile.nbw_youth_profile.field_interested_in
 field_name: field_interested_in
 entity_type: profile
 bundle: nbw_youth_profile
-label: 'I''m Interested in (check all that apply):'
+label: "I'm Interested in (check all that apply):"
 description: ''
 required: false
 translatable: false

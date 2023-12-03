@@ -16,7 +16,7 @@ id: youth_application_waiver.youth_application_waiver.field_any_concerns
 field_name: field_any_concerns
 entity_type: youth_application_waiver
 bundle: youth_application_waiver
-label: 'Please describe any medical, mobility, or mental health concerns we should know about in order to best serve the participant''s needs:'
+label: "Please describe any medical, mobility, or mental health concerns we should know about in order to best serve the participant's needs:"
 description: ''
 required: true
 translatable: false

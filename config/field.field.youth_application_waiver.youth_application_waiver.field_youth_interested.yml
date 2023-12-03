@@ -11,7 +11,7 @@ id: youth_application_waiver.youth_application_waiver.field_youth_interested
 field_name: field_youth_interested
 entity_type: youth_application_waiver
 bundle: youth_application_waiver
-label: 'I''m interested in (check all that apply):'
+label: "I'm interested in (check all that apply):"
 description: ''
 required: true
 translatable: false

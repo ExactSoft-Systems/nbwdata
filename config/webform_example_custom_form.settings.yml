@@ -13,7 +13,7 @@ date_datepicker: '2029-08-19T02:45:54-0400'
 webform_time: '09:00'
 email_multiple: 'example@example.com, test@test.com, random@random.com'
 tel_international: '+1 212-333-4444'
-range: !!float 50
+range: 50.0
 managed_file: '29'
 tableselect:
   - one
@@ -28,7 +28,7 @@ webform_table_sort:
   - two
 webform_autocomplete: Oratione
 webform_buttons: three
-webform_codemirror: 'message: ''Hello World'''
+webform_codemirror: "message: 'Hello World'"
 webform_image_select: kitten_1
 webform_rating: 5
 webform_terms_of_service: true
@@ -60,7 +60,7 @@ webform_custom_composite:
     sex: Male
     martial_status: Single
     employment_status: Unemployed
-    age: !!float 5
+    age: 5.0
 form_element_input_mask: ''
 form_element_input_hide: Dixisset
 descriptions: Oratione

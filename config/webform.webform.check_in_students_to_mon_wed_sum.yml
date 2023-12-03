@@ -11,7 +11,8 @@ archive: false
 id: check_in_students_to_mon_wed_sum
 title: 'Check In Students to Mon - Wed Summer Camp'
 description: ''
-category: 'NBW Forms'
+categories:
+  - 'NBW Forms'
 elements: |-
   select_youth_to_check_in:
     '#type': webform_entity_checkboxes

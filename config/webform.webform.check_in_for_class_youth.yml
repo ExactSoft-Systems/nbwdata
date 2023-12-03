@@ -11,7 +11,8 @@ archive: false
 id: check_in_for_class_youth
 title: 'Check In for Class - Youth'
 description: ''
-category: 'NBW Forms'
+categories:
+  - 'NBW Forms'
 elements: |-
   youth_student:
     '#type': entity_autocomplete

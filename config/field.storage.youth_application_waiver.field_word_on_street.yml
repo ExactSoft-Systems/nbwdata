@@ -17,7 +17,7 @@ settings:
   allowed_values:
     -
       value: School
-      label: 'Participant''s School'
+      label: "Participant's School"
     -
       value: Family
       label: Family
