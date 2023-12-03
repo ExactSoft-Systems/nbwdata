@@ -95,3 +95,6 @@
 
 # Ignore .env files as they are personal
 #/.env
+.ddev/
+.idea/
+web/sites/default/settings.ddev.php
