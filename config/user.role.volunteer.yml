@@ -6,7 +6,4 @@ id: volunteer
 label: Volunteer
 weight: 5
 is_admin: null
-permissions:
-  - 'create field_volunteer_field'
-  - 'edit own field_volunteer_field'
-  - 'view own field_volunteer_field'
+permissions: {  }

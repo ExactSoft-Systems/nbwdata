@@ -7,7 +7,6 @@ label: 'NBW Guardian Profile'
 display_label: ''
 multiple: false
 registration: false
-roles:
-  guardian: guardian
+roles: {  }
 allow_revisions: false
 new_revision: false

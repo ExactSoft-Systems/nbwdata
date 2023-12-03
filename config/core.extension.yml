@@ -39,6 +39,7 @@ module:
   comment: 0
   config: 0
   config_entity_example: 0
+  config_ignore: 0
   contact: 0
   content_entity_example: 0
   content_moderation: 0
@@ -83,7 +84,6 @@ module:
   gatsby_extras: 0
   gnode: 0
   group: 0
-  hal: 0
   help: 0
   history: 0
   image: 0
@@ -137,7 +137,6 @@ module:
   render_example: 0
   responsive_image: 0
   rest: 0
-  rest_example: 0
   search: 0
   serialization: 0
   session_example: 0
@@ -189,7 +188,6 @@ module:
   webform_example_element: 0
   webform_example_element_properties: 0
   webform_examples: 0
-  webform_group: 0
   webform_image_select: 0
   webform_mailchimp: 0
   webform_node: 0
@@ -216,9 +214,6 @@ module:
 theme:
   olivero: 0
   claro: 0
-  bootstrap_barrio: 0
-  vartheme_bs4: 0
-  nbwtheme: 0
   stable: 0
   classy: 0
   uswds_base: 0

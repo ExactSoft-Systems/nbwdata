@@ -12,7 +12,6 @@ dependencies:
     - node.type.page
     - node.type.place
     - node.type.product
-    - node.type.rest_example_test
     - node.type.testing_example
     - node.type.webform
     - node.type.webform_demo_event
@@ -42,7 +41,6 @@ settings:
       locked_content_type: locked_content_type
       page: page
       place: place
-      rest_example_test: rest_example_test
       testing_example: testing_example
       webform: webform
       webform_demo_event: webform_demo_event

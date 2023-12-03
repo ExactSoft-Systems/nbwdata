@@ -7,7 +7,6 @@ label: 'NBW Youth Profile'
 display_label: 'Youth Profile'
 multiple: false
 registration: false
-roles:
-  youth: youth
+roles: {  }
 allow_revisions: false
 new_revision: false

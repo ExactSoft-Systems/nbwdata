@@ -1,8 +1,0 @@
-name: "NBW Theme (Bootstrap 4 - SASS)"
-type: theme
-base theme: olivero
-description: "NBW Theme based on USWDS theme"
-core_version_requirement: ^9 || ^10
-screenshot: nbw_logo.jpg
-
-

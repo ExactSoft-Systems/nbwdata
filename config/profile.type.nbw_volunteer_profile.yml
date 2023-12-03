@@ -7,7 +7,6 @@ label: 'NBW Volunteer Profile'
 display_label: ''
 multiple: false
 registration: false
-roles:
-  volunteer: volunteer
+roles: {  }
 allow_revisions: false
 new_revision: false
