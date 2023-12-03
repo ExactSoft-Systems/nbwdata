@@ -1,0 +1,21 @@
+uuid: 2581e8f1-916b-41ce-87b5-8e94e9c28853
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_height
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_height
+field_name: field_height
+entity_type: profile
+bundle: nbw_youth_profile
+label: Height
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

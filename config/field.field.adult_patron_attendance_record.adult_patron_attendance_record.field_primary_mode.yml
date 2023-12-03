@@ -1,0 +1,23 @@
+uuid: b6a09b70-1458-4870-95f8-c298228013df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.adult_patron_attendance_record.field_primary_mode
+  module:
+    - adult_patron_attendance_record
+    - options
+id: adult_patron_attendance_record.adult_patron_attendance_record.field_primary_mode
+field_name: field_primary_mode
+entity_type: adult_patron_attendance_record
+bundle: adult_patron_attendance_record
+label: 'Do you use your bike as a primary mode of transportation?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Yes'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

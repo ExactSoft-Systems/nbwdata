@@ -1,0 +1,21 @@
+uuid: f172e278-b367-4463-9f06-99824f7acd3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.class_session.field_start_time
+  module:
+    - class_session
+    - datetime
+id: class_session.class_session.field_start_time
+field_name: field_start_time
+entity_type: class_session
+bundle: class_session
+label: 'Start Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

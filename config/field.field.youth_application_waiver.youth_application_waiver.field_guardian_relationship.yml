@@ -1,0 +1,21 @@
+uuid: 7e26cca7-8c2a-449d-b57c-adc83553eff5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_guardian_relationship
+  module:
+    - options
+    - youth_application_waiver
+id: youth_application_waiver.youth_application_waiver.field_guardian_relationship
+field_name: field_guardian_relationship
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'Guardian Relationship'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

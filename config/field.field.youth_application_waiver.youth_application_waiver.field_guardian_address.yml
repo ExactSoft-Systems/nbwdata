@@ -1,0 +1,40 @@
+uuid: a0ab5623-7665-4921-ba3d-0a8ea9eb5977
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_guardian_address
+  module:
+    - address
+    - youth_application_waiver
+id: youth_application_waiver.youth_application_waiver.field_guardian_address
+field_name: field_guardian_address
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'Guardian Name And Address'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    langcode: null
+    country_code: US
+    administrative_area: PA
+    locality: ''
+    dependent_locality: null
+    postal_code: ''
+    sorting_code: null
+    address_line1: ''
+    address_line2: ''
+    organization: ''
+    given_name: ''
+    additional_name: null
+    family_name: ''
+default_value_callback: ''
+settings:
+  available_countries:
+    US: US
+  langcode_override: ''
+  field_overrides: {  }
+  fields: {  }
+field_type: address

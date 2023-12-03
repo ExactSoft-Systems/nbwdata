@@ -1,0 +1,24 @@
+uuid: f5af37e8-2fd3-423f-ae19-fc285a795986
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.class_attendance_record.field_miles_ridden
+  module:
+    - class_attendance_record
+id: class_attendance_record.class_attendance_record.field_miles_ridden
+field_name: field_miles_ridden
+entity_type: class_attendance_record
+bundle: class_attendance_record
+label: 'Miles Ridden'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

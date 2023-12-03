@@ -1,0 +1,21 @@
+uuid: 141aae19-926d-4d3a-b23a-f992dc81d19d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.schema_image
+    - node.type.place
+id: node.place.schema_image
+field_name: schema_image
+entity_type: node
+bundle: place
+label: Image
+description: 'An image of the item. This can be a <a href="https://schema.org/URL">URL</a> or a fully described <a href="https://schema.org/ImageObject">ImageObject</a>.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings: {  }
+field_type: entity_reference

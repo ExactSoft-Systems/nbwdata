@@ -1,0 +1,21 @@
+uuid: 1722af3a-3cf9-48bc-92a1-762d2d15efb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_can_leave_with
+    - profile.type.nbw_youth_profile
+  module:
+    - text
+id: profile.nbw_youth_profile.field_can_leave_with
+field_name: field_can_leave_with
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'If not, please list everyone the participant can leave with, and their relationship to the participant:'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

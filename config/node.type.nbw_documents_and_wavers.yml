@@ -1,0 +1,18 @@
+uuid: 6d61a798-00f9-4a73-819f-8cec0a0acbe8
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'NBW Documents and Waivers'
+type: nbw_documents_and_wavers
+description: 'Here we will store texts of wavers, disclosures, media releases and other texts we use on forms and such  '
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

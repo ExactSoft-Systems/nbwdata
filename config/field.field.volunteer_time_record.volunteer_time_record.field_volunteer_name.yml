@@ -1,0 +1,42 @@
+uuid: 04f1801d-2ad2-4ecc-8dea-889d61b690d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.volunteer_time_record.field_volunteer_name
+  module:
+    - volunteer_time_record
+id: volunteer_time_record.volunteer_time_record.field_volunteer_name
+field_name: field_volunteer_name
+entity_type: volunteer_time_record
+bundle: volunteer_time_record
+label: 'Volunteer Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: role
+      role:
+        volunteer: volunteer
+        content_editor: '0'
+        administrator: '0'
+        youth: '0'
+        board_member: '0'
+        bike_church_patron: '0'
+        demo_region_admin: '0'
+        demo_region_user: '0'
+        staff: '0'
+        guardian: '0'
+        donor: '0'
+    include_anonymous: true
+field_type: entity_reference

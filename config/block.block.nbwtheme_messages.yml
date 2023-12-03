@@ -1,0 +1,22 @@
+uuid: 658e8de8-5238-4635-9ccf-3b246df715da
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nbwtheme
+_core:
+  default_config_hash: huxwwvGRW6sCzkLbI-SIUmbV2FU6aENqCjH8AxuGNfA
+id: nbwtheme_messages
+theme: nbwtheme
+region: header
+weight: -2
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

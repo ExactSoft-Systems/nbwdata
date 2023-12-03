@@ -1,0 +1,12 @@
+uuid: 7ce17179-937f-4812-bb8f-9f48f8c6a3f6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:14bbd050-11ac-4b79-b41e-e1010f375e15'
+id: quotation
+label: Quotation
+icon_uuid: 14bbd050-11ac-4b79-b41e-e1010f375e15
+icon_default: null
+description: 'A quotation. Often but not necessarily from some written work, attributable to a real world author and - if associated with a fictional character - to any fictional Person. Use <a href="https://schema.org/isBasedOn">isBasedOn</a> to link to source/origin. The <a href="https://schema.org/recordedIn">recordedIn</a> property can be used to reference a Quotation from an <a href="https://schema.org/Event">Event</a>.'
+behavior_plugins: {  }

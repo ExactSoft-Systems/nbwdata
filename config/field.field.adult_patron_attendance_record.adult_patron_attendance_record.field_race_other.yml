@@ -1,0 +1,26 @@
+uuid: 06a622f9-9de2-4087-9b63-82d5615441f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.adult_patron_attendance_record.field_race_other
+  module:
+    - adult_patron_attendance_record
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: adult_patron_attendance_record.adult_patron_attendance_record.field_race_other
+field_name: field_race_other
+entity_type: adult_patron_attendance_record
+bundle: adult_patron_attendance_record
+label: '(Race) Describe if other'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

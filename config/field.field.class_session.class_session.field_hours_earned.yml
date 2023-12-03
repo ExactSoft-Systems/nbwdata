@@ -1,0 +1,24 @@
+uuid: 5df39c62-036a-4fd2-a4d4-0d4e945a9f41
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.class_session.field_hours_earned
+  module:
+    - class_session
+id: class_session.class_session.field_hours_earned
+field_name: field_hours_earned
+entity_type: class_session
+bundle: class_session
+label: 'Hours Earned'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

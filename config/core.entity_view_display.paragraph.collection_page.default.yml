@@ -1,0 +1,27 @@
+uuid: 08552240-f920-4c29-bb96-ca77271d7291
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.collection_page.schema_has_part
+    - paragraphs.paragraphs_type.collection_page
+  module:
+    - entity_reference_revisions
+id: paragraph.collection_page.default
+targetEntityType: paragraph
+bundle: collection_page
+mode: default
+content:
+  schema_has_part:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 107
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

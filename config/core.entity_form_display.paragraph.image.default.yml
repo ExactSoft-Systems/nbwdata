@@ -1,0 +1,31 @@
+uuid: 7f50ccb0-d3ba-4170-9612-e9cac3622741
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image.schema_main_entity_of_page
+    - paragraphs.paragraphs_type.image
+  module:
+    - field_layout
+    - layout_discovery
+    - media_library
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.image.default
+targetEntityType: paragraph
+bundle: image
+mode: default
+content:
+  schema_main_entity_of_page:
+    type: media_library_widget
+    weight: 109
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

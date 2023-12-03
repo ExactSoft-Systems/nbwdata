@@ -1,0 +1,35 @@
+uuid: 4de4a52c-a08d-4d51-a870-ed8272100518
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.file_with_statistics.field_media_file
+    - image.style.medium
+    - media.type.file_with_statistics
+  module:
+    - image
+id: media.file_with_statistics.media_library
+targetEntityType: media
+bundle: file_with_statistics
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_media_file: true
+  name: true
+  uid: true

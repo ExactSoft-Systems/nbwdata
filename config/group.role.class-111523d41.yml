@@ -1,0 +1,17 @@
+uuid: 90ea4c8a-5d6a-4f85-821d-05cdad78a6e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.class
+  enforced:
+    config:
+      - user.role.content_editor
+id: class-111523d41
+label: 'Content editor'
+weight: 2
+internal: true
+audience: outsider
+group_type: class
+permissions_ui: false
+permissions: {  }

@@ -1,0 +1,45 @@
+uuid: d2d9f60a-48b3-4637-9472-4f0d1104ee33
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.nbw_documents_and_wavers.body
+    - field.field.node.nbw_documents_and_wavers.field_doc_file
+    - field.field.node.nbw_documents_and_wavers.field_where_will_this_be_used_
+    - node.type.nbw_documents_and_wavers
+  module:
+    - text
+    - user
+id: node.nbw_documents_and_wavers.default
+targetEntityType: node
+bundle: nbw_documents_and_wavers
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_doc_file:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_where_will_this_be_used_:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  links: true

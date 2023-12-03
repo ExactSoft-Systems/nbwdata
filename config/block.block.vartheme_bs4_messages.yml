@@ -1,0 +1,22 @@
+uuid: 79fe7f0e-d922-439e-9b6e-65514363c12a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - vartheme_bs4
+_core:
+  default_config_hash: huxwwvGRW6sCzkLbI-SIUmbV2FU6aENqCjH8AxuGNfA
+id: vartheme_bs4_messages
+theme: vartheme_bs4
+region: header
+weight: -2
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

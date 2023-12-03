@@ -1,0 +1,23 @@
+uuid: ba9b879e-a34a-4497-98e6-b5fc6c5875ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_hours_total
+    - profile.type.nbw_youth_profile
+id: profile.nbw_youth_profile.field_hours_total
+field_name: field_hours_total
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Hours Total'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

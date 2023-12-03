@@ -1,0 +1,12 @@
+uuid: 23c6a073-f1af-4139-b02a-2d742701cc21
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:11cd9ee1-b430-4390-864f-46786444fb95'
+id: remote_video
+label: Video
+icon_uuid: 11cd9ee1-b430-4390-864f-46786444fb95
+icon_default: null
+description: 'A video file.'
+behavior_plugins: {  }

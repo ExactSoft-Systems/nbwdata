@@ -1,0 +1,70 @@
+uuid: 90f1c9bf-0ef7-4340-be84-15b52936689b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.schema_has_part
+    - paragraphs.paragraphs_type.audio
+    - paragraphs.paragraphs_type.collection_page
+    - paragraphs.paragraphs_type.header
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.item_list_link
+    - paragraphs.paragraphs_type.item_list_string
+    - paragraphs.paragraphs_type.item_list_text
+    - paragraphs.paragraphs_type.quotation
+    - paragraphs.paragraphs_type.remote_video
+    - paragraphs.paragraphs_type.statement
+  module:
+    - entity_reference_revisions
+id: paragraph.collection_page.schema_has_part
+field_name: schema_has_part
+entity_type: paragraph
+bundle: collection_page
+label: Items
+description: 'Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      audio: audio
+      header: header
+      image: image
+      item_list_link: item_list_link
+      item_list_string: item_list_string
+      item_list_text: item_list_text
+      quotation: quotation
+      remote_video: remote_video
+      statement: statement
+    target_bundles_drag_drop:
+      audio:
+        weight: 0
+        enabled: true
+      header:
+        weight: 1
+        enabled: true
+      image:
+        weight: 2
+        enabled: true
+      item_list_link:
+        weight: 3
+        enabled: true
+      item_list_string:
+        weight: 4
+        enabled: true
+      item_list_text:
+        weight: 5
+        enabled: true
+      quotation:
+        weight: 6
+        enabled: true
+      remote_video:
+        weight: 7
+        enabled: true
+      statement:
+        weight: 8
+        enabled: true
+field_type: entity_reference_revisions

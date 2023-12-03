@@ -1,0 +1,12 @@
+uuid: b6b3cdfa-5f89-47e9-bc74-e8b14c5b8761
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:a9cac616-f787-4da8-9e72-cb88e0bc8bce'
+id: item_list_string
+label: 'List (Plain text)'
+icon_uuid: a9cac616-f787-4da8-9e72-cb88e0bc8bce
+icon_default: null
+description: 'A list of plain text items.'
+behavior_plugins: {  }

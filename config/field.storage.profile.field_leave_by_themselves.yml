@@ -1,0 +1,31 @@
+uuid: c07d89bf-fd56-42f1-90e4-97179e4378d7
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - profile
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: profile.field_leave_by_themselves
+field_name: field_leave_by_themselves
+entity_type: profile
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Yes'
+      label: 'Yes'
+    -
+      value: 'No'
+      label: 'No'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

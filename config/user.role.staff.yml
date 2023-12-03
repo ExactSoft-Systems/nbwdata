@@ -1,0 +1,42 @@
+uuid: 42bdac10-2f3e-4b8f-a771-75037d8baf13
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - field_permissions
+    - file
+    - profile
+id: staff
+label: Staff
+weight: 10
+is_admin: null
+permissions:
+  - 'access files overview'
+  - 'access profile overview'
+  - 'administer comment types'
+  - 'administer comments'
+  - 'administer profile'
+  - 'administer profile types'
+  - 'create field_hours_earned'
+  - 'create field_hours_lost'
+  - 'create field_miles_ridden'
+  - 'create field_notes'
+  - 'edit field_hours_earned'
+  - 'edit field_hours_lost'
+  - 'edit field_miles_ridden'
+  - 'edit field_notes'
+  - 'edit own comments'
+  - 'edit own field_hours_earned'
+  - 'edit own field_hours_lost'
+  - 'edit own field_miles_ridden'
+  - 'edit own field_notes'
+  - 'view any profile'
+  - 'view field_hours_earned'
+  - 'view field_hours_lost'
+  - 'view field_miles_ridden'
+  - 'view field_notes'
+  - 'view own field_hours_earned'
+  - 'view own field_hours_lost'
+  - 'view own field_miles_ridden'
+  - 'view own field_notes'

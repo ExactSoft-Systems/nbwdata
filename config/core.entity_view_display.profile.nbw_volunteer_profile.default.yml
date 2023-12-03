@@ -1,0 +1,27 @@
+uuid: 4bff770e-027b-4acc-9fce-fc11238e7caf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.profile.nbw_volunteer_profile.field_hours_total
+    - profile.type.nbw_volunteer_profile
+id: profile.nbw_volunteer_profile.default
+targetEntityType: profile
+bundle: nbw_volunteer_profile
+mode: default
+content:
+  field_hours_total:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

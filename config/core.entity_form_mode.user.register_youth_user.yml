@@ -1,0 +1,10 @@
+uuid: 9b75d209-ed24-42e5-8c6a-2ab22e6a4a4a
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.register_youth_user
+label: 'Register Youth User'
+targetEntityType: user
+cache: true

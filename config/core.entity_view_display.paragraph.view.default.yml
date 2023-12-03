@@ -1,0 +1,29 @@
+uuid: e26e86d9-c728-409d-b915-c45e33d770fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.view.field_view
+    - paragraphs.paragraphs_type.view
+  module:
+    - viewsreference
+_core:
+  default_config_hash: DrQa8jJGSvwk_B3IW4QV8vBW3RXu0eMpPXXyWT2TOWk
+id: paragraph.view.default
+targetEntityType: paragraph
+bundle: view
+mode: default
+content:
+  field_view:
+    type: viewsreference_formatter
+    label: hidden
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

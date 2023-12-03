@@ -1,0 +1,21 @@
+uuid: 062f3bf1-9e73-41a4-b4a0-0a1f85119f35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.adult_patron_attendance_record.field_race
+  module:
+    - adult_patron_attendance_record
+    - options
+id: adult_patron_attendance_record.adult_patron_attendance_record.field_race
+field_name: field_race
+entity_type: adult_patron_attendance_record
+bundle: adult_patron_attendance_record
+label: 'I identify my race as (check all that apply):'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

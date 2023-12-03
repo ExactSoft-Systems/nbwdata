@@ -1,0 +1,26 @@
+uuid: 6c8a68b0-88a4-45eb-a19c-2ade5efea8ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.schema_item_list_element_text
+    - paragraphs.paragraphs_type.item_list_text
+  module:
+    - text
+id: paragraph.item_list_text.schema_item_list_element_text
+field_name: schema_item_list_element_text
+entity_type: paragraph
+bundle: item_list_text
+label: Items
+description: |-
+  For itemListElement values, you can use simple strings (e.g. "Peter", "Paul", "Mary"), existing entities, or use ListItem.<br/><br/>
+
+  Text values are best if the elements in the list are plain strings. Existing entities are best for a simple, unordered list of existing things in your data. ListItem is used with ordered lists when you want to provide additional context about the element in that list or when the same item might be in different places in different lists.<br/><br/>
+
+  Note: The order of elements in your mark-up is not sufficient for indicating the order or elements.  Use ListItem with a 'position' property in such cases.
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

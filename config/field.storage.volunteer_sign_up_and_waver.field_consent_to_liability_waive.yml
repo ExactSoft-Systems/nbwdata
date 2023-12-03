@@ -1,0 +1,24 @@
+uuid: 3f1a337b-7dec-4862-bd82-05595ee0f3c9
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - text
+    - volunteer_sign_up_record
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: volunteer_sign_up_and_waver.field_consent_to_liability_waive
+field_name: field_consent_to_liability_waive
+entity_type: volunteer_sign_up_and_waver
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

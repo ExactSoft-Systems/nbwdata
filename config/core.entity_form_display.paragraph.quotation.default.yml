@@ -1,0 +1,43 @@
+uuid: 70457d4a-6c51-4a9f-9a22-8e86a6da17de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quotation.schema_creator
+    - field.field.paragraph.quotation.schema_text
+    - paragraphs.paragraphs_type.quotation
+  module:
+    - field_layout
+    - layout_discovery
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.quotation.default
+targetEntityType: paragraph
+bundle: quotation
+mode: default
+content:
+  schema_creator:
+    type: entity_reference_autocomplete
+    weight: 13
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  schema_text:
+    type: text_textarea
+    weight: 10
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

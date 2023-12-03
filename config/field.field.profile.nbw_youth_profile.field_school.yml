@@ -1,0 +1,21 @@
+uuid: 715848b4-eb96-4920-9b46-71df5d8b7fd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_school
+    - profile.type.nbw_youth_profile
+  module:
+    - text
+id: profile.nbw_youth_profile.field_school
+field_name: field_school
+entity_type: profile
+bundle: nbw_youth_profile
+label: School
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

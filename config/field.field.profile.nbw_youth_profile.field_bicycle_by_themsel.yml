@@ -1,0 +1,21 @@
+uuid: f359afd2-efc4-49b1-b4d2-8b497930bb2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_bicycle_by_themsel
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_bicycle_by_themsel
+field_name: field_bicycle_by_themsel
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'May the participant leave NBW activities on a bicycle by themselves?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

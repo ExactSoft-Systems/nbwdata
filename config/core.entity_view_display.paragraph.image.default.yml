@@ -1,0 +1,25 @@
+uuid: ad4dc053-9065-4821-b973-0943256c4eea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image.schema_main_entity_of_page
+    - paragraphs.paragraphs_type.image
+id: paragraph.image.default
+targetEntityType: paragraph
+bundle: image
+mode: default
+content:
+  schema_main_entity_of_page:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 109
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

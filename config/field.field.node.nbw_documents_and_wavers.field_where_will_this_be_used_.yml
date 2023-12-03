@@ -1,0 +1,26 @@
+uuid: 2f44d253-9159-4b30-bf55-aa0a9caa1489
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_where_will_this_be_used_
+    - node.type.nbw_documents_and_wavers
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.nbw_documents_and_wavers.field_where_will_this_be_used_
+field_name: field_where_will_this_be_used_
+entity_type: node
+bundle: nbw_documents_and_wavers
+label: 'Where will this be used?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

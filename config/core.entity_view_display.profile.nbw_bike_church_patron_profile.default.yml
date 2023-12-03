@@ -1,0 +1,15 @@
+uuid: ff067224-754c-4ffc-baf4-e0b79545f24c
+langcode: en
+status: true
+dependencies:
+  config:
+    - profile.type.nbw_bike_church_patron_profile
+id: profile.nbw_bike_church_patron_profile.default
+targetEntityType: profile
+bundle: nbw_bike_church_patron_profile
+mode: default
+content: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

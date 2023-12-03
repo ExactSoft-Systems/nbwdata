@@ -1,0 +1,20 @@
+uuid: 1121cb40-9f8c-49b9-aad5-8908ced9c379
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.adult_patron_attendance_record.field_email
+  module:
+    - adult_patron_attendance_record
+id: adult_patron_attendance_record.adult_patron_attendance_record.field_email
+field_name: field_email
+entity_type: adult_patron_attendance_record
+bundle: adult_patron_attendance_record
+label: Email
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

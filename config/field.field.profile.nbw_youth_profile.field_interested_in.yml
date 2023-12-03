@@ -1,0 +1,21 @@
+uuid: b6b779c8-93e1-4d44-8dd2-8d4893c05bf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_interested_in
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_interested_in
+field_name: field_interested_in
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'I''m Interested in (check all that apply):'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

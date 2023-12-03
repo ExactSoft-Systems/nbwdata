@@ -1,0 +1,18 @@
+uuid: 349dbb98-e0aa-4157-a2ce-371abc0918a6
+langcode: en
+status: true
+dependencies: {  }
+id: create_adult_patron_person_at_waiver_sign
+title: 'Create Adult Patron Person at Waiver Sign'
+webform: bike_church_patron_waiver
+content_type: null
+field_title: null
+use_encrypt: null
+encryption_profile: null
+sync_content: false
+sync_content_delete: false
+sync_content_field: ''
+elements: {  }
+sync_content_node_field: null
+target_entity_type: node
+target_bundle: person

@@ -1,0 +1,213 @@
+_core:
+  default_config_hash: CXhei_vpaZk-3f_Mj2cH0YmpK-ZpKHoSzVA3yZrDq0g
+definitions:
+  contact__site_page:
+    menu_name: footer
+    parent: ''
+    weight: 0
+    expanded: false
+    enabled: true
+  examples__menu_example__alternate_menu:
+    menu_name: main
+    parent: ''
+    weight: 0
+    expanded: false
+    enabled: false
+  'admin_toolbar_tools__extra_links:views_ui__today_s_classes':
+    enabled: true
+    menu_name: admin
+    parent: entity.view.collection
+    expanded: false
+    weight: 0
+  entity__bike_in_kind_donation__settings:
+    menu_name: admin
+    parent: 'menu_link_content:2eb5a1a2-cba3-4316-8aa9-8345425f9f7f'
+    weight: 0
+    expanded: false
+    enabled: true
+  system__admin_content:
+    weight: -99
+    menu_name: admin
+    parent: system.admin
+    enabled: true
+    expanded: false
+  system__admin_structure:
+    weight: -92
+    menu_name: admin
+    parent: system.admin
+    expanded: false
+    enabled: true
+  entity__adult_patron_waver__settings:
+    menu_name: admin
+    parent: 'menu_link_content:2eb5a1a2-cba3-4316-8aa9-8345425f9f7f'
+    weight: -98
+    expanded: false
+    enabled: true
+  entity__bike_parts_item__settings:
+    menu_name: admin
+    parent: 'menu_link_content:2eb5a1a2-cba3-4316-8aa9-8345425f9f7f'
+    weight: -97
+    expanded: false
+    enabled: true
+  entity__bike__settings:
+    menu_name: admin
+    parent: 'menu_link_content:2eb5a1a2-cba3-4316-8aa9-8345425f9f7f'
+    weight: -96
+    expanded: false
+    enabled: true
+  entity__class_attendance_record__settings:
+    menu_name: admin
+    parent: 'menu_link_content:2eb5a1a2-cba3-4316-8aa9-8345425f9f7f'
+    weight: -95
+    expanded: false
+    enabled: true
+  entity__class_registration_submission__settings:
+    menu_name: admin
+    parent: 'menu_link_content:2eb5a1a2-cba3-4316-8aa9-8345425f9f7f'
+    weight: -93
+    expanded: false
+    enabled: true
+  entity__class_session__settings:
+    menu_name: admin
+    parent: 'menu_link_content:2eb5a1a2-cba3-4316-8aa9-8345425f9f7f'
+    weight: -94
+    expanded: false
+    enabled: true
+  system__themes_page:
+    weight: -91
+    menu_name: admin
+    parent: system.admin
+    expanded: false
+    enabled: true
+  system__modules_list:
+    weight: -90
+    menu_name: admin
+    parent: system.admin
+    expanded: false
+    enabled: true
+  system__admin_config:
+    weight: -89
+    menu_name: admin
+    parent: system.admin
+    expanded: false
+    enabled: true
+  system__admin_group:
+    weight: -88
+    menu_name: admin
+    parent: system.admin
+    expanded: false
+    enabled: true
+  entity__user__collection:
+    weight: -87
+    menu_name: admin
+    parent: system.admin
+    expanded: false
+    enabled: true
+  system__admin_reports:
+    weight: -86
+    menu_name: admin
+    parent: system.admin
+    expanded: false
+    enabled: true
+  system__admin_nbw_data_app:
+    weight: -85
+    menu_name: admin
+    parent: system.admin
+    expanded: false
+    enabled: true
+  help__main:
+    weight: -84
+    menu_name: admin
+    parent: system.admin
+    expanded: false
+    enabled: true
+  entity__adult_patron_waver__collection:
+    menu_name: admin
+    parent: 'menu_link_content:6b021e73-77e8-4ea5-a250-55c977aca721'
+    weight: 0
+    expanded: false
+    enabled: true
+  entity__bike_in_kind_donation__collection:
+    weight: 1
+    parent: 'menu_link_content:6b021e73-77e8-4ea5-a250-55c977aca721'
+    menu_name: admin
+    enabled: true
+    expanded: false
+  entity__youth_application_waiver__collection:
+    menu_name: admin
+    parent: 'menu_link_content:6b021e73-77e8-4ea5-a250-55c977aca721'
+    weight: 9
+    expanded: false
+    enabled: false
+  entity__youth_application_waiver__settings:
+    enabled: false
+    menu_name: admin
+    parent: 'menu_link_content:2eb5a1a2-cba3-4316-8aa9-8345425f9f7f'
+    expanded: false
+    weight: 0
+  entity__volunteer_sign_up_and_waver__collection:
+    weight: 7
+    menu_name: admin
+    parent: 'menu_link_content:6b021e73-77e8-4ea5-a250-55c977aca721'
+    expanded: false
+    enabled: true
+  entity__volunteer_time_record__collection:
+    weight: 8
+    menu_name: admin
+    parent: 'menu_link_content:6b021e73-77e8-4ea5-a250-55c977aca721'
+    expanded: false
+    enabled: true
+  entity__volunteer_time_record__settings:
+    menu_name: admin
+    parent: 'menu_link_content:2eb5a1a2-cba3-4316-8aa9-8345425f9f7f'
+    weight: 0
+    expanded: false
+    enabled: true
+  entity__volunteer_sign_up_and_waver__settings:
+    menu_name: admin
+    parent: 'menu_link_content:2eb5a1a2-cba3-4316-8aa9-8345425f9f7f'
+    weight: 0
+    expanded: false
+    enabled: true
+  entity__bike_parts_item__collection:
+    weight: 2
+    menu_name: admin
+    parent: 'menu_link_content:6b021e73-77e8-4ea5-a250-55c977aca721'
+    expanded: false
+    enabled: true
+  entity__bike__collection:
+    weight: 3
+    menu_name: admin
+    parent: 'menu_link_content:6b021e73-77e8-4ea5-a250-55c977aca721'
+    expanded: false
+    enabled: true
+  entity__class_attendance_record__collection:
+    weight: 4
+    menu_name: admin
+    parent: 'menu_link_content:6b021e73-77e8-4ea5-a250-55c977aca721'
+    expanded: false
+    enabled: true
+  entity__class_registration_submission__collection:
+    weight: 5
+    menu_name: admin
+    parent: 'menu_link_content:6b021e73-77e8-4ea5-a250-55c977aca721'
+    expanded: false
+    enabled: true
+  entity__class_session__collection:
+    weight: 6
+    menu_name: admin
+    parent: 'menu_link_content:6b021e73-77e8-4ea5-a250-55c977aca721'
+    expanded: false
+    enabled: true
+  entity__adult_patron_attendance_record__collection:
+    menu_name: admin
+    parent: 'menu_link_content:6b021e73-77e8-4ea5-a250-55c977aca721'
+    weight: 0
+    expanded: false
+    enabled: true
+  entity__adult_patron_attendance_record__settings:
+    menu_name: admin
+    parent: 'menu_link_content:2eb5a1a2-cba3-4316-8aa9-8345425f9f7f'
+    weight: 0
+    expanded: false
+    enabled: true

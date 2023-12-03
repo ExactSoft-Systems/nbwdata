@@ -1,0 +1,13 @@
+uuid: 2ca41cd1-b564-4175-8608-b6e6309c841e
+langcode: en
+status: true
+dependencies: {  }
+id: nbw_guardian_profile
+label: 'NBW Guardian Profile'
+display_label: ''
+multiple: false
+registration: false
+roles:
+  guardian: guardian
+allow_revisions: false
+new_revision: false

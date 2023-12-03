@@ -1,0 +1,50 @@
+uuid: ec872a35-7757-4260-8a89-5ef42c15096a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.item_list_string.schema_description
+    - field.field.paragraph.item_list_string.schema_item_list_element_string
+    - field.field.paragraph.item_list_string.schema_name
+    - paragraphs.paragraphs_type.item_list_string
+  module:
+    - field_layout
+    - layout_discovery
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.item_list_string.default
+targetEntityType: paragraph
+bundle: item_list_string
+mode: default
+content:
+  schema_description:
+    type: text_textarea
+    weight: 9
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  schema_item_list_element_string:
+    type: string_textfield
+    weight: 54
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  schema_name:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

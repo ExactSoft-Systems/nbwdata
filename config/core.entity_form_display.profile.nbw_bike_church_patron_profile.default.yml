@@ -1,0 +1,21 @@
+uuid: 15f1bcef-2122-4135-9b68-90198afa1e0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - profile.type.nbw_bike_church_patron_profile
+  module:
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: profile.nbw_bike_church_patron_profile.default
+targetEntityType: profile
+bundle: nbw_bike_church_patron_profile
+mode: default
+content: {  }
+hidden:
+  is_default: true

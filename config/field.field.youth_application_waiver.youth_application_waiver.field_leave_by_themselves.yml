@@ -1,0 +1,21 @@
+uuid: 3d4bc99d-81a0-47fe-b529-9eb06870df9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_leave_by_themselves
+  module:
+    - options
+    - youth_application_waiver
+id: youth_application_waiver.youth_application_waiver.field_leave_by_themselves
+field_name: field_leave_by_themselves
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'May the participant leave NBW activities by themselves?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

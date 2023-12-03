@@ -1,0 +1,17 @@
+uuid: 5dcfdf13-20b2-42e4-9108-316c0f4c2e09
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.class
+  enforced:
+    config:
+      - user.role.demo_region_user
+id: class-68e450c9d
+label: 'Demo region user'
+weight: 9
+internal: true
+audience: outsider
+group_type: class
+permissions_ui: false
+permissions: {  }

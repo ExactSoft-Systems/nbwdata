@@ -1,0 +1,21 @@
+uuid: df485ebd-1442-495d-9703-4da3daa4fd8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_need_a_token
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_need_a_token
+field_name: field_need_a_token
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'NBW is able to provide tokens to program participants so they can safely return home. Will the participant need a token at the end of NBW classes and activities?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

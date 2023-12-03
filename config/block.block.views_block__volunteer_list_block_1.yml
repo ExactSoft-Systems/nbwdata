@@ -1,0 +1,29 @@
+uuid: 562787c2-a936-4235-8c5d-9121141c4af9
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.volunteer_list
+  module:
+    - system
+    - views
+  theme:
+    - nbwtheme
+id: views_block__volunteer_list_block_1
+theme: nbwtheme
+region: content
+weight: -3
+provider: null
+plugin: 'views_block:volunteer_list-block_1'
+settings:
+  id: 'views_block:volunteer_list-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /nbw-dashboard

@@ -1,0 +1,37 @@
+uuid: 64e2e7d0-a1ec-4c2e-b915-3304f14a4e25
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - profile
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: profile.field_interested_in
+field_name: field_interested_in
+entity_type: profile
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Earn-A-Bike (Monday & Wednesday)'
+      label: 'Earn-A-Bike (Monday & Wednesday)'
+    -
+      value: 'Earn-A-Bike (Tuesday & Thursday)'
+      label: 'Earn-A-Bike (Tuesday & Thursday)'
+    -
+      value: 'Leadership & Advanced Mechanics Class'
+      label: 'Leadership & Advanced Mechanics Class'
+    -
+      value: 'Job Opportunities for Youth'
+      label: 'Job Opportunities for Youth'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 4
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

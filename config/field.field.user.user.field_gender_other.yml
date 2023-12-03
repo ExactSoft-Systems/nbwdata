@@ -1,0 +1,21 @@
+uuid: 39a2e44f-4b25-46b9-840f-0d98e7cd4816
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_gender_other
+  module:
+    - text
+    - user
+id: user.user.field_gender_other
+field_name: field_gender_other
+entity_type: user
+bundle: user
+label: '(Gender) Describe if other'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

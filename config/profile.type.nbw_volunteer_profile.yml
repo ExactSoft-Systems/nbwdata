@@ -1,0 +1,13 @@
+uuid: eb77ac1a-cef5-49cf-830b-317faab87a97
+langcode: en
+status: true
+dependencies: {  }
+id: nbw_volunteer_profile
+label: 'NBW Volunteer Profile'
+display_label: ''
+multiple: false
+registration: false
+roles:
+  volunteer: volunteer
+allow_revisions: false
+new_revision: false

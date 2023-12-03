@@ -1,0 +1,21 @@
+uuid: 1b8c2e55-2863-4559-b693-561463a56bbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - profile.type.nbw_guardian_profile
+  module:
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: profile.nbw_guardian_profile.default
+targetEntityType: profile
+bundle: nbw_guardian_profile
+mode: default
+content: {  }
+hidden:
+  is_default: true

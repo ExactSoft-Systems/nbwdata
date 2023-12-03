@@ -1,0 +1,26 @@
+uuid: 8fb06612-0c1d-4501-a77c-d68592e6118c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_gender_other
+  module:
+    - allowed_formats
+    - text
+    - youth_application_waiver
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: youth_application_waiver.youth_application_waiver.field_gender_other
+field_name: field_gender_other
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: '(Gender) describe if other'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

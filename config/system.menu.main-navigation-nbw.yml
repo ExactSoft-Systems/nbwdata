@@ -1,0 +1,8 @@
+uuid: f1f3cef9-4ede-4c42-b2d4-258d876c2a45
+langcode: en
+status: true
+dependencies: {  }
+id: main-navigation-nbw
+label: 'Main Navigation NBW'
+description: 'main navigation for logged in users'
+locked: false

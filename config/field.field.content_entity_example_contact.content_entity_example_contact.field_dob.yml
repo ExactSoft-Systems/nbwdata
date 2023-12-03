@@ -1,0 +1,21 @@
+uuid: e7184c85-cf9f-43aa-9151-1c46ee227cfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.content_entity_example_contact.field_dob
+  module:
+    - content_entity_example
+    - datetime
+id: content_entity_example_contact.content_entity_example_contact.field_dob
+field_name: field_dob
+entity_type: content_entity_example_contact
+bundle: content_entity_example_contact
+label: DOB
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

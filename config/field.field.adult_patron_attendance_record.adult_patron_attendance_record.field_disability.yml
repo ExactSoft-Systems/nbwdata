@@ -1,0 +1,21 @@
+uuid: 14c9ce96-1f6e-410f-9ec1-d55d93449380
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.adult_patron_attendance_record.field_disability
+  module:
+    - adult_patron_attendance_record
+    - options
+id: adult_patron_attendance_record.adult_patron_attendance_record.field_disability
+field_name: field_disability
+entity_type: adult_patron_attendance_record
+bundle: adult_patron_attendance_record
+label: 'Voluntary Self-Identification of Disability'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

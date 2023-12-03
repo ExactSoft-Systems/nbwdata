@@ -1,0 +1,23 @@
+uuid: 9d10a9af-b6c4-4f04-8c9d-d015566a46f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.nbw_documents_and_wavers
+  module:
+    - text
+id: node.nbw_documents_and_wavers.body
+field_name: body
+entity_type: node
+bundle: nbw_documents_and_wavers
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

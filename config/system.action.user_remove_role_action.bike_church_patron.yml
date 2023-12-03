@@ -1,0 +1,14 @@
+uuid: 44bc690d-67aa-4f04-8289-c02f8fd1b71e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.bike_church_patron
+  module:
+    - user
+id: user_remove_role_action.bike_church_patron
+label: 'Remove the Bike Church Patron role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: bike_church_patron

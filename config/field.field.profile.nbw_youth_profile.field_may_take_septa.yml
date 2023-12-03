@@ -1,0 +1,21 @@
+uuid: 8fb0eaf5-86aa-4faa-9ad1-ba976f822514
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_may_take_septa
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_may_take_septa
+field_name: field_may_take_septa
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'May the participant take SEPTA with NBW for activities?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

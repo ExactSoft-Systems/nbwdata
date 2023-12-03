@@ -1,0 +1,12 @@
+uuid: 8e6dbba0-3e48-4679-9cec-892acfac0d6a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:7715b76e-cacb-4fb7-9e3d-735c87871078'
+id: image_gallery
+label: 'Image Gallery'
+icon_uuid: 7715b76e-cacb-4fb7-9e3d-735c87871078
+icon_default: null
+description: 'Web page type: Image gallery page.'
+behavior_plugins: {  }

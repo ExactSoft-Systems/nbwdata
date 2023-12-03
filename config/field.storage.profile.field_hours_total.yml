@@ -1,0 +1,24 @@
+uuid: 896b9795-ea90-407f-8ca2-b96e91af13f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - profile
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: profile.field_hours_total
+field_name: field_hours_total
+entity_type: profile
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

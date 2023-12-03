@@ -1,0 +1,23 @@
+uuid: 724d0164-4429-4891-a769-f1b557042840
+langcode: en
+status: true
+dependencies:
+  module:
+    - adult_patron_attendance_record
+    - field_permissions
+    - telephone
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: adult_patron_attendance_record.field_phone_number
+field_name: field_phone_number
+entity_type: adult_patron_attendance_record
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

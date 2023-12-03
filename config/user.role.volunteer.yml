@@ -1,0 +1,12 @@
+uuid: 27162b3e-2b6c-4dfa-a59e-372d2cf5489d
+langcode: en
+status: true
+dependencies: {  }
+id: volunteer
+label: Volunteer
+weight: 5
+is_admin: null
+permissions:
+  - 'create field_volunteer_field'
+  - 'edit own field_volunteer_field'
+  - 'view own field_volunteer_field'

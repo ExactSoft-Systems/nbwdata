@@ -1,0 +1,18 @@
+uuid: b256ee19-b3fd-420b-8ac5-85f95e4f3208
+langcode: en
+status: true
+dependencies: {  }
+id: youth
+label: Youth
+weight: 4
+is_admin: null
+permissions:
+  - 'create field_guardian_first_name'
+  - 'create field_guardian_last_name'
+  - 'create field_youth_field'
+  - 'edit own field_guardian_first_name'
+  - 'edit own field_guardian_last_name'
+  - 'edit own field_youth_field'
+  - 'view own field_guardian_first_name'
+  - 'view own field_guardian_last_name'
+  - 'view own field_youth_field'

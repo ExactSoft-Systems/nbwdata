@@ -1,0 +1,23 @@
+uuid: 87705906-6bcf-4d4e-bdc5-ed24ae13fd6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.adult_patron_attendance_record.field_public_assist
+  module:
+    - adult_patron_attendance_record
+    - options
+id: adult_patron_attendance_record.adult_patron_attendance_record.field_public_assist
+field_name: field_public_assist
+entity_type: adult_patron_attendance_record
+bundle: adult_patron_attendance_record
+label: 'Do you receive public assistance?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'No'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

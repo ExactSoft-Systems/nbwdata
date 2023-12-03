@@ -1,0 +1,127 @@
+uuid: 04f6e09f-c2ac-4e92-a046-f36d912b632f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.user.register
+    - field.field.user.user.field_address
+    - field.field.user.user.field_emergency_contact_name
+    - field.field.user.user.field_emergency_contact_phone
+    - field.field.user.user.field_gender
+    - field.field.user.user.field_gender_other
+    - field.field.user.user.field_primary_phone
+    - field.field.user.user.field_primary_phone_type
+    - field.field.user.user.field_race
+    - field.field.user.user.field_race_other
+    - field.field.user.user.field_secondary_email
+    - field.field.user.user.field_secondary_phone
+    - field.field.user.user.field_secondary_phone_type
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - address
+    - field_layout
+    - image
+    - layout_discovery
+    - path
+    - telephone
+    - user
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+_core:
+  default_config_hash: FaQ9Ptcpxpg30AtiqRDtl_8zbJArHP1LPfug_s59TOA
+id: user.user.register
+targetEntityType: user
+bundle: user
+mode: register
+content:
+  account:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  contact:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_address:
+    type: address_default
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_primary_phone:
+    type: telephone_default
+    weight: 8
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_primary_phone_type:
+    type: options_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_secondary_email:
+    type: email_default
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_secondary_phone:
+    type: telephone_default
+    weight: 10
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_secondary_phone_type:
+    type: options_select
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  language:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  timezone:
+    weight: 6
+    region: content
+  user_picture:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  demografics_profiles: true
+  field_emergency_contact_name: true
+  field_emergency_contact_phone: true
+  field_gender: true
+  field_gender_other: true
+  field_race: true
+  field_race_other: true
+  health_record_profiles: true
+  nbw_bike_church_patron_profile_profiles: true
+  nbw_donor_profile_profiles: true
+  nbw_guardian_profile_profiles: true
+  nbw_staff_profile_profiles: true
+  nbw_volunteer_profile_profiles: true
+  nbw_youth_profile_profiles: true

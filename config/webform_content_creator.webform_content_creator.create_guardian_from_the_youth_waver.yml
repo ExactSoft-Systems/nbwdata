@@ -1,0 +1,18 @@
+uuid: cff64a41-f6eb-4c6b-a54f-d61e71a8adb6
+langcode: en
+status: true
+dependencies: {  }
+id: create_guardian_from_the_youth_waver
+title: 'create guardian from the youth waver'
+webform: nbw_youth_application_waiver
+content_type: null
+field_title: null
+use_encrypt: null
+encryption_profile: null
+sync_content: false
+sync_content_delete: false
+sync_content_field: ''
+elements: {  }
+sync_content_node_field: null
+target_entity_type: node
+target_bundle: person

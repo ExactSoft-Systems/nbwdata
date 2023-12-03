@@ -1,0 +1,30 @@
+uuid: bec049fe-2d48-4c68-9776-8868dac6115d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.schema_has_part
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.image_gallery
+  module:
+    - entity_reference_revisions
+id: paragraph.image_gallery.schema_has_part
+field_name: schema_has_part
+entity_type: paragraph
+bundle: image_gallery
+label: Images
+description: 'Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      image: image
+    target_bundles_drag_drop:
+      image:
+        weight: 0
+        enabled: true
+field_type: entity_reference_revisions

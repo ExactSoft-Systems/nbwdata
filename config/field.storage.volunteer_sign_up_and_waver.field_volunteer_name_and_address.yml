@@ -1,0 +1,23 @@
+uuid: 033a7852-6e19-47d1-922c-b31900ce059c
+langcode: en
+status: true
+dependencies:
+  module:
+    - address
+    - field_permissions
+    - volunteer_sign_up_record
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: volunteer_sign_up_and_waver.field_volunteer_name_and_address
+field_name: field_volunteer_name_and_address
+entity_type: volunteer_sign_up_and_waver
+type: address
+settings: {  }
+module: address
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

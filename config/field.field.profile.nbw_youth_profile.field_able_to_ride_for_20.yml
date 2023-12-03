@@ -1,0 +1,21 @@
+uuid: 44f9885e-55ef-4289-8955-bf20be28712b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_able_to_ride_for_20
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_able_to_ride_for_20
+field_name: field_able_to_ride_for_20
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Is the participant able to ride for 20 minutes at a reasonable pace without rest?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,21 @@
+uuid: b67af10a-9bef-4806-808a-3ccc0772ede7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_may_wade
+  module:
+    - options
+    - youth_application_waiver
+id: youth_application_waiver.youth_application_waiver.field_may_wade
+field_name: field_may_wade
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'May the participant wade in water while supervised by NBW staff?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

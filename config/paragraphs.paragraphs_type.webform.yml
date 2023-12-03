@@ -1,0 +1,14 @@
+uuid: 91a87c09-5526-4921-868c-3dcea0b9128f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:cecda3d7-aaf0-486b-b799-8a7391272b9b'
+_core:
+  default_config_hash: WyehVKeOLAWKzbmgsTl7ZcF98n4fMtmld2AhnqAwFeM
+id: webform
+label: Webform
+icon_uuid: cecda3d7-aaf0-486b-b799-8a7391272b9b
+icon_default: null
+description: 'A webform.'
+behavior_plugins: {  }

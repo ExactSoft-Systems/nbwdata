@@ -1,0 +1,29 @@
+uuid: e90003a0-190c-4d16-b461-8460877be243
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.profile.nbw_volunteer_profile.field_hours_total
+    - profile.type.nbw_volunteer_profile
+  module:
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: profile.nbw_volunteer_profile.default
+targetEntityType: profile
+bundle: nbw_volunteer_profile
+mode: default
+content:
+  field_hours_total:
+    type: number
+    weight: 26
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  is_default: true

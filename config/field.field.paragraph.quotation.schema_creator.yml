@@ -1,0 +1,22 @@
+uuid: ea55887b-169e-489a-9b79-3d6c6b7734df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.schema_creator
+    - paragraphs.paragraphs_type.quotation
+id: paragraph.quotation.schema_creator
+field_name: schema_creator
+entity_type: paragraph
+bundle: quotation
+label: Creator
+description: 'The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles: {  }
+field_type: entity_reference

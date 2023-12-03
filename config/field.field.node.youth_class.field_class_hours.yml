@@ -1,0 +1,28 @@
+uuid: 0556165b-cd1b-4d9c-ba7f-43ab9848f21b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_class_hours
+    - node.type.youth_class
+  module:
+    - smart_date
+id: node.youth_class.field_class_hours
+field_name: field_class_hours
+entity_type: node
+bundle: youth_class
+label: 'Class hours'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_duration: 60
+    default_duration_increments: "30\r\n60|1 hour\r\n90\r\n120|2 hours\r\ncustom"
+    default_date_type: ''
+    default_date: ''
+    min: ''
+    max: ''
+default_value_callback: ''
+settings: {  }
+field_type: smartdate

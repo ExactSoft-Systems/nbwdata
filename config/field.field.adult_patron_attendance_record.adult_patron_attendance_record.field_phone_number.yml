@@ -1,0 +1,21 @@
+uuid: a21c095c-4cbc-4a7e-9652-db7c195f7bdf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.adult_patron_attendance_record.field_phone_number
+  module:
+    - adult_patron_attendance_record
+    - telephone
+id: adult_patron_attendance_record.adult_patron_attendance_record.field_phone_number
+field_name: field_phone_number
+entity_type: adult_patron_attendance_record
+bundle: adult_patron_attendance_record
+label: 'Phone Number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

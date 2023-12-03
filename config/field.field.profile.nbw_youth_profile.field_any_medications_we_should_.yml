@@ -1,0 +1,21 @@
+uuid: 13636357-50d5-4f6e-b81d-c99df8f00318
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_any_medications_we_should_
+    - profile.type.nbw_youth_profile
+  module:
+    - text
+id: profile.nbw_youth_profile.field_any_medications_we_should_
+field_name: field_any_medications_we_should_
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Is the participant taking any medications we should know about? If so, please list with instructions:'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,12 @@
+uuid: b3a72676-c8be-4983-8afb-58a755f884cf
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:94de9689-90a3-4626-806b-2574ac5b121b'
+id: collection_page
+label: 'Collection Page'
+icon_uuid: 94de9689-90a3-4626-806b-2574ac5b121b
+icon_default: null
+description: 'Web page type: Collection page.'
+behavior_plugins: {  }

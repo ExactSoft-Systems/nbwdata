@@ -1,0 +1,20 @@
+uuid: 401d3a59-7830-472a-a005-4768d814a715
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nbwtheme
+_core:
+  default_config_hash: 1f3SKPk8jtkxF__zNY6bZUle5rMoR5qi29oHJ9jjQ6A
+id: nbwtheme_page_title
+theme: nbwtheme
+region: header
+weight: -1
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

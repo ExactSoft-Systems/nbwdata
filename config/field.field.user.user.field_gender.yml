@@ -1,0 +1,21 @@
+uuid: d1ba11f6-8c7e-43a0-9543-0afd47c5e72e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_gender
+  module:
+    - options
+    - user
+id: user.user.field_gender
+field_name: field_gender
+entity_type: user
+bundle: user
+label: ' I identify my gender as (check all that apply):'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

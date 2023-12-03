@@ -1,0 +1,16 @@
+uuid: 680e882c-d170-4f36-aab8-894b91938fab
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - node_type_example
+_core:
+  default_config_hash: ioIIGvkXGIf5pjbg7sx9IMjNn1OOm1E-0L4k6glBpoI
+name: 'Example: Basic Content Type'
+type: basic_content_type
+description: 'This is a very basic content type.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

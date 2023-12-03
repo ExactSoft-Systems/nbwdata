@@ -1,0 +1,30 @@
+uuid: d02fbf8b-a838-470c-b7a0-f09a3d797964
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.adult_patron_attendance_records
+  module:
+    - system
+    - views
+  theme:
+    - olivero
+id: views_block__adult_patron_attendance_records_block_1
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:adult_patron_attendance_records-block_1'
+settings:
+  id: 'views_block:adult_patron_attendance_records-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+  exposed: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /bike-church

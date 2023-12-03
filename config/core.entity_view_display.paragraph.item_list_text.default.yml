@@ -1,0 +1,42 @@
+uuid: 4bd7fbd2-c25b-4cd2-98c7-aac4d91779c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.item_list_text.schema_description
+    - field.field.paragraph.item_list_text.schema_item_list_element_text
+    - field.field.paragraph.item_list_text.schema_name
+    - paragraphs.paragraphs_type.item_list_text
+  module:
+    - text
+id: paragraph.item_list_text.default
+targetEntityType: paragraph
+bundle: item_list_text
+mode: default
+content:
+  schema_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  schema_item_list_element_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 54
+    region: content
+  schema_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

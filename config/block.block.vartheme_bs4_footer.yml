@@ -1,0 +1,27 @@
+uuid: 97cb0a0b-9cbd-4b11-8547-a6a0d493a786
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - vartheme_bs4
+_core:
+  default_config_hash: Yt8JpdSFxhLKK0cPcpdvrhwO_IoiQ4QeE3SmH_DEVsg
+id: vartheme_bs4_footer
+theme: vartheme_bs4
+region: footer
+weight: -5
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Footer menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

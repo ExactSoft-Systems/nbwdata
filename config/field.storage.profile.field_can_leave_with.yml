@@ -1,0 +1,23 @@
+uuid: 14d58a1b-24e5-4667-aebb-c31db19c4f77
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - profile
+    - text
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: profile.field_can_leave_with
+field_name: field_can_leave_with
+entity_type: profile
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

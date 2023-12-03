@@ -1,0 +1,21 @@
+uuid: d713864d-5ca1-4be5-8440-0fe7a232473d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_other_way_to_hear
+    - profile.type.nbw_youth_profile
+  module:
+    - text
+id: profile.nbw_youth_profile.field_other_way_to_hear
+field_name: field_other_way_to_hear
+entity_type: profile
+bundle: nbw_youth_profile
+label: '(Other way to hear) Describe if other:'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

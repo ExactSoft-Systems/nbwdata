@@ -1,0 +1,17 @@
+uuid: 428f776a-332a-4d11-8464-33494416c6a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.class
+  enforced:
+    config:
+      - user.role.board_member
+id: class-d534746b6
+label: 'Board Member'
+weight: 6
+internal: true
+audience: outsider
+group_type: class
+permissions_ui: false
+permissions: {  }

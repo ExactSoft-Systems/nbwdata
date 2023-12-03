@@ -1,0 +1,34 @@
+uuid: 513401de-5646-4587-80b3-6f64d118bf3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.file_with_statistics.field_media_file
+    - media.type.file_with_statistics
+  module:
+    - file_download_link
+id: media.file_with_statistics.default
+targetEntityType: media
+bundle: file_with_statistics
+mode: default
+content:
+  field_media_file:
+    type: file_download_link
+    label: visually_hidden
+    settings:
+      link_text: Download
+      link_title: null
+      new_tab: true
+      force_download: true
+      custom_classes: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  name: true
+  thumbnail: true
+  uid: true

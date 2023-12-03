@@ -1,0 +1,21 @@
+uuid: f39ecb62-73fe-41d1-ad47-1955d005e309
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_youth_gender
+  module:
+    - options
+    - youth_application_waiver
+id: youth_application_waiver.youth_application_waiver.field_youth_gender
+field_name: field_youth_gender
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'I identify my gender as (check all that apply):'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

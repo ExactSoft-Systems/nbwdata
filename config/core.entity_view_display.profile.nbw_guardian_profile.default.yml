@@ -1,0 +1,15 @@
+uuid: a300d4de-35b0-4cbd-ad4d-2dfe754b7507
+langcode: en
+status: true
+dependencies:
+  config:
+    - profile.type.nbw_guardian_profile
+id: profile.nbw_guardian_profile.default
+targetEntityType: profile
+bundle: nbw_guardian_profile
+mode: default
+content: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

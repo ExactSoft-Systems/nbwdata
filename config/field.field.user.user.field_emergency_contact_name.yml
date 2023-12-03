@@ -1,0 +1,21 @@
+uuid: 360cb66f-54d0-4511-8df9-a4b61fa3ba18
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_emergency_contact_name
+  module:
+    - text
+    - user
+id: user.user.field_emergency_contact_name
+field_name: field_emergency_contact_name
+entity_type: user
+bundle: user
+label: 'Emergency Contact Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

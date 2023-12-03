@@ -1,0 +1,21 @@
+uuid: 667e49a4-ab2a-4b08-9c5e-406e0fa22ab4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.schema_text
+    - paragraphs.paragraphs_type.statement
+  module:
+    - text
+id: paragraph.statement.schema_text
+field_name: schema_text
+entity_type: paragraph
+bundle: statement
+label: Text
+description: 'The textual content of this CreativeWork.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

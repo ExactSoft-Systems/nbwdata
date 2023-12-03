@@ -1,0 +1,12 @@
+uuid: e1312be1-57bf-413d-879b-4d874585f288
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:19482b05-d246-4e7e-a295-9c607ab22999'
+id: header
+label: Header
+icon_uuid: 19482b05-d246-4e7e-a295-9c607ab22999
+icon_default: null
+description: 'A heading.'
+behavior_plugins: {  }

@@ -1,0 +1,59 @@
+uuid: 0d6769dc-6eca-4db7-ac4e-e581d2b60e51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.content_entity_example_contact.content_entity_example_contact.field_dob
+  module:
+    - content_entity_example
+    - datetime
+    - user
+id: content_entity_example_contact.content_entity_example_contact.default
+targetEntityType: content_entity_example_contact
+bundle: content_entity_example_contact
+mode: default
+content:
+  field_dob:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: -1
+    region: content
+  first_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -5
+    region: content
+  name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -6
+    region: content
+  role:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -2
+    region: content
+  user_id:
+    type: author
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: -3
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

@@ -1,0 +1,346 @@
+uuid: c603f190-c50d-4791-a015-a0f2bad11a31
+langcode: en
+status: open
+dependencies:
+  module:
+    - nbw_users_registration
+weight: 0
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: bike_church_patron_waiver
+title: 'Bike Church Patron Waiver'
+description: 'the waiver for an adult workshop (Bike Church)'
+category: 'NBW Forms'
+elements: |-
+  welcome_to_bike_church_:
+    '#type': webform_card
+    '#title': 'Welcome to Bike Church!'
+    when_was_last_updated:
+      '#type': label
+      '#title': 'Updated June 2022'
+    markup:
+      '#type': webform_markup
+      '#markup': |-
+        <span style="font-size:9.5pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">Bike Church is a program of Neighborhood Bike Works (NBW). NBW is a nonprofit that provides educational, recreational, and career-building opportunities for youth through bicycling; it also promotes cycling as a healthy, affordable, and environmentally-friendly form of transportation.<br />
+        Bike Church is made possible by volunteers, known as facilitators, who are here to help you fix your bike and provide used parts at a reasonable cost. All income made during Bike Church goes directly to NBW programs and helps us keep the doors open. If possible, please donate $5-10 each time you come to use our space and tools, and please help us with a chore before you leave!</span></span></span></span></span></span><br />
+        <br />
+        The Rules of Bike Church:<br />
+        <br />
+        1. Basic shop tools will be assigned to you; if you require more advanced shop tools, please ask a facilitator.<br />
+        <br />
+        2. Parts cost money. If you require parts for your bike and you get them from our shop, then you must pay. Please ask a facilitator for prices and write them on your sales receipt.<br />
+        <br />
+        3. Before you pay at the register, a facilitator must check in your tools and initial your sales receipt.<br />
+        <br />
+        4. In exchange for using our shop and tools, please complete one chore before you leave the shop. Thanks!
+    participant_information_header:
+      '#type': label
+      '#title': 'Participant Information - PLEASE FILL OUT COMPLETELY'
+    name_and_address:
+      '#type': address
+      '#title': 'Name And Address'
+      '#required': true
+      '#default_value':
+        country_code: US
+        langcode: ''
+        given_name: ''
+        family_name: ''
+        organization: ''
+        address_line1: ''
+        address_line2: ''
+        locality: ''
+        administrative_area: PA
+        postal_code: ''
+        additional_name: null
+        sorting_code: null
+        dependent_locality: null
+      '#available_countries':
+        - US
+    participant_telephone:
+      '#type': tel
+      '#title': 'Participant Telephone'
+    participant_email:
+      '#type': email
+      '#title': 'Participant Email'
+    emergency_contact_full_name:
+      '#type': textfield
+      '#title': 'Emergency Contact Full Name'
+      '#required': true
+    emergency_contact_telephone:
+      '#type': tel
+      '#title': 'Emergency Contact Telephone'
+      '#required': true
+    signature_of_participant:
+      '#type': textfield
+      '#title': 'Signature of Participant:'
+      '#description': '<small class="description text-muted"><strong><span>by typing your full name above, you are providing your signature.</span></strong></small>'
+      '#required': true
+    date_of_waiver_signing:
+      '#type': date
+      '#title': Date
+      '#required': true
+      '#date_date_format': ''
+    join_our_email_list:
+      '#type': radios
+      '#title': 'Join our email list?'
+      '#description': |-
+        Would you like to join our monthly email list, the <strong>Bike Street Journal</strong>?<br />
+        You can choose to opt out at any time.
+      '#options': yes_no
+      '#default_value': 'Yes'
+  liability_waiver:
+    '#type': webform_card
+    '#title': 'LIABILITY WAIVER'
+    liability_waver_bike_church_text_markup:
+      '#type': webform_markup
+      '#markup': |-
+        Bike Church Patron Liability Waiver<br />
+        The undersigned hereby recognizes that bicycling and bicycle repair are not absolutely safe, that accidents can and do occur, including injuries that may be serious and permanent, despite all reasonable care, and that Neighborhood Bike Works, Inc. (referred to herein as &ldquo;Neighborhood Bike Works&rdquo;) does not inspect the bicycles, bicycle repair stands, tools, or any other equipment it provides or make any representations with regard to their safety, performance, or fitness for a particular purpose.<br />
+        <br />
+        In consideration of the services to be rendered to the undersigned by Neighborhood Bike Works, the undersigned for themselves and their heirs, personal representatives, and assignees, expressly releases, waives, and covenants not to sue Neighborhood Bike Works, its shareholders, members, officers, directors, partners, employees, agents, volunteers, successors, and assigns (&ldquo;Released Parties&rdquo;), with respect to any liability for injury, death, property loss, claim(s), demand(s), cause(s) of action, damage(s), loss, or expense, including court costs and reasonable attorneys&rsquo; fees, of any kind or nature which may arise out of, result from, or is related to bicycle instruction, bicycle training, bicycle repairs, bicycle mechanics, bicycle safety instruction, bicycle rides, bicycle tours, bicycle competition, or any other indoor or outdoor activity or field trip conducted under the supervision of Neighborhood Bike Works, including claims for liability caused in whole or in part by the negligence of any of the Released Parties. The undersigned further agrees that if they or anyone on their behalf makes a claim for liability against the Released Parties, they will indemnify, defend, and hold harmless each of the Released Parties from any such liability which may be incurred as a result of such claim.<br />
+        <br />
+        By signing this form, the undersigned, being a person of at least eighteen (18) years of age, acknowledges the foregoing, that I am signing this form and giving up substantial legal rights voluntarily, and that I give Neighborhood Bike Works and any of their employees, volunteers, successors, assigns, trustees, officers, and agents the power to authorize medical care for the participant.<br />
+        <br />
+        I also acknowledge that the participant should properly use a bicycle helmet whenever riding a bicycle.<br />
+        &nbsp;
+    consent_to_liability_waiver_:
+      '#type': textfield
+      '#title': 'Consent to Liability Waiver:'
+      '#description': '<strong>By typing your full name below, you are providing your signature.</strong>'
+  bike_church_patron_media_release:
+    '#type': webform_card
+    '#title': 'Bike Church Patron Media Release (Optional)'
+    media_release_markup_01:
+      '#type': webform_markup
+      '#markup': '<span style="font-size:9.5pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">In consideration of the opportunity to participate in the programs offered by Neighborhood Bike Works, I hereby give permission to Neighborhood Bike Works, its employees, affiliates, representatives, contractors, agents, volunteers, and members of the media to interview, audiotape, photograph, videotape, film, or capture by any other electronic means my image and speech, and, within its absolute discretion, to release, disseminate, or use, in any manner it sees fit including publications and web pages, the resulting images, testimonials, and any other information contained therein for the purpose of promoting the objectives of Neighborhood Bike Works and its programs</span></span></span></span></span></span>'
+    media_release_yes_no:
+      '#type': radios
+      '#title': 'media release yes no'
+      '#title_display': invisible
+      '#options': yes_no
+      '#default_value': 'Yes'
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: both
+  form_submit_once: false
+  form_open_message: ''
+  form_close_message: ''
+  form_exception_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: false
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  nbw_bike_church_patron_users_registration:
+    id: nbw_users_registration
+    handler_id: nbw_bike_church_patron_users_registration
+    label: 'NBW Bike Church Patron Users Registration'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      create_user:
+        enabled: true
+        roles:
+          bike_church_patron: bike_church_patron
+          authenticated: authenticated
+          content_editor: '0'
+          administrator: '0'
+          youth: '0'
+          volunteer: '0'
+          board_member: '0'
+          demo_region_admin: '0'
+          demo_region_user: '0'
+          staff: '0'
+          guardian: '0'
+          donor: '0'
+        admin_approval: false
+        admin_approval_message: ''
+        email_verification: true
+        email_verification_message: ''
+        success_message: ''
+      update_user:
+        enabled: false
+      user_field_mapping:
+        name_and_address: field_address
+        participant_telephone: field_primary_phone
+        participant_email: mail
+        emergency_contact_full_name: field_emergency_contact_name
+        emergency_contact_telephone: field_emergency_contact_phone
+variants: {  }

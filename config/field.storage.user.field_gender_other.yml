@@ -1,0 +1,24 @@
+uuid: aa795a11-72e8-484d-890c-06918d28c27d
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - text
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: user.field_gender_other
+field_name: field_gender_other
+entity_type: user
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

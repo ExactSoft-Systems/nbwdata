@@ -1,0 +1,23 @@
+uuid: 188b8dc6-3037-4af3-8065-d4e7d1e3463a
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - profile
+    - text
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: profile.field_any_additional_concerns
+field_name: field_any_additional_concerns
+entity_type: profile
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

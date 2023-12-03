@@ -1,0 +1,26 @@
+uuid: a2f889bf-6fb6-4e16-8bb7-07a8ecda7f43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_youth_allergies
+  module:
+    - allowed_formats
+    - text
+    - youth_application_waiver
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: youth_application_waiver.youth_application_waiver.field_youth_allergies
+field_name: field_youth_allergies
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'Please list any allergies the participant has:'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,14 @@
+uuid: 3a4f9948-6380-4096-ac24-19fc3df98968
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.class
+id: class-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: class
+permissions_ui: true
+permissions: {  }

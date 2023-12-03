@@ -1,0 +1,14 @@
+uuid: 10018302-fadb-499e-b944-d5ca744a50f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.board_member
+  module:
+    - user
+id: user_add_role_action.board_member
+label: 'Add the Board Member role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: board_member

@@ -1,0 +1,26 @@
+uuid: 51b11a9b-f493-4dd3-83fa-f309b4763888
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_may_leave_with
+  module:
+    - allowed_formats
+    - text
+    - youth_application_waiver
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: youth_application_waiver.youth_application_waiver.field_may_leave_with
+field_name: field_may_leave_with
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'If not, please list everyone the participant can leave with, and their relationship to the participant:'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,13 @@
+uuid: 5ca52682-7ccf-4f2e-b148-c4c79d4d8642
+langcode: en
+status: true
+dependencies: {  }
+id: nbw_bike_church_patron_profile
+label: 'NBW Bike Church Patron Profile'
+display_label: ''
+multiple: false
+registration: false
+roles:
+  bike_church_patron: bike_church_patron
+allow_revisions: false
+new_revision: false

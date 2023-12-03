@@ -1,0 +1,25 @@
+uuid: e5868254-2615-44b6-b40b-f9786cf6a7e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - class_session
+    - system
+  theme:
+    - olivero
+id: classsessionstudentstableblock_2
+theme: olivero
+region: content
+weight: -9
+provider: null
+plugin: class_session_students_table_block
+settings:
+  id: class_session_students_table_block
+  label: 'Class Session Students Table block'
+  label_display: visible
+  provider: class_session
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/class-session/*'

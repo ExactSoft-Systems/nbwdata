@@ -1,0 +1,21 @@
+uuid: a0b66f6c-a60c-4f8c-8947-1969d34024de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_preferred_contact_method
+  module:
+    - options
+    - youth_application_waiver
+id: youth_application_waiver.youth_application_waiver.field_preferred_contact_method
+field_name: field_preferred_contact_method
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'Preferred Contact Method'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

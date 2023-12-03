@@ -1,0 +1,37 @@
+uuid: d333d553-094a-438a-96e5-6b7923d2704a
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: user.field_gender
+field_name: field_gender
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Male
+      label: Male
+    -
+      value: Female
+      label: Female
+    -
+      value: Transgender
+      label: Transgender
+    -
+      value: Nonconforming
+      label: Nonconforming
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 5
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

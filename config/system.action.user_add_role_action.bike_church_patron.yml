@@ -1,0 +1,14 @@
+uuid: 22111f6a-6eea-4cd2-ac70-ef6614b65644
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.bike_church_patron
+  module:
+    - user
+id: user_add_role_action.bike_church_patron
+label: 'Add the Bike Church Patron role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: bike_church_patron

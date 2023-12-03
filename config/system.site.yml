@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
+langcode: en
+uuid: 5233a750-0369-4935-9c71-47053b3d8f67
+name: 'Neighborhood Bike Works'
+mail: admin@example.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/48
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en

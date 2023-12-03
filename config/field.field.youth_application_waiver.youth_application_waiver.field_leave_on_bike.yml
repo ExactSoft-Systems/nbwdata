@@ -1,0 +1,21 @@
+uuid: f21817d5-d07d-4cbf-87e3-c9b7a53239b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_leave_on_bike
+  module:
+    - options
+    - youth_application_waiver
+id: youth_application_waiver.youth_application_waiver.field_leave_on_bike
+field_name: field_leave_on_bike
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'May the participant leave NBW activities on a bicycle by themselves?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

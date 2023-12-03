@@ -1,0 +1,29 @@
+uuid: ea5fb464-2f74-4441-984b-b8941a9f543b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_class
+    - group.type.class
+    - node.type.youth_class
+id: group.class.field_class
+field_name: field_class
+entity_type: group
+bundle: class
+label: Class
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      youth_class: youth_class
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: null
+field_type: entity_reference

@@ -1,0 +1,19 @@
+uuid: 9130930c-aec6-4d7b-82aa-fd6b10e1447c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: bGxZZFF3KZ6wrBM9gs1atSH4ilcr0rPmwxiMzlcZa3U
+name: 'Class or Event'
+type: event
+description: 'Content that describes something happening at a specific time - such as class, workshop, Bike Church session and so on'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

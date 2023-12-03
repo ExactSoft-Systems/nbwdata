@@ -1,0 +1,21 @@
+uuid: 2308f9c5-72c2-42a2-adf4-4408486c0c55
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.schema_text
+    - paragraphs.paragraphs_type.quotation
+  module:
+    - text
+id: paragraph.quotation.schema_text
+field_name: schema_text
+entity_type: paragraph
+bundle: quotation
+label: Text
+description: 'The textual content of this CreativeWork.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

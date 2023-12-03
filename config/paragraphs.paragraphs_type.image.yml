@@ -1,0 +1,12 @@
+uuid: fc5bb51c-fe01-40d8-a77f-c32b1d7bf08c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:4474ea5d-917d-49d7-b1c5-f37dd85aa249'
+id: image
+label: Image
+icon_uuid: 4474ea5d-917d-49d7-b1c5-f37dd85aa249
+icon_default: null
+description: 'An image file.'
+behavior_plugins: {  }

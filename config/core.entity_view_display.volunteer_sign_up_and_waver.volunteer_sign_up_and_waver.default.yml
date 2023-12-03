@@ -1,0 +1,150 @@
+uuid: fd8a0135-3188-4888-b3dd-7043ebaac850
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.volunteer_sign_up_and_waver.volunteer_sign_up_and_waver.field_consent_to_liability_waive
+    - field.field.volunteer_sign_up_and_waver.volunteer_sign_up_and_waver.field_email
+    - field.field.volunteer_sign_up_and_waver.volunteer_sign_up_and_waver.field_phone_number
+    - field.field.volunteer_sign_up_and_waver.volunteer_sign_up_and_waver.field_volunteer_name_and_address
+  module:
+    - address
+    - layout_builder
+    - layout_discovery
+    - telephone
+    - text
+    - volunteer_sign_up_record
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          3132587b-1929-437e-99be-8f4bc15312bd:
+            uuid: 3132587b-1929-437e-99be-8f4bc15312bd
+            region: content
+            configuration:
+              id: 'field_block:volunteer_sign_up_and_waver:volunteer_sign_up_and_waver:field_volunteer_name_and_address'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: address_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          cbc66f7b-b2c5-428c-b2c0-6e6fea9e7171:
+            uuid: cbc66f7b-b2c5-428c-b2c0-6e6fea9e7171
+            region: content
+            configuration:
+              id: 'field_block:volunteer_sign_up_and_waver:volunteer_sign_up_and_waver:field_email'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: basic_string
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          35fa4fbb-ef8e-465a-acf2-d86cc0c5cfb2:
+            uuid: 35fa4fbb-ef8e-465a-acf2-d86cc0c5cfb2
+            region: content
+            configuration:
+              id: 'field_block:volunteer_sign_up_and_waver:volunteer_sign_up_and_waver:field_phone_number'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: telephone_link
+                label: above
+                settings:
+                  title: ''
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          d2b7ebf5-2f22-4659-a992-90dbb58f0107:
+            uuid: d2b7ebf5-2f22-4659-a992-90dbb58f0107
+            region: content
+            configuration:
+              id: 'field_block:volunteer_sign_up_and_waver:volunteer_sign_up_and_waver:field_consent_to_liability_waive'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          6c1f32f5-8556-45f5-a750-fde3395a8ac0:
+            uuid: 6c1f32f5-8556-45f5-a750-fde3395a8ac0
+            region: content
+            configuration:
+              id: 'field_block:volunteer_sign_up_and_waver:volunteer_sign_up_and_waver:notes'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+        third_party_settings: {  }
+id: volunteer_sign_up_and_waver.volunteer_sign_up_and_waver.default
+targetEntityType: volunteer_sign_up_and_waver
+bundle: volunteer_sign_up_and_waver
+mode: default
+content:
+  field_consent_to_liability_waive:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_phone_number:
+    type: telephone_link
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_volunteer_name_and_address:
+    type: address_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  notes:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  uid: true

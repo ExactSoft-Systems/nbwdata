@@ -1,0 +1,31 @@
+uuid: 2cd0e78b-7aad-4232-81cf-c575c53f5184
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - youth_application_waiver
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: youth_application_waiver.field_has_inhaler
+field_name: field_has_inhaler
+entity_type: youth_application_waiver
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Yes'
+      label: 'Yes'
+    -
+      value: 'No'
+      label: 'No'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

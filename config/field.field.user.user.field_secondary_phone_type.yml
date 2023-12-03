@@ -1,0 +1,21 @@
+uuid: db463954-f762-4ba3-ae55-523145713493
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_secondary_phone_type
+  module:
+    - options
+    - user
+id: user.user.field_secondary_phone_type
+field_name: field_secondary_phone_type
+entity_type: user
+bundle: user
+label: 'Secondary Phone Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

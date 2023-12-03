@@ -1,0 +1,21 @@
+uuid: fff80b4b-fa70-4f19-91be-f07ab2cc73a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_have_a_weekly_transit_pass
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_have_a_weekly_transit_pass
+field_name: field_have_a_weekly_transit_pass
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Does the participant have a weekly transit pass provided by their school?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

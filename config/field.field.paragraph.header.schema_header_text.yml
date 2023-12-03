@@ -1,0 +1,19 @@
+uuid: a2861c8e-994a-4920-9131-10bb34b08c4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.schema_header_text
+    - paragraphs.paragraphs_type.header
+id: paragraph.header.schema_header_text
+field_name: schema_header_text
+entity_type: paragraph
+bundle: header
+label: 'Header text'
+description: 'A heading to be displayed on the page.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

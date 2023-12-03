@@ -1,0 +1,21 @@
+uuid: ac7ad144-36c3-4d9e-88c3-1d9d8890871e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field__consent_to_liability_waiv
+    - profile.type.nbw_youth_profile
+  module:
+    - text
+id: profile.nbw_youth_profile.field__consent_to_liability_waiv
+field_name: field__consent_to_liability_waiv
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Consent to Liability Waiver:'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

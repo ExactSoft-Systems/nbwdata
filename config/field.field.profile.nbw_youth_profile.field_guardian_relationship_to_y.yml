@@ -1,0 +1,21 @@
+uuid: 71f7f434-79a6-4442-a246-996c111751e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_guardian_relationship_to_y
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_guardian_relationship_to_y
+field_name: field_guardian_relationship_to_y
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Guardian Relationship To Youth'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

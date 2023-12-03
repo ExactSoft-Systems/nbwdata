@@ -1,0 +1,12 @@
+uuid: e2d5bfdb-ad49-4bc3-b58b-58cba8561fe5
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:8150d742-1c48-4195-a971-f8515ed8a4c1'
+id: item_list_link
+label: 'List (Links)'
+icon_uuid: 8150d742-1c48-4195-a971-f8515ed8a4c1
+icon_default: null
+description: 'A list of links.'
+behavior_plugins: {  }

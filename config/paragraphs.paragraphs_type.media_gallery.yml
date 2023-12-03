@@ -1,0 +1,12 @@
+uuid: 4aff6883-4417-4dfb-a92c-30bd88fde05c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:b52d8062-d3c9-4a45-9aaf-88eee498e3df'
+id: media_gallery
+label: 'Media Gallery'
+icon_uuid: b52d8062-d3c9-4a45-9aaf-88eee498e3df
+icon_default: null
+description: 'Web page type: Media gallery page. A mixed-media page that can contain media such as images, videos, and other multimedia.'
+behavior_plugins: {  }

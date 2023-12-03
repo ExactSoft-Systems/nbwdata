@@ -1,0 +1,41 @@
+uuid: b8031ebb-0fae-4161-bb3e-35788d8745e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.youth_class.body
+    - field.field.node.youth_class.field_class_hours
+    - field.field.node.youth_class.field_start_date
+    - field.field.node.youth_class.field_test_field
+    - field.field.node.youth_class.field_youth_program
+    - node.type.youth_class
+  module:
+    - text
+    - user
+id: node.youth_class.teaser
+targetEntityType: node
+bundle: youth_class
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_class_hours: true
+  field_start_date: true
+  field_test_field: true
+  field_youth_program: true

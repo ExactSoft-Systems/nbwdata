@@ -1,0 +1,14 @@
+uuid: dff4c1f6-1975-4f93-b27d-e5f250c7880c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.youth
+  module:
+    - user
+id: user_add_role_action.youth
+label: 'Add the Youth role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: youth

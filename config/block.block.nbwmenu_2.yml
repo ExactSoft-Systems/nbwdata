@@ -1,0 +1,25 @@
+uuid: ef540d0e-e041-4d9d-a845-43772b9c0f82
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.nbw-menu
+  module:
+    - system
+  theme:
+    - olivero
+id: nbwmenu_2
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: 'system_menu_block:nbw-menu'
+settings:
+  id: 'system_menu_block:nbw-menu'
+  label: 'NBW Menu'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

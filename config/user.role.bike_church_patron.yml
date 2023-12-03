@@ -1,0 +1,9 @@
+uuid: 4f8d1075-0eec-4777-b2de-4f40c6f526e0
+langcode: en
+status: true
+dependencies: {  }
+id: bike_church_patron
+label: 'Bike Church Patron'
+weight: 7
+is_admin: null
+permissions: {  }

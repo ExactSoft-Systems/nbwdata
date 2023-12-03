@@ -1,0 +1,30 @@
+uuid: db93e04d-23ec-46f0-93cd-c9e49131cff8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:5b89e087-9cd1-44b7-a211-7352b5913c71'
+  module:
+    - block_content
+    - system
+  theme:
+    - uswds_base
+id: blockbuttoncheckinforclass
+theme: uswds_base
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:5b89e087-9cd1-44b7-a211-7352b5913c71'
+settings:
+  id: 'block_content:5b89e087-9cd1-44b7-a211-7352b5913c71'
+  label: 'Block Button Check In For Class'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/classes\r\n/classes-today\r\n/class-session/*"

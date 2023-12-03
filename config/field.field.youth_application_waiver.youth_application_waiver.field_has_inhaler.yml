@@ -1,0 +1,21 @@
+uuid: dd631d28-c785-4612-a170-ddeba90a53c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_has_inhaler
+  module:
+    - options
+    - youth_application_waiver
+id: youth_application_waiver.youth_application_waiver.field_has_inhaler
+field_name: field_has_inhaler
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'Does the participant have and use an asthma inhaler on a daily basis?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,21 @@
+uuid: 6830bddb-67e5-4d5f-a17a-18632a170b13
+langcode: en
+status: true
+dependencies:
+  config:
+    - profile.type.nbw_donor_profile
+  module:
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: profile.nbw_donor_profile.default
+targetEntityType: profile
+bundle: nbw_donor_profile
+mode: default
+content: {  }
+hidden:
+  is_default: true

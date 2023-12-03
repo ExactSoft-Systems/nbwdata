@@ -1,0 +1,19 @@
+uuid: 45617d5a-02cc-4510-800f-32e9511ada4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.schema_name
+    - paragraphs.paragraphs_type.item_list_link
+id: paragraph.item_list_link.schema_name
+field_name: schema_name
+entity_type: paragraph
+bundle: item_list_link
+label: Name
+description: 'The name of the item.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

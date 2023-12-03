@@ -1,0 +1,12 @@
+uuid: 704db0a3-fa76-49ca-b964-38f84f488196
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:8ac5331a-cce3-42cc-b8f1-293a05ce7e89'
+id: video_gallery
+label: 'Video Gallery'
+icon_uuid: 8ac5331a-cce3-42cc-b8f1-293a05ce7e89
+icon_default: null
+description: 'Web page type: Video gallery page.'
+behavior_plugins: {  }

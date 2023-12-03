@@ -1,0 +1,24 @@
+uuid: 2053b40f-4b94-44a4-9cd6-54be3d49ba65
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - youth_application_waiver
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: youth_application_waiver.field_current_grade_level
+field_name: field_current_grade_level
+entity_type: youth_application_waiver
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

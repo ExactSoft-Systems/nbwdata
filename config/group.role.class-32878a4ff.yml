@@ -1,0 +1,17 @@
+uuid: 0620fe88-8c92-4a02-b819-a53f5b925944
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.class
+  enforced:
+    config:
+      - user.role.donor
+id: class-32878a4ff
+label: Donor
+weight: 12
+internal: true
+audience: outsider
+group_type: class
+permissions_ui: false
+permissions: {  }

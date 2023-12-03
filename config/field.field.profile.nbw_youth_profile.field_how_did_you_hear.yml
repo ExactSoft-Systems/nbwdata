@@ -1,0 +1,21 @@
+uuid: 6990786e-7c0d-4c07-99de-e81a66d0232c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_how_did_you_hear
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_how_did_you_hear
+field_name: field_how_did_you_hear
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'How did your family hear about NBW? (check all that apply):'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,13 @@
+uuid: 978282cd-2a24-4cf3-a983-042e9cd0ea82
+langcode: en
+status: true
+dependencies: {  }
+id: nbw_staff_profile
+label: 'NBW Staff Profile'
+display_label: ''
+multiple: false
+registration: false
+roles:
+  staff: staff
+allow_revisions: false
+new_revision: false

@@ -1,0 +1,14 @@
+multiple_registration_pages_allowed_list:
+  youth: youth
+  anonymous: 0
+  authenticated: 0
+  content_editor: 0
+  administrator: 0
+  volunteer: 0
+  board_member: 0
+  bike_church_patron: 0
+  demo_region_admin: 0
+  demo_region_user: 0
+  staff: 0
+  guardian: 0
+  donor: 0

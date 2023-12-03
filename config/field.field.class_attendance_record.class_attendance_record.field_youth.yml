@@ -1,0 +1,42 @@
+uuid: 72cb84a8-2cb6-4cc0-a78a-8ca732993cf4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.class_attendance_record.field_youth
+  module:
+    - class_attendance_record
+id: class_attendance_record.class_attendance_record.field_youth
+field_name: field_youth
+entity_type: class_attendance_record
+bundle: class_attendance_record
+label: Youth
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: role
+      role:
+        youth: youth
+        content_editor: '0'
+        administrator: '0'
+        volunteer: '0'
+        board_member: '0'
+        bike_church_patron: '0'
+        demo_region_admin: '0'
+        demo_region_user: '0'
+        staff: '0'
+        guardian: '0'
+        donor: '0'
+    include_anonymous: true
+field_type: entity_reference

@@ -1,0 +1,26 @@
+uuid: 66942d89-2643-469f-9f7b-43c0a0f95f8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.adult_patron_waver.field_signature
+  module:
+    - adult_patron_waver
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: adult_patron_waver.adult_patron_waver.field_signature
+field_name: field_signature
+entity_type: adult_patron_waver
+bundle: adult_patron_waver
+label: Signature
+description: 'By typing your name here you agree with everything we said'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

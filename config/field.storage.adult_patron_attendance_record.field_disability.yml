@@ -1,0 +1,34 @@
+uuid: 06f04aee-fb95-4894-ac57-70adbef392ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - adult_patron_attendance_record
+    - field_permissions
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: adult_patron_attendance_record.field_disability
+field_name: field_disability
+entity_type: adult_patron_attendance_record
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'yes'
+      label: 'YES, I HAVE A DISABILITY (or previously had a disability)'
+    -
+      value: 'no'
+      label: 'NO, I DON’T HAVE A DISABILITY'
+    -
+      value: 'don''t say'
+      label: 'I DON’T WISH TO ANSWER'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

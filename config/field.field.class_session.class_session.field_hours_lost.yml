@@ -1,0 +1,24 @@
+uuid: 742b26d9-47f7-4bf7-ae0d-5d00685f9622
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.class_session.field_hours_lost
+  module:
+    - class_session
+id: class_session.class_session.field_hours_lost
+field_name: field_hours_lost
+entity_type: class_session
+bundle: class_session
+label: 'Hours Lost'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

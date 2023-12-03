@@ -1,0 +1,14 @@
+uuid: 4cdd8ac9-3d4c-429c-8f70-5df85b5f14fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.guardian
+  module:
+    - user
+id: user_add_role_action.guardian
+label: 'Add the Guardian role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: guardian

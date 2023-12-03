@@ -1,0 +1,31 @@
+uuid: 9834702c-8e09-46db-ae75-112b35f53f39
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.remote_video.schema_main_entity_of_page
+    - paragraphs.paragraphs_type.remote_video
+  module:
+    - field_layout
+    - layout_discovery
+    - media_library
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.remote_video.default
+targetEntityType: paragraph
+bundle: remote_video
+mode: default
+content:
+  schema_main_entity_of_page:
+    type: media_library_widget
+    weight: 109
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

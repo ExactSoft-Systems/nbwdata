@@ -1,0 +1,59 @@
+uuid: 28aeebeb-d9ea-4d80-81f6-5e32c2ce32aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_node
+    - node.type.article
+    - node.type.basic_content_type
+    - node.type.class_roster
+    - node.type.event
+    - node.type.locked_content_type
+    - node.type.page
+    - node.type.place
+    - node.type.product
+    - node.type.rest_example_test
+    - node.type.testing_example
+    - node.type.webform
+    - node.type.webform_demo_event
+    - node.type.webform_demo_region
+    - node.type.youth_class
+    - node.type.youth_program
+    - paragraphs.paragraphs_type.node
+_core:
+  default_config_hash: MWKu2Px3WLFtZUle7pyQBw9kPY-Ca6-_NaS5GeXmktw
+id: paragraph.node.field_node
+field_name: field_node
+entity_type: paragraph
+bundle: node
+label: Content
+description: 'A piece of content.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+      basic_content_type: basic_content_type
+      event: event
+      locked_content_type: locked_content_type
+      page: page
+      place: place
+      rest_example_test: rest_example_test
+      testing_example: testing_example
+      webform: webform
+      webform_demo_event: webform_demo_event
+      webform_demo_region: webform_demo_region
+      youth_class: youth_class
+      youth_program: youth_program
+      product: product
+      class_roster: class_roster
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: null
+field_type: entity_reference

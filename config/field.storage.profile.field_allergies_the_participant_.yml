@@ -1,0 +1,23 @@
+uuid: 423ab1be-a31f-4b6f-99f8-58f334afd131
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - profile
+    - text
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: profile.field_allergies_the_participant_
+field_name: field_allergies_the_participant_
+entity_type: profile
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

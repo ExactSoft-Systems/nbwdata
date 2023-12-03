@@ -1,0 +1,9 @@
+uuid: 646411a4-3f6b-4688-aaf0-ba715cdc05e9
+langcode: en
+status: true
+dependencies: {  }
+id: guardian
+label: Guardian
+weight: 11
+is_admin: null
+permissions: {  }

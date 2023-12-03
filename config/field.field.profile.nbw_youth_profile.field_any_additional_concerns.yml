@@ -1,0 +1,21 @@
+uuid: e71ba72b-ea7c-45e7-bb44-0abe4e3f7817
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_any_additional_concerns
+    - profile.type.nbw_youth_profile
+  module:
+    - text
+id: profile.nbw_youth_profile.field_any_additional_concerns
+field_name: field_any_additional_concerns
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Please describe any medical, mobility, or mental health concerns we should know about in order to best serve the participant''s needs:'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

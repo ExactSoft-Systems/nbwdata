@@ -1,0 +1,15 @@
+uuid: c7e25cd9-f25a-49f3-9ff4-4c886173e558
+langcode: en
+status: true
+dependencies:
+  config:
+    - profile.type.nbw_donor_profile
+id: profile.nbw_donor_profile.default
+targetEntityType: profile
+bundle: nbw_donor_profile
+mode: default
+content: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

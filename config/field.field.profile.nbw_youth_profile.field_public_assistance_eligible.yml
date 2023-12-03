@@ -1,0 +1,21 @@
+uuid: 80ae457c-6b71-4b42-8acd-6056c595a466
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_public_assistance_eligible
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_public_assistance_eligible
+field_name: field_public_assistance_eligible
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Public Assistance Eligible'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

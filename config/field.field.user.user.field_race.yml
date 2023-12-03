@@ -1,0 +1,30 @@
+uuid: 49f93504-b73f-418c-8e41-44e6aca16d95
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_race
+  module:
+    - multiple_registration
+    - options
+    - user
+third_party_settings:
+  multiple_registration:
+    user_additional_register_form_required:
+      authenticated: 0
+      youth: 0
+    user_additional_register_form:
+      authenticated: 0
+      youth: 0
+id: user.user.field_race
+field_name: field_race
+entity_type: user
+bundle: user
+label: 'I identify my race as (check all that apply):'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

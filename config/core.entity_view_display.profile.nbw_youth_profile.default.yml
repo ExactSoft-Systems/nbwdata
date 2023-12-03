@@ -1,0 +1,288 @@
+uuid: 46a735d4-a672-445f-90be-6ce620d78a00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.profile.nbw_youth_profile.field__consent_to_liability_waiv
+    - field.field.profile.nbw_youth_profile.field__emergency_contact_name
+    - field.field.profile.nbw_youth_profile.field__emergency_contact_relatio
+    - field.field.profile.nbw_youth_profile.field_able_to_ride_a_bike
+    - field.field.profile.nbw_youth_profile.field_able_to_ride_for_20
+    - field.field.profile.nbw_youth_profile.field_allergies_the_participant_
+    - field.field.profile.nbw_youth_profile.field_any_additional_concerns
+    - field.field.profile.nbw_youth_profile.field_any_medications_we_should_
+    - field.field.profile.nbw_youth_profile.field_bicycle_by_themsel
+    - field.field.profile.nbw_youth_profile.field_can_leave_with
+    - field.field.profile.nbw_youth_profile.field_current_grade_level
+    - field.field.profile.nbw_youth_profile.field_date_of_birth
+    - field.field.profile.nbw_youth_profile.field_emergency_contact_phone_nu
+    - field.field.profile.nbw_youth_profile.field_guardian
+    - field.field.profile.nbw_youth_profile.field_guardian_relationship_to_y
+    - field.field.profile.nbw_youth_profile.field_have_a_weekly_transit_pass
+    - field.field.profile.nbw_youth_profile.field_height
+    - field.field.profile.nbw_youth_profile.field_hours_total
+    - field.field.profile.nbw_youth_profile.field_how_did_you_hear
+    - field.field.profile.nbw_youth_profile.field_interested_in
+    - field.field.profile.nbw_youth_profile.field_leave_by_themselves
+    - field.field.profile.nbw_youth_profile.field_may_administer_benadryl
+    - field.field.profile.nbw_youth_profile.field_may_take_septa
+    - field.field.profile.nbw_youth_profile.field_may_wade_in_water
+    - field.field.profile.nbw_youth_profile.field_media_feedback_release
+    - field.field.profile.nbw_youth_profile.field_miles_total
+    - field.field.profile.nbw_youth_profile.field_need_a_token
+    - field.field.profile.nbw_youth_profile.field_other_way_to_hear
+    - field.field.profile.nbw_youth_profile.field_permission_to_contact
+    - field.field.profile.nbw_youth_profile.field_public_assistance_eligible
+    - field.field.profile.nbw_youth_profile.field_school
+    - field.field.profile.nbw_youth_profile.field_use_an_asthma_inhaler_dail
+    - profile.type.nbw_youth_profile
+  module:
+    - datetime
+    - options
+    - text
+id: profile.nbw_youth_profile.default
+targetEntityType: profile
+bundle: nbw_youth_profile
+mode: default
+content:
+  field__consent_to_liability_waiv:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 34
+    region: content
+  field__emergency_contact_name:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field__emergency_contact_relatio:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_able_to_ride_a_bike:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_able_to_ride_for_20:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_allergies_the_participant_:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_any_additional_concerns:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_any_medications_we_should_:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_bicycle_by_themsel:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_can_leave_with:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_current_grade_level:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_date_of_birth:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_emergency_contact_phone_nu:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_guardian:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_guardian_relationship_to_y:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_have_a_weekly_transit_pass:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 30
+    region: content
+  field_height:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_hours_total:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_how_did_you_hear:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 32
+    region: content
+  field_interested_in:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_leave_by_themselves:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_may_administer_benadryl:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_may_take_septa:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 29
+    region: content
+  field_may_wade_in_water:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_media_feedback_release:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 35
+    region: content
+  field_miles_total:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_need_a_token:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 31
+    region: content
+  field_other_way_to_hear:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 33
+    region: content
+  field_permission_to_contact:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_public_assistance_eligible:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_school:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_use_an_asthma_inhaler_dail:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 17
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

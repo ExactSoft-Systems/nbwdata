@@ -1,0 +1,35 @@
+uuid: a478b86e-c3ad-4729-852a-5b0bc157fb4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.schema_has_part
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.media_gallery
+    - paragraphs.paragraphs_type.remote_video
+  module:
+    - entity_reference_revisions
+id: paragraph.media_gallery.schema_has_part
+field_name: schema_has_part
+entity_type: paragraph
+bundle: media_gallery
+label: Media
+description: 'Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      image: image
+      remote_video: remote_video
+    target_bundles_drag_drop:
+      image:
+        weight: 0
+        enabled: true
+      remote_video:
+        weight: 1
+        enabled: true
+field_type: entity_reference_revisions

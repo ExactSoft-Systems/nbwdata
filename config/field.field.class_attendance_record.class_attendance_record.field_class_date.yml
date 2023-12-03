@@ -1,0 +1,24 @@
+uuid: 9b1493e2-0787-46a7-bbad-5b8640934036
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.class_attendance_record.field_class_date
+  module:
+    - class_attendance_record
+    - datetime
+id: class_attendance_record.class_attendance_record.field_class_date
+field_name: field_class_date
+entity_type: class_attendance_record
+bundle: class_attendance_record
+label: 'Class Date'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

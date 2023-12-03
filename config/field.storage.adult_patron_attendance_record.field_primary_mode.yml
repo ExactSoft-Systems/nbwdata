@@ -1,0 +1,31 @@
+uuid: e02a6d91-d027-4fff-b7e7-2ed99088d811
+langcode: en
+status: true
+dependencies:
+  module:
+    - adult_patron_attendance_record
+    - field_permissions
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: adult_patron_attendance_record.field_primary_mode
+field_name: field_primary_mode
+entity_type: adult_patron_attendance_record
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Yes'
+      label: 'Yes'
+    -
+      value: 'No'
+      label: 'No'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

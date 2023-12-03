@@ -1,0 +1,21 @@
+uuid: f7019a5c-47a5-4a06-a32c-182736c77289
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_have_pass
+  module:
+    - options
+    - youth_application_waiver
+id: youth_application_waiver.youth_application_waiver.field_have_pass
+field_name: field_have_pass
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'Does the participant have a weekly transit pass provided by their school?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

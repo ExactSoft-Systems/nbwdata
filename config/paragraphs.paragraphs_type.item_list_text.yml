@@ -1,0 +1,12 @@
+uuid: 61ac7e20-406a-4f1b-bb8f-6dcddf2631c1
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:f5ad3830-9e5f-4354-a4c3-07ecd5cffb6a'
+id: item_list_text
+label: 'List (Rich text)'
+icon_uuid: f5ad3830-9e5f-4354-a4c3-07ecd5cffb6a
+icon_default: null
+description: 'A list of rich text items.'
+behavior_plugins: {  }

@@ -1,0 +1,23 @@
+uuid: aaeb962e-e68a-48bc-b3a7-7f3f46f58814
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_hours_total
+    - profile.type.nbw_volunteer_profile
+id: profile.nbw_volunteer_profile.field_hours_total
+field_name: field_hours_total
+entity_type: profile
+bundle: nbw_volunteer_profile
+label: 'Volunteer Hours'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

@@ -1,0 +1,21 @@
+uuid: 45edc074-37a9-4312-88e3-2816cc7be5c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_may_administer_benadryl
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_may_administer_benadryl
+field_name: field_may_administer_benadryl
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'May NBW staff administer Benadryl if the participant is experiencing an allergic reaction?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,24 @@
+uuid: e0d84bf5-d732-4b05-9a1f-bb193902031f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.schema_main_entity_of_page
+    - media.type.audio
+    - paragraphs.paragraphs_type.audio
+id: paragraph.audio.schema_main_entity_of_page
+field_name: schema_main_entity_of_page
+entity_type: paragraph
+bundle: audio
+label: Audio
+description: 'Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See <a href="https://schema.org/docs/datamodel.html#mainEntityBackground">background notes</a> for details.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      audio: audio
+field_type: entity_reference

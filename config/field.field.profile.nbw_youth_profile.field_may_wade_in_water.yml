@@ -1,0 +1,21 @@
+uuid: 4a086bbc-a374-43b5-8cd8-f242bd03c465
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_may_wade_in_water
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_may_wade_in_water
+field_name: field_may_wade_in_water
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'May the participant wade in water while supervised by NBW staff?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

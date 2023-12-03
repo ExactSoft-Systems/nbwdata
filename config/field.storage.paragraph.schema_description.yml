@@ -1,0 +1,19 @@
+uuid: 4636c336-ffe5-428d-99dd-28404bd830c8
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.schema_description
+field_name: schema_description
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

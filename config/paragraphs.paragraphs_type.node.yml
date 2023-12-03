@@ -1,0 +1,14 @@
+uuid: c67b55ff-d650-46ea-a6a4-6e5ddd5c0255
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:8e2d8e9a-a714-4be7-89c4-42393b85d1c6'
+_core:
+  default_config_hash: oWTHzr8VJ_XVJaLuBmM7CMrVVCVGg733MtpcJcOVEqE
+id: node
+label: Content
+icon_uuid: 8e2d8e9a-a714-4be7-89c4-42393b85d1c6
+icon_default: null
+description: 'A teaser for content.'
+behavior_plugins: {  }

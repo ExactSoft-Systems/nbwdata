@@ -1,0 +1,20 @@
+uuid: 77a8d1c6-2bd6-402b-9ba5-2c508626f6f3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - paragraphs
+id: paragraph.schema_creator
+field_name: schema_creator
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

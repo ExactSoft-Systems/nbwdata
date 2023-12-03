@@ -1,0 +1,34 @@
+uuid: 9d6a0904-bf3f-4927-9c90-d58fbb1f68bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quotation.schema_creator
+    - field.field.paragraph.quotation.schema_text
+    - paragraphs.paragraphs_type.quotation
+  module:
+    - text
+id: paragraph.quotation.default
+targetEntityType: paragraph
+bundle: quotation
+mode: default
+content:
+  schema_creator:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  schema_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

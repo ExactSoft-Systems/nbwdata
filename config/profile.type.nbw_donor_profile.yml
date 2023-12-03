@@ -1,0 +1,13 @@
+uuid: d72a1032-c4aa-410f-bbd5-7716d9b8cbc3
+langcode: en
+status: true
+dependencies: {  }
+id: nbw_donor_profile
+label: 'NBW Donor Profile'
+display_label: ''
+multiple: false
+registration: false
+roles:
+  donor: donor
+allow_revisions: false
+new_revision: false

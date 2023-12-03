@@ -1,0 +1,20 @@
+uuid: 4bfdfa6f-aefa-4e7b-81c2-67cc881641e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_consent_to_media_
+  module:
+    - youth_application_waiver
+id: youth_application_waiver.youth_application_waiver.field_consent_to_media_
+field_name: field_consent_to_media_
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'Consent to Media & Feedback Release:'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

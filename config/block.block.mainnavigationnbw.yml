@@ -1,0 +1,34 @@
+uuid: 955b3d6c-b4b5-4c5e-a120-a69a97fe0877
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main-navigation-nbw
+  module:
+    - system
+    - user
+  theme:
+    - olivero
+id: mainnavigationnbw
+theme: olivero
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main-navigation-nbw'
+settings:
+  id: 'system_menu_block:main-navigation-nbw'
+  label: 'Main Navigation NBW'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
+      administrator: administrator

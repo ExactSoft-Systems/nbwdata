@@ -1,0 +1,24 @@
+uuid: d4613d8a-3c9b-40eb-b838-3b58e795a2d9
+langcode: en
+status: true
+dependencies:
+  module:
+    - class_attendance_record
+    - field_permissions
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: class_attendance_record.field_youth
+field_name: field_youth
+entity_type: class_attendance_record
+type: entity_reference
+settings:
+  target_type: user
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

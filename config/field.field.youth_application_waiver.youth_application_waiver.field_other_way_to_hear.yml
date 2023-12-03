@@ -1,0 +1,26 @@
+uuid: 56a4022f-4ff6-4a9b-b946-1edb6962e80b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_other_way_to_hear
+  module:
+    - allowed_formats
+    - text
+    - youth_application_waiver
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: youth_application_waiver.youth_application_waiver.field_other_way_to_hear
+field_name: field_other_way_to_hear
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'Describe if other'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

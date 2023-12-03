@@ -1,0 +1,24 @@
+uuid: 3f7b63bd-b3ff-415e-beb5-1eca839027d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_current_grade_level
+  module:
+    - youth_application_waiver
+id: youth_application_waiver.youth_application_waiver.field_current_grade_level
+field_name: field_current_grade_level
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'Current Grade Level'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

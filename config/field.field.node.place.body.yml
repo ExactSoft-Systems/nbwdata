@@ -1,0 +1,23 @@
+uuid: 50abdda9-4d4c-4df4-877d-714a581a26e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.place
+  module:
+    - text
+id: node.place.body
+field_name: body
+entity_type: node
+bundle: place
+label: Description
+description: 'A description of the item.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

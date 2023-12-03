@@ -1,0 +1,57 @@
+uuid: b3129e9b-c296-47db-9874-fcf2f541a81e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_view
+    - paragraphs.paragraphs_type.view
+  module:
+    - viewsreference
+_core:
+  default_config_hash: wbcu-pXlqsMtE7bzLcB6jKFYg--i-xRNPyGYPCUIsJ4
+id: paragraph.view.field_view
+field_name: field_view
+entity_type: paragraph
+bundle: view
+label: View
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: 0
+  plugin_types:
+    default: default
+    embed: embed
+    page: 0
+    entity_browser: 0
+    block: 0
+    feed: 0
+  preselect_views:
+    block_content: 0
+    content: 0
+    content_browser: 0
+    content_moderation_dashboard_in_review: 0
+    content_recent: 0
+    dashboard_last_content: 0
+    files: 0
+    frontpage: 0
+    media: 0
+    media_library: 0
+    moderated_content: 0
+    moderation_dashboard_recently_created: 0
+    moderation_dashboard_recent_changes: 0
+    paragraphs_library: 0
+    paragraphs_library_browser: 0
+    scheduler_scheduled_content: 0
+    taxonomy_term: 0
+    user_admin_people: 0
+    watchdog: 0
+    webform_submissions: 0
+    who_s_new: 0
+    who_s_online: 0
+field_type: viewsreference

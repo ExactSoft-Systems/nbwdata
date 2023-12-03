@@ -1,0 +1,10 @@
+uuid: ad6e27c3-c6b1-4271-9300-b198dbe5317f
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.youth_user_account
+label: 'Youth User Account'
+targetEntityType: user
+cache: true

@@ -1,0 +1,215 @@
+uuid: cc30a28a-8591-462f-b802-f593a704c06f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.person
+id: node--person
+disabled: false
+path: node/person
+resourceType: node--person
+resourceFields:
+  body:
+    disabled: true
+    fieldName: body
+    publicName: body
+    enhancer:
+      id: ''
+  changed:
+    disabled: false
+    fieldName: changed
+    publicName: changed
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  field_tags:
+    disabled: false
+    fieldName: field_tags
+    publicName: field_tags
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  menu_link:
+    disabled: true
+    fieldName: menu_link
+    publicName: menu_link
+    enhancer:
+      id: ''
+  nid:
+    disabled: false
+    fieldName: nid
+    publicName: nid
+    enhancer:
+      id: ''
+  path:
+    disabled: false
+    fieldName: path
+    publicName: path
+    enhancer:
+      id: ''
+  promote:
+    disabled: false
+    fieldName: promote
+    publicName: promote
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: true
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_log:
+    disabled: true
+    fieldName: revision_log
+    publicName: revision_log
+    enhancer:
+      id: ''
+  revision_timestamp:
+    disabled: true
+    fieldName: revision_timestamp
+    publicName: revision_timestamp
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: true
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  revision_uid:
+    disabled: true
+    fieldName: revision_uid
+    publicName: revision_uid
+    enhancer:
+      id: ''
+  schema_additional_name:
+    disabled: false
+    fieldName: schema_additional_name
+    publicName: additional_name
+    enhancer:
+      id: ''
+  schema_email:
+    disabled: false
+    fieldName: schema_email
+    publicName: email
+    enhancer:
+      id: ''
+  schema_family_name:
+    disabled: false
+    fieldName: schema_family_name
+    publicName: family_name
+    enhancer:
+      id: ''
+  schema_gender:
+    disabled: false
+    fieldName: schema_gender
+    publicName: gender
+    enhancer:
+      id: ''
+  schema_given_name:
+    disabled: false
+    fieldName: schema_given_name
+    publicName: given_name
+    enhancer:
+      id: ''
+  schema_honorific_prefix:
+    disabled: false
+    fieldName: schema_honorific_prefix
+    publicName: honorific_prefix
+    enhancer:
+      id: ''
+  schema_honorific_suffix:
+    disabled: false
+    fieldName: schema_honorific_suffix
+    publicName: honorific_suffix
+    enhancer:
+      id: ''
+  schema_image:
+    disabled: false
+    fieldName: schema_image
+    publicName: image
+    enhancer:
+      id: ''
+  schema_knows_language:
+    disabled: false
+    fieldName: schema_knows_language
+    publicName: knows_language
+    enhancer:
+      id: ''
+  schema_person_subtype:
+    disabled: false
+    fieldName: schema_person_subtype
+    publicName: subtype
+    enhancer:
+      id: ''
+  schema_same_as:
+    disabled: false
+    fieldName: schema_same_as
+    publicName: same_as
+    enhancer:
+      id: ''
+  schema_telephone:
+    disabled: false
+    fieldName: schema_telephone
+    publicName: telephone
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  sticky:
+    disabled: false
+    fieldName: sticky
+    publicName: sticky
+    enhancer:
+      id: ''
+  title:
+    disabled: false
+    fieldName: title
+    publicName: title
+    enhancer:
+      id: ''
+  type:
+    disabled: false
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  uid:
+    disabled: false
+    fieldName: uid
+    publicName: uid
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  vid:
+    disabled: true
+    fieldName: vid
+    publicName: vid
+    enhancer:
+      id: ''

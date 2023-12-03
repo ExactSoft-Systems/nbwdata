@@ -1,0 +1,25 @@
+uuid: 369fed60-1a13-405a-aee9-3ff4e74ea03e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.statement.schema_text
+    - paragraphs.paragraphs_type.statement
+  module:
+    - text
+id: paragraph.statement.default
+targetEntityType: paragraph
+bundle: statement
+mode: default
+content:
+  schema_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

@@ -1,0 +1,14 @@
+uuid: da3a5bd7-01f4-4e43-a3fc-ace69821f2b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.donor
+  module:
+    - user
+id: user_add_role_action.donor
+label: 'Add the Donor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: donor

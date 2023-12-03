@@ -1,0 +1,23 @@
+uuid: a1ea4cac-296d-4a69-b9f3-0dad000a4a31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_miles_total
+    - profile.type.nbw_youth_profile
+id: profile.nbw_youth_profile.field_miles_total
+field_name: field_miles_total
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Miles Total'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

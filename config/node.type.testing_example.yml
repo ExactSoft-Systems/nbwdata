@@ -1,0 +1,16 @@
+uuid: a44e3e2f-fbcf-40a9-92ef-27b5eb384c14
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - testing_example
+_core:
+  default_config_hash: hQLw-9QXVEYGzzansfy3RpDH3UprAdcHd2vnq_qVi58
+name: 'Testing Example Node Type'
+type: testing_example
+description: 'A content type that exists so we can test it.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,31 @@
+uuid: 66054ce4-0e3e-4791-8083-d423f93e81c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.youth_program.body
+    - node.type.youth_program
+  module:
+    - text
+    - user
+id: node.youth_program.default
+targetEntityType: node
+bundle: youth_program
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

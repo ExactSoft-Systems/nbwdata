@@ -1,0 +1,21 @@
+uuid: b9e07bd4-bcf7-4b82-b93a-6667ccfb6f84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_media_feedback_release
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_media_feedback_release
+field_name: field_media_feedback_release
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Consent to Media & Feedback Release:'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

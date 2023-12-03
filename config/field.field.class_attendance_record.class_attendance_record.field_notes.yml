@@ -1,0 +1,26 @@
+uuid: 6045a62a-3554-454a-bdaa-9417d440a887
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.class_attendance_record.field_notes
+  module:
+    - allowed_formats
+    - class_attendance_record
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: class_attendance_record.class_attendance_record.field_notes
+field_name: field_notes
+entity_type: class_attendance_record
+bundle: class_attendance_record
+label: 'Instructor Notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,23 @@
+uuid: 5fe85e61-391e-4aec-ac11-f362bf501750
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_current_grade_level
+    - profile.type.nbw_youth_profile
+id: profile.nbw_youth_profile.field_current_grade_level
+field_name: field_current_grade_level
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Current Grade Level'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

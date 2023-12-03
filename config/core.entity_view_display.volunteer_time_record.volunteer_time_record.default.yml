@@ -1,0 +1,59 @@
+uuid: ea1aefb9-72d8-4869-905c-432ddfc7d855
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.volunteer_time_record.volunteer_time_record.field_date
+    - field.field.volunteer_time_record.volunteer_time_record.field_number_of_hours
+    - field.field.volunteer_time_record.volunteer_time_record.field_volunteer_name
+  module:
+    - datetime
+    - text
+    - volunteer_time_record
+id: volunteer_time_record.volunteer_time_record.default
+targetEntityType: volunteer_time_record
+bundle: volunteer_time_record
+mode: default
+content:
+  field_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_number_of_hours:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_volunteer_name:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  notes:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  status: true
+  uid: true

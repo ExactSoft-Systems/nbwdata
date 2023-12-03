@@ -1,0 +1,52 @@
+uuid: 70ba070e-da4b-4aa4-a3f0-0d076dac3170
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - profile
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: profile.field_how_did_you_hear
+field_name: field_how_did_you_hear
+entity_type: profile
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Participant''s School'
+      label: 'Participant''s School'
+    -
+      value: Family
+      label: Family
+    -
+      value: Friend
+      label: Friend
+    -
+      value: 'Flyer in the Neighborhood'
+      label: 'Flyer in the Neighborhood'
+    -
+      value: 'NBW Website'
+      label: 'NBW Website'
+    -
+      value: Facebook
+      label: Facebook
+    -
+      value: Twitter
+      label: Twitter
+    -
+      value: Instagram
+      label: Instagram
+    -
+      value: Other
+      label: Other
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 9
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

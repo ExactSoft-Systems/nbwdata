@@ -1,0 +1,26 @@
+uuid: 53a453b8-b2ac-434e-9287-dae8894b1685
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_any_concerns
+  module:
+    - allowed_formats
+    - text
+    - youth_application_waiver
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: youth_application_waiver.youth_application_waiver.field_any_concerns
+field_name: field_any_concerns
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'Please describe any medical, mobility, or mental health concerns we should know about in order to best serve the participant''s needs:'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

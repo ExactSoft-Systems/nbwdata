@@ -1,0 +1,10 @@
+uuid: 35901522-c0ca-4601-afd0-e860bfda244e
+langcode: en
+status: true
+dependencies:
+  module:
+    - youth_application_waiver
+id: youth_application_waiver.step_2
+label: 'Step 2'
+targetEntityType: youth_application_waiver
+cache: true

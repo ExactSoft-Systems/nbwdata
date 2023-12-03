@@ -1,0 +1,24 @@
+uuid: 35eaab35-2bfc-43b0-a1c4-d2dcb2d2fa33
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.header.schema_header_text
+    - paragraphs.paragraphs_type.header
+id: paragraph.header.default
+targetEntityType: paragraph
+bundle: header
+mode: default
+content:
+  schema_header_text:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 10
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

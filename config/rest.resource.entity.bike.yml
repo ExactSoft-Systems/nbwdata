@@ -1,0 +1,38 @@
+uuid: 542d8282-4ed5-48bb-8616-c9280e12116c
+langcode: en
+status: true
+dependencies:
+  module:
+    - bicycle
+    - serialization
+    - user
+_core:
+  default_config_hash: h27_FeuOE5hxiTSZ_TGXgbiLi3oIc-eU8d0yPvobVfk
+id: entity.bike
+plugin_id: 'entity:bike'
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+      - xml
+    supported_auth:
+      - cookie
+  POST:
+    supported_formats:
+      - json
+      - xml
+    supported_auth:
+      - cookie
+  PATCH:
+    supported_formats:
+      - json
+      - xml
+    supported_auth:
+      - cookie
+  DELETE:
+    supported_formats:
+      - json
+      - xml
+    supported_auth:
+      - cookie

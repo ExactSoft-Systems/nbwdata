@@ -1,0 +1,9 @@
+uuid: a602f9b6-ea79-4ed9-abd3-3fc63017eebb
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Taa8qZNlkUvhiEeHd2Ff_wD9neYPcKBNw27lEOKeMNM
+id: marvin
+label: 'Marvin, the paranoid android'
+floopy: null

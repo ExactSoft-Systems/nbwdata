@@ -1,0 +1,20 @@
+uuid: 5e5d0131-59c2-42d5-b21e-334d101c64ba
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nbwtheme
+_core:
+  default_config_hash: G9S2xcoqVCkv2KZgqf_qJu304J0EaGJXrbFL9whlFcg
+id: nbwtheme_local_actions
+theme: nbwtheme
+region: header
+weight: -3
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

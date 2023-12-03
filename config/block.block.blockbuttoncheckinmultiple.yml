@@ -1,0 +1,30 @@
+uuid: 05a5f9ed-d135-48b1-9668-eb97b5398093
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:eac6333d-a20b-4ddf-94cd-7729da0415c6'
+  module:
+    - block_content
+    - system
+  theme:
+    - uswds_base
+id: blockbuttoncheckinmultiple
+theme: uswds_base
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:eac6333d-a20b-4ddf-94cd-7729da0415c6'
+settings:
+  id: 'block_content:eac6333d-a20b-4ddf-94cd-7729da0415c6'
+  label: 'Block Button Check In Multiple'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/class-session/*'

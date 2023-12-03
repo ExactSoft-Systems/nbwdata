@@ -1,0 +1,34 @@
+uuid: f17ebd11-4b5b-43df-a3bf-88f45e533bc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.locked_content_type.body
+    - node.type.locked_content_type
+  module:
+    - text
+    - user
+  enforced:
+    module:
+      - node_type_example
+_core:
+  default_config_hash: 79Pv3ltVK1huTfhO4rTYIE5yP-9XUZCrBVmH7Hv39FQ
+id: node.locked_content_type.default
+targetEntityType: node
+bundle: locked_content_type
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

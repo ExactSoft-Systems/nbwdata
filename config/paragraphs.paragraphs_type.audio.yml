@@ -1,0 +1,12 @@
+uuid: 618cb604-fc81-4654-b9c8-033c643ce3d7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:9b1a6424-7047-40ab-accf-4b22a7fa2805'
+id: audio
+label: Audio
+icon_uuid: 9b1a6424-7047-40ab-accf-4b22a7fa2805
+icon_default: null
+description: 'An audio file.'
+behavior_plugins: {  }

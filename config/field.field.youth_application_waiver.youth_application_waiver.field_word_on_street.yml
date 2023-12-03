@@ -1,0 +1,21 @@
+uuid: 31cdd13e-cd47-4baa-a14a-911b0b107f16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_word_on_street
+  module:
+    - options
+    - youth_application_waiver
+id: youth_application_waiver.youth_application_waiver.field_word_on_street
+field_name: field_word_on_street
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'How did your family hear about NBW? (check all that apply):'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

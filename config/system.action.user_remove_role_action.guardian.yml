@@ -1,0 +1,14 @@
+uuid: d50912b3-f44c-4430-ab7b-955de4c622f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.guardian
+  module:
+    - user
+id: user_remove_role_action.guardian
+label: 'Remove the Guardian role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: guardian

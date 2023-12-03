@@ -1,0 +1,25 @@
+uuid: c9e41286-a9f9-4955-b0fc-667f07bd8738
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - nbwtheme
+_core:
+  default_config_hash: NNfGuQymclxJa34vSbMeSqjMChId-AFFdozfp_Y4NPM
+id: nbwtheme_branding
+theme: nbwtheme
+region: sidebar_first
+weight: -5
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

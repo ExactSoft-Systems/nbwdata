@@ -1,0 +1,13 @@
+uuid: 54386204-49ca-4403-a1c2-723db18214bb
+langcode: en
+status: true
+dependencies: {  }
+id: file_with_statistics
+label: 'File with statistics'
+description: 'We will keep track on the download statistics for this type of files'
+source: file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_file
+field_map: {  }

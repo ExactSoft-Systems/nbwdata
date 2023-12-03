@@ -1,0 +1,19 @@
+uuid: f656d770-5853-4f3d-8a1d-1aaef71d7a85
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_youth_program
+field_name: field_youth_program
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

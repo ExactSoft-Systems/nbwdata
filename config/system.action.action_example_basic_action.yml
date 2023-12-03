@@ -1,0 +1,13 @@
+uuid: 53915c80-da07-437b-8b81-d03e9906ae73
+langcode: en
+status: true
+dependencies:
+  module:
+    - action_example
+_core:
+  default_config_hash: 4ugsW1dDPd878lzG0_bLVgfm1nOaRwWO6-Vnoro-Q90
+id: action_example_basic_action
+label: 'An action that does nothing'
+type: system
+plugin: action_example_basic_action
+configuration: {  }

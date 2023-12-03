@@ -1,0 +1,35 @@
+uuid: ad3166ab-4154-4b93-9662-0e0b7122dac7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.file_with_statistics.field_media_file
+    - media.type.file_with_statistics
+  module:
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: media.file_with_statistics.media_library
+targetEntityType: media
+bundle: file_with_statistics
+mode: media_library
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_media_file: true
+  path: true
+  status: true
+  uid: true

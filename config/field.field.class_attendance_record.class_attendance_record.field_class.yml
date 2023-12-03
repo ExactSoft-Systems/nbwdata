@@ -1,0 +1,30 @@
+uuid: 40493408-26b0-45c1-84e0-2eb654d61687
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.class_attendance_record.field_class
+    - node.type.event
+  module:
+    - class_attendance_record
+id: class_attendance_record.class_attendance_record.field_class
+field_name: field_class
+entity_type: class_attendance_record
+bundle: class_attendance_record
+label: Class
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      event: event
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

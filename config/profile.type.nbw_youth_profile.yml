@@ -1,0 +1,13 @@
+uuid: d9e4087e-42b2-4c5f-ba8a-9e7f7d248ed7
+langcode: en
+status: true
+dependencies: {  }
+id: nbw_youth_profile
+label: 'NBW Youth Profile'
+display_label: 'Youth Profile'
+multiple: false
+registration: false
+roles:
+  youth: youth
+allow_revisions: false
+new_revision: false

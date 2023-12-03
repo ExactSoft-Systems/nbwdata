@@ -1,0 +1,23 @@
+uuid: 32e4cfd2-e649-4524-a58e-7b928911136a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.class_roster
+  module:
+    - text
+id: node.class_roster.body
+field_name: body
+entity_type: node
+bundle: class_roster
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

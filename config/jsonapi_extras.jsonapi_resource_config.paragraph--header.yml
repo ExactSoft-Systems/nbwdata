@@ -1,0 +1,101 @@
+uuid: 207f610f-e68e-4927-8aa6-3dd95a89353b
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.header
+id: paragraph--header
+disabled: false
+path: paragraph/header
+resourceType: paragraph--header
+resourceFields:
+  behavior_settings:
+    disabled: false
+    fieldName: behavior_settings
+    publicName: behavior_settings
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  id:
+    disabled: false
+    fieldName: id
+    publicName: id
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  parent_field_name:
+    disabled: true
+    fieldName: parent_field_name
+    publicName: parent_field_name
+    enhancer:
+      id: ''
+  parent_id:
+    disabled: true
+    fieldName: parent_id
+    publicName: parent_id
+    enhancer:
+      id: ''
+  parent_type:
+    disabled: true
+    fieldName: parent_type
+    publicName: parent_type
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: true
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_id:
+    disabled: true
+    fieldName: revision_id
+    publicName: revision_id
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: true
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  schema_header_text:
+    disabled: false
+    fieldName: schema_header_text
+    publicName: text
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  type:
+    disabled: false
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''

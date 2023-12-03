@@ -1,0 +1,40 @@
+uuid: 0b8d4b82-a0f4-4957-a792-121b52e646c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.adult_patron_attendance_record.field_name_and_address
+  module:
+    - address
+    - adult_patron_attendance_record
+id: adult_patron_attendance_record.adult_patron_attendance_record.field_name_and_address
+field_name: field_name_and_address
+entity_type: adult_patron_attendance_record
+bundle: adult_patron_attendance_record
+label: 'Name And Address'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    langcode: null
+    country_code: US
+    administrative_area: PA
+    locality: ''
+    dependent_locality: null
+    postal_code: ''
+    sorting_code: null
+    address_line1: ''
+    address_line2: ''
+    organization: ''
+    given_name: ''
+    additional_name: null
+    family_name: ''
+default_value_callback: ''
+settings:
+  available_countries:
+    US: US
+  langcode_override: ''
+  field_overrides: {  }
+  fields: {  }
+field_type: address

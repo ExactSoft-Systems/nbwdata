@@ -1,0 +1,24 @@
+uuid: f0d412fc-96a4-4865-a150-fdc93d318ea6
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - text
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_where_will_this_be_used_
+field_name: field_where_will_this_be_used_
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

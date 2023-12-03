@@ -1,0 +1,26 @@
+uuid: cc230233-0cbf-4839-be2a-02d66269080a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_emergency_contact_name
+  module:
+    - allowed_formats
+    - text
+    - youth_application_waiver
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: youth_application_waiver.youth_application_waiver.field_emergency_contact_name
+field_name: field_emergency_contact_name
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: 'Emergency Contact Name'
+description: '<strong>Who can NBW contact in case we cannot reach the Parent/Guardian already listed?</strong>'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

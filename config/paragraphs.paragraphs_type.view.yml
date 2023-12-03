@@ -1,0 +1,12 @@
+uuid: 8c812c0c-3e3d-4966-b068-3dfacc83436a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: TlYhf5UCu9_fP-p7Jz0dw9TKXYO9UJqhcPScEcEaPck
+id: view
+label: View
+icon_uuid: 56da590a-53c2-4dbc-94f1-d3f48841a4fd
+icon_default: null
+description: 'A listing of information.'
+behavior_plugins: {  }

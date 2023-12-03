@@ -1,0 +1,21 @@
+uuid: 89851ea5-38b8-454b-8bd4-3bf5d08dc0cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_able_to_ride_a_bike
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_able_to_ride_a_bike
+field_name: field_able_to_ride_a_bike
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Is the participant able to ride a bike?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

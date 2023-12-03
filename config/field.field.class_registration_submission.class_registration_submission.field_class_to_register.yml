@@ -1,0 +1,30 @@
+uuid: 23b40ecd-21cf-4c04-8ff2-108eaa3c3a89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.class_registration_submission.field_class_to_register
+    - node.type.event
+  module:
+    - class_registration_submission
+id: class_registration_submission.class_registration_submission.field_class_to_register
+field_name: field_class_to_register
+entity_type: class_registration_submission
+bundle: class_registration_submission
+label: 'Class to register'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      event: event
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

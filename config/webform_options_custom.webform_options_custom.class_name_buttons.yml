@@ -1,0 +1,25 @@
+uuid: 4d95c97a-0bfe-44ec-8f6f-a99a2ce53713
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: TABA4k7qc_23n1AToUmJbQSNlXry5Me_aUE855mV2pw
+id: class_name_buttons
+label: 'Class Name Buttons'
+category: Buttons
+description: 'An example of custom buttons.'
+help: ''
+type: template
+template: "<div class=\"webform-custom-options-buttons\">\r\n{% for value, text in options %}\r\n  <div class=\"webform-custom-options-button\" data-option-value=\"{{ value }}\" style=\"text-align:center\">\r\n  {{ text }}\r\n  {% if descriptions[value] %}<div class=\"description\">{{ descriptions[value] }}</div>{% endif %}\r\n  </div>\r\n{% endfor %}\r\n</div>\r\n"
+url: ''
+css: ".webform-custom-options-buttons {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: 0 -5px;\r\n}\r\n\r\n.webform-custom-options-button {\r\n  flex: 1;\r\n  display: table-cell;\r\n  margin: 0 5px 10px 5px;\r\n  border: 3px solid #ccc;\r\n  border-radius: 3px;\r\n  background-color: #fff;\r\n  padding: 10px;\r\n  vertical-align: middle;\r\n  text-align: center;\r\n  color: #666;\r\n}\r\n\r\n.webform-custom-options-button .description {\r\n  font-size: .8em;\r\n}\r\n\r\n.webform-custom-options-button[data-option-value]:hover {\r\n  border-color: #999;\r\n  color: #333;\r\n}\r\n\r\n.webform-custom-options-button[data-option-value]:focus {\r\n  border-color: #999;\r\n  color: #333;\r\n}\r\n\r\n.webform-custom-options-button[data-option-value][aria-checked=true] {\r\n  border-color: #0074bd;\r\n  color: #000;\r\n}\r\n\r\n.webform-custom-options-button[data-option-value][aria-checked=true]:focus {\r\n  box-shadow: 0 0 5px #0074bd;\r\n}\r\n\r\n.webform-custom-options-button[data-option-value][aria-disabled=true],\r\n.webform-custom-options-button[data-option-value][aria-disabled=true]:hover,\r\n.webform-custom-options-button[data-option-value][aria-disabled=true]:focus {\r\n  cursor: not-allowed;\r\n  border-color: #ccc;\r\n  color: #999;\r\n}\r\n\r\n@media (max-width: 600px) {\r\n  .webform-custom-options-buttons {\r\n    display: block;\r\n    margin: 0;\r\n  }\r\n\r\n  .webform-custom-options-button {\r\n    display: block;\r\n    margin: 5px 0;\r\n  }\r\n}\r\n"
+javascript: ''
+value_attributes: ''
+text_attributes: ''
+options: '{  }'
+fill: false
+zoom: false
+tooltip: false
+show_select: false
+element: true
+entity_reference: true

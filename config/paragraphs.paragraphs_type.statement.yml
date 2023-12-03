@@ -1,0 +1,12 @@
+uuid: 1e83cabc-4999-4c36-8b74-fa314c4b65ac
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:b65f2cf4-142a-45ee-8362-e28b4b30659b'
+id: statement
+label: Statement
+icon_uuid: b65f2cf4-142a-45ee-8362-e28b4b30659b
+icon_default: null
+description: 'A statement about something, for example a fun or interesting fact. If known, the main entity this statement is about can be indicated using mainEntity. For more formal claims (e.g. in Fact Checking), consider using <a href="https://schema.org/Claim">Claim</a> instead. Use the <a href="https://schema.org/text">text</a> property to capture the text of the statement.'
+behavior_plugins: {  }

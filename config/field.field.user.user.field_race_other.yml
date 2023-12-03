@@ -1,0 +1,21 @@
+uuid: 3f44ebf0-0494-49e3-aed8-db11cdeec7fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_race_other
+  module:
+    - text
+    - user
+id: user.user.field_race_other
+field_name: field_race_other
+entity_type: user
+bundle: user
+label: '(Race) Describe if other'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

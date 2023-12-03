@@ -1,0 +1,85 @@
+uuid: 48cde8c8-92de-4b22-9637-c0a4e25d5971
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.adult_patron_waver.adult_patron_waver.field_email
+    - field.field.adult_patron_waver.adult_patron_waver.field_name_and_address
+    - field.field.adult_patron_waver.adult_patron_waver.field_phone_number
+    - field.field.adult_patron_waver.adult_patron_waver.field_signature
+  module:
+    - address
+    - adult_patron_waver
+    - text
+    - user
+id: adult_patron_waver.adult_patron_waver.default
+targetEntityType: adult_patron_waver
+bundle: adult_patron_waver
+mode: default
+content:
+  created:
+    type: timestamp
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field_name_and_address:
+    type: address_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_phone_number:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_signature:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  notes:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  status:
+    type: boolean
+    label: above
+    settings:
+      format: enabled-disabled
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  uid:
+    type: author
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

@@ -1,0 +1,21 @@
+uuid: d126853a-87ce-4684-9ece-11a7785ad7e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_allergies_the_participant_
+    - profile.type.nbw_youth_profile
+  module:
+    - text
+id: profile.nbw_youth_profile.field_allergies_the_participant_
+field_name: field_allergies_the_participant_
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Please list any allergies the participant has:'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

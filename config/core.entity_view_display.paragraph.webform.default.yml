@@ -1,0 +1,28 @@
+uuid: e4f54364-f015-43c6-a6d4-1ef8ddbc247d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.webform.field_webform
+    - paragraphs.paragraphs_type.webform
+  module:
+    - webform
+_core:
+  default_config_hash: ygW2yxTqBFvbZTOLeo2IuRG7eEa6fuBQjQqmhC3elC4
+id: paragraph.webform.default
+targetEntityType: paragraph
+bundle: webform
+mode: default
+content:
+  field_webform:
+    type: webform_entity_reference_entity_view
+    label: hidden
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

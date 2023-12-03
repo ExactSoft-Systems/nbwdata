@@ -1,0 +1,21 @@
+uuid: 38620cfc-5250-4414-8e80-f8469a8c165b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_permission_to_contact
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_permission_to_contact
+field_name: field_permission_to_contact
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'NBW has permission to contact the participant by (check all that apply):'
+description: "Email\r\nText\r\nPhone Call"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

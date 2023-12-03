@@ -1,0 +1,24 @@
+uuid: 6009562f-5db1-42df-b584-861353eac654
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - text
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: user.field_race_other
+field_name: field_race_other
+entity_type: user
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

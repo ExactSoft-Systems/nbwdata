@@ -1,0 +1,27 @@
+uuid: feb68c66-2f8e-40a5-8320-1a9d346c5262
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.node.field_node
+    - paragraphs.paragraphs_type.node
+_core:
+  default_config_hash: gLW5bI9Kf_Bm4X2LIh_wqLVgkInvoLsLaQClnGcXXB8
+id: paragraph.node.default
+targetEntityType: paragraph
+bundle: node
+mode: default
+content:
+  field_node:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

@@ -1,0 +1,21 @@
+uuid: 09abc25e-1b7b-4ff1-b843-4b78fc057729
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.youth_application_waiver.field_height
+  module:
+    - options
+    - youth_application_waiver
+id: youth_application_waiver.youth_application_waiver.field_height
+field_name: field_height
+entity_type: youth_application_waiver
+bundle: youth_application_waiver
+label: Height
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

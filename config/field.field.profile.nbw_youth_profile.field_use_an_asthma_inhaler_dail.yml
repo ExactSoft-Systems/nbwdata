@@ -1,0 +1,21 @@
+uuid: a1198298-8903-4572-a385-4b77bcfef48d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_use_an_asthma_inhaler_dail
+    - profile.type.nbw_youth_profile
+  module:
+    - options
+id: profile.nbw_youth_profile.field_use_an_asthma_inhaler_dail
+field_name: field_use_an_asthma_inhaler_dail
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Does the participant have and use an asthma inhaler on a daily basis?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,8 @@
+uuid: ed861f08-8955-4004-9ff6-836b898ed8c9
+langcode: en
+status: true
+dependencies: {  }
+id: nbw-menu
+label: 'NBW Menu'
+description: 'NBW Toolbar Menu'
+locked: false

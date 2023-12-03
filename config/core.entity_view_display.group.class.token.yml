@@ -1,0 +1,42 @@
+uuid: 1400abcf-556e-461e-8058-1c2247046ced
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.group.token
+    - field.field.group.class.field_class
+    - group.type.class
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: group.class.token
+targetEntityType: group
+bundle: class
+mode: token
+content:
+  field_class:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -5
+    region: content
+hidden:
+  changed: true
+  created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  uid: true

@@ -1,0 +1,21 @@
+uuid: 548456a8-3bd9-4c69-9aab-26787ed2026d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field__emergency_contact_name
+    - profile.type.nbw_youth_profile
+  module:
+    - text
+id: profile.nbw_youth_profile.field__emergency_contact_name
+field_name: field__emergency_contact_name
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Emergency Contact Name'
+description: "Who can NBW contact in case we cannot reach the Parent/Guardian already listed?\r\n\t"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

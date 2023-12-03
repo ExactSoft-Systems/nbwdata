@@ -1,0 +1,31 @@
+uuid: 652594fa-d761-40ad-963b-cce7ffa7008a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.audio.schema_main_entity_of_page
+    - paragraphs.paragraphs_type.audio
+  module:
+    - field_layout
+    - layout_discovery
+    - media_library
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.audio.default
+targetEntityType: paragraph
+bundle: audio
+mode: default
+content:
+  schema_main_entity_of_page:
+    type: media_library_widget
+    weight: 109
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,31 @@
+uuid: 593cc956-aa2b-4aa5-8b7e-b95140216143
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - youth_application_waiver
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: youth_application_waiver.field_able_ride_bike
+field_name: field_able_ride_bike
+entity_type: youth_application_waiver
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Yes'
+      label: 'Yes'
+    -
+      value: 'No'
+      label: 'No'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

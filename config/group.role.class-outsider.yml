@@ -1,0 +1,14 @@
+uuid: c6aeabd3-89a3-42e8-812a-071615fc899c
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.class
+id: class-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: class
+permissions_ui: true
+permissions: {  }

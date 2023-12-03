@@ -1,0 +1,21 @@
+uuid: 0c2add1f-c724-46b4-b23e-7bf6d199b8ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.schema_description
+    - paragraphs.paragraphs_type.item_list_string
+  module:
+    - text
+id: paragraph.item_list_string.schema_description
+field_name: schema_description
+entity_type: paragraph
+bundle: item_list_string
+label: Description
+description: 'A description of the item.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

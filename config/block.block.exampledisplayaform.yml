@@ -1,0 +1,20 @@
+uuid: d6587ec6-1485-4c3b-9fc2-86f834117d51
+langcode: en
+status: true
+dependencies:
+  module:
+    - form_api_example
+  theme:
+    - nbwtheme
+id: exampledisplayaform
+theme: nbwtheme
+region: footer
+weight: 0
+provider: null
+plugin: form_api_example_simple_form_block
+settings:
+  id: form_api_example_simple_form_block
+  label: 'Example: Display a form'
+  label_display: visible
+  provider: form_api_example
+visibility: {  }

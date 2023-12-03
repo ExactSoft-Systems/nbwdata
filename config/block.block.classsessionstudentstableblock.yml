@@ -1,0 +1,25 @@
+uuid: c72375ba-6231-41c1-b154-341caf23126c
+langcode: en
+status: true
+dependencies:
+  module:
+    - class_session
+    - system
+  theme:
+    - uswds_base
+id: classsessionstudentstableblock
+theme: uswds_base
+region: content
+weight: -7
+provider: null
+plugin: class_session_students_table_block
+settings:
+  id: class_session_students_table_block
+  label: 'Youth Registered for this Class:'
+  label_display: '0'
+  provider: class_session
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/class-session/*'

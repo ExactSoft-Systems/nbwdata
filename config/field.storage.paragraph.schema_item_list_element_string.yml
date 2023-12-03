@@ -1,0 +1,21 @@
+uuid: a95d9f2b-237c-4441-bcec-378e5923e61e
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.schema_item_list_element_string
+field_name: schema_item_list_element_string
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

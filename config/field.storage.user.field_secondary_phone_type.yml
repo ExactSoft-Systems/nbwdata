@@ -1,0 +1,30 @@
+uuid: f65a3a89-e3b5-4e67-845a-770cec95975b
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - user
+id: user.field_secondary_phone_type
+field_name: field_secondary_phone_type
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Cell
+      label: Cell
+    -
+      value: Home
+      label: Home
+    -
+      value: Work
+      label: Work
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

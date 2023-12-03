@@ -1,0 +1,20 @@
+uuid: 3db82791-1735-41dc-9aba-afa73c861114
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.adult_patron_waver.field_email
+  module:
+    - adult_patron_waver
+id: adult_patron_waver.adult_patron_waver.field_email
+field_name: field_email
+entity_type: adult_patron_waver
+bundle: adult_patron_waver
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

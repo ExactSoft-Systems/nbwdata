@@ -1,0 +1,21 @@
+uuid: 8b14b9a3-ef7b-46a4-b18c-73530241c074
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field__emergency_contact_relatio
+    - profile.type.nbw_youth_profile
+  module:
+    - text
+id: profile.nbw_youth_profile.field__emergency_contact_relatio
+field_name: field__emergency_contact_relatio
+entity_type: profile
+bundle: nbw_youth_profile
+label: 'Emergency Contact Relationship to Participant'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text
