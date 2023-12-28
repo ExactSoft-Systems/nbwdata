@@ -6,5 +6,6 @@ dependencies:
     - class_session
 id: class_session.live_class_view
 label: 'Live Class View'
+description: ''
 targetEntityType: class_session
 cache: true

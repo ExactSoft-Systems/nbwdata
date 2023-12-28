@@ -6,5 +6,6 @@ dependencies:
     - youth_application_waiver
 id: youth_application_waiver.step_5
 label: 'Step 5'
+description: ''
 targetEntityType: youth_application_waiver
 cache: true

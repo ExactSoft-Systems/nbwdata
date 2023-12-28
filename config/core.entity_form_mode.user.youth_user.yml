@@ -6,5 +6,6 @@ dependencies:
     - user
 id: user.youth_user
 label: 'Youth User'
+description: ''
 targetEntityType: user
 cache: true
