@@ -1,23 +1,23 @@
-uuid: 09c6bb4e-c6ae-470c-bbd8-c57821c84549
+uuid: d3a19b2a-9b16-449b-96f3-bba92b19e1cb
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.nbw-menu
+    - system.menu.main-navigation-nbw
   module:
     - system
     - user
   theme:
     - uswds_base
-id: nbwmenu
+id: uswds_base_mainnavigationnbw
 theme: uswds_base
-region: sidebar_second
+region: primary_menu
 weight: 0
 provider: null
-plugin: 'system_menu_block:nbw-menu'
+plugin: 'system_menu_block:main-navigation-nbw'
 settings:
-  id: 'system_menu_block:nbw-menu'
-  label: 'NBW Menu'
+  id: 'system_menu_block:main-navigation-nbw'
+  label: 'Main Navigation NBW'
   label_display: visible
   provider: system
   level: 1
