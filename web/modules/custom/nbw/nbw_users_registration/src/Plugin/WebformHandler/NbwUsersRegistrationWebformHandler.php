@@ -22,7 +22,7 @@ use Symfony\Component\Validator\Constraints\IsNull;
  *   id = "nbw_users_registration",
  *   label = @Translation("NBW Users Registration"),
  *   category = @Translation("User"),
- *   description = @Translation("Creates a Youth and a Guradian accounts based on Youth Waver submission values."), cardinality =
+ *   description = @Translation("Creates NBW user accounts based on Webform submission values."), cardinality =
  *   \Drupal\webform\Plugin\WebformHandlerInterface::CARDINALITY_UNLIMITED,
  *   results =
  *   \Drupal\webform\Plugin\WebformHandlerInterface::RESULTS_PROCESSED,
@@ -151,9 +151,9 @@ class NbwUsersRegistrationWebformHandler extends UserRegistrationWebformHandler 
                }
              }
 
-            if (is_null($user_data['field_address']) && !empty($form['#webform_same']) && !empty($form['#webform_same']['same_as_guardian_address'])) {
-              $user_data['field_address'] = $user_data['field_guardian_address'];
-            }
+//            if (is_null($user_data['field_address']) && !empty($form['#webform_same']) && !empty($form['#webform_same']['same_as_guardian_address'])) {
+//              $user_data['field_address'] = $user_data['field_guardian_address'];
+//            }
           }
 
 /*      if ($this->handler_id == 'nbw_youth_user_registration') {
@@ -520,7 +520,7 @@ field_use_an_asthma_inhaler_dail   ::   	participant_have_and_use_an_asthma_inha
     $default_user_data = [
       'init' => $mail,
       'name' => str_replace('@', '.', $mail),
-      'pass' => user_password(),
+      'pass' => \Drupal::service('password_generator')->generate(),
       'langcode' => $lang,
       'preferred_langcode' => $lang,
       'preferred_admin_langcode' => $lang,

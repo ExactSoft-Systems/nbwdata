@@ -49,6 +49,7 @@ function bike_in_kind_donation_receipt_user_cancel($edit, UserInterface $account
       $bike_in_kind_donation_ids = $storage->getQuery()
         ->condition('uid', $account->id())
         ->condition('status', 1)
+        ->accessCheck(FALSE)
         ->execute();
       foreach ($storage->loadMultiple($bike_in_kind_donation_ids) as $bike_in_kind_donation) {
         $bike_in_kind_donation->set('status', FALSE);
@@ -61,6 +62,7 @@ function bike_in_kind_donation_receipt_user_cancel($edit, UserInterface $account
       $storage = \Drupal::entityTypeManager()->getStorage('bike_in_kind_donation');
       $bike_in_kind_donation_ids = $storage->getQuery()
         ->condition('uid', $account->id())
+        ->accessCheck(FALSE)
         ->execute();
       foreach ($storage->loadMultiple($bike_in_kind_donation_ids) as $bike_in_kind_donation) {
         $bike_in_kind_donation->setOwnerId(0);
@@ -78,6 +80,7 @@ function bike_in_kind_donation_receipt_user_predelete(UserInterface $account) {
   $storage = \Drupal::entityTypeManager()->getStorage('bike_in_kind_donation');
   $bike_in_kind_donation_ids = $storage->getQuery()
     ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
     ->execute();
   $bike_in_kind_donations = $storage->loadMultiple($bike_in_kind_donation_ids);
   $storage->delete($bike_in_kind_donations);
@@ -85,6 +88,7 @@ function bike_in_kind_donation_receipt_user_predelete(UserInterface $account) {
   $bike_in_kind_donation_ids = $storage->getQuery()
     ->allRevisions()
     ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
     ->execute();
   foreach (array_keys($bike_in_kind_donation_ids) as $revision_id) {
     $storage->deleteRevision($revision_id);

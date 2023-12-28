@@ -71,6 +71,7 @@ function youth_application_waiver_user_cancel($edit, UserInterface $account, $me
       $youth_application_waiver_ids = $storage->getQuery()
         ->condition('uid', $account->id())
         ->condition('status', 1)
+        ->accessCheck(FALSE)
         ->execute();
       foreach ($storage->loadMultiple($youth_application_waiver_ids) as $youth_application_waiver) {
         $youth_application_waiver->set('status', FALSE);
@@ -83,6 +84,7 @@ function youth_application_waiver_user_cancel($edit, UserInterface $account, $me
       $storage = \Drupal::entityTypeManager()->getStorage('youth_application_waiver');
       $youth_application_waiver_ids = $storage->getQuery()
         ->condition('uid', $account->id())
+        ->accessCheck(FALSE)
         ->execute();
       foreach ($storage->loadMultiple($youth_application_waiver_ids) as $youth_application_waiver) {
         $youth_application_waiver->setOwnerId(0);
@@ -100,6 +102,7 @@ function youth_application_waiver_user_predelete(UserInterface $account) {
   $storage = \Drupal::entityTypeManager()->getStorage('youth_application_waiver');
   $youth_application_waiver_ids = $storage->getQuery()
     ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
     ->execute();
   $youth_application_waivers = $storage->loadMultiple($youth_application_waiver_ids);
   $storage->delete($youth_application_waivers);
@@ -107,6 +110,7 @@ function youth_application_waiver_user_predelete(UserInterface $account) {
   $youth_application_waiver_ids = $storage->getQuery()
     ->allRevisions()
     ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
     ->execute();
   foreach (array_keys($youth_application_waiver_ids) as $revision_id) {
     $storage->deleteRevision($revision_id);

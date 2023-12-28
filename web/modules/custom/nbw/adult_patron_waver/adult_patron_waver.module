@@ -49,6 +49,7 @@ function adult_patron_waver_user_cancel($edit, UserInterface $account, $method) 
       $adult_patron_waver_ids = $storage->getQuery()
         ->condition('uid', $account->id())
         ->condition('status', 1)
+        ->accessCheck(FALSE)
         ->execute();
       foreach ($storage->loadMultiple($adult_patron_waver_ids) as $adult_patron_waver) {
         $adult_patron_waver->set('status', FALSE);
@@ -78,6 +79,7 @@ function adult_patron_waver_user_predelete(UserInterface $account) {
   $storage = \Drupal::entityTypeManager()->getStorage('adult_patron_waver');
   $adult_patron_waver_ids = $storage->getQuery()
     ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
     ->execute();
   $adult_patron_wavers = $storage->loadMultiple($adult_patron_waver_ids);
   $storage->delete($adult_patron_wavers);

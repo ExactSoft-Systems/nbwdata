@@ -48,6 +48,7 @@ function volunteer_sign_up_record_user_cancel($edit, UserInterface $account, $me
       $storage = \Drupal::entityTypeManager()->getStorage('volunteer_sign_up_and_waver');
       $volunteer_sign_up_and_waver_ids = $storage->getQuery()
         ->condition('uid', $account->id())
+        ->accessCheck(FALSE)
         ->execute();
       foreach ($storage->loadMultiple($volunteer_sign_up_and_waver_ids) as $volunteer_sign_up_and_waver) {
         $volunteer_sign_up_and_waver->setOwnerId(0);
@@ -65,6 +66,7 @@ function volunteer_sign_up_record_user_predelete(UserInterface $account) {
   $storage = \Drupal::entityTypeManager()->getStorage('volunteer_sign_up_and_waver');
   $volunteer_sign_up_and_waver_ids = $storage->getQuery()
     ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
     ->execute();
   $volunteer_sign_up_and_wavers = $storage->loadMultiple($volunteer_sign_up_and_waver_ids);
   $storage->delete($volunteer_sign_up_and_wavers);
@@ -72,6 +74,7 @@ function volunteer_sign_up_record_user_predelete(UserInterface $account) {
   $volunteer_sign_up_and_waver_ids = $storage->getQuery()
     ->allRevisions()
     ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
     ->execute();
   foreach (array_keys($volunteer_sign_up_and_waver_ids) as $revision_id) {
     $storage->deleteRevision($revision_id);

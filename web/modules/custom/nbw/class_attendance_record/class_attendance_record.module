@@ -48,6 +48,7 @@ function class_attendance_record_user_cancel($edit, UserInterface $account, $met
       $storage = \Drupal::entityTypeManager()->getStorage('class_attendance_record');
       $class_attendance_record_ids = $storage->getQuery()
         ->condition('uid', $account->id())
+        ->accessCheck(FALSE)
         ->execute();
       foreach ($storage->loadMultiple($class_attendance_record_ids) as $class_attendance_record) {
         $class_attendance_record->setOwnerId(0);
@@ -65,6 +66,7 @@ function class_attendance_record_user_predelete(UserInterface $account) {
   $storage = \Drupal::entityTypeManager()->getStorage('class_attendance_record');
   $class_attendance_record_ids = $storage->getQuery()
     ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
     ->execute();
   $class_attendance_records = $storage->loadMultiple($class_attendance_record_ids);
   $storage->delete($class_attendance_records);
