@@ -1,0 +1,17 @@
+<div class="usa-accordion usa-accordion--bordered">
+  <h4 class="usa-accordion__heading">
+    <button 
+      type="button" 
+      class="usa-accordion__button" 
+      aria-expanded="false" 
+      aria-controls="tar--accordion"
+    >
+      {{ 'Tools' | t }}
+    </button>
+  </h4>
+  <div id="tar--accordion" class="usa-accordion__content">
+    {% for item in items %}
+      {{ item.content }}
+    {% endfor %}
+  </div>
+</div>

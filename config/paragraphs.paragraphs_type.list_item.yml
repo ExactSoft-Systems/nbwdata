@@ -1,0 +1,10 @@
+uuid: eed20a2d-991b-44dc-9c01-4da7a83ed49a
+langcode: en
+status: true
+dependencies: {  }
+id: list_item
+label: 'List Item'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

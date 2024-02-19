@@ -1,0 +1,35 @@
+{% set title = paragraph.field_section.0.entity.name.value %}
+{% set id = paragraph.id.value %}
+{% set title_id = title | clean_class %}
+{% set intro = paragraph.field_section_intro.0.value %}
+{% set content = paragraph.field_content.0.value %}
+{% if view_mode == "default" %}
+  {% block paragraph %}
+    {% block content %}  
+      {% if intro is not empty or content is not empty %}  
+        <h4 class="usa-accordion__heading">
+          <button 
+            type="button" 
+            class="usa-accordion__button" 
+            aria-expanded="false" 
+            aria-controls="pb--{{ title_id }}--{{ id }}"
+          >
+            {{ title }}
+          </button>
+        </h4>
+        <div id="pb--{{ title_id }}--{{ id }}" class="usa-accordion__content">
+          {{ intro | raw }}
+          {{ content | raw }}
+        </div>
+      {% endif %}
+    {% endblock %}
+  {% endblock paragraph %}
+{% elseif view_mode == "list_view_tex" %}
+  <div class="pdf-group">
+  <h3>{{ title }}</h3>
+  {{ intro|raw }}
+  {{ content|raw }}
+  </div>
+{% else %}
+  {% include "paragraph.html.twig" %}
+{% endif %}

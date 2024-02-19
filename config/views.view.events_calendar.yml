@@ -1,16 +1,13 @@
 uuid: 0f8f3443-e8c3-48f9-8e4e-6dd80ce5a05f
 langcode: en
-status: true
+status: false
 dependencies:
   config:
-    - field.storage.node.field_event_types
-    - field.storage.node.field_when
     - node.type.event
   module:
     - add_content_by_bundle
     - fullcalendar_view
     - node
-    - smart_date
     - user
 _core:
   default_config_hash: jQp_UiShPgNeRASYj0aK6JOvBJciIU75z1F_rSX18sg
@@ -68,134 +65,6 @@ display:
           settings:
             link_to_entity: true
           group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_when:
-          id: field_when
-          table: node__field_when
-          field: field_when
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: smartdate_default
-          settings:
-            timezone_override: ''
-            format: default
-            force_chronological: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_event_types:
-          id: field_event_types
-          table: node__field_event_types
-          field: field_event_types
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -268,8 +137,6 @@ display:
           right_buttons: 'dayGridMonth,timeGridWeek,timeGridDay,listYear'
           default_view: dayGridMonth
           firstDay: '0'
-          minTime: '00:00:00'
-          maxTime: '23:59:59'
           nav_links: 1
           timeFormat: ''
           allowEventOverlap: 1
@@ -279,10 +146,8 @@ display:
           languageSelector: 0
           dialogWindow: 0
           openEntityInNewTab: 1
-          dialogModal: 0
           createEventLink: 0
           eventLimit: '2'
-          slotDuration: '00:30:00'
           tax_field: field_event_types
           vocabularies: event_types
           color_bundle:
@@ -306,6 +171,10 @@ display:
           duration: ''
           bundle_type: event
           classes: ''
+          minTime: '00:00:00'
+          maxTime: '23:59:59'
+          dialogModal: 0
+          slotDuration: '00:30:00'
           color_taxonomies:
             1: '#ff8040'
             2: '#008080'
@@ -330,7 +199,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: add_content_by_bundle
-          label: 'Add an Event or Class'
+          label: 'Add an Event'
           empty: false
           bundle: event
           class: button
@@ -347,9 +216,7 @@ display:
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
-      tags:
-        - 'config:field.storage.node.field_event_types'
-        - 'config:field.storage.node.field_when'
+      tags: {  }
   page_1:
     id: page_1
     display_title: Page
@@ -374,6 +241,4 @@ display:
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
-      tags:
-        - 'config:field.storage.node.field_event_types'
-        - 'config:field.storage.node.field_when'
+      tags: {  }

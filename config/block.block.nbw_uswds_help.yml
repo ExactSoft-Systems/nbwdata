@@ -1,0 +1,22 @@
+uuid: fdaf41a3-eefa-4082-a538-48444bd6f976
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - nbw_uswds
+_core:
+  default_config_hash: kZYm0IFDqdGZFVnT4IcGM4VknJc3u4SBbsI71Gz8qFM
+id: nbw_uswds_help
+theme: nbw_uswds
+region: help
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

@@ -1,0 +1,26 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set format = paragraph.field_formatter.value %}
+
+{% if format %}
+  {% set classes = classes | merge(['format--' ~ format]) %}
+{% endif %}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      <a href="{{ paragraph.field_url.0.url }}">
+        <img src="{{ file_url(paragraph.field_image.entity.fileuri) }}"
+          title="{{ paragraph.field_image.alt }}" 
+        />
+      </a>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

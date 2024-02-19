@@ -10,14 +10,9 @@ dependencies:
     - node.type.event
     - node.type.locked_content_type
     - node.type.page
-    - node.type.place
-    - node.type.product
-    - node.type.testing_example
     - node.type.webform
     - node.type.webform_demo_event
     - node.type.webform_demo_region
-    - node.type.youth_class
-    - node.type.youth_program
     - paragraphs.paragraphs_type.node
 _core:
   default_config_hash: MWKu2Px3WLFtZUle7pyQBw9kPY-Ca6-_NaS5GeXmktw
@@ -40,14 +35,9 @@ settings:
       event: event
       locked_content_type: locked_content_type
       page: page
-      place: place
-      testing_example: testing_example
       webform: webform
       webform_demo_event: webform_demo_event
       webform_demo_region: webform_demo_region
-      youth_class: youth_class
-      youth_program: youth_program
-      product: product
       class_roster: class_roster
     sort:
       field: _none

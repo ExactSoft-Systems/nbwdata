@@ -1,0 +1,19 @@
+@use 'uswds' as *;
+@use 'nbw-custom-mixins' as *;
+@use 'nbw-custom-definitions' as *;
+
+.node-type--webinar {
+  article {
+    h2 {
+      display: none;
+    }
+  }
+}
+
+.node-type--partner_profile {
+  article {
+    h2 {
+      display: none;
+    }
+  }
+}

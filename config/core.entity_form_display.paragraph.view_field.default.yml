@@ -1,0 +1,40 @@
+uuid: 8865ec33-771c-47e7-a74d-36583a1c610e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.view_field.field_link
+    - field.field.paragraph.view_field.field_view_name
+    - paragraphs.paragraphs_type.view_field
+  module:
+    - field_layout
+    - layout_discovery
+    - link
+    - viewfield
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.view_field.default
+targetEntityType: paragraph
+bundle: view_field
+mode: default
+content:
+  field_link:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_view_name:
+    type: viewfield_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

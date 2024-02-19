@@ -1,0 +1,25 @@
+uuid: a89557b1-885c-4a47-a42d-6f018ac80658
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_students
+    - node.type.class_registration
+id: node.class_registration.field_students
+field_name: field_students
+entity_type: node
+bundle: class_registration
+label: Students
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: youth_name_and_username
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

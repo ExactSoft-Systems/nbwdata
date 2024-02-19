@@ -1,0 +1,737 @@
+@use 'uswds' as *;
+@use 'nbw-custom-mixins' as *;
+@use 'nbw-custom-definitions' as *;
+
+.block {
+  &.block-facets-summary {
+    background-image: url(/themes/custom/nbw_uswds/assets/uswds/img/usa-icons/tags_blue.svg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 2rem;
+    margin-top: 2rem;
+    padding-left: 3rem;
+
+    ul {
+      list-style-type: none;
+      padding: .5rem 0 0 0;
+
+      li {
+        display: inline-block;
+        padding-right: 2rem;
+        white-space: nowrap;
+
+        a {
+          color: color('ink');
+          display: flex;
+          text-decoration: none;
+
+          .js-facet-deactivate {
+            margin-left: .25rem;
+          }
+        }
+      }
+    }
+  }
+
+  &.block-local-tasks-block {
+    background-color: color('base-light');
+    margin: 0;
+    padding: 0 1rem;
+    width: 100%;
+
+    .usa-list {
+      margin: 0 auto;
+      max-width: 87.5rem;
+      padding: 1rem 0;
+    }
+  }
+
+  &.block--desktopheadersearch {
+    #desktop-header-search-container {
+      align-items: center;
+      display: flex;
+      justify-content: right;
+      margin-bottom: -6rem;
+      padding-top: 1rem;
+
+      #desktop-header-search-icon {
+        button {
+          &.usa-button {
+            background-color: color('primary');
+            border-radius: 50%;
+            height: 3rem;
+            margin: .5625rem;
+            padding: .5rem;
+            width: 3rem;
+
+            &:hover {
+              background-color: color('primary-vivid');
+            }
+          }
+        }
+      }
+
+      #desktop-header-search-block {
+        align-items: center;
+        display: inline-flex;
+        transition: width 1s;
+
+        #desktop-header-search-closer {
+          cursor: pointer;
+          margin-right: 1rem;
+        }
+
+        form {
+          &.usa-search {
+            [role='search'] {
+              border: 1px solid color('primary-dark');
+              border-radius: 5rem;
+              box-shadow: .25rem .25rem .5rem rgba(0, 0, 0, .25);
+              display: block;
+              max-width: 100%;
+              width: 40.125rem;
+
+              .search-form {
+                align-items: center;
+                background-color: color('white');
+                border-radius: 5rem;
+                display: inline-flex;
+                justify-content: right;
+                padding: .5rem;
+                width: 40rem;
+
+                input[type='search'] {
+                  border-width: 0;
+                  border-bottom: 1px solid color('primary-light');
+                  color: color('primary-light');
+                  font-size: 1.25rem;
+                  font-style: italic;
+                  height: 2rem;
+                  margin: 0 1rem;
+                  width: 35rem;
+                  max-width: unset;
+                }
+
+                button {
+                  &.usa-button {
+                    background-color: color('primary');
+                    border-radius: 50%;
+                    height: 3rem;
+                    padding: .5rem;
+                    width: 3rem;
+
+                    &:hover {
+                      background-color: color('primary-light');
+                    }
+
+                    img {
+                      &.usa-search__search-icon {
+                        height: 2rem;
+                        width: 2rem;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.block--mobileheadersearch {
+    display: none;
+  }
+
+  &.block--homepagesearch {
+    form {
+      &.usa-search {
+        [role='search'] {
+          display: block;
+
+          .search-form {
+            align-items: center;
+            background-color: color('white');
+            border-radius: 5rem;
+            display: inline-flex;
+            justify-content: right;
+            max-width: 90%;
+            padding: .5rem;
+            width: 42rem;
+
+            input[type='search'] {
+              border-width: 0;
+              border-bottom: 1px solid color('primary-light');
+              color: color('primary-light');
+              font-size: 1.25rem;
+              font-style: italic;
+              height: 2rem;
+              margin: 0 1rem;
+              width: 37rem;
+              max-width: unset;
+            }
+
+            button {
+              &.usa-button {
+                background-color: color('primary-lightest');
+                border-radius: 50%;
+                height: 3rem;
+                padding: .5rem;
+                width: 3rem;
+
+                &:hover {
+                  background-color: color('primary-lighter');
+                }
+
+                img {
+                  &.usa-search__search-icon {
+                    height: 2rem;
+                    width: 2rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    footer {
+      display: none;
+    }
+  }
+
+  &.block-organigrams-blockfinancing-landscape-chart {
+    &.orgchart {
+      .contextual {
+        display: none;
+      }
+
+      .nodecontent {
+        background-color: color('primary');
+        border: 1px solid color('primary');
+        width: 10rem;
+
+        &::after {
+          border-color: color('primary-light');
+          border-left-width: .25rem;
+        }
+
+        &::before {
+          border-color: color('primary-light');
+          border-left-width: .25rem;
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      ul {
+        li {
+          &::after {
+            border-color: color('primary-light');
+          }
+
+          &::before {
+            border-color: color('primary-light');
+          }
+
+          &:first-child {
+            &::before {
+              border-left-width: .25rem;
+            }
+
+            .nodecontent {
+              background-color: color('primary');
+              color: color('white');
+            }
+          }
+
+          &:last-child {
+            &::before {
+              border-right-width: .25rem;
+            }
+          }
+
+          &:not(:only-child) {
+            &::before {
+              border-top-width: .25rem;
+            }
+          }
+
+          &.child {
+            .nodecontent {
+              background-color: color('base-lighter');
+              background-image: url('/themes/custom/nbw_uswds/img/arrow_right_green.png');
+              background-position: 1rem 1.125rem;
+              background-repeat: no-repeat;
+              border: 1px solid color('base-darker');
+              color: color('black');
+              font-weight: 400;
+              margin-top: 0;
+              padding-left: 2rem;
+              text-align: left;
+
+              &::after {
+                border-color: color('base-darker');
+              }
+
+              &::before {
+                border-color: color('base-darker');
+              }
+
+              &:hover {
+                background-color: color('white');
+              }
+            }
+
+            &.primary {
+              .nodecontent {
+                margin-top: 1.5rem;
+              }
+            }
+
+            &.ee {
+              .nodecontent {
+                background-image: url('/themes/custom/nbw_uswds/img/arrow_right_yellow.png');
+              }
+            }
+
+            &.re {
+              .nodecontent {
+                background-image: url('/themes/custom/nbw_uswds/img/arrow_right_blue.png');
+              }
+            }
+          }
+
+          &.root {
+            &:first-child {
+              &::before {
+                border-width: 0;
+              }
+            }
+          }
+
+          &.wide {
+            .nodecontent {
+              width: 15rem;
+            }
+          }
+        }
+      }
+
+      .legend {
+        &.legend-landscape-chart {
+          display: flex;
+          justify-content: end;
+
+          table {
+            thead {
+              tr {
+                th {
+                  text-transform: uppercase;
+                }
+              }
+            }
+            tbody {
+              tr {
+                td {
+                  text-transform: uppercase;
+                  padding-right: .5rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.block-quicktabs-blockshowcase-block-groups {
+    margin-top: 3rem;
+  }
+
+  &.block-views {
+    &.block-views-blockpartner-profile-block-sidebar {
+      padding: 0 2rem;
+    }
+
+    &[class*='block-views-blockshowcase-charts'] {
+      background-color: #F1F1F1;
+      margin-bottom: 2rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .chart {
+        .highcharts-title {
+          fill: color('primary') !important;
+          font-size: 1.5rem !important;
+        }
+
+        g {
+          &.highcharts-series {
+            rect {
+              &[aria-label*="Baseline"] {
+                fill: color('primary');
+              }
+
+              &[aria-label*="Actual"] {
+                fill: color('secondary');
+              }
+
+              &[aria-label*="Expected"] {
+                fill: color('base-darker');
+              }
+            }
+          }
+        }
+      }
+
+      header {
+        padding-top: 2rem;
+        text-align: center;
+
+        h2 {
+          margin: 0 0 1rem 0;
+        }
+
+        h3 {
+          margin: 0;
+        }
+      }
+
+      footer {
+        padding-bottom: 1rem;
+        text-align: center;
+
+        h4 {
+          color: color('primary');
+          font-size: 1.5rem;
+          font-weight: font-weight('normal');
+          margin: 1rem auto;
+
+          span {
+            color: color('secondary-dark');
+            font-weight: 600;
+          }
+        }
+
+        h6 {
+          font-size: 1rem;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &.block-views-blockfinancing-navigator-find-browse {
+      .item-list {
+        &.grid-col-auto {
+          max-width: 32%;
+          width: 32%;
+
+          h3 {
+            background-color: color('primary');
+            color: color('white');
+            margin-bottom: .25rem;
+            padding: .5rem 1rem;
+          }
+
+
+          ul {
+            &.usa-list--unstyled {
+              li {
+                background-color: color('base-lighter');
+                border: 1px solid color('base-darker');
+                color: color('black');
+                cursor: pointer;
+                font-size: 1rem;
+                font-weight: 400;
+                margin: 0 0 .25rem 0;
+                padding: .25rem .75rem;
+                text-align: left;
+
+                &:hover {
+                  background-color: color('white');
+                }
+
+                .attribute-color-code {
+                  padding-right: .25rem;
+                }
+              }
+            }
+          }
+        }
+      }
+      .attribute-table{
+        &:not(&:has(h3)){
+          display:none;
+        }
+        li {
+          position: relative;
+        
+          a {
+            height: 100%;
+            position: absolute;
+            top: .25em;
+            left: 0;
+            padding-left: 2em;
+            width: 100%;
+            font-weight: initial;
+            text-decoration: none;
+            color: initial;
+            font-size: 1em;
+          }
+        }
+      }
+
+      header{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: color('white');
+        background-color: color('primary');
+        padding: 1rem;
+        margin: 0.75rem 3.5rem 2rem .75rem;
+        
+        .usa-label{
+          color: color('white');
+          align-self: center;
+        }
+        .views-exposed-form{
+          margin: 0;
+          form{
+            max-width: initial;
+          }
+        }
+        .views-field-field-financing-attribute-tool, .form-item{
+          margin: 0;
+        }
+        .form-item{
+          display: flex;
+          align-items: baseline;
+          width: max-content;
+        }
+        .select-wrapper{
+          margin: 0 1rem;
+          select {
+            margin:0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include at-media-max('desktop') {
+  .block {
+    &.block--desktopheadersearch {
+      display: none;
+    }
+
+    &.block--mobileheadersearch {
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+      margin: 0 auto 1rem auto;
+      width: 100%;
+
+      #mobile-header-search-container {
+        max-width: 24rem;
+        width: 80%;
+
+        form {
+          &.usa-search {
+            [role='search'] {
+              border: 1px solid color('primary-dark');
+              border-radius: 5rem;
+              box-shadow: .25rem .25rem .5rem rgba(0, 0, 0, .25);
+              display: block;
+              width: 100%;
+
+              .search-form {
+                align-items: center;
+                background-color: color('white');
+                border-radius: 5rem;
+                display: inline-flex;
+                justify-content: right;
+                padding: .25rem;
+                width: 98.5%;
+
+                input[type='search'] {
+                  border-width: 0;
+                  border-bottom: 1px solid color('primary-light');
+                  color: color('primary');
+                  font-size: 1rem;
+                  font-style: italic;
+                  height: 1.5rem;
+                  margin: 0 2% 0 .5rem;
+                }
+
+                button {
+                  &.usa-button {
+                    background-color: color('primary');
+                    border-radius: 50%;
+                    height: 2.125rem;
+                    margin-right: -1.5%;
+                    padding: .125rem .5rem;
+                    width: 2.25rem;
+
+                    &:hover {
+                      background-color: color('primary-light');
+                    }
+
+                    img {
+                      &.usa-search__search-icon {
+                        height: 2rem;
+                        width: 2rem;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.block--homepagesearch,
+    &#block-searchform-solution {
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: .5rem;
+      }
+
+      form {
+        &.usa-search {
+          [role='search'] {
+            display: block;
+
+            .search-form {
+              max-width: 90%;
+              padding: .5rem;
+              width: 24rem;
+
+              input[type='search'] {
+                font-size: 1rem;
+                font-style: italic;
+                height: 2rem;
+                margin: 0 .5rem;
+                width: 20rem;
+                max-width: 85%;
+              }
+
+              button {
+                &.usa-button {
+                  height: 2rem;
+                  padding: .25rem;
+                  width: 2rem;
+
+                  img {
+                    &.usa-search__search-icon {
+                      height: 1.5rem;
+                      width: 1.5rem;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.block-local-tasks-block {
+      .usa-list {
+        margin-bottom: 2rem;
+      }
+    }
+
+    &.block-views {
+      &.block-views-blockpartner-profile-block-sidebar {
+        padding: 0;
+      }
+    }
+  }
+}
+
+@include at-media-max('tablet') {
+  .block {
+    &.block-views {
+      &.block-views-blockfinancing-navigator-find-browse {
+        .item-list {
+          &.grid-col-auto {
+            margin-bottom: 2rem;
+            max-width: 100%;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    &.block-local-tasks-block {
+      .usa-list {
+        a {
+          margin-bottom: .25rem;
+        }
+      }
+    }
+  }
+}
+
+.print-to-pdf{
+  .block.block-views[class*=block-views-blockshowcase-charts]{
+    background-color: transparent;
+  }
+  .views-element-container{
+    background-color: #F1F1F1;
+    margin: 2rem;
+  }
+}
+
+.block-views-blockrelated-content-primary-block {
+  h2 {
+    @include gradient-header-green;
+    margin-top: 0;
+  }
+
+  padding: 0 0 1rem;
+  margin: 4rem 0 2rem;
+  border: 1px solid color('base-dark');
+}
+
+.gradient-header {
+  > div {
+    margin-left: 2rem;
+  }
+
+  .list-pill-row {
+    &.button-wrapper {
+      margin-right: 2.5rem;
+    }
+  }
+}
+
+#block {
+  &-financingoptionfactsheets,
+  &-financingtoolkits,
+  &-sectorenergyfinancingprimers,
+  &-financinglandscape,
+  &-browsefinancingoptions {
+    h2 {
+      @include arrow-header;
+      @include arrow-header-green;
+    }
+  }
+}
+
+.no-h2 {
+  h2 {
+    display: none;
+  }
+}

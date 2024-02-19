@@ -1,0 +1,121 @@
+uuid: 1698f8cd-68e5-4c55-9cf1-36058c476f54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slider_homepage
+    - node.type.homepage
+    - paragraphs.paragraphs_type.slideshow
+  module:
+    - entity_reference_revisions
+id: node.homepage.field_slider_homepage
+field_name: field_slider_homepage
+entity_type: node
+bundle: homepage
+label: Slider
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      slideshow: slideshow
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: -62
+        enabled: false
+      audio:
+        weight: -61
+        enabled: false
+      button_group:
+        weight: -60
+        enabled: false
+      card:
+        weight: -59
+        enabled: false
+      card_group:
+        weight: -58
+        enabled: false
+      card_group_row:
+        weight: -57
+        enabled: false
+      collection_page:
+        weight: -56
+        enabled: false
+      header:
+        weight: -55
+        enabled: false
+      icon:
+        weight: -54
+        enabled: false
+      image:
+        weight: -53
+        enabled: false
+      image_gallery:
+        weight: -52
+        enabled: false
+      item_list_link:
+        weight: -51
+        enabled: false
+      item_list_string:
+        weight: -50
+        enabled: false
+      item_list_text:
+        weight: -49
+        enabled: false
+      layout:
+        weight: -48
+        enabled: false
+      list:
+        weight: -47
+        enabled: false
+      list_item:
+        weight: -46
+        enabled: false
+      media_gallery:
+        weight: -45
+        enabled: false
+      node:
+        weight: -44
+        enabled: false
+      quotation:
+        weight: -43
+        enabled: false
+      remote_video:
+        weight: -42
+        enabled: false
+      slide:
+        weight: -41
+        enabled: false
+      slideshow:
+        weight: -63
+        enabled: true
+      statement:
+        weight: -40
+        enabled: false
+      three_column_listings:
+        weight: -39
+        enabled: false
+      title_icon_link:
+        weight: -38
+        enabled: false
+      title_image_description:
+        weight: -37
+        enabled: false
+      video_gallery:
+        weight: -36
+        enabled: false
+      view:
+        weight: -35
+        enabled: false
+      view_field:
+        weight: -34
+        enabled: false
+      webform:
+        weight: -33
+        enabled: false
+field_type: entity_reference_revisions

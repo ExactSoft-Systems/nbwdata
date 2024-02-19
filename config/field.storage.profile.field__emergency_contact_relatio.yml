@@ -3,12 +3,8 @@ langcode: en
 status: true
 dependencies:
   module:
-    - field_permissions
     - profile
     - text
-third_party_settings:
-  field_permissions:
-    permission_type: public
 id: profile.field__emergency_contact_relatio
 field_name: field__emergency_contact_relatio
 entity_type: profile

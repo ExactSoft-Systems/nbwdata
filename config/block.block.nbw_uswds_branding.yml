@@ -1,0 +1,25 @@
+uuid: ee3eeb5b-391c-4978-9eea-81d5139f955e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nbw_uswds
+_core:
+  default_config_hash: IJF_eLwbn6KTglHTcea1DdcER6eH90I1gf5UUWNtERE
+id: nbw_uswds_branding
+theme: nbw_uswds
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

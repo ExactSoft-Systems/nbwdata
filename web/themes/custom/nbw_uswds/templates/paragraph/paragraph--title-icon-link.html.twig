@@ -1,0 +1,30 @@
+{% block paragraph %}
+  <section class="paragraph--title-icon-link">
+    {% block content %}
+      <div class="grid-container-widescreen">
+        <h2>{{ paragraph.field_title_formatted.value | raw }}</h2>
+
+        <div class="icon-row">
+          <div class="grid-row grid-gap-lg">
+            {% for icon_paragraph in paragraph.field_icon_paragraph %}
+              <div class="desktop:grid-col-3 tablet:grid-col-6 grid-col-12 icon-col">
+                <div class="icon">
+                  <img src="{{ file_url(icon_paragraph.entity.field_image.entity.fileuri) }} " />
+                </div>
+                <h3>{{ icon_paragraph.entity.field_title_formatted.value }}</h3>
+
+                {{ icon_paragraph.entity.field_summary.value | raw }}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% if paragraph.field_link.0.url is not empty %}
+          <div class="cta">
+            <a href="{{ paragraph.field_link.0.url }}" class="cta-pill cta-white">{{ paragraph.field_link.0.value.title }}</a>
+          </div>
+        {% endif %}
+      </div>
+    {% endblock %}
+  </section>
+{% endblock paragraph %}

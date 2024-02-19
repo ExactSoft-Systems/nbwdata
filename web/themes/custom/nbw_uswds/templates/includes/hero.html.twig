@@ -1,0 +1,9 @@
+{% if page.hero %}
+  {% block hero %}
+    <section class="usa-hero">
+      <div class="grid-container">
+        {{ page.hero }}
+      </div>
+    </section>
+  {% endblock %}
+{% endif %}

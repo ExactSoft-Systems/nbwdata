@@ -1,0 +1,89 @@
+@use 'uswds' as *;
+@use 'nbw-custom-mixins' as *;
+@use 'nbw-custom-definitions' as *;
+
+.view--events {
+  .views-field-field-date {
+    @include nbw-row-header;
+    margin: 0 0 1em 0;
+  }
+  .event {
+    &-title {
+      a {
+        @include nbw-a-event-webinar-title;
+      }
+
+      @include at-media-max('desktop') {
+        margin: 0 0 1em 0;
+      }
+    }
+  }
+  .commas {
+    div {
+      @include nbw-commas;
+    }
+  }
+  //Fullcalendar_view Styles
+  .fc-day-grid-event {
+    .fc-content {
+      white-space: pre-wrap;
+      @include nbw-a-normal-weight;
+      padding: .5em;
+    }
+  }
+  .fc-center h2 {
+    font-size: $nbw-font-size-h1;
+    margin-left: -6em;
+    @include at-media-max('desktop') {
+      margin-left: 0;
+    }
+  }
+  .fc-right button {
+    display: none;
+  }
+  .fc-button-group>.fc-button:not(:first-child), .fc-button-group>.fc-button:not(:last-child) {
+    @include nbw-button;
+    color: color('primary');
+    background-color: color('white');
+    width: 2.5rem;
+    margin-right: 1rem;
+  }
+  .fc-icon-chevron-left {
+    margin-left: -.25em;
+  }
+  .fc-today-button {
+    @include nbw-button;
+    width: 6rem;
+  }
+}
+body{
+  &[aria-label=modal_view-webinar], &[aria-label=modal_view-event]{
+    .modal-view {
+      h2 {
+        margin: 0 0 1em 0;
+      }
+      a {
+        color: color('primary');
+        &:focus{
+          outline: none;
+        }
+      }  
+    }
+    .ui-dialog-titlebar{
+      border: none;
+      background-color: transparent;
+      height: 2em;
+      .ui-dialog-title{
+        display: none;
+      }
+    }
+    &:focus{
+      outline: none;
+    }
+  }
+  div[aria-describedby=drupal-modal][style]{
+    @include at-media-max('desktop') {  
+      width: 90% !important;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+uuid: d268887f-17c5-469d-9606-a0ae9a170f86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_class_type
+    - node.type.class
+    - taxonomy.vocabulary.class_types
+id: node.class.field_class_type
+field_name: field_class_type
+entity_type: node
+bundle: class
+label: 'Class Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      class_types: class_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

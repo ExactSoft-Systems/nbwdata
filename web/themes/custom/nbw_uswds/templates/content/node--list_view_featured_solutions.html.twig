@@ -1,0 +1,25 @@
+{% if content.group_pathoverride %}
+  {% set overrideField = content.group_pathoverride|filter((v, k) => (k starts with 'field_') and (v|render|striptags|trim))|first[0] %}
+  {% set pathOverride = overrideField['#markup'] ? overrideField['#markup']|render : overrideField['#url']|render|default(null) %}
+{% endif %}
+
+{% set urlTitle = {"#template" : "<a href='#{ pathOverride|default(url) }'>{{ value|nl2br }}</a>" } %}
+{% set label = label | filter((v,k) => k != 0) | merge([label[0] | merge(urlTitle)]) %}
+
+<div class="grid-row">
+  {% if (content|length == 1) and ("field_" in content|first) %}
+    {% set i = content|first %}
+    {% if i["#field_type"] == "entity_reference_revisions" %}
+      {{ i[0]|render }}
+    {% endif %}
+  {% else %}
+    {% for x in content|without('group_pathoverride') %}
+      {% if x['field_summary'] %}
+        {% set x = [label]|merge(x) %}
+        {{ x }}
+      {% else %}
+        {{ x }}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>

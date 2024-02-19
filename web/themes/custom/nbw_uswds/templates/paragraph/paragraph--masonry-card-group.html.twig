@@ -1,0 +1,131 @@
+{% block paragraph %}
+  <section class="paragraph--masonry-card-group">
+    {% block content %}
+      {% if paragraph.field_title is not empty %}
+        <h3 class="masonry-title">{{ paragraph.field_title.value }}</h3>
+      {% endif %}
+
+      <div class="grid-container-widescreen">
+
+        {% for card_group_row in paragraph.field_card_group %}
+          {% set row_idx = card_group_row.name %}
+          {% set row_class = (row_idx == 0) ? 'card-row--primary' : 'card-row--secondary' %}
+          {% set row_card_count = card_group_row.entity.field_masonary_card|length %}
+
+          <div class="grid-row 
+            grid-gap-lg
+            card-row
+            {{ row_class }} 
+            row-card-count--{{ row_card_count }}
+          ">
+            {% for card in card_group_row.entity.field_masonary_card %}
+              {% set col_idx = card.name %}
+              {% set mobile_col_class = 'grid-col-12' %}
+
+              {% if row_idx == 0 %}
+                {% set col_class = 'card-col--primary' %}
+
+                {% if row_card_count == 1 %}
+                  {% set desktop_col_class = 'grid-col-12' %}
+                  {% set tablet_col_class = 'grid-col-12' %}
+                {% elseif row_card_count == 4 %}
+                  {% set desktop_col_class = 'grid-col-3' %}
+                  {% set tablet_col_class = 'grid-col-6' %}
+                {% elseif col_idx == 0 %}
+                  {% set desktop_col_class = 'grid-col-6' %}
+                  {% set tablet_col_class = 'grid-col-12' %}
+                {% else %}
+                  {% if row_card_count == 2 %}
+                    {% set desktop_col_class = 'grid-col-6' %}
+                    {% set tablet_col_class = 'grid-col-12' %}
+                  {% elseif row_card_count == 3 %}  
+                    {% set desktop_col_class = 'grid-col-3' %}
+                    {% set tablet_col_class = 'grid-col-6' %}
+                  {% endif %}
+                {% endif %}
+              {% else %}              
+                {% set col_class = 'card-col--secondary' %}
+
+                {% if row_card_count == 1 %}
+                  {% set desktop_col_class = 'grid-col-12' %}
+                  {% set tablet_col_class = 'grid-col-12' %}
+                {% elseif row_card_count == 2 %}
+                  {% set desktop_col_class = 'grid-col-6' %}
+                  {% set tablet_col_class = 'grid-col-12' %}
+                {% elseif row_card_count == 3 %}
+                  {% set desktop_col_class = 'grid-col-4' %}
+                  {% set tablet_col_class = 'grid-col-12' %}
+                {% elseif row_card_count == 4 %}
+                  {% set desktop_col_class = 'grid-col-3' %}
+                  {% set tablet_col_class = 'grid-col-6' %}
+                {% endif %}
+              {% endif %}
+
+              {% set has_media = (row_idx == 0) ? true : false %}
+
+              <div class="desktop:{{ desktop_col_class }} 
+                tablet:{{ tablet_col_class }} 
+                {{ mobile_col_class}} 
+                col-index--{{ col_idx }} 
+                card-col 
+                {{ col_class }}
+              ">
+                <div class="usa-card__container usa-card__flip {% if row_idx == 0 %}has-rollover{% endif %}">
+                  <div class="usa-card__default">
+                    {% if has_media %}
+                      <div 
+                        class="usa-card__default-image-bg"
+                        style="background-image:url('{{ file_url(card.entity.field_image.entity.fileuri) }}')"
+                        title="{{ card.entity.field_image.alt }}" 
+                      ></div>
+                    {% endif %}
+
+                    <div class="usa-card__footer">
+                      <div class="grid-row">
+                        <div class="grid-col-9 text-col">
+                          <h3>{{ card.entity.field_title_formatted.value }}</h3>
+                        </div>
+                        <div class="grid-col-3 cta-col">
+                          <a href="{{ card.entity.field_link.0.url }}" class="card-cta">
+                            <img src="{{ active_theme_icons_path }}/chevron_right.svg" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% if row_idx == 0 %}
+                    <div class="usa-card__rollover" style="display:none">
+                      {% if has_media %}
+                        <div 
+                          class="usa-card__rollover-image-bg"
+                          style="background-image:url('{{ file_url(card.entity.field_thumbnail.entity.fileuri) }}')"
+                          title="{{ card.entity.field_thumbnail.alt }}"
+                        ></div>
+                      {% endif %}
+
+                      <div class="usa-card__rollover-content">
+                        <div class="usa-card__body">
+                          {{ card.entity.field_caption.value | raw }}
+                        </div>
+                        <div class="usa-card__footer">
+                          <div class="grid-row">
+                            <div class="grid-col-9 text-col"></div>
+                            <div class="grid-col-3 cta-col">
+                              <a href="{{ card.entity.field_link.0.url }}" class="card-cta">
+                                <img src="{{ active_theme_icons_path }}/chevron_right.svg" />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endblock %}
+  </section>
+{% endblock paragraph %}

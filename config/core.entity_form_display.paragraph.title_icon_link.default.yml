@@ -1,0 +1,62 @@
+uuid: 2c1cea65-06b6-475b-8565-f9b81a01dd07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.title_icon_link.field_icon_paragraph
+    - field.field.paragraph.title_icon_link.field_link
+    - field.field.paragraph.title_icon_link.field_title_formatted
+    - paragraphs.paragraphs_type.title_icon_link
+  module:
+    - field_layout
+    - layout_discovery
+    - link
+    - paragraphs
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.title_icon_link.default
+targetEntityType: paragraph
+bundle: title_icon_link
+mode: default
+content:
+  field_icon_paragraph:
+    type: paragraphs
+    weight: 3
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_title_formatted:
+    type: text_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

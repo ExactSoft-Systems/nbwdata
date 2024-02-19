@@ -1,0 +1,22 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% if content.field_fo_hide_title.0['#markup'] %}
+  {# we want to get rid of the attributes element #}
+  {% set content = content|filter((v, k) => (k != 'field_fo_hide_title') and (k != 'group_h2')) %}
+  {% else %}
+  {% set content = content|filter((v, k) => k != 'field_fo_hide_title') %}
+{% endif %}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

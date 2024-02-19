@@ -1,0 +1,493 @@
+@use 'uswds' as *;
+@use 'nbw-custom-definitions' as *;
+
+// ----------------------------------------------------------------------------------------
+// -- nbw CUSTOM MIXINS USED IN CUSTOM nbw STYLES                                      --
+// ----------------------------------------------------------------------------------------
+
+// ---------------------------
+// REPEATED TYPESETTING STYLES
+// ---------------------------
+
+@mixin nbw-label {
+  font-weight: font-weight('bold');
+  text-transform: uppercase;
+}
+
+@mixin nbw-heading {
+  @include nbw-label;
+  margin: $nbw-bottom-spacer-only;
+}
+
+@mixin nbw-h1 {
+  @include nbw-heading;
+  color: color('primary');
+  font-weight: font-weight('normal');
+  font-size: $nbw-font-size-h1; //1.875rem;
+  line-height: $nbw-line-height-h1;
+}
+
+@mixin nbw-h2 {
+  @include nbw-heading;
+  color: color('primary');
+  font-size: $nbw-font-size-h2;
+  line-height: $nbw-line-height-h2;
+
+}
+
+@mixin nbw-h3 {
+  @include nbw-heading;
+  color: color('primary');
+  font-size: $nbw-font-size-h3;
+  line-height: $nbw-line-height-h3;
+}
+
+@mixin nbw-h4 {
+  @include nbw-heading;
+  color: color('primary');
+  font-size: $nbw-font-size-h4;
+  line-height: $nbw-line-height-h4;
+}
+
+@mixin nbw-h5 {
+  @include nbw-heading;
+  color: color('primary');
+  font-size: $nbw-font-size-h5;
+  line-height: $nbw-line-height-h5;
+}
+
+@mixin nbw-h6 {
+  @include nbw-heading;
+  color: color('primary');
+  font-size: $nbw-font-size-h6;
+  line-height: $nbw-line-height-h5;
+
+}
+
+@mixin nbw-body {
+  color: color('ink');
+  font-weight: font-weight('normal');
+  font-size: $nbw-font-size-body;
+  line-height: $nbw-line-height-body;
+}
+
+@mixin nbw-row-header {
+  @include nbw-h3;
+  color: color('ink');
+}
+
+
+@mixin nbw-indicator-marks {
+  font-family: 'Devanagari MT', -apple-system, -webkit-body, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 800;
+}
+
+// --------------------
+// REPEATED LINK STYLES
+// --------------------
+
+@mixin nbw-a {
+  color: color('primary');
+  font-weight: font-weight('bold');
+}
+
+@mixin nbw-a-normal-weight {
+  font-weight: font-weight('normal');
+}
+
+@mixin nbw-a-green-energy {
+  color: color('secondary-light');
+  text-transform: uppercase;
+  font-weight: font-weight('normal');
+  text-decoration: none;
+}
+
+@mixin nbw-a-event-webinar-title {
+  @include nbw-a-normal-weight;
+  font-size: $nbw-font-size-event-title;
+}
+
+@mixin nbw-a-footer {
+  color: color('white');
+  font-size: $nbw-font-size-footer-link;
+  font-weight: font-weight('normal');
+  line-height: $nbw-line-height-footer-link;
+  text-decoration: none;
+
+  &:hover {
+    color: color('primary-lighter');
+  }
+}
+
+@mixin nbw-a-tags {
+  color: color('black');
+  font-size: $nbw-font-size-tag;
+  font-weight: font-weight('medium');
+  line-height: 175%;
+  margin: 0 1.5rem 0 0;
+  white-space: nowrap;
+}
+
+@mixin nbw-button-text {
+  font-size: 1rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  font-weight: font-weight('bold');
+}
+
+@mixin nbw-button {
+  background-color: color('primary');
+  border: 1px solid color('primary');
+  border-radius: 5rem;
+  @include nbw-button-text;
+  width: 60%;
+
+  &:hover:not([disabled]) {
+    background-color: color('primary-lighter');
+    color: color('primary');
+    border-color: color('primary');
+  }
+}
+
+@mixin nbw-pill-filters {
+  background-color: color('white');
+  border: 1px solid color('primary');
+  border-radius: 5rem;
+  @include nbw-button-text;
+  padding: .25rem .75rem;
+  width: fit-content;
+  text-decoration: none;
+  margin-left: .5rem;
+  label{
+    color: color('primary');
+    position: relative;
+    &:hover{
+      color: color('white');
+      &:after {
+        color: $nbw-red;
+        content: 'Remove';
+        position: absolute;
+        left: 0;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+
+}
+
+@mixin nbw-a-cta-pill {
+  border-radius: 10rem;
+  font-size: $nbw-font-size-h2;
+  font-weight: font-weight('normal');
+  padding: .5rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@mixin nbw-a-cta-white {
+  background-color: color('white');
+  border: 2px solid color('primary');
+  color: color('primary');
+  font-weight: font-weight('normal');
+
+  &:hover {
+    background-color: color('primary-lighter');
+    border: 2px solid color('primary');
+    color: color('primary');
+    font-weight: font-weight('normal');
+  }
+}
+
+@mixin nbw-a-cta-primary {
+  border: 2px solid color('primary');
+  color: color('white');
+  background-color: color('primary');
+  font-weight: font-weight('normal');
+
+  &:hover {
+    background-color: color('primary-lighter');
+    color: color('primary');
+  }
+}
+
+@mixin nbw-a-cta-secondary {
+  border: 2px solid color('secondary');
+  color: color('white');
+  background-color: color('secondary');
+  font-weight: font-weight('normal');
+
+  &:hover {
+    background-color: color('secondary-lighter');
+    color: color('secondary');
+  }
+}
+
+// ----------------
+// REPEATED SPACING
+// ----------------
+
+@mixin nbw-section-spacing {
+  margin: $nbw-top-spacer-only;
+}
+
+@mixin nbw-view-row-spacing {
+  padding: $nbw-top-and-bottom-spacer;
+
+  &:last-of-type {
+    padding-bottom: $nbw-spacer*.5;
+  }
+}
+
+
+// ------------------------
+// REPEATED DESIGN ELEMENTS
+// ------------------------
+
+@mixin nbw-tags {
+  background-image: url('/themes/custom/nbw_uswds/assets/uswds/img/usa-icons/tags_blue.svg');
+  background-position: left top;
+  background-repeat: no-repeat;
+  margin-top: 3rem;
+  padding-left: $nbw-spacer;
+
+  a {
+    @include nbw-a-tags;
+  }
+}
+
+@mixin nbw-commas {
+  &:not(:last-child) {
+    &:after {
+      content: ', ';
+      float: right;
+    }
+  }
+}
+@mixin nbw-separated($divider) {
+  & > :not(:last-child) {
+    &:after {
+      content: $divider;
+      float: right;
+    }
+  }
+}
+
+@mixin nbw-row-vertical-divider {
+  &:not(:first-child) {
+    border-left: solid 2px color('black');
+  }
+}
+
+@mixin nbw-row-horizontal-divider {
+  &:not(:last-of-type) {
+    border-bottom: 1px solid color('base-darker');
+  }
+}
+
+@mixin nbw-form {
+  margin: $nbw-top-and-bottom-spacer;
+  width: initial;
+  max-width: initial;
+}
+
+@mixin nbw-form-item {
+  margin: $nbw-top-spacer-only;
+}
+
+@mixin nbw-form-label {
+  @include nbw-label;
+  color: color('primary');
+  font-size: $nbw-font-size-h3;
+  line-height: $nbw-line-height-h3;
+  margin: 0;
+}
+
+@mixin nbw-toggle-text {
+  .field {
+    &:nth-child(2) {
+      display: none;
+    }
+  }
+
+  &.expanded-default {
+    .field {
+      &:nth-child(2) {
+        display: block;
+      }
+    }
+  }
+}
+
+@mixin nbw-toggle-button {
+  margin-bottom: $nbw-spacer;
+
+  a {
+    color: color('primary');
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: font-weight('normal');
+  }
+}
+
+@mixin nbw-node-author {
+  margin: -2rem 0 2rem 0;
+  color: #999;
+}
+
+@mixin nbw-accordion {
+  .usa-accordion__heading {
+    .usa-accordion__button {
+      background-color: color('primary');
+      color: color('white');
+      text-transform: uppercase;
+
+      &[aria-expanded='false'] {
+        background-image: url('../img/usa-icons/expand_more--white.svg');
+      }
+
+      &[aria-expanded='true'] {
+        background-image: url('../img/usa-icons/expand_less--white.svg');
+      }
+    }
+  }
+
+  &.usa-accordion--bordered {
+    .usa-accordion__content {
+      $accordion-border: .125rem solid color('primary');
+      border-right: $accordion-border;
+      border-bottom: $accordion-border;
+      border-left: $accordion-border;
+    }
+  }
+}
+
+@mixin nbw-test {
+  background-color: fuchsia;
+  color: aquamarine;
+}
+
+@mixin nbw-svg-primary {
+  filter: invert(21%) sepia(90%) saturate(1082%) hue-rotate(197deg) brightness(90%) contrast(96%);
+}
+
+@mixin nbw-svg-white {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(185deg) brightness(107%) contrast(106%);
+}
+
+@mixin nbw-blue-gradient-primary {
+  background: linear-gradient(to right, color('primary') 0%, color('primary-light') 100%)
+}
+
+@mixin nbw-gradient-primary-horizontal {
+  background: linear-gradient(to right, color('primary') 0%, color('primary-light') 100%)
+}
+
+@mixin nbw-gradient-primary-horizontal-vivid {
+  background: linear-gradient(to right, color('primary') 0%, color('primary-vivid') 100%)
+}
+
+@mixin nbw-gradient-secondary-horizontal {
+  background: linear-gradient(to right, color('secondary') 0%, color('secondary-light') 100%);
+}
+
+@mixin nbw-gradient-secondary-vertical {
+  background: linear-gradient(to bottom, color('secondary') 0%, color('secondary-light') 100%);
+}
+
+@mixin nbw-nav-item-hover {
+  background-color: color('white');
+  color: color('primary');
+}
+
+@mixin nbw-nav-item-hover-transparent {
+  background-color: transparent;
+  color: color('white');
+}
+
+@mixin nbw-svg-black-to-white {
+  filter: invert(100%) sepia(0%) saturate(7492%) hue-rotate(263deg) brightness(101%) contrast(99%);
+}
+
+@mixin nbw-svg-black-to-primary {
+  filter: invert(18%) sepia(86%) saturate(1418%) hue-rotate(199deg) brightness(96%) contrast(88%);
+}
+
+@mixin nbw-svg-black-to-primary-vivid {
+  filter: invert(55%) sepia(47%) saturate(6161%) hue-rotate(167deg) brightness(98%) contrast(101%);
+}
+
+@mixin nbw-svg-black-to-secondary {
+  filter: invert(17%) sepia(91%) saturate(7007%) hue-rotate(160deg) brightness(96%) contrast(101%);
+}
+
+@mixin browser-compatible($att, $val) {
+  // sass-lint:disable-block no-value-vendor-prefix
+  #{$att}: #{$val};
+  /* Safari */
+  -webkit-#{$att}: #{$val};
+  /* Firefox */
+  -moz-#{$att}: #{$val};
+  /* IE */
+  -ms-#{$att}: #{$val};
+  /* Opera */
+  -o-#{$att}: #{$val};
+}
+
+@mixin arrow-header {
+  background-image: url('/themes/custom/nbw_uswds/img/usa-icons/arrow-right-filled.svg');
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  color: #fff;
+  margin: 4rem 0 2rem 0;
+  max-width: 67%;
+  padding: .75rem 3rem .75rem 1rem;
+}
+
+@mixin arrow-header-green {
+  background-image: url('/themes/custom/nbw_uswds/img/usa-icons/arrow-right-secondary.svg');
+}
+
+@mixin gradient-header-green {
+  @include nbw-gradient-secondary-horizontal;
+  padding: .75rem 1rem .5rem 1rem;
+  color: color('white');
+  text-transform: none;
+  font-size: 1.75rem;
+  line-height: 1.75rem;
+  margin: 2rem 0;
+}
+
+@mixin wysiwyg-image {
+  img {
+    height: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &.float-left {
+      padding-left: 0;
+      padding-right: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    &.float-right {
+      padding-left: 1rem;
+      padding-right: 0;
+      padding-bottom: 1rem;
+    }
+
+    &.align-left {
+      padding-left: 0;
+      padding-right: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    &.align-right {
+      padding-left: 1rem;
+      padding-right: 0;
+      padding-bottom: 1rem;
+    }
+  }
+}

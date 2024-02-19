@@ -1,0 +1,70 @@
+{#
+/**
+ * @file
+ * Theme override to display a taxonomy term.
+ *
+ * Available variables:
+ * - url: URL of the current term.
+ * - name: (optional) Name of the current term.
+ * - content: Items for the content of the term (fields and description).
+ *   Use 'content' to print them all, or print a subset such as
+ *   'content.description'. Use the following code to exclude the
+ *   printing of a given child element:
+ *   @code
+ *   {{ content|without('description') }}
+ *   @endcode
+ * - attributes: HTML attributes for the wrapper.
+ * - page: Flag for the full page state.
+ * - term: The taxonomy term entity, including:
+ *   - id: The ID of the taxonomy term.
+ *   - bundle: Machine name of the current vocabulary.
+ * - view_mode: View mode, e.g. 'full', 'teaser', etc.
+ *
+ * @see template_preprocess_taxonomy_term()
+ */
+#}
+
+{% set parentChildColorCode = (term.parent.entity.fields.field_financing_attribute_colorc.value[0]['color_pickr'] ?? false)  %}
+{% set colorCode = ((content.field_financing_attribute_color|render|striptags|trim) | default(parentChildColorCode) )  %}
+{% set toolTip = (content.field_financing_attribute_tool ? (content.field_financing_attribute_tool|render|striptags|trim|replace({'&amp;':'&', '&quot;':'"', '&#039;':'\''})|raw) : false) %}
+{% set label = (name|render|striptags("<a>")|trim|raw ) %}
+{% set classes = ['taxonomy-term', 'vocabulary-' ~ term.bundle|clean_class] %}
+
+{% if view_mode == 'full' %}
+<div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
+  {{ title_prefix }}
+  {% if name and not page %}
+    <h2><a href="{{ url }}">{{ name }}</a></h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% if content %} 
+    <div class="content">
+    {{ content }}
+    </div>
+  {% endif %}
+</div>
+
+{% elseif (view_mode == 'label') or (view_mode == 'label_with_tooltip') %}
+  <span class="attribute-label {{ term.id }}">{{ label|raw }}</span>
+
+  {% if (view_mode == 'label_with_tooltip') and toolTip %}
+  <span class="attribute-tooltip">
+    <img class='usa-tooltip' data-position='right' data-classes='width-20' tabindex='0' title="{{ toolTip }}" src="{{ active_theme_icons_path }}/info_outline.svg"/ >
+  </span>
+  {% endif %}
+
+{% elseif (view_mode == 'attribute_cell') or (view_mode == 'attribute_cell_tooltip') %}
+  {% if colorCode %}
+    <div class="attribute-cell" style="background: {{ colorCode }};">
+  {% else %}
+    <div class="attribute-cell">
+  {% endif %}
+  {{ (view_mode == 'attribute_cell_tooltip') and toolTip ? term|view('label_with_tooltip') : term|view('label') }}
+  </div>
+
+{% elseif view_mode == 'financing_attribute_label_with_color_code' %}
+  <span class="attribute-label"><span class="attribute-color-code" style="color: {{ colorCode|default('#000000') }};"></span>{{ label|raw }}</span>
+
+{% elseif view_mode == 'financing_attribute_color_code' %}
+  <span class="attribute-color-code" style="color: {{ colorCode|default('#000000') }};"></span>
+{% endif %}

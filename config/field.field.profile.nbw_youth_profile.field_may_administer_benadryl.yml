@@ -13,7 +13,7 @@ entity_type: profile
 bundle: nbw_youth_profile
 label: 'May NBW staff administer Benadryl if the participant is experiencing an allergic reaction?'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

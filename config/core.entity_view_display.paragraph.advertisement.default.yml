@@ -1,0 +1,25 @@
+uuid: 8db2a1ea-d90c-4a72-b493-f0fc5ffa60e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.advertisement.field_formatter
+    - paragraphs.paragraphs_type.advertisement
+  module:
+    - options
+id: paragraph.advertisement.default
+targetEntityType: paragraph
+bundle: advertisement
+mode: default
+content:
+  field_formatter:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

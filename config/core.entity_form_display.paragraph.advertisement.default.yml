@@ -1,0 +1,29 @@
+uuid: 448d03e1-1e72-440a-8a5e-9b140b1229eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.advertisement.field_formatter
+    - paragraphs.paragraphs_type.advertisement
+  module:
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.advertisement.default
+targetEntityType: paragraph
+bundle: advertisement
+mode: default
+content:
+  field_formatter:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,10 @@
+langcode: en
+_core:
+  default_config_hash: xsaaf65tDxxhvWYm5meLSF0RoZHB-RBL9YBfywGNaOg
+banner_enabled: 0
+banner_enabled_on_admin_routes: 0
+banner_show_again_minutes: 0
+banner_color: default--green
+banner_text:
+  value: "<p>Hi, I'm a BANNER!</p>"
+  format: basic_html

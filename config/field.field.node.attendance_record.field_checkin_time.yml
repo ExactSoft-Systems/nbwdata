@@ -1,0 +1,24 @@
+uuid: 7ee3afde-6814-4a35-a9e8-89bf0c08df9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_checkin_time
+    - node.type.attendance_record
+  module:
+    - datetime
+id: node.attendance_record.field_checkin_time
+field_name: field_checkin_time
+entity_type: node
+bundle: attendance_record
+label: 'Check-in Time'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,19 @@
+uuid: ec69cd1f-0275-4b08-a8e7-4c15f7967dd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_button_class
+    - paragraphs.paragraphs_type.button_group
+id: paragraph.button_group.field_button_class
+field_name: field_button_class
+entity_type: paragraph
+bundle: button_group
+label: 'Button Class'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

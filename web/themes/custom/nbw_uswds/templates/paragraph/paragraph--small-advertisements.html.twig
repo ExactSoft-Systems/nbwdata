@@ -1,0 +1,41 @@
+{% if paragraph.isPublished() %}
+  {%
+    set classes = [
+      'paragraph',
+      'paragraph--type--' ~ paragraph.bundle|clean_class,
+      view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class
+    ]
+  %}
+
+  {% block paragraph %}
+    <div{{ attributes.addClass(classes) }} style="clear:both">
+      <div class="grid-row grid-gap">
+        {% block content %}
+          {% for ad in paragraph.field_small_boxes %}
+            {% set description = {
+              '#type':   'processed_text',
+              '#text':    ad.entity.field_description[0].value,
+              '#format':  ad.entity.field_description[0].format,
+            } %}
+
+            <div class="desktop:grid-col-4 tablet:grid-col-4 grid-col-12 box-col">
+              <div class="usa-card__container small-box">
+                <div class="usa-card__header">
+                  <h3>{{ ad.entity.field_small_title.value }}</h3> 
+                </div>
+                <div class="usa-card__body">
+                  {{ description }}
+                </div>
+                <div class="usa-card__footer">
+                  <a href="{{ ad.entity.field_link.0.url }}" class="usa-button">
+                    {{ ad.entity.field_link.0.value.title }}
+                  </a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endblock %}
+      </div>
+    </div>
+  {% endblock paragraph %}
+{% endif %}

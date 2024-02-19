@@ -1,0 +1,20 @@
+uuid: 1b8e8b97-8c07-4b0e-90e2-9cb435962212
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nbw_uswds
+_core:
+  default_config_hash: nCwPdh9v96oDlivWz71bLHUdUjXmXNGzCtZZg3hxmco
+id: nbw_uswds_page_title
+theme: nbw_uswds
+region: content
+weight: -9
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

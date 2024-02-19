@@ -3,12 +3,8 @@ langcode: en
 status: true
 dependencies:
   module:
-    - field_permissions
     - options
     - youth_application_waiver
-third_party_settings:
-  field_permissions:
-    permission_type: public
 id: youth_application_waiver.field_youth_interested
 field_name: field_youth_interested
 entity_type: youth_application_waiver

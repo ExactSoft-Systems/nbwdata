@@ -1,0 +1,56 @@
+uuid: a1a72fd3-17a8-40a9-94ab-cd3bc4e62001
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.graduation_record.body
+    - field.field.node.graduation_record.field_class_name
+    - field.field.node.graduation_record.field_graduation_date
+    - field.field.node.graduation_record.field_students
+    - node.type.graduation_record
+  module:
+    - datetime
+    - text
+    - user
+id: node.graduation_record.default
+targetEntityType: node
+bundle: graduation_record
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_class_name:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_graduation_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_students:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  links: true

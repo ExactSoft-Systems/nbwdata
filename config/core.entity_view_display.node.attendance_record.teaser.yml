@@ -1,0 +1,39 @@
+uuid: 21b19334-384a-42b6-ba5f-bd904f03e254
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.attendance_record.body
+    - field.field.node.attendance_record.field_checkin_time
+    - field.field.node.attendance_record.field_class_name
+    - field.field.node.attendance_record.field_students
+    - node.type.attendance_record
+  module:
+    - text
+    - user
+id: node.attendance_record.teaser
+targetEntityType: node
+bundle: attendance_record
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_checkin_time: true
+  field_class_name: true
+  field_students: true

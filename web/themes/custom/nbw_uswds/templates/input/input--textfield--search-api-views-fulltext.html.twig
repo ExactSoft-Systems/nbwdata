@@ -1,0 +1,15 @@
+<div role="search">
+  <div class="search-form">
+    {% block input %}
+      <input{{ attributes.addClass('usa-input') }} 
+        placeholder="{{ 'SEARCH FOR SOLUTIONS' | t }}" 
+      />
+    {% endblock %}
+    <button class="usa-button" type="submit">
+      <img src="{{ active_theme_icons_path }}//search--blue.svg" 
+        class="usa-search__search-icon" 
+        alt="{{ 'Search for Solutions' | t }}"
+      />
+    </button>
+  </div>
+</div>

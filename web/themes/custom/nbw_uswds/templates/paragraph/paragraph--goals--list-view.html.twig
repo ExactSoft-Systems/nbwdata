@@ -1,0 +1,136 @@
+{% set goal_id = paragraph.id.value %}
+
+{% set goal_type = paragraph.field_goal_type.entity.name.value %}
+
+{% if goal_type in ['GHG Emissions', 'BCC Financing Performance'] %}
+  {% set goal_header = 'Better Climate Challenge' %}
+{% elseif goal_type in ['Energy Performance', 'Financing Performance'] %}
+  {% set goal_header = 'Better Buildings Challenge' %}
+{% elseif goal_type in ['Better Plants Energy Performance'] %}
+  {% set goal_header = 'Better Plants Challenge' %}
+{% elseif goal_type in ['Water Performance'] %}
+  {% set goal_header = 'Water Reduction' %}
+{% else %}
+  {% set goal_header = '' %}
+{% endif %}
+
+{% if goal_type in ['GHG Emissions'] %}
+  {% set checkmark_color = 'green' %}
+  {% set goal_completed_label = 'Emissions Goal Achieved' %}
+{% elseif goal_type in ['Energy Performance', 'Better Plants Energy Performance'] %}
+  {% set checkmark_color = 'blue' %}
+  {% set goal_completed_label = 'Energy Goal Achieved' %}
+{% elseif goal_type in ['Water Performance'] %}
+  {% set checkmark_color = 'light-blue' %}
+  {% set goal_completed_label = 'Water Goal Achieved' %}
+{% elseif goal_type in ['Financing Performance', 'BCC Financing Performance'] %}
+  {% set checkmark_color = 'purple' %}
+  {% set goal_completed_label = 'Financing Goal Achieved' %}
+{% else %}
+  {% set checkmark_color = '' %}
+  {% set goal_completed_label = '' %}
+{% endif %}
+
+{% set goal_achieved = paragraph.field_goal_achieved.value == '1' ? true : false %}
+
+{% set goal_status = goal_achieved ? 'complete' : 'incomplete' %}
+
+{% set additional_goal = paragraph.field_additional_goal.value == '1' ? true : false %}
+
+{% if additional_goal %}
+  {% if goal_type in ['GHG Emissions'] %}
+    {% set goal_subhead = 'Continuing Leadership' %}
+  {% else %}
+    {% set goal_subhead = 'Additional Goal' %}
+  {% endif %}
+{% else %}
+  {% set goal_subhead = 'Goal' %}
+{% endif %}
+
+{% set tooltip = paragraph.field_hover_text[0].value | trim | striptags %}
+
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'slide-inner',
+    'goal-id--' ~ goal_id,
+    'goal-type--' ~ goal_type | clean_class,
+    'goal-status--' ~ goal_status
+  ]
+%}
+
+{% if goal_achieved %}
+  {% set classes = classes | merge(['goal-achieved']) %}
+{% endif %}
+
+{% if additional_goal %}
+  {% set classes = classes | merge(['goal-additional']) %}
+{% endif %}
+
+{% block paragraph %}
+  <div class="mobile-sidebar-slider-slide">
+    <div{{ attributes.addClass(classes) }}>
+      {% if not goal_header.isEmpty() %}
+        <h3>{{ goal_header | t }}</h3>
+      {% endif %}
+
+      <div class="goal">
+        {% if not paragraph.field_goal_title.value.isEmpty() %}
+          <h4>{{ goal_subhead | t }}</h4>
+          <p>
+            <span>{{ paragraph.field_goal_amount.value }}</span>
+            {{ paragraph.field_goal_title.value }}
+
+            {% if tooltip %}
+              <span>
+                <img class="usa-tooltip"
+                  data-position="right"
+                  data-classes="width-auto"
+                  tabindex="0"
+                  title="{{ tooltip }}"
+                  src="{{ active_theme_icons_path }}/info_outline.svg" 
+                />
+              </span>
+            {% endif %}
+          </p>
+        {% endif %}
+
+        {% if paragraph.field_commitment_units[0].value %}
+          <h4>{{ 'Commitment' | t }}</h4>
+          <p>
+            <span>{{ paragraph.field_amount.value }}</span>
+            {{ paragraph.field_commitment_units.value }}
+          </p>
+        {% endif %}
+
+        {% if paragraph.field_progress_amount[0].value or paragraph.field_progress_cumulative_percen[0].value %}
+          <h4>{{ 'Progress' | t }}</h4>
+          <div class="goal-progress">
+            {% if paragraph.field_progress_amount[0].value %}
+              <p>
+                <span>{{ paragraph.field_progress_amount.value }}</span>
+                {{ paragraph.field_progress_title.value }}
+              </p>
+            {% endif %}
+
+            {% if paragraph.field_progress_cumulative_percen[0].value %}
+              <p>
+                <span>{{ paragraph.field_progress_cumulative_percen.value }}</span>
+                {{ paragraph.field_progress_cumulative_title.value }}
+              </p>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if goal_achieved %}
+          <div class="goal-status {{ checkmark_color }}">
+            {{ goal_completed_label }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock paragraph %}

@@ -10,9 +10,9 @@ third_party_settings:
     parent: ''
 _core:
   default_config_hash: bGxZZFF3KZ6wrBM9gs1atSH4ilcr0rPmwxiMzlcZa3U
-name: 'Class or Event'
+name: Event
 type: event
-description: 'Content that describes something happening at a specific time - such as class, workshop, Bike Church session and so on'
+description: 'Content that describes something happening at a specific time - such as Fundraiser, Bike Show, Bike Drive '
 help: ''
 new_revision: true
 preview_mode: 1

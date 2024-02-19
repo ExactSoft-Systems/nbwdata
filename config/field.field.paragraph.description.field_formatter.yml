@@ -1,0 +1,21 @@
+uuid: acd77775-e7a2-42dc-86b5-3f5bfaed0ca5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_formatter
+    - paragraphs.paragraphs_type.description
+  module:
+    - options
+id: paragraph.description.field_formatter
+field_name: field_formatter
+entity_type: paragraph
+bundle: description
+label: Format
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

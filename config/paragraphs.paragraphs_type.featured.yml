@@ -1,0 +1,10 @@
+uuid: cbe2180e-2569-45ae-9f62-092bcbb537ac
+langcode: en
+status: true
+dependencies: {  }
+id: featured
+label: Featured
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

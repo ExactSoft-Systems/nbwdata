@@ -1,0 +1,49 @@
+uuid: a603f9d7-3011-45fc-bbfc-4268ace2e095
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.button_group.field_button_class
+    - field.field.paragraph.button_group.field_button_text
+    - field.field.paragraph.button_group.field_button_url
+    - paragraphs.paragraphs_type.button_group
+  module:
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.button_group.default
+targetEntityType: paragraph
+bundle: button_group
+mode: default
+content:
+  field_button_class:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_button_text:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_button_url:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

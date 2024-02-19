@@ -1,0 +1,103 @@
+uuid: 2179c9c3-785e-469e-8632-6b709ec14ad6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_item
+    - paragraphs.paragraphs_type.list
+    - paragraphs.paragraphs_type.list_item
+  module:
+    - entity_reference_revisions
+id: paragraph.list.field_list_item
+field_name: field_list_item
+entity_type: paragraph
+bundle: list
+label: 'List Item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      list_item: list_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 26
+        enabled: false
+      audio:
+        weight: 27
+        enabled: false
+      button_group:
+        weight: 28
+        enabled: false
+      collection_page:
+        weight: 29
+        enabled: false
+      header:
+        weight: 30
+        enabled: false
+      icon:
+        weight: 31
+        enabled: false
+      image:
+        weight: 32
+        enabled: false
+      image_gallery:
+        weight: 33
+        enabled: false
+      item_list_link:
+        weight: 34
+        enabled: false
+      item_list_string:
+        weight: 35
+        enabled: false
+      item_list_text:
+        weight: 36
+        enabled: false
+      layout:
+        weight: 37
+        enabled: false
+      list:
+        weight: 38
+        enabled: false
+      list_item:
+        weight: 39
+        enabled: true
+      media_gallery:
+        weight: 40
+        enabled: false
+      node:
+        weight: 41
+        enabled: false
+      quotation:
+        weight: 42
+        enabled: false
+      remote_video:
+        weight: 43
+        enabled: false
+      statement:
+        weight: 44
+        enabled: false
+      three_column_listings:
+        weight: 45
+        enabled: false
+      title_icon_link:
+        weight: 46
+        enabled: false
+      title_image_description:
+        weight: 47
+        enabled: false
+      video_gallery:
+        weight: 48
+        enabled: false
+      view:
+        weight: 49
+        enabled: false
+      webform:
+        weight: 50
+        enabled: false
+field_type: entity_reference_revisions

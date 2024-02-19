@@ -6,7 +6,16 @@ dependencies:
     - field.storage.user.field_address
   module:
     - address
+    - multiple_registration
     - user
+third_party_settings:
+  multiple_registration:
+    user_additional_register_form_required:
+      authenticated: 0
+      youth: 0
+    user_additional_register_form:
+      authenticated: 0
+      youth: 0
 id: user.user.field_address
 field_name: field_address
 entity_type: user

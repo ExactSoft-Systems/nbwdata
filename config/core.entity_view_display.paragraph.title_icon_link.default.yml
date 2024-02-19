@@ -1,0 +1,50 @@
+uuid: ddcccf8e-6d71-4d2a-90e7-38cac859cb4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.title_icon_link.field_icon_paragraph
+    - field.field.paragraph.title_icon_link.field_link
+    - field.field.paragraph.title_icon_link.field_title_formatted
+    - paragraphs.paragraphs_type.title_icon_link
+  module:
+    - entity_reference_revisions
+    - link
+    - text
+id: paragraph.title_icon_link.default
+targetEntityType: paragraph
+bundle: title_icon_link
+mode: default
+content:
+  field_icon_paragraph:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_title_formatted:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

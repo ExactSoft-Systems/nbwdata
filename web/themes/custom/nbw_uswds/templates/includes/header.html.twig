@@ -1,0 +1,63 @@
+<div class="usa-overlay"></div>
+
+{% block header %}
+  <header class="{{ header_classes }}" id="header" role="banner">
+
+  {% if page.header_top %}
+    <div class="usa-banner-inner">
+      {{ page.header_top }}
+    </div>
+  {% endif %}
+
+  {% if header_basic %}
+  <div class="usa-nav-container">
+    {% endif %}
+
+    {{ page.header }}
+
+    <nav class="usa-nav" role="navigation">
+      {% if header_extended %}
+      <div class="usa-nav__inner">
+        {% endif %}
+
+        <button type="button" class="usa-nav__close">
+          <img src="{{ uswds_images }}usa-icons/close.svg" alt="close"/>
+        </button>
+
+        {% if page.mobile_menu %}
+          <div class="usa-nav-mobile">
+            {{ page.mobile_menu }}
+          </div>
+        {% endif %}
+
+        {% if page.mobile_menu %}
+        <div class="usa-nav-desktop">
+          {% endif %}
+
+          {% if page.primary_menu %}
+            {{ page.primary_menu }}
+          {% endif %}
+
+          {% if page.secondary_menu %}
+            {{ page.secondary_menu }}
+          {% endif %}
+
+          {% if page.mobile_menu %}
+        </div>
+        {% endif %}
+
+        {% if header_extended %}
+      </div>
+      {% endif %}
+    </nav>
+
+    {% if header_basic %}
+  </div>
+  {% endif %}
+
+  {% if page.header_bottom %}
+    {{ page.header_bottom }}
+  {% endif %}
+
+</header>
+{% endblock %}

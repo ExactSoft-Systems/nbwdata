@@ -1,0 +1,72 @@
+uuid: e3b04de2-d009-4411-9e91-5b753b9c6267
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.graduation_record.body
+    - field.field.node.graduation_record.field_class_name
+    - field.field.node.graduation_record.field_graduation_date
+    - field.field.node.graduation_record.field_students
+    - node.type.graduation_record
+  module:
+    - datetime
+    - field_layout
+    - layout_discovery
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: node.graduation_record.default
+targetEntityType: node
+bundle: graduation_record
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 4
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_class_name:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_graduation_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_students:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

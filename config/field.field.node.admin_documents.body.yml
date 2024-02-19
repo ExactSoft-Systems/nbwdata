@@ -1,0 +1,24 @@
+uuid: 7ded51c8-93b0-4f96-8b5a-0e9429f0c887
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.admin_documents
+  module:
+    - text
+id: node.admin_documents.body
+field_name: body
+entity_type: node
+bundle: admin_documents
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

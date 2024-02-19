@@ -1,0 +1,27 @@
+uuid: 91872ef4-1237-4b38-abfb-e1089c4303e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.class_registration.field_class_name
+    - field.field.node.class_registration.field_students
+    - node.type.class_registration
+  module:
+    - user
+id: node.class_registration.teaser
+targetEntityType: node
+bundle: class_registration
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_class_name: true
+  field_students: true

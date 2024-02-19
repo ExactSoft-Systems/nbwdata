@@ -1,0 +1,42 @@
+uuid: 0304663a-bac0-49c8-a840-73a03a65b71e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.list_item.field_node
+    - field.field.paragraph.list_item.field_title
+    - paragraphs.paragraphs_type.list_item
+  module:
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.list_item.default
+targetEntityType: paragraph
+bundle: list_item
+mode: default
+content:
+  field_node:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

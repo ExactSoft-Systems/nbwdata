@@ -1,0 +1,56 @@
+// ----------------------------------------------------------------
+// USWDS with settings overrides
+// ----------------------------------------------------------------
+// Uncomment the following lines and add a list of changed settings
+// in the form $setting: value,
+// ----------------------------------------------------------------
+
+@use 'nbw-custom-definitions' as *;
+
+@use 'uswds-core' with ( //import settings
+//notifications
+$theme-show-notifications: false,
+//Font Path
+$theme-font-path: $nbw-theme-font-path,
+
+//font family
+$theme-font-sans-custom-src: $nbw-theme-font-sans-custom-src,
+$theme-typeface-tokens: $nbw-theme-typeface-tokens,
+$theme-font-type-sans: $nbw-theme-font-type-sans,
+
+//font weights
+$theme-font-weight-light: $nbw-theme-font-weight-light,
+$theme-font-weight-normal: $nbw-theme-font-weight-normal,
+$theme-font-weight-medium: $nbw-theme-font-weight-medium,
+$theme-font-weight-semibold: $nbw-theme-font-weight-semibold,
+$theme-font-weight-bold: $nbw-theme-font-weight-bold,
+$theme-font-weight-heavy: $nbw-theme-font-weight-heavy,
+
+//font roles
+$theme-font-role-heading: $nbw-theme-font-role-heading,
+$theme-font-role-ui: $nbw-theme-font-role-ui,
+$theme-font-role-alt: $nbw-theme-font-role-alt,
+
+//colors
+$theme-color-primary-lightest: $nbw-theme-color-primary-lightest,
+$theme-color-primary-lighter: $nbw-theme-color-primary-lighter,
+$theme-color-primary-light: $nbw-theme-color-primary-light,
+$theme-color-primary: $nbw-theme-color-primary,
+$theme-color-primary-vivid: $nbw-theme-color-primary-vivid,
+$theme-color-primary-dark: $nbw-theme-color-primary-dark,
+$theme-color-primary-darker: $nbw-theme-color-primary-darker,
+
+$theme-color-base-lightest: $nbw-theme-color-base-lightest,
+$theme-color-base-lighter: $nbw-theme-color-base-lighter,
+$theme-color-base-light: $nbw-theme-color-base-light,
+$theme-color-base: $nbw-theme-color-base,
+$theme-color-base-dark: $nbw-theme-color-base-dark,
+$theme-color-base-darker: $nbw-theme-color-base-darker,
+$theme-color-base-darkest: $nbw-theme-color-base-darkest,
+$theme-color-base-ink: $nbw-theme-color-base-ink,
+
+$theme-color-secondary-light: $nbw-theme-color-secondary-light,
+$theme-color-secondary: $nbw-theme-color-secondary,
+$theme-color-secondary-vivid: $nbw-theme-color-secondary-vivid,
+$theme-color-secondary-dark: $nbw-theme-color-secondary-dark
+);

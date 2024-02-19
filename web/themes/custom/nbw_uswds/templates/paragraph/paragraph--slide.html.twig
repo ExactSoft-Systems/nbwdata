@@ -1,0 +1,46 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set image_uri = paragraph.field_image.entity.fileuri %}
+
+{% block paragraph %}
+  <div {{ attributes.addClass(classes) }} 
+    style="background-image: url('{{ file_url(image_uri) }}')"
+  >
+    {% block content %}
+      <div class="slide-callout">
+        <div class="grid-container-widescreen">
+          {% if paragraph.field_link.0.url is not empty %}
+            <a href="{{ paragraph.field_link.0.url }}" class="slide-cta">
+          {% endif %}
+
+          <div class="slide-callout-content">
+            <h3>{{ paragraph.field_title.value }}</h3>
+
+            <div class="grid-row">
+              <div class="tablet:grid-col-2 grid-col-12"></div>
+              <div class="tablet:grid-col-8 grid-col-12">
+                <div class="caption">
+                  {{ paragraph.field_caption.value | raw }}
+                </div>
+              </div>
+              <div class="tablet:grid-col-2 grid-col-12 slide-cta-col">
+                <img src="{{ active_theme_icons_path }}/chevron_right_blue.svg" />
+              </div>
+            </div>
+          </div>
+
+          {% if paragraph.field_link.0.url is not empty %}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

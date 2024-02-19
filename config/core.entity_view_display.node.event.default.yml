@@ -34,7 +34,7 @@ content:
     weight: 3
     region: content
   field_when:
-    type: smartdate_dailyrange
+    type: smartdate_recurring
     label: above
     settings:
       timezone_override: ''
@@ -43,6 +43,9 @@ content:
       force_chronological: false
       add_classes: false
       time_wrapper: true
+      past_display: 2
+      upcoming_display: 2
+      show_next: false
       localize: false
       parts:
         - start
@@ -52,6 +55,7 @@ content:
         unit: ''
         decimals: 2
         suffix: h
+      current_upcoming: false
     third_party_settings: {  }
     weight: 1
     region: content

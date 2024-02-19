@@ -6,7 +6,6 @@ dependencies:
     - system.menu.nbw-menu
   module:
     - system
-    - user
   theme:
     - uswds_base
 id: nbwmenu
@@ -23,11 +22,4 @@ settings:
   level: 1
   depth: 0
   expand_all_items: false
-visibility:
-  user_role:
-    id: user_role
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    roles:
-      authenticated: authenticated
+visibility: {  }

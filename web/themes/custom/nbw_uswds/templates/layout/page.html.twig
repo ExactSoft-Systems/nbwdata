@@ -1,0 +1,128 @@
+{% if printpdf %}
+{{ page.content }}
+{% else %}
+
+{% include '@nbw_uswds/templates/includes/government_banner.html.twig' %}
+
+{% include '@nbw_uswds/templates/includes/header.html.twig' %}
+
+{% include '@nbw_uswds/templates/includes/hero.html.twig' %}
+{% if node.field_title_display_override.value and (not node.field_hide_title.value) %}
+  <section class="region--header-below title-override">
+    <div class="grid-container-widescreen">
+      <div class='banner-text-title'>{{ node.field_title_display_override.value }}</div>
+      {% if node.field_subtitle_display_override.value %}
+      <div class='banner-text-subtitle'>{{ node.field_subtitle_display_override.value }}</div>
+      {% endif %}
+    </div>
+  </section>
+{% elseif page.header_below %}
+  {{ page.header_below }}
+{% endif %}
+
+{% block main %}
+  <main class="main-content usa-layout-docs usa-section {{ main_classes }} {{ node_classes }} {{ page_classes }}"
+    role="main"
+    id="main-content"
+  >
+    {% if not is_homepage %}
+      <div class="grid-container-widescreen">
+    {% endif %}
+
+    {% if page.breadcrumb or page.highlighted or page.help %}
+      {% block breadcrumb %}
+        <div class="grid-row">
+          {{ page.breadcrumb }}
+        </div>
+      {% endblock %}
+
+      {% block highlighted %}
+        <div class="">
+          {{ page.highlighted }}
+        </div>
+      {% endblock %}
+
+      {# Help #}
+      {% if page.help %}
+        {% block help %}
+          <div class="grid-row ">
+            {{ page.help }}
+          </div>
+        {% endblock %}
+      {% endif %}
+    {% endif %}
+
+    {% if page.content_above %}
+      {% block content_above %}
+        {{ page.content_above }}
+      {% endblock %}
+    {% endif %}
+    {% if page.title %}
+      <div class="grid-row grid-gap {{ (node.field_hide_title.value or node.field_title_display_override.value) ? 'usa-sr-only' }}">
+        <div class="desktop:grid-col-{% if page.sidebar_first or page.sidebar_second %}8{% else %}fill{% endif %}">
+          {% block title %}
+            {{ page.title }}
+          {% endblock %}
+        </div>
+      </div>
+    {% endif %}
+    <div class="grid-row grid-gap {% if page.sidebar_first or page.sidebar_second %}has-sidebar{% endif %}">
+      <div class="usa-layout-docs__main desktop:grid-col-{% if page.sidebar_first or page.sidebar_second %}8{% else %}fill{% endif %}">
+        {% if page.content %}
+          {% block content %}
+            {{ page.content }}
+          {% endblock %}
+        {% endif %}
+
+        {% if page.content_bottom %}
+          {% block content_bottom %}
+            {{ page.content_bottom }}
+          {% endblock %}
+        {% endif %}
+      </div>
+      {% if page.sidebar_above or page.sidebar_first or page.sidebar_second %}
+        <div class="usa-layout-docs__sidenav desktop:grid-col-4">
+          {% if page.sidebar_above %}
+            <div class="sidebar__above">
+              {% block sidebar_above %}
+                {{ page.sidebar_above }}
+              {% endblock %}
+            </div>
+          {% endif %}
+
+          <div class="sidebar__outer">
+            <div class="sidebar__inner">
+              {% if page.sidebar_first %}
+                {% block sidebar_first %}
+                  <div class="sidebar-first">
+                    {{ page.sidebar_first }}
+                  </div>
+                {% endblock %}
+              {% endif %}
+
+              {% if page.sidebar_second %}
+                {% block sidebar_second %}
+                  <div class="sidebar-second">
+                    {{ page.sidebar_second }}
+                  </div>
+                {% endblock %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+       {% if page.attachment %}
+         {% block attachment %}
+              {{ page.attachment }}
+         {% endblock %}
+       {% endif %}
+    {% if not is_homepage %}
+      </div>
+    {% endif %}
+  </main>
+{% endblock %}
+
+{% include '@nbw_uswds/templates/includes/share.html.twig' %}
+{% include '@nbw_uswds/templates/includes/footer.html.twig' %}
+{% endif %}

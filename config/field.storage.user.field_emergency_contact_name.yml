@@ -3,12 +3,8 @@ langcode: en
 status: true
 dependencies:
   module:
-    - field_permissions
     - text
     - user
-third_party_settings:
-  field_permissions:
-    permission_type: public
 id: user.field_emergency_contact_name
 field_name: field_emergency_contact_name
 entity_type: user

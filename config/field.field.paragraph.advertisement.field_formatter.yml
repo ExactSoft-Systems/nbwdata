@@ -1,0 +1,21 @@
+uuid: f41b3c0f-6657-4af0-964b-d81d1b19a945
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_formatter
+    - paragraphs.paragraphs_type.advertisement
+  module:
+    - options
+id: paragraph.advertisement.field_formatter
+field_name: field_formatter
+entity_type: paragraph
+bundle: advertisement
+label: Format
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

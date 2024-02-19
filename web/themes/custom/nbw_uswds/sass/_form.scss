@@ -1,0 +1,230 @@
+@use 'uswds' as *;
+@use 'nbw-custom-mixins' as *;
+@use 'nbw-custom-definitions' as *;
+
+form {
+  &.eeremfa-login-form {
+    &.usa-form {
+      max-width: unset;
+
+      .usa-input {
+        max-width: 30rem;
+      }
+    }
+  }
+
+  &.views-exposed-form {
+    &#views-exposed-form-financing-navigator-find-calc {
+      max-width: unset;
+
+      h2 {
+        margin-top: 2rem;
+      }
+
+      .form-item {
+        display: inline-block;
+        margin: 0 3% 2rem 0;
+        width: 30%;
+      }
+
+      .description.help-block {
+        display: none;
+      }
+
+      #edit-actions {
+        .usa-button {
+          border-radius: 4rem;
+          padding: .75rem 3rem;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+@include at-media-max('desktop') {
+  form {
+    &.views-exposed-form {
+      &#views-exposed-form-financing-navigator-find-calc {
+        .form-item {
+          width: 46%;
+        }
+      }
+    }
+  }
+}
+
+@include at-media-max('tablet') {
+  form {
+    &.views-exposed-form {
+      &#views-exposed-form-financing-navigator-find-calc {
+        .form-item {
+          margin: 0 0 2rem 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.views-element-container {
+  .views-button {
+    @include nbw-button;
+    padding: .25rem .75rem;
+    text-decoration: none;
+  }
+
+  .link-group {
+    min-width: fit-content;
+    padding-left: 1em;
+    align-self: start;
+    padding-top: 2em;
+
+    @include at-media-max('desktop') {
+      padding-left: 0;
+    }
+  }
+}
+
+.partner-list-az {
+  input.button {
+    @include nbw-button;
+    @include nbw-a-cta-white;
+    padding: .25rem .75rem;
+    min-width: 7rem;
+    width: fit-content;
+    text-decoration: none;
+  }
+
+  header {
+    border-bottom: color('primary') 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include at-media-max('desktop') {
+      display: block;
+    }
+  }
+
+  form {
+    max-width: initial;
+
+    .view-filter-fields {
+      display: flex;
+      max-width:100%;
+      justify-content: space-evenly;
+
+      .form-item {
+        flex-basis: 0;
+        flex-grow: 1;
+        margin: 2rem 1rem 0 0;
+
+        label {
+          min-width: fit-content;
+          white-space: nowrap;
+        }
+      }
+
+      @include at-media-max('desktop') {
+        display: block;
+      }
+    }
+  }
+
+  > div:first-of-type {
+    margin-top: 4rem;
+  }
+}
+
+.pill-btn {
+  form {
+    border-bottom: color('primary') 1px solid;
+    padding-bottom: 4em;
+    align-items: center;
+    justify-content: start;
+    display: flex;
+    max-width: 100%;
+
+    @include at-media-max('desktop') {
+      display: block;
+    }
+
+    .form-item {
+      flex-basis: auto;
+      margin: 0 1rem 0 0;
+
+      .select-wrapper {
+        margin: 0;
+      }
+
+      label {
+        min-width: fit-content;
+        white-space: nowrap;
+      }
+
+      @include at-media-max('desktop') {
+        display: block;
+      }
+    }
+
+    .form-actions {
+      align-self: center;
+      margin-top: .5rem; 
+
+      input.button {
+        @include nbw-button;
+        @include nbw-a-cta-white;
+        padding: .25rem .75rem;
+        min-width: 7rem;
+        width: fit-content;
+        text-decoration: none;
+      }
+    }
+  }
+
+  > div {
+    margin-top: 2rem;
+
+    &:first-of-type {
+      margin-top: 4rem;
+    }
+  }
+
+  &.no-header-div{
+    form {
+      border-bottom: none;
+    }
+
+    > div {
+      margin-top: 0;
+    }
+  }
+
+}
+
+.email-list--subscribe-form { 
+  h3 {
+    margin-bottom: .5rem;
+  }
+
+  p { 
+    margin-top: 0rem;
+  }
+
+  &--form-items {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    grid-gap: 2rem;
+    
+    &--email-field {
+      display: flex;
+      flex-direction: column;
+
+      label.usa-label.control-label {
+        margin-top: 0rem;
+      }
+    }
+  }
+}

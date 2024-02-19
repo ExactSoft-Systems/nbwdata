@@ -1,0 +1,18 @@
+uuid: 81af4f6d-f47a-41a1-8b11-1eee2f76e6b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Admin Documents'
+type: admin_documents
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

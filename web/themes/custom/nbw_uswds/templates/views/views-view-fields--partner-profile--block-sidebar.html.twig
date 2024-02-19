@@ -1,0 +1,19 @@
+<div class="partner-logo-image">
+  <div class="partner-field field-logo">{{ fields.field_logo.content }}</div>
+  <div class="partner-field field-image">{{ fields.field_image.content }}</div>
+</div>
+<div id="mobile-sidebar-slider">
+  <h2>{{ 'Leadership Commitments' | t }}</h2>
+  <div class="slider-slides">
+    {{ fields.field_goals.content }}
+
+    {% if fields.field_partner_program_participat.content %}    
+      <div class="program-participation mobile-sidebar-slider-slide">
+        <div class="slide-inner">
+          <h3>{{ 'DOE Program Participation' | t }}</h3>
+          {{ fields.field_partner_program_participat.content }}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>

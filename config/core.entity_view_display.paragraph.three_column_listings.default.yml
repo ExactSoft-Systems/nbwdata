@@ -1,0 +1,38 @@
+uuid: 49785459-dfc7-4f82-938a-d5127a17a783
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.three_column_listings.field_three_column_listings
+    - field.field.paragraph.three_column_listings.field_title
+    - field.field.paragraph.three_column_listings.field_title_formatted
+    - paragraphs.paragraphs_type.three_column_listings
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.three_column_listings.default
+targetEntityType: paragraph
+bundle: three_column_listings
+mode: default
+content:
+  field_three_column_listings:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title_formatted:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_title: true

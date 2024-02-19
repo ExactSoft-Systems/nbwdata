@@ -1,0 +1,22 @@
+uuid: f82ad8b4-4e9f-4920-a5f9-2c08045b4980
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nbw_uswds
+_core:
+  default_config_hash: EgPwIEEdIJhZwAZt2-9cW10iiKNhAhalL9kLLtKX8AA
+id: nbw_uswds_messages
+theme: nbw_uswds
+region: highlighted
+weight: -50
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

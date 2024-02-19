@@ -1,0 +1,16 @@
+{% if node.isPublished() %}
+  {% set image_uri = node.field_image.entity.fileuri %}
+  {% set image_alt = node.field_image.alt.value %}
+
+  <div class="hero-box-advertisement" style="background-image: url('{{ file_url(image_uri) }}')">
+    <div class="text">
+      {% if not node.field_small_title.value.isEmpty() %}
+        {{ node.field_small_title.value }}:
+      {% endif %}
+
+      <a href="{{ node.field_link.0.url }}">
+        {{ node.field_link.0.value.title }}
+      </a>
+    </div>
+  </div>
+{% endif %}

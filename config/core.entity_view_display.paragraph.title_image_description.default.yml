@@ -1,0 +1,43 @@
+uuid: 18825e08-1a37-438d-9cf9-3cad5b860932
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.title_image_description.field_content
+    - field.field.paragraph.title_image_description.field_image
+    - field.field.paragraph.title_image_description.field_title_formatted
+    - paragraphs.paragraphs_type.title_image_description
+  module:
+    - text
+id: paragraph.title_image_description.default
+targetEntityType: paragraph
+bundle: title_image_description
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: visually_hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title_formatted:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

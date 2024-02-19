@@ -1,0 +1,49 @@
+{% set urlTitle = {"#template" : "<a href='#{ url }'>{{ value|nl2br }}</a>" } %}
+{% set label = label | filter((v,k) => k != 0) | merge([label[0] | merge(urlTitle)]) %}
+
+{% set fieldSummary = "" %}
+{% set fieldSector = "" %}
+{% set fieldType = "" %}
+{% set fieldBuildingType = "" %}
+{% set fieldImage = "" %}
+{% set fieldPartner = "" %}
+
+{% for x in content %}
+  {% if x['#field_name'] == "field_summary" %}
+    {% set fieldSummary = x %}
+  {% elseif x['#field_name'] == "field_sector" %}
+    {% set fieldSector = x %}
+  {% elseif x['#field_name'] == "field_content_type" %}
+    {% set fieldType = x %}
+  {% elseif x['#field_name'] == "field_building_type" %}
+    {% set fieldBuildingType = x %}
+  {% elseif (x['#field_name'] == "field_image") or (x['#field_name'] == "field_showcase_images") %}
+    {% set fieldImage = x %}
+  {% elseif x['#field_name'] == "field_partner" %}
+    {% set fieldPartner = x %}
+  {% else %}
+  {% endif %}
+{% endfor %}
+
+<div>
+  <div>
+    {{ fieldPartner }}
+    <br>
+    <a href="{{ url }}" target="_blank">{{ label }}</a>
+  </div>
+  <div>{{ fieldType | merge({"#title" : "Type"}) }}</div>
+  <hr>
+  <div>{{ fieldSector }} </div>
+  <br>
+  <div>{{ fieldBuildingType }}</div>
+  <hr>
+  {% if fieldSummary != "" %}
+    <div style="padding:0px 0px 10px 10px; float:right;">{{ fieldImage[0] }}</div>
+    {{ fieldSummary }}
+  {% else %}
+    <div>{{ fieldImage[0] }}</div>
+  {% endif %}
+  <a href="{{ url }}">View full profile</a>
+
+</div>
+

@@ -1,0 +1,41 @@
+uuid: a8546a0d-8022-4da4-aa51-ec5be354d1d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.button_group.field_button_class
+    - field.field.paragraph.button_group.field_button_text
+    - field.field.paragraph.button_group.field_button_url
+    - paragraphs.paragraphs_type.button_group
+id: paragraph.button_group.default
+targetEntityType: paragraph
+bundle: button_group
+mode: default
+content:
+  field_button_class:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_button_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_button_url:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

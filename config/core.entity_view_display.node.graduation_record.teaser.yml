@@ -1,0 +1,39 @@
+uuid: 6ff8b269-5ec7-48eb-8dcd-bc6f4b5d6566
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.graduation_record.body
+    - field.field.node.graduation_record.field_class_name
+    - field.field.node.graduation_record.field_graduation_date
+    - field.field.node.graduation_record.field_students
+    - node.type.graduation_record
+  module:
+    - text
+    - user
+id: node.graduation_record.teaser
+targetEntityType: node
+bundle: graduation_record
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_class_name: true
+  field_graduation_date: true
+  field_students: true

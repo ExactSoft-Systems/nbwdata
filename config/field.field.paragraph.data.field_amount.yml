@@ -1,0 +1,19 @@
+uuid: 9c122768-27a1-4f0a-bae5-aa34e7aaae2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_amount
+    - paragraphs.paragraphs_type.data
+id: paragraph.data.field_amount
+field_name: field_amount
+entity_type: paragraph
+bundle: data
+label: Amount
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

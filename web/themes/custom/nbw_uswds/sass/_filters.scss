@@ -1,0 +1,160 @@
+@use 'uswds' as *;
+@use 'nbw-custom-mixins' as *;
+@use 'nbw-custom-definitions' as *;
+
+// ----------------------------------------------------------------------------------------
+// -- nbw TABBED FILTER STYLES                                                          --
+// ----------------------------------------------------------------------------------------
+
+
+.tabbed-filters {
+  .views-exposed-form {
+    h2 {
+      background: color('secondary');
+      color: color('white');
+      font-size: $nbw-font-size-event-title;
+      font-weight: font-weight('bold');
+      text-transform: uppercase;
+      width: fit-content;
+      line-height: 2.25rem;
+      display: flex;
+      padding: 0 0 0 .5rem;
+      margin-bottom: 0;
+
+      &:after {
+        background-color: color('white');
+        border-left: 40px solid color('secondary');
+        border-top: 35px solid transparent;
+        content: "";
+        display: block;
+        height: 0;
+      }
+    }
+    &:not(:last-of-type) {
+      .view-actions {
+        display: none;
+      }
+    }
+  }
+
+  .view-filter-fields  {
+    padding: 1rem;
+    background: $nbw-tabs-background-active;
+  }
+
+  form {
+    margin-bottom: 2rem;
+
+    &:first-of-type {
+      margin-top: 2rem;
+    }
+
+    .fieldset-legend,
+    label,
+    a {
+      color: color("white");
+      text-decoration: none;
+    }
+  }
+  
+  .tabbed-filter > fieldset {
+    
+    &.form-item{ 
+      margin:0;
+    }
+
+    & > legend {
+      display: none;
+    }
+
+    & > div.fieldset-wrapper {
+      padding: 1rem 1rem 0 1rem;
+
+      .form-checkboxes {
+        width: 100%;
+      }
+
+      .form-item {
+        margin: 0 1.5rem 1.5rem 0;
+        flex: 0 0 30%;
+      }
+
+      .usa-form-group {
+        margin-top: 0;
+
+        .bef-toggle {
+          margin-bottom: 1rem;
+          width: fit-content;
+
+          &:hover {
+            color: color("white");
+          }
+        }
+      }
+    }
+  }
+  .tab-bar {
+    display: flex;
+    background-color: $nbw-tabs-background-inactive;
+    height: fit-content;
+
+    .tab {
+      flex: 1 1 0%;
+
+      &:not(:first-child) {
+        border-left: solid 1px color("white");
+      }
+
+      a {
+        height: 100%;
+        width: 100%;
+        display:inline-block;
+        color: color('white');
+        cursor: pointer;
+        padding: 1rem;
+        background: url(/themes/custom/nbw_uswds/img/usa-icons/expand_more--white.svg) 94% center no-repeat;
+      }
+
+      &.active{
+        background: $nbw-tabs-background-active;
+      }
+    }
+  }
+
+  // ----------------------------------------------------------------------------------------
+  // -- nbw PILL BUTTON FILTER STYLES                                                     --
+  // ----------------------------------------------------------------------------------------
+
+  .views-exposed-form {
+    &:not(:first-of-type) {
+      h2 {
+        display: none;
+      }
+    }
+  }
+
+  form {
+    .pill-btn-container {
+      flex-wrap: wrap;
+      display: inline-flex;
+    }
+    
+    .filter-pill-btn {
+      @include nbw-pill-filters;
+      display: none;
+      
+      .form-item{
+        margin: 0;
+      }
+
+      input{
+        display: none;
+      }
+
+      &:has(input[checked='checked']){
+        display: block;
+      }
+    }
+  }
+}
+

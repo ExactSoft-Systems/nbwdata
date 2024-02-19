@@ -1,0 +1,30 @@
+{%
+  set classes = [
+  'field',
+  'field--name-' ~ field_name|clean_class,
+  'field--type-' ~ field_type|clean_class,
+  'field--label-' ~ label_display,
+  label_display == 'inline' ? 'clearfix',
+]
+%}
+{%
+  set title_classes = [
+  'title',
+  label_display == 'visually_hidden' ? 'usa-sr-only',
+  label_display == 'inline' ? 'display-inline',
+]
+%}
+
+{%
+  set field_classes = [
+  label_display == 'inline' ? 'display-inline',
+ ]
+%}
+
+<div class="desktop:grid-col-2 tablet:grid-col-3 grid-col-12 image-col">
+  {% for item in items %}
+    <div{{ attributes.addClass(classes, 'field__item').addClass(field_classes) }}>
+      {{ item.content }}
+    </div>
+  {% endfor %}
+</div>

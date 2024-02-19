@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_class_name
+    - node.type.class
     - node.type.class_roster
-    - node.type.event
 id: node.class_roster.field_class_name
 field_name: field_class_name
 entity_type: node
@@ -20,10 +20,10 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      event: event
+      class: class
     sort:
       field: _none
       direction: ASC
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: class
 field_type: entity_reference

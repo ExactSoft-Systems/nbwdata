@@ -3,11 +3,19 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.view.field_image
+    - field.field.paragraph.view.field_link
+    - field.field.paragraph.view.field_title_formatted
     - field.field.paragraph.view.field_view
+    - field.field.paragraph.view.field_view_name
     - paragraphs.paragraphs_type.view
   module:
     - field_layout
     - layout_discovery
+    - link
+    - media_library
+    - text
+    - viewfield
     - viewsreference
 third_party_settings:
   field_layout:
@@ -21,9 +29,38 @@ targetEntityType: paragraph
 bundle: view
 mode: default
 content:
+  field_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_title_formatted:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_view:
     type: viewsreference_select
-    weight: 0
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_view_name:
+    type: viewfield_select
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -1,5 +1,7 @@
 <?php
 use Drupal\profile\Entity\Profile;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Drupal\Core\Entity\EntityStorageInterface;
 /**
  * @file
  * Primary module hooks for NBW Data App module.
@@ -68,6 +70,116 @@ function nbw_data_app_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $f
       //dpr($form_state);
     }
 }
+
+/**
+ * Implements Implements hook_form_FORM_ID_alter() for node_class_registration_form.
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ *
+ * @return void
+ */
+function nbw_data_app_form_node_class_registration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id): void {
+  if ($form_id == 'node_class_registration_form') {
+    //$request = \Drupal::request();
+    $destination = \Drupal::request()->query->get('destination');
+    $node_id = NULL;
+
+    // Extract the node ID from the destination parameter.
+    if (preg_match('/\/node\/(\d+)$/', $destination, $matches)) {
+      $node_id = $matches[1];
+    }
+
+    if ($node_id && is_numeric($node_id)) {
+      //autocomplete select field reference
+      $form['field_class_name']['widget']['#default_value'] = $node_id;
+      //disable field
+      $form['field_class_name']['#disabled'] = TRUE;
+      //pass my ID like argument in my field to filter only pages referenced
+      //$form['field_liste_ref_dossier']['widget']['target_id']['#selection_settings']['view']['arguments'][] = $nid;
+    }
+
+  }
+}
+
+/**
+ * Implements Implements hook_form_FORM_ID_alter() for node-attendance-record-form.
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ *
+ * @return void
+ */
+function nbw_data_app_form_node_attendance_record_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id): void {
+  if ($form_id == 'node_attendance_record_form') {
+    //$request = \Drupal::request();
+    $destination = \Drupal::request()->query->get('destination');
+    $node_id = NULL;
+
+    // Extract the node ID from the destination parameter.
+    if (preg_match('/\/node\/(\d+)$/', $destination, $matches)) {
+      $node_id = $matches[1];
+    }
+
+    if ($node_id && is_numeric($node_id)) {
+      //autocomplete select field reference
+      $form['field_class_name']['widget']['#default_value'] = $node_id;
+      //disable field
+      $form['field_class_name']['#disabled'] = TRUE;
+
+//      $form['field_end_time']['widget']['#default_value'] = NULL;
+//      $form['field_end_time']['#disabled'] = TRUE;
+
+      //pass my ID like argument in my field to filter only pages referenced
+      //$form['field_liste_ref_dossier']['widget']['target_id']['#selection_settings']['view']['arguments'][] = $nid;
+    }
+
+    //$now = \Drupal::time()->getRequestTime();
+    //$form['field_start_time']['widget']['#default_value'] = $now;
+    //$form['field_start_time']= $now;
+
+  }
+}
+
+/**
+ * Implements Implements hook_form_FORM_ID_alter() for node-graduation-record-form.
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ *
+ * @return void
+ */
+function nbw_data_app_form_node_graduation_record_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id): void {
+  if ($form_id == 'node_graduation_record_form') {
+    //$request = \Drupal::request();
+    $destination = \Drupal::request()->query->get('destination');
+    $node_id = NULL;
+
+    // Extract the node ID from the destination parameter.
+    if (preg_match('/\/node\/(\d+)$/', $destination, $matches)) {
+      $node_id = $matches[1];
+    }
+
+    if ($node_id && is_numeric($node_id)) {
+      //autocomplete select field reference
+      $form['field_class_name']['widget']['#default_value'] = $node_id;
+      //disable field
+      $form['field_class_name']['#disabled'] = TRUE;
+
+      //      $form['field_end_time']['widget']['#default_value'] = NULL;
+      //      $form['field_end_time']['#disabled'] = TRUE;
+
+      //pass my ID like argument in my field to filter only pages referenced
+      //$form['field_liste_ref_dossier']['widget']['target_id']['#selection_settings']['view']['arguments'][] = $nid;
+    }
+
+    //$now = \Drupal::time()->getRequestTime();
+    //$form['field_start_time']['widget']['#default_value'] = $now;
+    //$form['field_start_time']= $now;
+
+  }
+}
+
 
 /**
  * Implements hook_entity_id_insert().

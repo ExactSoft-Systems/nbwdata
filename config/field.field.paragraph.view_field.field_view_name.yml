@@ -1,0 +1,73 @@
+uuid: 3ddeeda7-8fc1-4f2a-afdd-e1ac0a7c1c13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_view_name
+    - paragraphs.paragraphs_type.view_field
+  module:
+    - viewfield
+id: paragraph.view_field.field_view_name
+field_name: field_view_name
+entity_type: paragraph
+bundle: view_field
+label: 'Views name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  force_default: false
+  allowed_views:
+    adult_patron_attendance_records: adult_patron_attendance_records
+    classes: classes
+    class_roster: class_roster
+    content: content
+    donor_list: donor_list
+    events: events
+    live_classes: live_classes
+    students_registered_for_class: students_registered_for_class
+    today_s_classes: today_s_classes
+    volunteer_list: volunteer_list
+    who_s_new: who_s_new
+    who_s_online: who_s_online
+    youth_attending_class_session: youth_attending_class_session
+    youth_list: youth_list
+    comment: '0'
+    block_content: '0'
+    webform_demo_application_evaluations: '0'
+    webform_demo_events: '0'
+    download_stats_for_files: '0'
+    events_calendar: '0'
+    files: '0'
+    frontpage: '0'
+    group_members: '0'
+    group_nodes: '0'
+    media: '0'
+    media_library: '0'
+    moderated_content: '0'
+    user_admin_people: '0'
+    profiles: '0'
+    comments_recent: '0'
+    content_recent: '0'
+    ride_class_members_23_spring: '0'
+    spring_2023_ride_class_members: '0'
+    taxonomy_term: '0'
+    volunteer_name_and_username: '0'
+    volunteer_time_records: '0'
+    watchdog: '0'
+    webform_submissions: '0'
+    webform_views_example: '0'
+    youth_name_and_username: '0'
+  allowed_display_types:
+    block: block
+    attachment: '0'
+    default: '0'
+    embed: '0'
+    entity_reference: '0'
+    feed: '0'
+    page: '0'
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

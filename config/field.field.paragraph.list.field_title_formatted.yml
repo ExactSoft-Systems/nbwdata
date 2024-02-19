@@ -1,0 +1,26 @@
+uuid: 45b3d5ff-ca88-4e7f-b314-1de429482b86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_formatted
+    - paragraphs.paragraphs_type.list
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: paragraph.list.field_title_formatted
+field_name: field_title_formatted
+entity_type: paragraph
+bundle: list
+label: 'List Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text

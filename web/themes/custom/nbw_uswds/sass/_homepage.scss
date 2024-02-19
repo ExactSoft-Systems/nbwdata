@@ -1,0 +1,50 @@
+@use 'uswds' as *;
+@use 'nbw-custom-mixins' as *;
+@use 'nbw-custom-definitions' as *;
+
+main {
+  &.node-type--homepage {
+    margin-bottom: -3rem;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    h1 {
+      display: none;
+    }
+
+    section {
+      h2 {
+        font-size: 3.5rem;
+      }
+    }
+
+    article {
+      padding-top: 0;
+    }
+
+    .search-block-form {
+      h2 {
+        text-transform: none;
+      }
+    }
+
+    .block {
+      &.block-system-main-block {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@include at-media-max('desktop') {
+  main {
+    &.node-type--homepage {
+      .search-block-form {
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}

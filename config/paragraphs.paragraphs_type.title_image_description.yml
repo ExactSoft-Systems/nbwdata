@@ -1,0 +1,10 @@
+uuid: ea1105dd-99da-4e1e-a005-728778cd62a9
+langcode: en
+status: true
+dependencies: {  }
+id: title_image_description
+label: 'Title Image Description'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

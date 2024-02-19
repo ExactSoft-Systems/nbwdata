@@ -1,0 +1,84 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set format = paragraph.field_formatter.value %}
+{% set field_count = 0 %}
+{% set has_toggle = TRUE %}
+
+{% if paragraph.field_section_intro.0 %}
+  {% set field_count = field_count + 1 %}
+{% endif %}
+
+{% if paragraph.field_content.0 %}
+  {% set field_count = field_count + 1 %}
+{% else %}
+  {% set has_toggle = FALSE %}
+{% endif %}
+
+{% if paragraph.field_expanded_by_default.value == 1 %}
+  {% set expanded = TRUE %}
+{% else %}
+  {% set expanded = FALSE %}
+{% endif %}
+
+{% set expand_label = paragraph.field_expand_label.0.value %}
+{% set contract_label = paragraph.field_contract_label.0.value %}
+
+{% if format %}
+  {% set classes = classes | merge(['format--' ~ format]) %}
+{% endif %}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      <aside class="toggle-section">
+        {% if not paragraph.field_section_name.value.isEmpty() %}
+          <h3>{{ paragraph.field_section_name.value }}</h3>
+        {% endif %}
+    
+        <div class="children 
+          {% if has_toggle %}has-toggle{% endif %}
+          {% if expanded %}expanded-default{% endif %}" 
+          field-count="{{ field_count }}"
+        >
+          <div class="field field--name-field-section-intro field--label-hidden field__item">
+            {% autoescape false %}
+              {{ paragraph.field_section_intro.0.value }}
+            {% endautoescape %}
+          </div>
+
+          <div class="field field--name-field-content field--label-hidden field__item">
+            {% autoescape false %}
+              {{ paragraph.field_content.0.value }}
+            {% endautoescape %}
+          </div>
+        </div>
+
+        {% if has_toggle %}
+          <div class="toggle double">
+            <a class="toggle-more" {% if expanded %}style="display:none"{% endif %} >
+              {% if expand_label %}
+                {{ expand_label }}
+              {% else %}
+                More
+              {% endif %}
+            </a>
+            <a class="toggle-less" {% if not expanded %}style="display:none"{% endif %} >
+              {% if contract_label %}
+                {{ contract_label }}
+              {% else %}
+                Less
+              {% endif %}
+            </a>
+          </div>
+        {% endif %}
+      </aside>      
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

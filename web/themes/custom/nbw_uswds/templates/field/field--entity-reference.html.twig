@@ -1,0 +1,36 @@
+{%
+  set classes = [
+  'field',
+  'field--name-' ~ field_name|clean_class,
+  'field--type-' ~ field_type|clean_class,
+  'field--label-' ~ label_display,
+  label_display == 'inline' ? 'clearfix',
+]
+%}
+{%
+  set title_classes = [
+  'title',
+  label_display == 'visually_hidden' ? 'usa-sr-only',
+  label_display == 'inline' ? 'display-inline',
+]
+%}
+
+{%
+  set field_classes = [
+  label_display == 'inline' ? 'display-inline',
+ ]
+%}
+
+{% if not label_hidden %}
+  <div{{ title_attributes.addClass(title_classes) }}>
+    {% if label_display == 'inline' %}
+      {{ label }}:
+    {% else %}
+      {{ label }}
+    {% endif %}
+  </div>
+{% endif %}
+
+{% for item in items %}
+  {{ item.content }}
+{% endfor %}

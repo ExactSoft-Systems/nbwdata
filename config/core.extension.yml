@@ -10,19 +10,15 @@ module:
   admin_toolbar_links_access_filter: 0
   admin_toolbar_search: 0
   admin_toolbar_tools: 0
-  adult_patron_attendance_record: 0
-  adult_patron_waver: 0
   ajax_example: 0
   allowed_formats: 0
+  auto_entitylabel: 0
   automated_cron: 0
   backup_migrate: 0
   basic_auth: 0
   batch_example: 0
   better_exposed_filters: 0
-  bicycle: 0
   big_pipe: 0
-  bike_in_kind_donation_receipt: 0
-  bike_part: 0
   block: 0
   block_content: 0
   block_example: 0
@@ -30,9 +26,6 @@ module:
   breakpoint: 0
   cache_example: 0
   ckeditor5: 0
-  class_attendance_record: 0
-  class_registration_submission: 0
-  class_session: 0
   clientside_validation: 0
   clientside_validation_demo: 0
   clientside_validation_jquery: 0
@@ -72,7 +65,6 @@ module:
   field_example: 0
   field_layout: 0
   field_permission_example: 0
-  field_permissions: 0
   field_ui: 0
   file: 0
   file_download_link: 0
@@ -82,7 +74,6 @@ module:
   form_api_example: 0
   fullcalendar_view: 0
   gatsby_extras: 0
-  gnode: 0
   group: 0
   help: 0
   history: 0
@@ -112,6 +103,7 @@ module:
   menu_link_attributes: 0
   menu_link_content: 0
   menu_ui: 0
+  message_banner: 0
   migrate: 0
   migrate_drupal: 0
   migrate_drupal_ui: 0
@@ -167,11 +159,12 @@ module:
   update: 0
   user: 0
   variationcache: 0
+  verf: 0
+  viewfield: 0
+  views_add_button: 0
   views_bootstrap: 0
   views_ui: 0
   viewsreference: 0
-  volunteer_sign_up_record: 0
-  volunteer_time_record: 0
   webform: 0
   webform_access: 0
   webform_attachment: 0
@@ -219,4 +212,5 @@ theme:
   stable: 0
   classy: 0
   uswds_base: 0
+  nbw_uswds: 0
 profile: standard

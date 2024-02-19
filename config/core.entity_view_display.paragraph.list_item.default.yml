@@ -1,0 +1,34 @@
+uuid: e8e341fa-a74d-4ef2-a4a8-777748f79dbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.list_item.field_node
+    - field.field.paragraph.list_item.field_title
+    - paragraphs.paragraphs_type.list_item
+id: paragraph.list_item.default
+targetEntityType: paragraph
+bundle: list_item
+mode: default
+content:
+  field_node:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

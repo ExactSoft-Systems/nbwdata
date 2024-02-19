@@ -1,0 +1,428 @@
+@use 'uswds' as *;
+@use 'nbw-custom-mixins' as *;
+@use 'nbw-custom-definitions' as *;
+
+header {
+  &.usa-header {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .5);
+    display: block;
+    height: 10rem;
+    position: relative;
+    z-index: 100;
+
+    [role='search'] {
+      max-width: unset;
+    }
+
+    .usa-nav-container {
+      max-width: 87.5rem;
+
+      .usa-logo {
+        margin: 1rem 0 0 0;
+
+        &.site-logo {
+          a {
+            &[accesskey='2'] {
+              display: none;
+            }
+          }
+        }
+      }
+
+      nav {
+        &.usa-nav {
+          .usa-nav__primary {
+            .usa-nav__primary-item {
+              padding: 0 1rem;
+
+              a {
+                &.link {
+                  &.usa-nav__link {
+                    border-bottom: 2px solid color('primary-vivid');
+                    color: color('black');
+                    font-size: 1.25rem;
+                    font-weight: font-weight('bold');
+                    line-height: 100%;
+                    padding: .5rem 0;
+
+                    &:hover {
+                      border-bottom: unset;
+                      color: color('primary');
+                    }
+
+                    &::after {
+                      background-color: color('white');
+                      color: color('white');
+                      content: none;
+                      height: 0;
+                    }
+                  }
+                }
+              }
+
+              button {
+                &.mobile-nav-expander {
+                  display: none;
+                }
+              }              
+            }
+
+            .usa-nav__submenu-list {
+              &.menu-level--2 {
+                .usa-nav__submenu-item {
+                  a {
+                    margin-left: -1.5rem;
+                    padding-left: 2.5rem;
+                  }
+                }
+              }
+            }
+            .usa-nav__submenu {
+              @include nbw-blue-gradient-primary;
+              box-shadow: .5rem .5rem 1rem rgba(0, 0, 0, .25);
+              padding: 0.125rem;
+              top: 2.375rem;
+              width: 20rem;
+
+              .usa-nav__submenu-item {
+                a {
+                  font-size: 1.125rem;
+                  font-weight: font-weight('bold');
+                  line-height: 100%;
+                  padding: .5rem 1rem;
+
+                  &:hover {
+                    @include nbw-nav-item-hover;
+                    text-decoration: none;
+                  }
+                }
+
+                button {
+                  &.menu-level--1 {
+                    &[aria-expanded='true'] {
+                      background-color: transparent;
+                    }
+                  }
+
+                  &[aria-expanded='false'] {
+                    span {
+                      background-color: transparent;
+                      border-bottom-width: 0;
+                      color: color('white');
+
+                      &:hover {
+                        color: color('primary-lighter');
+                        text-decoration: none;
+                      }
+
+                      &::after {
+                        background-color: color('white');
+                      }
+                    }
+                  }
+
+                  &[aria-expanded='true'] {
+                    span {
+                      color: color('white');
+                      border-bottom-width: 0;
+
+                      &:hover {
+                        color: color('primary-lighter');
+                        text-decoration: none;
+                      }
+
+                      &::after {
+                        background-color: color('white');
+                      }
+                    }
+                  }
+                }
+
+                .usa-nav__submenu-item {
+                  padding-left: 1.5rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include at-media-max('desktop') {
+  header {
+    &.usa-header {
+      height: unset;
+      padding-bottom: 0;
+
+      .usa-nav-container {
+        max-width: 100%;
+
+        .usa-navbar {
+          border-bottom-width: 0;
+          height: unset;
+          padding: 0 1rem 0 2rem;
+
+          .usa-logo {
+            margin: 0;
+
+            &.site-logo {
+              img {
+                height: auto;
+                max-height: 8rem;
+                max-width: 15rem;
+                width: unset;
+              }
+            }
+          }
+
+          button {
+            &.usa-menu-btn {
+              background-color: transparent;
+              cursor: pointer;
+
+              img {
+                @include nbw-svg-primary;
+                height: 3rem;
+                width: 3rem;
+              }
+            }
+          }
+        }
+
+        nav {
+          &.usa-nav {
+            &.is-visible {
+              @include nbw-blue-gradient-primary;
+              width: 100%;
+              top: 9.125rem;
+
+              button {
+                cursor: pointer;
+
+                &.usa-nav__close {
+                  height: 3rem;
+                  margin-bottom: -1rem;
+                  margin-right: 2%;
+                  width: 3rem;
+
+                  img {
+                    @include nbw-svg-white;
+                    height: 100%;
+                    width: 100%;
+                  }
+                }
+              }
+
+              .usa-nav__primary {
+                .usa-nav__primary-item {
+                  border-top-width: 0;
+                  max-width: 92%;
+
+                  &:last-child {
+                    border-bottom-width: 0;
+                  }
+
+                  a {
+                    &.link {
+                      &.usa-nav__link {
+                        border-bottom: 1px solid color('white');
+                        color: color('white');
+                        font-size: 1.75rem;
+                        font-weight: 800;
+
+                        &:hover {
+                          @include nbw-nav-item-hover-transparent;
+                        }
+
+                        &:active {
+                          @include nbw-nav-item-hover;
+                        }
+
+                        span {
+                          border-bottom-width: 0;
+                        }
+                      }
+                    }
+                  }
+
+                  button {
+                    &.mobile-nav-expander {
+                      background-color: color('white');
+                      border-radius: 50%;
+                      bottom: 3rem;
+                      display: block;
+                      float: right;
+                      height: 2.5rem;
+                      margin: 0;
+                      padding: 0;
+                      position: relative;
+                      right: .5rem;
+                      width: 2.5rem;
+                      z-index: 10000;
+
+                      img {
+                        @include nbw-svg-primary;
+                        height: 100%;
+                        margin: 0;
+                        padding: 0;
+                        width: 100%;
+                      }
+
+                      &[aria-expanded='true'] {
+                        img {
+                          transform: rotate(180deg);
+                        }
+                      }
+                    }
+                  }
+
+                  .usa-nav__submenu {
+                    background: unset;
+                    box-shadow: none;
+                    color: color('white');
+                    padding-bottom: 2rem;
+                    width: 100%;
+
+                    li {
+                      border-top-width: 0;
+
+                      a {
+                        color: color('white');
+                        padding-left: 2.5rem;
+
+                        &:not(.usa-button) {
+                          &:not(.usa-current) {
+                            color: color('white');
+
+                            &:active {
+                              @include nbw-nav-item-hover;
+                            }
+
+                            &:hover {
+                              @include nbw-nav-item-hover-transparent;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  .usa-nav__submenu-list {
+                    &.menu-level--2 {
+                      li {
+                        a {
+                          padding-left: 4.5rem;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  body {
+    &.usa-js-mobile-nav--active {
+      .usa-overlay {
+        &.is-visible {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+}
+
+@include at-media-max('tablet') {
+  header {
+    &.usa-header {
+      .usa-nav-container {
+        .usa-navbar {
+          .usa-logo {
+            &.site-logo {
+              img {
+                height: auto;
+                max-height: 6rem;
+                max-width: 12rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* menu hacks for tablets / sm desktop */
+@media (min-width: 1024px) and (max-width: 1270px) {
+  header {
+    &.usa-header {
+      .usa-nav-container {
+        nav {
+          &.usa-nav {
+            .usa-accordion { 
+              align-items: flex-end; 
+
+              .usa-nav__primary-item {
+                text-align: center;
+              }
+            }
+
+            .usa-nav__primary-item {
+              .usa-nav__submenu {
+                top: 3.375rem;
+
+                .usa-nav__submenu-item a {
+                  text-align: left;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+section {
+  &.title-override {
+    padding: 1rem 0;
+  }
+}
+
+.banner-text {
+  &-title,
+  &-subtitle {
+    color: color('white');
+    font-size: 3.35rem;
+    font-weight: 500;
+    text-transform: none;
+    line-height: initial;
+  }
+
+  &-subtitle {
+    font-size: 2rem;
+  }
+}
+
+.partners-az-header{
+  h2{
+    @include nbw-h1;
+    color: color('white');
+  }
+}
+
+nav {
+  h2 {
+    a.nbw-submenu-header-link {
+      text-decoration: none;
+      color: color('white');
+    }
+  }
+}

@@ -1,0 +1,26 @@
+uuid: fdfe926d-8425-4102-9a3a-dc0b175fbdd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_formatted
+    - paragraphs.paragraphs_type.three_column_listings
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: paragraph.three_column_listings.field_title_formatted
+field_name: field_title_formatted
+entity_type: paragraph
+bundle: three_column_listings
+label: 'Three Column Listing Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text

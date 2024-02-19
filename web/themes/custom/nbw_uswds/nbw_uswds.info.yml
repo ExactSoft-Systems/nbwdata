@@ -1,0 +1,37 @@
+type: theme
+base theme: uswds_base
+
+name: 'NBW USWDS'
+description: 'NBW theme based on USWDS'
+package: 'NBW USWDS'
+core_version_requirement: ^9 || ^10
+logo: 'logo.png'
+screenshot: 'screenshot.png'
+
+regions:
+  header_top: 'Above Header'
+  header: 'Header'
+  primary_menu: 'Primary Menu'
+  secondary_menu: 'Secondary Menu'
+  header_bottom: 'Header Bottom'
+  header_below: 'Header Below'
+  sidebar_above: 'Above sidebar'
+  sidebar_first: 'First sidebar'
+  sidebar_second: 'Second sidebar'
+  breadcrumb: 'Breadcrumb'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  hero: 'Hero'
+  content_above: 'Content Above'
+  title: 'Title'
+  content: 'Content'
+  content_bottom: 'Content Bottom'
+  attachment: 'Attachment'
+  share: 'Share'
+  footer_menu: 'Footer Menu'
+  footer: 'Primary Footer'
+  footer_secondary: 'Secondary Footer'
+  footer_nbw: 'Nbw Footer'
+
+libraries:
+  - 'nbw_uswds/assets'

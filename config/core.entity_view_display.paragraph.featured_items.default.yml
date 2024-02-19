@@ -1,0 +1,49 @@
+uuid: 1233399b-c037-4e8d-bb61-d67c001ddbce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.featured_items.field_featured_banner_image
+    - field.field.paragraph.featured_items.field_featured_banner_title
+    - field.field.paragraph.featured_items.field_featured_banner_url
+    - paragraphs.paragraphs_type.featured_items
+  module:
+    - link
+id: paragraph.featured_items.default
+targetEntityType: paragraph
+bundle: featured_items
+mode: default
+content:
+  field_featured_banner_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_featured_banner_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_featured_banner_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

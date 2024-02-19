@@ -1,0 +1,79 @@
+{#
+/**
+ * @file
+ * Theme override to display a taxonomy term.
+ *
+ * Available variables:
+ * - url: URL of the current term.
+ * - name: (optional) Name of the current term.
+ * - content: Items for the content of the term (fields and description).
+ *   Use 'content' to print them all, or print a subset such as
+ *   'content.description'. Use the following code to exclude the
+ *   printing of a given child element:
+ *   @code
+ *   {{ content|without('description') }}
+ *   @endcode
+ * - attributes: HTML attributes for the wrapper.
+ * - page: Flag for the full page state.
+ * - term: The taxonomy term entity, including:
+ *   - id: The ID of the taxonomy term.
+ *   - bundle: Machine name of the current vocabulary.
+ * - view_mode: View mode, e.g. 'full', 'teaser', etc.
+ *
+ * @see template_preprocess_taxonomy_term()
+ */
+#}
+
+{% if view_mode == 'full' %}
+
+{% set classes = ['taxonomy-term', 'vocabulary-' ~ term.bundle|clean_class] %}
+<div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
+  {{ title_prefix }}
+  {% if name and not page %}
+    <h2><a href="{{ url }}">{{ name }}</a></h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% if content %} 
+    <div class="content">
+    {{ content }}
+    </div>
+  {% endif %}
+</div> 
+
+{% elseif view_mode == "financing_option_type_code_and_label" %}
+  {% set label = name|render|striptags("<a>")|trim|replace({'&amp;':'&', '&quot;':'"'})|raw %}
+  {% set colorCode = content.field_financing_project_type_d['#items'][0].entity|view('financing_attribute_color_code') %}
+  <span class="attribute-label">{{ colorCode }}{{ label }}</span>
+
+{% elseif ("fo_chart_" in view_mode) or ("calc_" in view_mode) %}
+  {% set f = ("fo_chart_" in view_mode) ? (content|first) : (content|first|slice(1, 1)|first ) %}
+  {% set attribute = {
+    "category" : f['#items'][0].entity.parent.entity.fields.parent.entity|view('attribute_cell'),
+    "name" : f['#items'][0].entity.parent.entity|view('attribute_cell_tooltip'),
+    "colorCode" : (f['#items'][0].entity.parent.entity.fields.field_financing_attribute_colorc.value[0]['color_pickr'] ?? false)
+    }
+  %}
+  
+  <div class="attribute-cat">{{ attribute.category }}</div>
+  <div class="attribute-att">{{ attribute.name }}</div>
+  <div class="attribute-val" style="background: {{ attribute.colorCode }};">
+
+  {% if ("fo_chart_" in view_mode) %}
+    {% set alt = (content|last|render|striptags("<a>")|trim|replace({'&amp;':'&', '&quot;':'"'})|raw)  %}
+    {% set val = ((alt) | default(f|render|striptags("<a>")|trim|replace({'&amp;':'&', '&quot;':'"'}))) %}
+    <span class="attribute-text">{{ val|raw  }}</span>
+
+  {% else %}
+    {% set match = { "group_full": ['green', '✓'], "group_partial": ['gold', 'O'], "group_none": ['red', 'X'] } %}
+    {% set content = content|map((x, y) => x|filter((v, k) => k >= 0)) %}
+    {% set content = content|map((x, y) => x|map((v, k) => v|render|striptags("<a>")|trim|replace({'\n':',','&amp;':'&','&quot;':'', '&#039;':'\''})|raw))%}
+      <span class="fo_calc">
+      {% for item, group in content %}
+        <span class='text-{{ match[item][0]|default('gray-50') }} {{ item }}' title='{{ (group|first)|default('Not Important') }}'><data value='{{ item }} {{ (group|slice(1, 1)|first)|default('') }}'></data>{{ match[item][1]|default('—') }}</span>
+      {% endfor  %}
+      <span class='text-gray-50 not-important' title='Not Important'>–</span>
+      </span>
+  {% endif %}
+
+  </div>
+{% endif %}

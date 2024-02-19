@@ -1,0 +1,51 @@
+uuid: e8706612-e285-4534-9f58-b9a9bc6da24b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.data.field_additional_label
+    - field.field.paragraph.data.field_amount
+    - field.field.paragraph.data.field_units
+    - field.field.paragraph.data.field_year
+    - paragraphs.paragraphs_type.data
+id: paragraph.data.default
+targetEntityType: paragraph
+bundle: data
+mode: default
+content:
+  field_additional_label:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_amount:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_units:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_year:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

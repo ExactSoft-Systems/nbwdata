@@ -1,0 +1,22 @@
+uuid: 11bd7168-b3fb-4b9d-b39f-6f66353578ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nbw_uswds
+_core:
+  default_config_hash: sQ6LUKDmeUsq8YBZljoOOjQIyEK_GdAE9w3URLL_Iwc
+id: nbw_uswds_content
+theme: nbw_uswds
+region: content
+weight: -3
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

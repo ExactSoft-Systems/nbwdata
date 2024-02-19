@@ -1,0 +1,23 @@
+uuid: f39ca06a-2c69-4372-96d2-e17825da598d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_carousel_item_url
+    - paragraphs.paragraphs_type.carousel_item_field
+  module:
+    - link
+id: paragraph.carousel_item_field.field_carousel_item_url
+field_name: field_carousel_item_url
+entity_type: paragraph
+bundle: carousel_item_field
+label: URL
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

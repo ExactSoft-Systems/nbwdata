@@ -1,0 +1,200 @@
+// ----------------------------------------------------------------------------------------
+// -- USWDS OVERRIDES TO BE IMPORTED IN __uswds-theme.scss                               --
+// --                                                                                    --
+// -- For more variable replacements see USWDS documentation:                            --
+// -- https://designsystem.digital.gov/documentation/settings/#configuring-settings-maps --
+// ----------------------------------------------------------------------------------------
+
+// ------
+// COLORS
+// ------
+
+// Base colors - Color family of site text.
+$nbw-theme-color-base-lightest: #f8f8f8;
+$nbw-theme-color-base-lighter: #f1f1f1;
+$nbw-theme-color-base-light: #e5f6fc;
+$nbw-theme-color-base: #d2d2d2;
+$nbw-theme-color-base-dark: #d9d9d9;
+$nbw-theme-color-base-darker: #ccc;
+$nbw-theme-color-base-darkest: #555;
+$nbw-theme-color-base-ink: #1b1b1b;
+
+// Primary colors - Color family of ~60% of the non-base color.
+$nbw-theme-color-primary-lightest: #ccedf9; //#ccedf9 > #ccecf2
+$nbw-theme-color-primary-lighter: #a6dff4; //#a6dff4 > #99deea
+$nbw-theme-color-primary-light: #00a2df; //#00a2df > #5994f6
+$nbw-theme-color-primary: #1d428a; //#1d428a > #1a4480
+$nbw-theme-color-primary-vivid: #00a3e0; //#00a3e0 > #00bde3
+$nbw-theme-color-primary-dark: #162e51;
+$nbw-theme-color-primary-darker: #363636;
+//$nbw-theme-color-primary-darkest: #363636;
+
+// Secondary colors - Color family of ~30% of the non-base color.
+// $nbw-theme-color-secondary-lightest: ;
+$nbw-theme-color-secondary-lighter: #baded0;
+$nbw-theme-color-secondary-light: #319a3c; //#309a3c > #008817
+$nbw-theme-color-secondary: #007a3e; //#007a3e > #216e1f
+$nbw-theme-color-secondary-vivid: #319b3c;
+$nbw-theme-color-secondary-dark: #006b36;
+// $nbw-theme-color-secondary-darker: ;
+// $nbw-theme-color-secondary-darkest: ;
+
+// Accent warm colors - Color family of occasional warm accents.
+// $nbw-theme-color-accent-warm-lightest: ;
+// $nbw-theme-color-accent-warm-lighter: ;
+// $nbw-theme-color-accent-warm-light: ;
+// $nbw-theme-color-accent-warm: ;
+// $nbw-theme-color-accent-warm-dark: ;
+// $nbw-theme-color-accent-warm-darker: ;
+// $nbw-theme-color-accent-warm-darkest: ;
+
+// Accent cool colors - Color family of occasional cool accents.
+// $nbw-theme-color-accent-cool-lightest: ;
+// $nbw-theme-color-accent-cool-lighter: ;
+// $nbw-theme-color-accent-cool-light: ;
+// $nbw-theme-color-accent-cool: ;
+// $nbw-theme-color-accent-cool-dark: ;
+// $nbw-theme-color-accent-cool-darker: ;
+// $nbw-theme-color-accent-cool-darkest: ;
+
+// -------------
+// FONT FAMILIES
+// -------------
+
+//Font Path
+$nbw-theme-font-path: 'fonts';
+
+//Avenir
+$nbw-theme-font-type-sans: 'Avenir';
+$nbw-font-stack-avenir: 'Avenir', 'Lato', 'Nunito', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$nbw-theme-typeface-tokens: (
+  'Avenir': (
+    display-name: 'Avenir',
+    cap-height: 357px,
+    stack: $nbw-font-stack-avenir
+  ),
+);
+
+$nbw-theme-font-sans-custom-src: (
+  dir: 'Avenir',
+  // the name of your font family directory
+  roman: (
+    100: false,
+    200: false,
+    300: 'Avenir-Light',
+    400: 'Avenir', // the font file name, without the extension
+    500: 'Avenir-Roman',
+    600: 'Avenir-Book',
+    700: 'Avenir-Medium',
+    800: 'Avenir-Heavy',
+    900: 'Avenir-Black'
+  ),
+  italic: (
+    100: false,
+    200: false,
+    300: 'Avenir-LightOblique',
+    400: 'Avenir-Oblique',
+    500: 'Avenir-Oblique',
+    600: 'Avenir-BookOblique',
+    700: 'Avenir-MediumOblique',
+    800: 'Avenir-HeavyOblique',
+    900: 'Avenir-BlackOblique'
+  )
+);
+
+// ------------
+// FONT WEIGHTS
+// ------------
+
+$nbw-theme-font-weight-light: 300;
+$nbw-theme-font-weight-normal: 400;
+$nbw-theme-font-weight-medium: 500;
+$nbw-theme-font-weight-semibold: 600;
+$nbw-theme-font-weight-bold: 800;
+$nbw-theme-font-weight-heavy: 900;
+
+// ----------
+// FONT ROLES
+// ----------
+
+$nbw-theme-font-role-heading: 'sans';
+$nbw-theme-font-role-alt: 'sans';
+$nbw-theme-font-role-ui: 'sans';
+
+// ----------------
+// FONT SIZE TOKENS
+// ----------------
+
+// $nbw-theme-type-scale-3xs: 2;
+// $nbw-theme-type-scale-2xs: 3;
+// $nbw-theme-type-scale-xs: 4;
+// $nbw-theme-type-scale-sm: 5;
+// $nbw-theme-type-scale-md: 6;
+// $nbw-theme-type-scale-lg: 9;
+// $nbw-theme-type-scale-xl: 12;
+// $nbw-theme-type-scale-2xl: 14;
+// $nbw-theme-type-scale-3xl: 15;
+
+// ----------------------------------------------------------------------------------------
+// -- nbw CUSTOM VARIABLS PER nbw REQUEST USED IN CUSTOM nbw STYLES                   --
+// ----------------------------------------------------------------------------------------
+
+// ----------
+// FONT SIZES
+// ----------
+
+$nbw-font-size-body: 1.125rem;
+$nbw-font-size-h6: 1.125rem;
+$nbw-font-size-h5: 1.125rem;
+$nbw-font-size-h4: 1.125rem;
+$nbw-font-size-h3: 1.125rem;
+$nbw-font-size-h2: 1.5rem;
+$nbw-font-size-h1: 1.875rem;
+$nbw-font-size-tag: 1rem;
+$nbw-font-size-footer-link: 1rem;
+$nbw-font-size-event-title: 1.25rem;
+
+// ------------
+// LINE HEIGHTS
+// ------------
+
+$nbw-line-height-body: 150%;
+$nbw-line-height-h6: 150%;
+$nbw-line-height-h5: 150%;
+$nbw-line-height-h4: 150%;
+$nbw-line-height-h3: 1.5rem;
+$nbw-line-height-h2: 1.5rem;
+$nbw-line-height-h1: 2.25rem;
+$nbw-line-height-tag: 175%;
+$nbw-line-height-footer-link: 100%;
+$nbw-line-height-event-title: 1.5rem;
+
+// -------
+// SPACING
+// -------
+
+$nbw-spacer: 2rem;
+$nbw-top-spacer-only: $nbw-spacer 0 0 0;
+$nbw-bottom-spacer-only: 0 0 $nbw-spacer 0;
+$nbw-top-and-bottom-spacer: $nbw-spacer 0;
+
+
+// -------
+// COLORS
+// -------
+$nbw-slide-bg-color: #ecf9fd;
+$nbw-red: #d83933;
+$nbw-tabs-background-inactive: #27418d;
+$nbw-tabs-background-active: #365e9e;
+
+// -------
+// SIZES
+// -------
+$nbw-hero-image-ad-height: 16rem;
+
+// -------
+// Custom colors for Leaflet Map Views Markers
+// -------
+$nbw-theme-color-map-marker: #91908F;
+$nbw-theme-color-map-marker-div: #A9A7A5;
+$nbw-theme-color-map-marker-span: #eeeeee;

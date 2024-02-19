@@ -1,0 +1,43 @@
+uuid: ea2fac4d-4482-49b5-9441-9680cc863d6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.icon.field_image
+    - field.field.paragraph.icon.field_summary
+    - field.field.paragraph.icon.field_title_formatted
+    - paragraphs.paragraphs_type.icon
+  module:
+    - text
+id: paragraph.icon.default
+targetEntityType: paragraph
+bundle: icon
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_summary:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_title_formatted:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

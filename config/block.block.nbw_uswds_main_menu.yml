@@ -1,0 +1,27 @@
+uuid: 8ae9e82a-61b8-4272-9de2-eda156909a35
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - nbw_uswds
+_core:
+  default_config_hash: YGYt3U4uee_Ug-Ezrpkz1mNl1uog6EpC8OvnEIa4vV4
+id: nbw_uswds_main_menu
+theme: nbw_uswds
+region: primary_menu
+weight: -10
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: false
+visibility: {  }

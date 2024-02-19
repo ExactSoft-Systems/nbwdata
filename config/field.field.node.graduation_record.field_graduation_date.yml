@@ -1,0 +1,24 @@
+uuid: 5fd95d88-c7e0-49f4-bd22-5f608986336f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_graduation_date
+    - node.type.graduation_record
+  module:
+    - datetime
+id: node.graduation_record.field_graduation_date
+field_name: field_graduation_date
+entity_type: node
+bundle: graduation_record
+label: 'Graduation Date'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

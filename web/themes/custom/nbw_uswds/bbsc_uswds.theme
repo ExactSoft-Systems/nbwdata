@@ -1,0 +1,307 @@
+<?php
+
+/**
+ * @file
+ * nbw USWDS Base sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+const nbw_USWDS_ASTERISK = '*';
+const nbw_USWDS_REQUIRED_ELEMENT = '<abbr title="required" class="usa-hint usa-hint--required">*</abbr>';
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * Implements hook_preprocess().
+ */
+function nbw_uswds_preprocess(&$variables) {
+  // Set the path to the base theme.
+  $variables['active_theme_path'] = base_path() . \Drupal::theme()->getActiveTheme()->getPath();
+  $variables['uswds_images'] = $variables['active_theme_path'] . '/node_modules/@uswds/uswds/dist/img/';
+  $variables['active_theme_icons_path'] = $variables['active_theme_path'] . '/assets/uswds/img/usa-icons';
+}
+
+
+/**
+ * Implements preprocess_form to get multiple displays of form
+ * (i.e. financing allies view)
+ */
+function nbw_uswds_preprocess_views_exposed_form(&$variables) {
+  if (str_ends_with($variables['form']['#id'], 'pill-tabbed') ){
+    $variables['double_form']['tabbed'] = $variables['form'];
+    $variables['double_form']['pill'] = $variables['form'];
+  }
+}
+
+/**
+ *  Implements views_pre_render to remove empty rows (i.e. partner lists)
+ */
+function nbw_uswds_views_pre_render (&$view) {
+  $vid = $view->id();
+  $display = $view->current_display;
+  $result = $view->result;
+  $total_rows = $view->total_rows;
+
+  switch ($vid) {
+    case 'program_partner_lists':
+      $filter = isset($view->exposed_data['goal_type']) ? $view->exposed_data['goal_type'] : False;
+      if ($filter and !empty($filter) and ($filter != 'All')){
+        foreach ($result as $key => $value) {
+          $paragraph = Paragraph::load(intval($value->paragraphs_item_field_data_node__field_goals_id))->field_goal_achieved->value;
+          if ($paragraph == '0'){
+            unset($view->result[$key]);
+          }
+        }
+      }
+      break;
+  }
+}
+
+/**
+ *  Helper function to check if printpdf view display url
+ */
+function isPrintPdf() {
+  $path = \Drupal::service('path.current')->getPath();
+  return str_ends_with($path, '/printpdf');
+}
+
+/**
+ *  Implements preprocess_html to get content type and view_mode
+ */
+function nbw_uswds_preprocess_html(&$variables) {
+  $variables['printpdf'] = isPrintPdf();
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function nbw_uswds_preprocess_page(&$variables) {
+  // Load this node if it is set
+  $node = (isset($variables['node'])) ? $variables['node'] : FALSE;
+  $variables['printpdf'] = isPrintPdf();
+  $variables['is_homepage'] = FALSE;
+  $variables['is_frontpage'] = FALSE;
+  $variables['node_type'] = NULL;
+  $variables['node_title'] = NULL;
+  $variables['node_classes'] = NULL;
+  $variables['page_classes'] = NULL;
+
+  if ($node) {
+    // Get node title.
+    $variables['node_title'] = $node->getTitle();
+
+    // Get node type.
+    $bundle = $node->bundle();
+
+    $variables['node_type'] = $bundle;
+    $variables['is_homepage'] = ($bundle == 'homepage');
+    $variables['node_classes'] .= ' node-type--' . $bundle;
+
+    $variables['tags'] = [];
+  }
+
+  // Get uri for this request
+  $request_uri = _nbw_uswds_get_request_uri();
+
+  // Add node uri class to main.
+  if (!empty($request_uri)) {
+    $variables['page_classes'] = "page-uri--{$request_uri}";
+  }
+}
+
+/**
+ * Implements template_preprocess_field_group_html_element().
+ */
+function nbw_uswds_preprocess_field_group_html_element(array &$variables) {
+  $element = $variables['element'];
+
+  if (!empty($element['#title']) && !empty($element['#title_element'])) {
+    $variables['title_element'] = $element['#title_element'];
+    $variables['title'] = $element['#title'];
+    $variables['title_attributes'] = $element['#title_attributes'];
+  }
+
+  $variables['collapsible'] = (!empty($element['#effect']) && $element['#effect'] !== 'none');
+  $variables['wrapper_element'] = $element['#wrapper_element'];
+  $variables['attributes'] = $element['#attributes'];
+  $variables['children'] = (!empty($element['#children'])) ? $element['#children'] : '';
+
+  $variables['has_moreless_toggle'] = FALSE;
+  $variables['group_field_count'] = 0;
+  $variables['needs_trim'] = FALSE;
+
+  if (count($element)) {
+    if (isset($element['#group_name']) && !empty($element['#group_name'])) {
+      if (isset($element['#wrapper_element']) && $element['#wrapper_element'] == 'aside') {
+        $group_field_names = [];
+
+        foreach ($element as $name => $value) {
+          if (strpos($name, "field_") !== FALSE) {
+            if (isset($element[$name]['#markup']) && !empty($element[$name]['#markup'])) {
+              $group_field_names[] = $name;
+            }
+          }
+        }
+
+        $variables['group_field_count'] = count($group_field_names);
+
+        if ($variables['group_field_count'] == 2) {
+          $variables['has_moreless_toggle'] = TRUE;
+        } else if ($variables['group_field_count'] == 1) {
+          $field_markup = trim($element[$group_field_names[0]]['#markup']);
+          $field_p_count = substr_count($element[$group_field_names[0]]['#markup'], '<p>');
+
+          if ($field_p_count > 1) {
+            $variables['has_moreless_toggle'] = TRUE;
+            $variables['needs_trim'] = TRUE;
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_form_element_label().
+ */
+function nbw_uswds_preprocess_form_element_label(&$variables) {
+  $variables['required_attribute'] = nbw_USWDS_REQUIRED_ELEMENT;
+}
+
+/**
+ * Implements template_preprocess_fieldset().
+ */
+function nbw_uswds_preprocess_fieldset(&$variables) {
+  if (isset($variables['legend']['title']['#markup']) && !empty($variables['legend']['title']['#markup'])) {
+    $variables['legend_title'] = str_replace(
+      nbw_USWDS_ASTERISK,
+      nbw_USWDS_REQUIRED_ELEMENT,
+      $variables['legend']['title']['#markup']
+    );
+  } else {
+    $variables['legend_title'] = '';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function nbw_uswds_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $bundle = $node->getType();
+
+    if (!empty($bundle)) {
+      array_splice($suggestions, 1, 0, "page__{$bundle}");
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_input_alter().
+ */
+function nbw_uswds_theme_suggestions_input_alter(&$suggestions, array $variables) {
+  $element = $variables['element'];
+  $id = $element['#id'];
+  $search_api_input_id = 'edit-search-api-views-fulltext';
+
+  if ($element['#type'] == 'textfield' && strpos($id, $search_api_input_id) === 0) {
+    $suggestions[] = 'input__textfield__search_api_views_fulltext';
+  }
+}
+
+/**
+ *  Helper function to get page alias.
+ */
+function _nbw_uswds_get_request_uri() {
+  // get uri for this request
+  $request_uri = \Drupal::request()->getRequestUri();
+
+  // remove query string
+  $request_uri = strtok($request_uri, "?");
+
+  if (strpos($request_uri, "node") !== FALSE) {
+    $node = \Drupal::routeMatch()->getParameter('node');
+
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      $nid = $node->id();
+
+      $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
+
+      if (!empty($alias)) {
+        $request_uri = $alias;
+      }
+    }
+  }
+
+  // remove leading slash from uri
+  $request_uri = ltrim($request_uri, "/");
+
+  // remove trailing slash from uri
+  $request_uri = rtrim($request_uri, "/");
+
+  // keep only primary level
+  $request_uri = strtok($request_uri, "/");
+
+  return $request_uri;
+}
+
+/**
+ *  Implements preprocess_facets_result_item to get tooltip field
+ */
+function nbw_uswds_preprocess_facets_result_item(&$variables) {
+  $id = intval($variables['raw_value']);
+  $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($id);
+  $variables['tooltip'] = isset($term->field_tooltip->value) ? $term->field_tooltip->value : null;
+}
+
+
+/**
+ *  Implements preprocess_views_view_table__partner_profile__allies_chart to get column info
+ */
+function nbw_uswds_preprocess_views_view_table__partner_profile__allies_chart(&$variables) {
+
+  $specialColumns = [ 'field_financing_option_ally' => 2447,
+                      'field_financing_sector' => 2469,
+                      'field_financing_technologies' => 2461, ];
+
+  $variables['specialColumns'] = null;
+  foreach($specialColumns as $field => $menuTid) {
+    $menuOptions = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('financing_additional_attributes', $menuTid, 1, FALSE);
+    foreach ($menuOptions as $child) {
+      $variables['specialColumns'][$field][$child->tid] = $child->name;
+    }
+  }
+}
+
+/**
+ *  Implements preprocess_block__system_menu_block to get taxonomy term and link for sub-menu block headers
+ */
+function nbw_uswds_preprocess_block__system_menu_block(&$vars) {
+  if (isset($vars["configuration"]["suggestion"]) and ($vars["configuration"]["suggestion"] == "nbw_navigation_sub_menu")){
+    $term_name = $vars['derivative_plugin_id'];
+    $termArray = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => $term_name, 'vid' => 'sub_menu_header_links']);
+    if ($termArray) {
+      $linkHeader = reset($termArray)->field_header_link->first();
+      $vars['headerLinkOverride'] = $linkHeader ? $linkHeader->getUrl()->toString() : null;
+    }
+  }
+}
+
+/**
+ *  Implements hook_preprocess_hook for a Search Facet block named Solution Type
+ */
+function nbw_uswds_preprocess_block__facet_block__solution_type_facet(&$variables) {
+  if ($variables['plugin_id'] === 'facet_block:solution_type_facet') {
+    $itemToRemove = -1;
+    foreach ($variables['content'][0]['#items'] as $key => $value) {
+      if($value['#title']['#value'] == "Term Landing Page"){
+        $itemToRemove = $key;
+        break;
+      }
+    }
+    if ($itemToRemove != -1){
+      unset($variables['content'][0]['#items'][$itemToRemove]);
+    }
+  }
+}
+

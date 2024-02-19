@@ -1,0 +1,47 @@
+uuid: 4cd564bf-255a-49a3-a5e9-2808f1ad676b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_node
+    - node.type.article
+    - node.type.basic_content_type
+    - node.type.class_roster
+    - node.type.event
+    - node.type.locked_content_type
+    - node.type.nbw_documents_and_wavers
+    - node.type.page
+    - node.type.webform
+    - node.type.webform_demo_event
+    - node.type.webform_demo_region
+    - paragraphs.paragraphs_type.list_item
+id: paragraph.list_item.field_node
+field_name: field_node
+entity_type: paragraph
+bundle: list_item
+label: Content
+description: 'A piece of content.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+      page: page
+      class_roster: class_roster
+      event: event
+      webform_demo_event: webform_demo_event
+      webform_demo_region: webform_demo_region
+      basic_content_type: basic_content_type
+      locked_content_type: locked_content_type
+      nbw_documents_and_wavers: nbw_documents_and_wavers
+      webform: webform
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: article
+field_type: entity_reference

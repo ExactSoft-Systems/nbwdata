@@ -1,0 +1,36 @@
+uuid: 65db1f88-9b7f-47ae-a46c-121c06d094ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_formatter
+field_name: field_formatter
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: float_right_33_33_width_right|float-right-33
+      label: '33% width right'
+    -
+      value: float_left_33_33_width_left|float-left-33
+      label: '33% width left'
+    -
+      value: left_column_2_column_left|left-column
+      label: '2-column left'
+    -
+      value: right_column_2_column_right|right-column
+      label: '2-column right'
+    -
+      value: full_width_span_full_page_width|full-width
+      label: 'Span full page width'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

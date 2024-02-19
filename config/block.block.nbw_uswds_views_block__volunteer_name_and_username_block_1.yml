@@ -1,0 +1,30 @@
+uuid: 5866050a-acc9-41c7-b3ab-43e3bcfea7fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.volunteer_name_and_username
+  module:
+    - system
+    - views
+  theme:
+    - nbw_uswds
+id: nbw_uswds_views_block__volunteer_name_and_username_block_1
+theme: nbw_uswds
+region: content
+weight: -6
+provider: null
+plugin: 'views_block:volunteer_name_and_username-block_1'
+settings:
+  id: 'views_block:volunteer_name_and_username-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+  exposed: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /nbw-dashboard

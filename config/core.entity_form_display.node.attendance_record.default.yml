@@ -1,0 +1,62 @@
+uuid: 0eee8cf8-1719-41ce-90df-da8d88947a19
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.attendance_record.body
+    - field.field.node.attendance_record.field_checkin_time
+    - field.field.node.attendance_record.field_class_name
+    - field.field.node.attendance_record.field_students
+    - node.type.attendance_record
+  module:
+    - datetime
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: node.attendance_record.default
+targetEntityType: node
+bundle: attendance_record
+mode: default
+content:
+  field_checkin_time:
+    type: datetime_default
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_class_name:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_students:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  created: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

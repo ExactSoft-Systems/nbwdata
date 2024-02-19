@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a fieldgroup html element.
+ *
+ * Available variables:
+ * - title: Title of the group.
+ * - title_element: Element to wrap the title.
+ * - children: The children of the group.
+ * - wrapper_element: The html element to use
+ * - attributes: A list of HTML attributes for the group wrapper.
+ *
+ * @see template_preprocess_field_group_html_element()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<{{ wrapper_element }} {{ attributes }}>
+  {% if title %}
+    <{{ title_element }}{{ title_attributes }}>{{ title }}</{{ title_element }}>
+  {% endif %}
+  
+  <div 
+    class="children {% if has_moreless_toggle %}has-toggle{% endif %} {% if needs_trim %}needs-trim{% endif %}"
+    field-count="{{ group_field_count }}"
+  >
+    {{children}}
+  </div>
+
+  {% if has_moreless_toggle %}
+    <div class="toggle {% if group_field_count == 2 %}double{% else %}single{% endif %}">
+      <a class="toggle-more">{{ 'More' | t }}</a>
+      <a class="toggle-less" style="display:none">{{ 'Less' | t }}</a>
+    </div>
+  {% endif %}
+</{{ wrapper_element }}>

@@ -1,0 +1,26 @@
+uuid: 7589c9a4-1f1a-4c35-a8a5-eeb3708e120d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_formatted
+    - paragraphs.paragraphs_type.title_image_description
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: paragraph.title_image_description.field_title_formatted
+field_name: field_title_formatted
+entity_type: paragraph
+bundle: title_image_description
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text

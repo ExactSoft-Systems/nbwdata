@@ -1,0 +1,33 @@
+uuid: d1342d96-5bef-47e6-a758-26601d79edff
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.admin_documents.body
+    - node.type.admin_documents
+  module:
+    - text
+    - user
+id: node.admin_documents.teaser
+targetEntityType: node
+bundle: admin_documents
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 150
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

@@ -1,0 +1,21 @@
+uuid: 4092833c-9e86-4ad7-9e00-595d95e74efe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feature_content
+    - paragraphs.paragraphs_type.featured
+id: paragraph.featured.field_feature_content
+field_name: field_feature_content
+entity_type: paragraph
+bundle: featured
+label: 'Feature Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

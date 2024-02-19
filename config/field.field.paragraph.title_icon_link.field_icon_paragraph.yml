@@ -1,0 +1,91 @@
+uuid: db8cf2fa-4b39-4df6-a803-24134efaa3fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_paragraph
+    - paragraphs.paragraphs_type.icon
+    - paragraphs.paragraphs_type.title_icon_link
+  module:
+    - entity_reference_revisions
+id: paragraph.title_icon_link.field_icon_paragraph
+field_name: field_icon_paragraph
+entity_type: paragraph
+bundle: title_icon_link
+label: 'Icon Paragraph'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      icon: icon
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 22
+        enabled: false
+      audio:
+        weight: 23
+        enabled: false
+      button_group:
+        weight: 24
+        enabled: false
+      collection_page:
+        weight: 25
+        enabled: false
+      header:
+        weight: 26
+        enabled: false
+      icon:
+        weight: 27
+        enabled: true
+      image:
+        weight: 28
+        enabled: false
+      image_gallery:
+        weight: 29
+        enabled: false
+      item_list_link:
+        weight: 30
+        enabled: false
+      item_list_string:
+        weight: 31
+        enabled: false
+      item_list_text:
+        weight: 32
+        enabled: false
+      layout:
+        weight: 33
+        enabled: false
+      media_gallery:
+        weight: 34
+        enabled: false
+      node:
+        weight: 35
+        enabled: false
+      quotation:
+        weight: 36
+        enabled: false
+      remote_video:
+        weight: 37
+        enabled: false
+      statement:
+        weight: 38
+        enabled: false
+      title_icon_link:
+        weight: 39
+        enabled: false
+      video_gallery:
+        weight: 40
+        enabled: false
+      view:
+        weight: 41
+        enabled: false
+      webform:
+        weight: 42
+        enabled: false
+field_type: entity_reference_revisions

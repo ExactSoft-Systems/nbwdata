@@ -1,0 +1,26 @@
+uuid: a4f61e0e-ce14-45ef-ad2d-c6f085137de9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_summary
+    - paragraphs.paragraphs_type.icon
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: paragraph.icon.field_summary
+field_name: field_summary
+entity_type: paragraph
+bundle: icon
+label: 'Icon Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

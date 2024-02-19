@@ -1,0 +1,19 @@
+{% block paragraph %}
+  <section class="paragraph--title-image-description">
+    {% block content %}
+      <div class="grid-container-widescreen">
+        <div class="grid-row grid-gap-lg">
+          <div class="desktop:grid-col-2 grid-col-12 title-col">
+            <h2>{{ paragraph.field_title_formatted.value | raw }}</h2>
+          </div>
+          <div class="desktop:grid-col-4 grid-col-12 image-col">
+            <img src="{{ file_url(paragraph.field_image.entity.fileuri) }}" alt="{{ paragraph.field_image[0].alt }}" />
+          </div>
+          <div class="desktop:grid-col-6 grid-col-12 content-col">
+            {{ paragraph.field_content.value | raw }}
+          </div>
+        </div>
+      </div>
+    {% endblock %}
+  </section>
+{% endblock paragraph %}

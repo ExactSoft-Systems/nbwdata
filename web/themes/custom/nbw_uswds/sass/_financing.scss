@@ -1,0 +1,244 @@
+@use 'uswds' as *;
+@use 'nbw-custom-mixins' as *;
+@use 'nbw-custom-definitions' as *;
+
+.financing-chart {
+  form {
+    margin-bottom: 4rem;
+    
+    .usa-tooltip__trigger {
+      height: 1.25rem;
+      vertical-align: top;
+      padding-left: .5rem;
+    }
+  }
+
+  table {
+    margin-top: 3rem;
+    border-spacing: 0;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    overflow-x: scroll;
+    overscroll-behavior-y: auto;
+  }
+
+  td {
+    border: none;
+
+    .attribute-val:hover{
+      cursor: pointer;
+      opacity: .6;
+    }
+  }
+
+  th {
+    display: flex;
+    vertical-align: top;
+
+    .head-option {
+      background-color: color('primary');
+      color: color('white');
+      font-size: .875rem;
+      font-weight: 400;
+      padding: .25rem;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .head-name {
+      line-height: 100%;
+      min-height: 4rem;
+      padding: .5rem .25rem;
+      text-align: left;
+      flex-grow: 1;
+      background-color: #E9EFF4;
+    
+      &, 
+      a {
+        text-transform: uppercase;
+        color: color('primary');
+        font-size: .75rem;
+        font-weight: 400;
+        text-decoration: none;
+      }
+    }
+  }
+
+  tr {
+    display: flex;
+    flex-direction: row;
+
+    ~ tr .new-group {
+      padding-top: .2em;
+    }
+  }
+
+  .views-field{
+    display: flex;
+    vertical-align: top;
+    padding: 0px 0.2em 0px 0px;
+
+    ~ .views-field {
+      .attribute-cat, 
+      .attribute-att{
+        display: none;
+      }
+    }
+
+    &:not(.new-group) .attribute-cat .attribute-label {
+      display: none;
+    }
+
+    .attribute-cat {
+      flex-basis: auto;
+      flex-shrink: 0;
+      flex-grow: 0;
+      width: 140px;
+      padding: 0px 0.2em 0px 0px;
+      text-align: center;
+      vertical-align: top;
+    }
+
+    .attribute-att{
+      padding: 0 .2em 0 0;
+      width: 165px;
+
+      .attribute-cell {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .attribute-cell {
+      padding: .5rem .5rem 0 .5rem;
+      height: 100%;
+      line-height: 1.25rem;
+    }
+
+    .attribute-text {
+      padding: .5rem .5rem 0 .5rem;
+    }
+
+    .attribute-val {
+      display: flex;
+      flex-direction: column;
+      width: 125px;
+    }
+
+    .fo_calc {
+      padding: .2em;
+      line-height: 2em;
+      text-align: center;
+
+      span {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@mixin attDisplay($c) {
+  .fo_calc span {
+    display: flex;
+
+    &:not(#{$c}) {
+      display: none;
+    }
+  }
+}
+
+@include attDisplay('.not-important');
+
+.full-match {
+  @include attDisplay('.group_full');
+
+  span.group_full {
+    @include nbw-indicator-marks;
+  }
+}
+
+.partial-match {
+  @include attDisplay('.group_partial');
+}
+
+.no-match {
+  @include attDisplay('.group_none');
+}
+
+.partner-connect { 
+  display: flex;
+  margin: .25rem 0;
+  justify-content: center;
+
+  a {
+    background: color('white');
+    border: 1px solid color('primary');
+    display: flex;
+    color: color('primary');
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 18px;
+    padding: 4px 2px 4px 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: font-weight('medium');
+
+    &:hover {
+      text-decoration: none;
+      background: color('primary');
+      color: color('white');
+    }
+
+    &:after {
+      content: "›";
+      font-size: 1.5rem;
+      align-self: center;
+      font-weight: font-weight('normal');
+    }
+  }
+}
+
+.attribute {
+  &-text,
+  &-label {
+    color: color('black');
+    font-size: .875rem;
+    font-weight: 400;
+    text-align: left;
+    text-transform: none;
+  }
+
+  &-cat &-label {
+    color: color('white');
+    text-transform: uppercase;
+  }
+  
+  &-att  &-label {
+    color: color('black');
+    text-transform: none;
+  }
+  
+  &-tooltip .usa-tooltip {
+    &__trigger {
+      height: 1rem;
+      vertical-align: middle;
+      padding-left: 0;
+    }
+
+    &__body {
+      width: 20rem;
+      white-space: pre-wrap;
+    }
+
+    img {
+      max-width: initial;
+    }
+  }
+  
+  &-color-code::before {
+    content: "▶ ";
+    font-size: .85rem;
+  }
+}

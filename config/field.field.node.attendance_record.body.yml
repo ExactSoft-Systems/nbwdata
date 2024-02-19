@@ -1,0 +1,28 @@
+uuid: ce8867a4-bc82-4ab4-a144-f28d2be34b43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.attendance_record
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.attendance_record.body
+field_name: body
+entity_type: node
+bundle: attendance_record
+label: Notes
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

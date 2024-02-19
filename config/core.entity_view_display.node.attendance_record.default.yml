@@ -1,0 +1,49 @@
+uuid: 710dcdd5-b411-4b4f-bfb2-ee60534414e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.attendance_record.body
+    - field.field.node.attendance_record.field_checkin_time
+    - field.field.node.attendance_record.field_class_name
+    - field.field.node.attendance_record.field_students
+    - node.type.attendance_record
+  module:
+    - datetime
+    - user
+id: node.attendance_record.default
+targetEntityType: node
+bundle: attendance_record
+mode: default
+content:
+  field_checkin_time:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_class_name:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_students:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  body: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  links: true

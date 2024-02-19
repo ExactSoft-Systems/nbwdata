@@ -1,0 +1,42 @@
+uuid: 61df9b9c-2de2-4db2-9f4c-097388cd470b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.view_field.field_link
+    - field.field.paragraph.view_field.field_view_name
+    - paragraphs.paragraphs_type.view_field
+  module:
+    - link
+    - viewfield
+id: paragraph.view_field.default
+targetEntityType: paragraph
+bundle: view_field
+mode: default
+content:
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_view_name:
+    type: viewfield_default
+    label: visually_hidden
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

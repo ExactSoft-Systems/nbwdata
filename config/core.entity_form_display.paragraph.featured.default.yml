@@ -1,0 +1,57 @@
+uuid: 6f63310c-5e7f-46a9-98c0-90cfaba289ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.featured.field_end_date
+    - field.field.paragraph.featured.field_feature_content
+    - field.field.paragraph.featured.field_feature_image
+    - field.field.paragraph.featured.field_featured_description
+    - paragraphs.paragraphs_type.featured
+  module:
+    - datetime
+    - field_layout
+    - layout_discovery
+    - media_library
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.featured.default
+targetEntityType: paragraph
+bundle: featured
+mode: default
+content:
+  field_end_date:
+    type: datetime_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_feature_content:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_feature_image:
+    type: media_library_widget
+    weight: 3
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_featured_description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,20 @@
+uuid: 07061f25-6232-4d6e-ac63-e74a5a99c10b
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_checkin_time
+field_name: field_checkin_time
+entity_type: node
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

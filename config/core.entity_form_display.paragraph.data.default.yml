@@ -1,0 +1,58 @@
+uuid: 48537dde-9bfe-42e2-88b9-c56f05beec06
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.data.field_additional_label
+    - field.field.paragraph.data.field_amount
+    - field.field.paragraph.data.field_units
+    - field.field.paragraph.data.field_year
+    - paragraphs.paragraphs_type.data
+  module:
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.data.default
+targetEntityType: paragraph
+bundle: data
+mode: default
+content:
+  field_additional_label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_amount:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_units:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_year:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,22 @@
+uuid: 95d9f66a-f1de-495d-81e1-841c150c27d4
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nbw_uswds
+_core:
+  default_config_hash: EMaHqTPYMYBCgJxDNacklCOc4izcUYu8hOdorw0vzzU
+id: nbw_uswds_local_tasks
+theme: nbw_uswds
+region: content
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

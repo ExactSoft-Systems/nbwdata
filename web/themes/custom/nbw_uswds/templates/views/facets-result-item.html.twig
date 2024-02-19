@@ -1,0 +1,16 @@
+
+<span class="facet-item__value">
+  {% if tooltip %}
+  <span title="{{ tooltip }}">{{ value }}</span>
+  {% else %}
+  {{ value }}
+  {% endif %}
+</span>
+{% if show_count %}
+  <span class="facet-item__count">({{ count }})</span>
+{% endif %}
+{% if is_active %}
+  <span class="facet-item__status js-facet-deactivate">
+    <img src="{{ active_theme_icons_path }}/close.svg" class="" alt="{{ 'Remove' | t }}">
+  </span>
+{% endif %}

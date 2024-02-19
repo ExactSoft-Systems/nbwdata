@@ -1,0 +1,41 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set format = paragraph.field_formatter.value %}
+
+{% if format %}
+  {% set classes = classes | merge(['format--' ~ format]) %}
+{% endif %}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      <h3 class="title">{{ 'Solutions' | t }}</h3>
+
+      {% for solution in paragraph.field_solution %}
+        <div class="solution-item">
+          <h3>
+            <a href="{{ path('entity.node.canonical', {'node':  solution.entity.id}) }}">
+              {{ solution.entity.title.value }}
+            </a>
+          </h3>
+          {% if not solution.entity.field_summary[0].value.isEmpty() %}
+            {% set summary = {
+              '#type':   'processed_text',
+              '#text':    solution.entity.field_summary[0].value,
+              '#format':  solution.entity.field_summary[0].format,
+            } %}
+
+            {{ summary }}
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

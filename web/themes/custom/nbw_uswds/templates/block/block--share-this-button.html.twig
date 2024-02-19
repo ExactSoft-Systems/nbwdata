@@ -1,0 +1,7 @@
+{% if 'mailto:' in content | render | render %}
+  <section class="region--share">
+    <div class="grid-container-widescreen">
+      {{ content }}
+    </div>
+  </section>
+{% endif %}

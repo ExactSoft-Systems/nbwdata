@@ -1,0 +1,68 @@
+@use 'uswds' as *;
+@use 'nbw-custom-mixins' as *;
+@use 'nbw-custom-definitions' as *;
+
+.quicktabs-wrapper {
+  &.on-the-gray {
+    padding: 0;
+
+    ul {
+      width: auto;
+
+      &.quicktabs-tabs {
+        li {
+          display: inline-block;
+          margin-right: .25rem;
+
+          a {
+            border-left: 1px solid color('base-darker');
+            border-right: 1px solid color('base-darker');
+            border-top: 1px solid color('base-darker');
+            color: color('base-darkest');
+            font-weight: bold;
+            padding: .5rem 1rem;
+
+            &:hover {
+              border-left: 1px solid color('primary');
+              border-right: 1px solid color('primary');
+              border-top: 1px solid color('primary');
+              color: color('primary');
+            }
+          }
+
+          &.active {
+            a {
+              border-top: 4px solid color('primary');
+              border-right: 1px solid color('primary');
+              border-left: 1px solid color('primary');
+              bottom: -1px;
+              color: color('primary');
+              position: relative;
+            }
+          }
+        }
+      }
+    }
+
+    .quicktabs-main {
+      .quicktabs-tabpage {
+        border-color: color('primary');
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+@include at-media-max('tablet') {
+  .quicktabs-wrapper {
+    margin: 0 -1rem;
+
+    &.on-the-gray {
+      .quicktabs-main {
+        .quicktabs-tabpage {
+          padding: 0;
+        }
+      }
+    }
+  }
+}

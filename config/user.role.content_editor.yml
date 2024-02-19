@@ -4,19 +4,35 @@ status: true
 dependencies:
   config:
     - node.type.article
+    - node.type.basic_content_type
+    - node.type.class
+    - node.type.class_registration
+    - node.type.class_roster
+    - node.type.event
+    - node.type.homepage
+    - node.type.locked_content_type
+    - node.type.nbw_documents_and_wavers
     - node.type.page
+    - node.type.webform
+    - node.type.webform_demo_event
+    - node.type.webform_demo_region
     - taxonomy.vocabulary.tags
   module:
     - comment
+    - content_moderation
     - contextual
+    - download_statistics
     - file
     - help
+    - media
     - node
     - path
     - system
     - taxonomy
     - toolbar
     - tour
+    - webform
+    - youth_application_waiver
 _core:
   default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
 id: content_editor
@@ -25,27 +41,100 @@ weight: 2
 is_admin: false
 permissions:
   - 'access administration pages'
+  - 'access any webform configuration'
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
   - 'access help pages'
+  - 'access own webform configuration'
   - 'access toolbar'
   - 'access tour'
+  - 'access user profiles'
+  - 'access webform help'
+  - 'access webform overview'
+  - 'access webform submission user'
   - 'administer url aliases'
+  - 'administer webform'
+  - 'administer webform element access'
+  - 'administer webform submission'
   - 'create article content'
+  - 'create class content'
+  - 'create class_registration content'
+  - 'create class_roster content'
+  - 'create nbw_documents_and_wavers content'
   - 'create page content'
   - 'create terms in tags'
   - 'create url aliases'
+  - 'create webform'
+  - 'create webform content'
   - 'delete article revisions'
+  - 'delete class revisions'
+  - 'delete class_registration revisions'
+  - 'delete class_roster revisions'
+  - 'delete nbw_documents_and_wavers revisions'
   - 'delete own article content'
+  - 'delete own class content'
+  - 'delete own class_registration content'
+  - 'delete own class_roster content'
   - 'delete own files'
   - 'delete own page content'
+  - 'delete own webform'
+  - 'delete own webform submission'
   - 'delete page revisions'
+  - 'delete webform revisions'
+  - 'edit any article content'
+  - 'edit any basic_content_type content'
+  - 'edit any class content'
+  - 'edit any class_registration content'
+  - 'edit any class_roster content'
+  - 'edit any event content'
+  - 'edit any homepage content'
+  - 'edit any locked_content_type content'
+  - 'edit any nbw_documents_and_wavers content'
+  - 'edit any page content'
+  - 'edit any webform content'
+  - 'edit any webform submission'
+  - 'edit any webform_demo_event content'
+  - 'edit any webform_demo_region content'
   - 'edit own article content'
+  - 'edit own class content'
+  - 'edit own class_registration content'
+  - 'edit own class_roster content'
   - 'edit own comments'
+  - 'edit own nbw_documents_and_wavers content'
   - 'edit own page content'
+  - 'edit own webform'
+  - 'edit own webform content'
+  - 'edit own webform submission'
   - 'edit terms in tags'
   - 'revert all revisions'
+  - 'revert article revisions'
+  - 'revert class revisions'
+  - 'revert class_registration revisions'
+  - 'revert class_roster revisions'
+  - 'revert event revisions'
+  - 'revert page revisions'
+  - 'revert webform_demo_event revisions'
+  - 'revert webform_demo_region revisions'
   - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view article revisions'
+  - 'view basic_content_type revisions'
+  - 'view class revisions'
+  - 'view class_registration revisions'
+  - 'view class_roster revisions'
+  - 'view event revisions'
+  - 'view file download statistics'
+  - 'view homepage revisions'
+  - 'view latest version'
+  - 'view locked_content_type revisions'
+  - 'view nbw_documents_and_wavers revisions'
   - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view page revisions'
   - 'view the administration theme'
+  - 'view user email addresses'
+  - 'view webform revisions'
+  - 'view webform_demo_event revisions'
+  - 'view webform_demo_region revisions'
+  - 'view youth application waiver'

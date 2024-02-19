@@ -1,0 +1,23 @@
+uuid: e61a5321-b1dc-4de0-8f71-671d310c956e
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - nbw_uswds
+_core:
+  default_config_hash: vTmNF6e_XzlKIeu4-KYMAFiaY5F4hPhNRtodyBYeZBw
+id: nbw_uswds_search
+theme: nbw_uswds
+region: secondary_menu
+weight: -9
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  label_display: visible
+  provider: search
+  page_id: ''
+visibility: {  }

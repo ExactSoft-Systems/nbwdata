@@ -1,0 +1,125 @@
+{% block paragraph %}
+  <section class="paragraph--three-column-listings">
+    {% block content %}
+      <div class="grid-container-widescreen">
+        <h2>{{ paragraph.field_title_formatted.value | raw }}</h2>
+
+        <div class="grid-row grid-gap-lg">
+          {% for col_paragraph in paragraph.field_three_column_listings %}
+            <div class="desktop:grid-col-4 grid-col-12">
+              <div class="usa-card__container">
+                <div class="usa-card__header">
+                  <h3>{{ col_paragraph.entity.field_title_formatted.value }}</h3>
+                </div>
+                <div class="usa-card__media">
+                  <div class="usa-card__img">
+                    {% if col_paragraph.entity.field_image is not empty %}
+                      <img src="{{ file_url(col_paragraph.entity.field_image.entity.fileuri) }}" 
+                        alt="{{ col_paragraph.entity.field_image.alt }}"
+                        title="{{ col_paragraph.entity.field_image.alt }}"
+                      />
+                    {% else %}
+                      <img src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="A placeholder image">
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="usa-card__body">
+                  {% if col_paragraph.entity.field_view_name is not empty %}
+                    {{ drupal_view(
+                      col_paragraph.entity.field_view_name.target_id, 
+                      col_paragraph.entity.field_view_name.display_id, 
+                      col_paragraph.entity.field_view_name.arguments
+                    ) }}                    
+                  {% elseif col_paragraph.entity.field_list_item is not empty %}
+                    {% for item in col_paragraph.entity.field_list_item %}
+
+                      {% set item_uri = path('entity.node.canonical', {'node': item.entity.field_node.entity.id}) %}
+                      {% set item_type = item.entity.field_node.entity.type[0].value.target_id %}
+                      {% set item_link_class = 'item-link--node' %}
+                      {% set item_is_link = true %}
+
+                      {% if item_type == 'resources' %}
+                        {% if item.entity.field_node.entity.field_link.0 %}
+                          {% set item_uri = item.entity.field_node.entity.field_link.0.uri %} 
+                          {% set item_link_class = 'item-link--link' %}
+                        {% elseif item.entity.field_node.entity.field_attachments.0 %}
+                          {% set item_uri = file_url(item.entity.field_node.entity.field_attachments.0.entity.uri.value) %}
+                          {% set item_link_class = 'item-link--attachment' %}
+                        {% endif %}
+                      {% endif %}
+
+                      {% if item_type == 'partner_profile' %}
+                        {% if item.entity.field_node.entity.field_exclude_from_partner_profi.value == '1' %}
+                          {% set item_is_link = false %}
+                        {% endif %}
+                      {% endif %}
+
+                      <div class="item">
+                        <div class="grid-row grid-gap-lg pill-row">
+                          <div class="grid-col-12">
+                            <span class="pill">
+                              {{ item.entity.field_title.value }}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div class="grid-row grid-gap-lg text-row">
+                          <div class="grid-col-10 text-col">
+                            {{ item.entity.field_node.entity.title.value }}
+                          </div>
+                          <div class="grid-col-2 cta-col">
+                            {% if item_is_link %}
+                              <a href="{{ item_uri }}"
+                                class="card-cta {{ item_link_class }}"
+                                title="{{ item.entity.field_node.entity.title.value }}""
+                              >
+                                <img src="{{ active_theme_icons_path }}/chevron_right_blue.svg" />
+                              </a>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  {% elseif col_paragraph.entity.field_partner_list_item is not empty %}
+                    {% for item in col_paragraph.entity.field_partner_list_item %}
+                      <div class="item">
+                        <div class="grid-row grid-gap-lg pill-row">
+                          <div class="grid-col-12">
+                            <span class="pill">
+                              {{ item.entity.field_title.value }}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div class="grid-row grid-gap-lg text-row">
+                          <div class="grid-col-10 text-col">
+                            {{ item.entity.field_node.entity.title.value }}
+                          </div>
+                          <div class="grid-col-2 cta-col">
+                            <a href="{{ path('entity.node.canonical', {'node': item.entity.field_node.entity.id}) }}"
+                              class="card-cta"
+                              title="{{ item.entity.field_title.value }}"
+                            >
+                              <img src="{{ active_theme_icons_path }}/chevron_right_blue.svg" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+                <div class="usa-card__footer">
+                  {% if col_paragraph.entity.field_link is not empty %}
+                    <a href="{{ col_paragraph.entity.field_link.0.url }}" class="usa-button">
+                      {{ col_paragraph.entity.field_link.0.value.title }}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endblock %}
+  </section>
+{% endblock paragraph %}

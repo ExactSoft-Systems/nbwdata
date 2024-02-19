@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_event_types
     - field.storage.node.field_when
-    - node.type.event
+    - node.type.class
   module:
+    - add_content_by_bundle
     - node
-    - smart_date
+    - smart_date_recur
     - user
 id: classes
 label: Classes
@@ -73,15 +73,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_event_types:
-          id: field_event_types
-          table: node__field_event_types
-          field: field_event_types
+        field_when:
+          id: field_when
+          table: node__field_when
+          field: field_when
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: ''
+          label: 'Class Date and Time'
           exclude: false
           alter:
             alter_text: false
@@ -114,7 +114,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -122,11 +122,29 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
+          click_sort_column: value
+          type: smartdate_recurring
           settings:
-            link: true
-          group_column: target_id
+            timezone_override: ''
+            format: default
+            force_chronological: false
+            add_classes: false
+            time_wrapper: true
+            past_display: 2
+            upcoming_display: 2
+            show_next: false
+            localize: 0
+            parts:
+              start: start
+              end: end
+              duration: 0
+            duration:
+              separator: ' | '
+              unit: ''
+              decimals: '2'
+              suffix: h
+            current_upcoming: 0
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -208,16 +226,75 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          operator: in
           value:
-            event: event
+            class: class
+          group: 1
+          exposed: false
           expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
             operator_limit_selection: false
             operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
-        type: default
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            title: title
+            field_when_value: field_when_value
+          default: '-1'
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_when_value:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
       row:
         type: fields
         options:
@@ -234,7 +311,23 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      header: {  }
+      header:
+        add_content_by_bundle:
+          id: add_content_by_bundle
+          table: views
+          field: add_content_by_bundle
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: add_content_by_bundle
+          label: 'Add a new class'
+          empty: false
+          bundle: class
+          class: ''
+          target: ''
+          width: 600
+          form_mode: null
+          params: ''
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -246,7 +339,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_event_types'
+        - 'config:field.storage.node.field_when'
   block_1:
     id: block_1
     display_title: Block
@@ -317,151 +410,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_event_types:
-          id: field_event_types
-          table: node__field_event_types
-          field: field_event_types
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Class/Event Types'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_when:
-          id: field_when
-          table: node__field_when
-          field: field_when
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: When
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: smartdate_custom
-          settings:
-            separator: ' - '
-            date_format: 'D, M j Y'
-            custom_date_format: ''
-            timezone: ''
-            join: ', '
-            time_format: 'g:ia'
-            time_hour_format: 'g:ia'
-            allday_label: 'All day'
-            date_first: '1'
-            ampm_reduce: 0
-            site_time_toggle: 0
-            tooltip:
-              date_format: ''
-              custom_date_format: ''
-            time_diff:
-              enabled: false
-              future_format: '@interval hence'
-              past_format: '@interval ago'
-              granularity: 2
-              refresh: 60
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: true
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
       pager:
         type: some
         options:
@@ -505,9 +453,7 @@ display:
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
-      tags:
-        - 'config:field.storage.node.field_event_types'
-        - 'config:field.storage.node.field_when'
+      tags: {  }
   page_1:
     id: page_1
     display_title: Page
@@ -525,4 +471,4 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_event_types'
+        - 'config:field.storage.node.field_when'

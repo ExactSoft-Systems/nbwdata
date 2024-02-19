@@ -1,0 +1,25 @@
+uuid: 31879f78-1738-4bd2-999e-045ab24fd4db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accordion.field_content
+    - paragraphs.paragraphs_type.accordion
+  module:
+    - text
+id: paragraph.accordion.default
+targetEntityType: paragraph
+bundle: accordion
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

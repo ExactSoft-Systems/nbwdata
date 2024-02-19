@@ -1,0 +1,10 @@
+uuid: d9d69ce9-ff39-4b9a-946d-918517da5ff6
+langcode: en
+status: true
+dependencies: {  }
+id: card_group_row
+label: 'Card Group Row'
+icon_uuid: null
+icon_default: null
+description: 'Consists of a maximum of four cards.'
+behavior_plugins: {  }

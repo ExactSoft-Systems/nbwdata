@@ -1,7 +1,20 @@
 uuid: bc06c0e7-05ef-4f81-b6ef-989344b8fe0d
 langcode: en
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - webform_entity_print
+third_party_settings:
+  webform_entity_print:
+    template:
+      header: ''
+      footer: ''
+      css: ''
+    export_types:
+      pdf:
+        enabled: true
+        link_text: ''
+        link_attributes: {  }
 weight: 0
 open: null
 close: null
@@ -9,7 +22,7 @@ uid: 1
 template: false
 archive: false
 id: check_in_students_to_mon_wed_sum
-title: 'Check In Students to Mon - Wed Summer Camp'
+title: 'BROKEN!! - Check In Students to Mon - Wed Summer Camp'
 description: ''
 categories:
   - 'NBW Forms'
@@ -17,16 +30,31 @@ elements: |-
   select_youth_to_check_in:
     '#type': webform_entity_checkboxes
     '#title': 'Select Youth To Check In'
-    '#options_display': two_columns
     '#options_all': true
-    '#target_type': user
+    '#default_value':
+      - '[current-page:url:unaliased:args:value:1]'
+    '#target_type': node
     '#selection_handler': views
     '#selection_settings':
       view:
-        view_name: students_registered_for_class
+        view_name: class_students
         display_name: entity_reference_1
         arguments:
-          - every-day-class
+          - '64'
+  youth_2:
+    '#type': webform_entity_checkboxes
+    '#title': 'youth 2'
+    '#multiple': 25
+    '#options_display': three_columns
+    '#wrapper_type': form_element
+    '#target_type': node
+    '#selection_handler': views
+    '#selection_settings':
+      view:
+        view_name: class_students
+        display_name: entity_reference_1
+        arguments:
+          - '64'
 css: ''
 javascript: ''
 settings:

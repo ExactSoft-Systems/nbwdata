@@ -1,0 +1,71 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a views exposed form.
+ *
+ * Available variables:
+ * - form: A render element representing the form.
+ *
+ * @see template_preprocess_views_exposed_form()
+ *
+ * @ingroup themeable 
+ */
+#}
+{% if q is not empty %}
+  {#
+    This ensures that, if clean URLs are off, the 'q' is added first,
+    as a hidden form element, so that it shows up first in the POST URL.
+  #}
+{{ q }}
+{% endif %}
+
+
+{% if double_form %}
+  {% if double_form.tabbed %}
+  
+  <form {{ attributes }}>
+    {{ not form['#title']['#markup'] ? '<h2>FILTERS:</h2>' }}
+    {% set fieldArray = form | filter((v,k) => not (k starts with '#') and not (k starts with 'form_') and not (k starts with 'actions')) %}
+  
+    <div class="tab-section">
+    <div class="tab-bar">
+      {% for k,v in fieldArray %}
+        <div id="tab-{{ k }}" class="tab"><a class="link-{{ k }}">{{ v['#title'] }}</a></div>
+      {% endfor %}
+    </div>
+    <div class="view-filter-fields">
+
+    {% for k,v in fieldArray %}
+      <div id="block-{{ k }}" class="tabbed-filter" style='display: none;'>
+        {{ v|render }}
+      </div>
+    {% endfor %}
+    </div>
+    </div>
+    <div class="view-actions">
+    {{ form.actions }}
+    </div>
+    </form>
+  {% endif %}
+  {% if double_form.pill %}
+    <form {{ attributes }}>
+    <div class="pill-btn-container">
+    {% for k,v in fieldArray %}
+      {% for x,y in v %}
+        {% if not (x starts with '#') and not (x starts with 'All') %}
+        <div class="filter-pill-btn">
+          {{ y }}
+        </div>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    </div>
+    <div class="view-actions">
+      {{ form.actions }}
+    </div>
+    </form>
+  {% endif %}
+
+{% else %}
+  {{ form }}
+{% endif %}

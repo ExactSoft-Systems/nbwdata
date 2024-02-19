@@ -1,0 +1,216 @@
+@use 'uswds' as *;
+@use 'nbw-custom-mixins' as *;
+@use 'nbw-custom-definitions' as *;
+
+footer {
+  &.usa-footer {
+    background-color: color('primary-darker');
+    color: color('white');
+    padding: 4rem 0;
+
+    .usa-footer__primary-content {
+      .usa-footer__mobile-toggle {
+        display: none;
+      }
+    }
+
+    .usa-footer__primary-section {
+      background-color: inherit;
+      padding: 0 1rem;
+
+      .usa-footer__nav {
+        max-width: unset;
+        border: none;
+
+        .usa-footer__primary-link {
+          @include nbw-label;
+          color: color('white');
+
+        }
+
+        .usa-footer__secondary-link {
+          margin-bottom: 0;
+
+          a {
+            @include nbw-a-footer;
+          }
+        }
+      }
+
+      .logo-col {
+        p {
+          margin: 0 0 2rem 0;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .usa-footer__secondary-section {
+      background-color: inherit;
+      text-align: center;
+
+      h3 {
+        &.usa-footer__logo-heading {
+          color: color('white');
+          font-size: $nbw-font-size-h3;
+          font-weight: font-weight('normal');
+          line-height: $nbw-line-height-footer-link;
+          text-transform: none;
+        }
+      }
+
+      .usa-social-link {
+        background-color: inherit;
+
+        img {
+          &.usa-social-link__icon {
+            @include nbw-svg-black-to-white;
+
+            &:hover {
+              @include nbw-svg-black-to-primary-vivid;
+            }
+          }
+        }
+      }
+    }
+
+    .usa-footer__doe {
+      background-color: color('black');
+      margin: 4rem 0 -4rem 0;
+      padding: 2rem 0;
+
+      nav {
+        ul {
+          padding-left: 0;
+
+          li {
+            display: inline;
+            line-height: 1rem;
+            list-style-type: none;
+            margin-right: .625rem;
+
+            &::after {
+              color: color('base-darkest');
+              content: "•";
+              font-size: smaller;
+              font-weight: 400;
+              margin-left: .625rem;
+            }
+
+            &:last-child {
+              &::after {
+                content: "";
+                margin-left: 0;
+              }
+            }
+
+            a {
+              color: color('white');
+              font-size: .8125rem;
+              text-decoration: none;
+
+              &:hover {
+                color: color('white');
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include at-media-max('desktop') {
+  footer {
+    &.usa-footer {
+      .usa-footer__primary-section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        .usa-footer__primary-content {
+          border-top-width: 0;
+          margin-bottom: 1rem;
+
+          nav {
+            .usa-footer__primary-link {
+              padding: 0 1rem 0 0 !important;
+            }
+
+            ul {
+              display: none;
+              padding-left: 1.5rem;
+              padding-top: 1rem;
+            }
+
+            .usa-footer__primary-header {
+              align-items: center;
+              display: flex;
+
+              strong {
+                display: inline-flex;
+              }
+
+              button {
+                &.usa-footer__mobile-toggle {
+                  background-color: color('white');
+                  background-repeat: no-repeat;
+                  background-size: 100% 100%;
+                  border-radius: 50%;
+                  border-width: 0;
+                  cursor: pointer;
+                  display: inline-flex;
+                  height: 1.5rem;
+                  padding: 0;
+                  width: 1.5rem;
+
+                  &.collapsed {
+                    background-image: url('/themes/custom/nbw_uswds/assets/uswds/img/usa-icons/expand_more.svg');
+                  }
+
+                  &.expanded {
+                    background-image: url('/themes/custom/nbw_uswds/assets/uswds/img/usa-icons/expand_less.svg');
+                  }
+                }
+              }
+            }
+          }
+
+          .logo-col {
+            margin-top: 3rem;
+            text-align: center;
+
+            p {
+              text-transform: none;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .usa-footer__secondary-section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        .usa-footer__contact-links {
+          .usa-footer__social-links {
+            justify-content: center;
+          }
+        }
+
+        .usa-footer__logo {
+          justify-content: center;
+          width: 100%;
+        }
+      }
+
+      .usa-footer__doe {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+  }
+}

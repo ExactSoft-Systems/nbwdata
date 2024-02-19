@@ -1,0 +1,9 @@
+<{{ wrapper_element }} {{ attributes }}>
+  {% if title %}
+  <{{ title_element }}{{ title_attributes }}>{{ title }}</{{ title_element }}>
+  {% endif %}
+  
+  <div class="grid-row grid-gap grid-group--term-landing-page--contacts">
+    {{children}}
+  </div>
+</{{ wrapper_element }}>

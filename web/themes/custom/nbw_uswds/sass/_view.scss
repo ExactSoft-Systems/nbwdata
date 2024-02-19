@@ -1,0 +1,496 @@
+@use 'uswds' as *;
+@use 'nbw-custom-mixins' as *;
+@use 'nbw-custom-definitions' as *;
+
+.view {
+  &.view--funding-incentives-hub {
+    header {
+      margin-bottom: 2rem;
+
+      .view_funding_incentives_hub_text {
+        img {
+          float: right;
+          max-width: 33%;
+          margin: 0 0 1rem 1rem;
+        }
+      }
+
+      &::after {
+        clear: both;
+        content: "";
+        display: table;
+      }
+    }
+
+    form {
+      &.usa-form {
+        max-width: unset;
+      }
+
+      &.views-exposed-form {
+        .form-item {
+          display: inline-block;
+          margin: 0 3% 2rem 0;
+          width: 22%;
+
+          &.form-item-field-fund-res-hub-source-target-id {
+            margin-right: 0;
+          }
+        }
+
+        #edit-actions {
+          margin-bottom: 2rem;
+
+          .usa-button {
+            border-radius: 4rem;
+            margin: .5rem 1rem 1rem 0;
+            padding: .75rem 3rem;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    .views-row {
+      padding: 2rem 0 1rem 0;
+
+      h3 {
+        font-size: 1.25rem;
+        margin-bottom: .5rem;
+        text-transform: none;
+      }
+
+      p {
+        margin-top: .5rem;
+      }
+
+      .views-field {
+        &.views-field-field-sector {
+          .views-label {
+            &.views-label-field-sector {
+              font-weight: 800;
+            }
+          }
+
+          .field-content {
+            display: inline;
+          }
+        }
+      }
+    }
+  }
+
+  &.view--search {
+    header {
+      color: color('primary');
+      margin: .5rem 0 0 0;
+    }
+
+    .views-exposed-form {
+      border-bottom: 1px solid color('base');
+      margin: -.5rem 0 2rem 0;
+      max-width: unset;
+      padding-bottom: 2rem;
+
+      .form-actions {
+        display: none;
+      }
+
+      #edit-reset {
+        background-color: transparent;
+        color: color('primary');
+        position: relative;
+        float: right;
+        margin-top: 1.5rem;
+      }
+
+      .form-item {
+        &.form-item-search-api-views-fulltext {
+          label {
+            display: none;
+          }
+
+          .search-form {
+            align-items: center;
+            background-color: color('base-lighter');
+            border-radius: 10rem;
+            display: inline-flex;
+            height: 4rem;
+            margin-top: -2rem;
+            width: 100%;
+
+            input {
+              &.usa-input {
+                background-color: color('base-lighter');
+                border-width: 0;
+                color: color('ink');
+                font-size: 1.25rem;
+                line-height: 100%;
+                margin: 0 1.5rem;
+                max-width: 100%;
+                padding: 0;
+                width: 100%;
+
+                &:not([disabled]):focus {
+                  background-color: color('base-lighter') !important;
+                  border-width: none;
+                  outline: 0;
+                }
+
+                &:-internal-autofill-selected {
+                  background-color: color('base-lighter') !important;
+                }
+              }
+            }
+
+            button {
+              &.usa-button {
+                background-color: color('white');
+                border: 1px solid color('primary');
+                border-radius: 50%;
+                height: 3rem;
+                margin: .5rem;
+                padding: .5rem;
+                width: 3rem;
+
+                &:hover {
+                  background-color: color('primary-lighter');
+                }
+
+                img {
+                  height: 2rem;
+                  width: 2rem;
+                }
+              }
+            }
+          }
+        }
+
+        &.form-item-sort-bef-combine {
+          label {
+            &.control-label {
+              display: inline;
+              font-size: 1.25rem;
+              text-transform: none;
+            }
+          }
+
+          .bef-links {
+            display: inline;
+
+            ul {
+              display: inline;
+              list-style-type: none;
+              padding: 0;
+
+              li {
+                display: inline-block;
+                margin: 0 0 1rem 1rem;
+
+                a {
+                  &.bef-link {
+                    background-color: color('white');
+                    border: 1px solid color('primary');
+                    border-radius: 3rem;
+                    font-weight: 400;
+                    line-height: 100%;
+                    padding: .125rem 1rem 0 1rem;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    white-space: nowrap;
+
+                    &.bef-link--selected {
+                      background-color: color('primary-lighter');
+                    }
+
+                    &:hover {
+                      background-color: color('primary-lighter');
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .item-list {
+      ul {
+        list-style-type: none;
+        padding: 0;
+
+        li {
+          border-bottom: 1px solid color('base');
+          margin-bottom: 2rem;
+          padding-bottom: 2rem;
+        }
+      }
+    }
+
+    .views-field {
+      &.views-field-title {
+        h3 {
+          font-size: 1.25rem;
+          margin-bottom: 1rem;
+          text-transform: none;
+        }
+      }
+
+      &.views-field-field-sector {
+        display: inline;
+      }
+
+      &.views-field-field-partner-1 {
+        display: inline;
+      }
+
+      &.views-field-field-content-type {
+        display: inline;
+      }
+
+      &.views-field-field-summary {
+        margin: .5rem 0 0 0;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    span {
+      &.pill {
+        background-color: color('base');
+        border-radius: 3rem;
+        color: color('primary');
+        display: inline-block;
+        font-size: .875rem;
+        line-height: 100%;
+        margin: 0 1rem .5rem 0;
+        padding: .25rem 1rem .125rem 1rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &.view--news {
+    h3 {
+      @include nbw-h2;
+      color: color('ink');
+      margin: $nbw-top-spacer-only;
+    }
+
+    .views-field {
+      &-published-at {
+        @include nbw-label;
+      }
+
+      &-field-link {
+        a {
+          @include nbw-a-normal-weight;
+        }
+      }
+    }
+  }
+
+  &.view--beat-blog {
+    .views-row {
+      &::after {
+        clear: both;
+        content: "";
+        display: table;
+      }
+    }
+
+    .views-field {
+      &.views-field-title {
+        text-transform: uppercase;
+      }
+
+      &.views-field-field-author {
+        color: #999999;
+      }
+    }
+
+    form {
+      &.usa-form {
+        max-width: 100%;
+
+        .form-item {
+          display: inline-block;
+        }
+
+        #edit-actions {
+          display: inline-flex;
+        }
+      }
+    }
+  }
+
+}
+
+main {
+  &.page-uri--beat-blog {
+    .views-row {
+      .views-field {
+        &.views-field-field-image {
+          float: right;
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@include at-media-max('desktop') {
+  .view {
+    &.view--funding-incentives-hub {
+      header {
+        .view_funding_incentives_hub_text {
+          img {
+            max-width: 50%;
+          }
+        }
+      }
+
+      form {
+        &.views-exposed-form {
+          .form-item {
+            display: inline-block;
+            margin: 0 8% 2rem 0;
+            width: 45%;
+
+            &.form-item-field-technology-target-id {
+              margin-right: 0;
+            }
+
+            &.form-item-field-fund-res-hub-source-target-id {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include at-media-max('tablet') {
+  .view {
+    &.view--funding-incentives-hub {
+      header {
+        .view_funding_incentives_hub_text {
+          img {
+            max-width: unset;
+            width: 100%;
+          }
+        }
+      }
+
+      form {
+        &.views-exposed-form {
+          .form-item {
+            display: block;
+            margin: 0 0 2rem 0;
+            width: 100%;
+          }
+
+          #edit-actions {
+            .usa-button {
+              width: unset;
+            }
+          }
+        }
+      }
+    }
+
+    &.view--beat-blog {
+      form {
+        &.usa-form {
+          .form-item {
+            display: block;
+            width: 100%;
+          }
+
+          #edit-actions {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include at-media-max('mobile-lg') {
+  .view {
+    &.view--beat-blog {
+      form {
+        &.usa-form {
+          .form-item {
+            display: block;
+            margin-right: 0;
+          }
+
+          #edit-actions {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pill-btn.view-title-column {
+  display: flex;
+  flex-wrap: wrap;
+
+  form {
+    margin-bottom: 2rem;
+    flex: 1 1 100%;
+  }
+
+  .views-row {
+    justify-content: space-between;
+    border-bottom: initial;
+    float: initial;
+    padding: 1rem;
+    margin: 0;
+    flex: 0 0 33%;
+  }
+}
+
+.partner-program-list-partner-name,
+.partner-az-list-partner-name span:first-child {
+  font-weight: 800;
+}
+
+.leaflet-control-attribution{
+  visibility: hidden;
+}
+.marker-cluster-medium, .marker-cluster-small,
+.marker-cluster-large{
+  background-color: $nbw-theme-color-map-marker;
+}
+
+.marker-cluster-small div,.marker-cluster-medium div,
+.marker-cluster-large div{
+  background-color: $nbw-theme-color-map-marker-div;
+}
+
+.marker-cluster span {
+  color: $nbw-theme-color-map-marker-span;
+}
+
+.view.view--news.program-partner-news {
+  h3 {
+    color: color('primary');
+    margin-bottom: 1.5rem;
+  }
+  .views-field-field-link a {
+    font-weight: 800;
+    text-decoration: underline;
+  }
+}
+.view-flex {
+  display: flex;
+  flex-wrap: wrap;
+}

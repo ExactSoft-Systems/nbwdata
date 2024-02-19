@@ -1,0 +1,9 @@
+status: 1
+pattern: 'Students [node:field_students] registered for class [node:field_class_name] on [node:created:short]; updated on [node:changed:short]'
+escape: false
+preserve_titles: false
+save: false
+chunk: 50
+dependencies:
+  config:
+    - node.type.class_registration

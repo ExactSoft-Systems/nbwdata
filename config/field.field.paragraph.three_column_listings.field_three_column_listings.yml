@@ -1,0 +1,108 @@
+uuid: d8102047-0c4b-4d16-b481-517b6022d208
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_three_column_listings
+    - paragraphs.paragraphs_type.list
+    - paragraphs.paragraphs_type.three_column_listings
+    - paragraphs.paragraphs_type.view
+  module:
+    - entity_reference_revisions
+id: paragraph.three_column_listings.field_three_column_listings
+field_name: field_three_column_listings
+entity_type: paragraph
+bundle: three_column_listings
+label: 'Three Column Listings'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      list: list
+      view: view
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 27
+        enabled: false
+      audio:
+        weight: 28
+        enabled: false
+      button_group:
+        weight: 29
+        enabled: false
+      collection_page:
+        weight: 30
+        enabled: false
+      header:
+        weight: 31
+        enabled: false
+      icon:
+        weight: 32
+        enabled: false
+      image:
+        weight: 33
+        enabled: false
+      image_gallery:
+        weight: 34
+        enabled: false
+      item_list_link:
+        weight: 35
+        enabled: false
+      item_list_string:
+        weight: 36
+        enabled: false
+      item_list_text:
+        weight: 37
+        enabled: false
+      layout:
+        weight: 38
+        enabled: false
+      list:
+        weight: 39
+        enabled: true
+      list_item:
+        weight: 40
+        enabled: false
+      media_gallery:
+        weight: 41
+        enabled: false
+      node:
+        weight: 42
+        enabled: false
+      quotation:
+        weight: 43
+        enabled: false
+      remote_video:
+        weight: 44
+        enabled: false
+      statement:
+        weight: 45
+        enabled: false
+      three_column_listings:
+        weight: 46
+        enabled: false
+      title_icon_link:
+        weight: 47
+        enabled: false
+      title_image_description:
+        weight: 48
+        enabled: false
+      video_gallery:
+        weight: 49
+        enabled: false
+      view:
+        weight: 50
+        enabled: true
+      view_field:
+        weight: 51
+        enabled: false
+      webform:
+        weight: 52
+        enabled: false
+field_type: entity_reference_revisions

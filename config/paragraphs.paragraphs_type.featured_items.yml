@@ -1,0 +1,10 @@
+uuid: 98dd135f-e941-4afe-9224-b69f0ddaca6b
+langcode: en
+status: true
+dependencies: {  }
+id: featured_items
+label: 'Featured items'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

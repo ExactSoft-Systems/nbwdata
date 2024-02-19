@@ -1,0 +1,43 @@
+<article{{ attributes }}>
+  <div{{ content_attributes }}>
+    {% if not content.field_content_jscode.isEmpty() %}
+      <script>
+        window.onload = function() {
+          {% autoescape false %}
+            {{ content.field_content_jscode.0['#context'].value }}
+          {% endautoescape %}
+        }
+      </script>
+    {% endif %}
+
+    {% if not content.field_content_csscode.isEmpty() %}
+      <style>
+        {{ content.field_content_csscode.0['#context'].value }}
+      </style>
+    {% endif %}
+
+    {% if not content.field_content_jslink.isEmpty() %}
+      {% for key, item in content.field_content_jslink['#items'] %}
+        <script src="{{ item.value }}"></script>
+      {% endfor %}
+    {% endif %}
+
+    {% if not content.field_content_csslink.isEmpty() %}
+      {% for key, item in content.field_content_csslink['#items'] %}
+        <link rel="stylesheet" type="text/css" href="{{ item.value }}" />
+      {% endfor %}
+    {% endif %}
+
+    {% if not content.field_content_html_a.isEmpty() %}
+      {% autoescape false %}
+        {{ content.field_content_html_a.0['#context'].value }}
+      {% endautoescape %}
+    {% endif %}
+
+    {% if not content.field_content_html_b.isEmpty() %}
+      {% autoescape false %}
+        {{ content.field_content_html_b.0['#context'].value }}
+      {% endautoescape %}
+    {% endif %}
+  </div>
+</article>

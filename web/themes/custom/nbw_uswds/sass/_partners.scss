@@ -1,0 +1,222 @@
+@use 'uswds' as *;
+@use 'nbw-custom-mixins' as *;
+@use 'nbw-custom-definitions' as *;
+
+.partner-list-az {
+  .block-views-exposed-filter-blockpartner-profile-partner-az-list {
+    margin: 0 0 2rem 0;
+    
+    .view-filter-fields {
+      .form-item {
+        margin: 0 1rem 2rem 0;
+      }
+    }
+  }
+
+  form {
+    margin-top: 0;
+  }
+}
+
+.financing-allies {
+  .col {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 30%;
+
+    @include at-media-max('tablet') {  
+      max-width: 100%;
+    }
+
+    .image-col{
+      width: initial;
+      flex-basis: auto;
+      flex-shrink: 1;
+      flex-grow: 0;
+    }
+
+    .text-col {
+      margin: 0 0 0rem .75rem;
+
+      p {
+        overflow: hidden;
+        @include browser-compatible(box-orient, vertical);
+        @include browser-compatible(line-clamp, 4);
+        display: -webkit-box;
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+
+    @include at-media-max('tablet') {  
+      flex-direction: column;
+    }
+
+    &:not(:first-of-type) {
+      .col{
+        padding-top: 2rem;
+        border-top: 1px solid color('base-darker');
+        @include at-media-max('tablet') {  
+          border-top: none;
+          padding-top: 0;
+        }
+      }
+    }
+
+    .col {
+      @include at-media-max('tablet') {  
+        padding-bottom: 2rem;
+      }
+    }
+  }
+
+  .field--name-field-logo {
+    width: 100px;
+
+    img{
+      width: 100%;
+      height: initial;
+    }
+  }
+
+  .field--name-field-summary:first-of-type{
+    font-weight: font-weight('bold');
+    color: color('primary');
+  }
+
+  .learn-more {
+    color: color('primary-vivid');
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.special-column {
+  header {
+    border-bottom: initial;
+    padding-bottom: 1.5em;
+    padding-top: 3em;
+  }
+
+  table {
+    @include browser-compatible(border-horizontal-spacing, '0px');
+    @include browser-compatible(border-vertical-spacing, '0px');
+    border: solid 1px #ccc;
+    display: block;
+    max-width: 100%;
+    width: fit-content;
+    overflow: scroll;
+    overflow-y: auto;
+  }
+
+  thead {
+    background-color: color('primary');
+    color: color('white');
+    font-size: .875rem;
+    text-transform: uppercase;
+
+    .primary-label {
+      line-height: 3rem;
+      border-bottom: solid 1px #ccc;
+    }
+
+    th {
+      border-right: solid 1px #ccc;
+      padding: 0px;
+      vertical-align: top;
+      min-width: 90px;
+
+      &:not(.special) {
+        vertical-align: bottom;
+      }
+
+      .sub-cell-label {
+        padding: .5rem .15rem;
+        transform: rotate(180deg);
+        writing-mode: vertical-rl;
+        overflow-wrap: anywhere;
+        line-height: 1.2rem;
+        text-align: start;
+        height: 12rem;
+        vertical-align: bottom;
+      }
+
+      .special-column--sub-cell {
+        text-align: left;
+      }
+    }
+  }
+  
+  tbody {
+    td {
+      border-left: 1px solid #ccc;
+      padding: 0;
+      height: 1px;
+
+      .special-column--sub-cell {
+        text-align: center;
+      }
+
+      &.views-field-title, 
+      &.views-field-title a {
+        color: color('ink');
+        font-size: .875rem;
+        font-weight: 400;
+        text-align: left;
+        text-transform: none;
+        text-decoration: none;
+        max-width: 200px;
+      }
+
+      &.views-field-location, &.views-field-title {
+        padding-left: .5rem;
+      }
+    }
+
+    tr {
+      &:not(:last-child) {
+        border-bottom: 1px solid #ccc;
+      }
+
+      &:nth-of-type(odd) {
+        background-color: #efefef;
+      }
+
+      &:nth-of-type(even) {
+        background-color: #e6e7e8;
+      }  
+    }
+  }
+
+  &--wrapper {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+  }
+
+  &--sub-cell {
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: start;
+    min-width: 2.75rem;
+    overflow: hidden;
+
+    &:not(:last-child) {
+      border-right: solid 1px #ccc;
+    }
+
+    .check-mark-indicator {
+      color: color('secondary-vivid');
+      padding-left: .7rem;
+    }
+  }
+}

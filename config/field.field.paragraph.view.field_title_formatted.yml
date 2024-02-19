@@ -1,0 +1,26 @@
+uuid: 879a1060-7376-40e5-a88e-e3cc9e3afa77
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_formatted
+    - paragraphs.paragraphs_type.view
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: paragraph.view.field_title_formatted
+field_name: field_title_formatted
+entity_type: paragraph
+bundle: view
+label: 'Views Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text

@@ -1,0 +1,40 @@
+uuid: efb302cb-05a4-4c37-9e90-3723866cf724
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.class_registration.field_class_name
+    - field.field.node.class_registration.field_students
+    - node.type.class_registration
+  module:
+    - user
+id: node.class_registration.default
+targetEntityType: node
+bundle: class_registration
+mode: default
+content:
+  field_class_name:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_students:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
