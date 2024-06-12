@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60f5e9776ac1410c9d8319675d41f3e2",
+    "content-hash": "0ec30f8011c5a15e0e82948f3ad232be",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3598,6 +3598,63 @@
             "homepage": "https://drupal.org/project/file_download_link",
             "support": {
                 "source": "https://git.drupalcode.org/project/file_download_link"
+            }
+        },
+        {
+            "name": "drupal/force_password_change",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/force_password_change.git",
+                "reference": "2.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/force_password_change-2.0.1.zip",
+                "reference": "2.0.1",
+                "shasum": "9d61bd3f9de4c50fe885557f607def2aee38a844"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.1",
+                    "datestamp": "1681574121",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "heddn",
+                    "homepage": "https://www.drupal.org/user/1463982"
+                },
+                {
+                    "name": "Jaypan",
+                    "homepage": "https://www.drupal.org/user/324696"
+                },
+                {
+                    "name": "larisse",
+                    "homepage": "https://www.drupal.org/user/3673311"
+                },
+                {
+                    "name": "SpartyDan",
+                    "homepage": "https://www.drupal.org/user/609056"
+                }
+            ],
+            "description": "Allows administrators to force users to change their password",
+            "homepage": "https://www.drupal.org/project/force_password_change",
+            "support": {
+                "source": "https://git.drupalcode.org/project/force_password_change",
+                "issues": "https://www.drupal.org/project/issues/force_password_change"
             }
         },
         {
