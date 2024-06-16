@@ -198,7 +198,6 @@ module:
   webform_views: 0
   webform_views_example: 0
   workflows: 0
-  youth_application_waiver: 0
   ds: 1
   pathauto: 1
   webform_bootstrap: 1
