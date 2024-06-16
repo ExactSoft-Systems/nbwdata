@@ -71,6 +71,7 @@ module:
   file_download_link_media: 0
   file_example: 0
   filter: 0
+  force_password_change: 0
   form_api_example: 0
   fullcalendar_view: 0
   gatsby_extras: 0
