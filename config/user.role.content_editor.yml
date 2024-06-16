@@ -32,7 +32,6 @@ dependencies:
     - toolbar
     - tour
     - webform
-    - youth_application_waiver
 _core:
   default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
 id: content_editor
@@ -137,4 +136,3 @@ permissions:
   - 'view webform revisions'
   - 'view webform_demo_event revisions'
   - 'view webform_demo_region revisions'
-  - 'view youth application waiver'

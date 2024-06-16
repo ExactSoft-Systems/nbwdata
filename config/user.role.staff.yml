@@ -18,7 +18,6 @@ dependencies:
     - media
     - node
     - tour
-    - youth_application_waiver
 id: staff
 label: Staff
 weight: 13
@@ -60,4 +59,3 @@ permissions:
   - 'view page revisions'
   - 'view user email addresses'
   - 'view webform_demo_event revisions'
-  - 'view youth application waiver'
