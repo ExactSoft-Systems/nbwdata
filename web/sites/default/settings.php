@@ -44,6 +44,8 @@ $settings['entity_update_backup'] = TRUE;
 
 $settings['migrate_node_migrate_type_classic'] = FALSE;
 
+$settings['config_sync_directory'] = '../config';
+
 /**
  * If there is a local settings file, then include it
  */
