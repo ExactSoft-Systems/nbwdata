@@ -1,5 +1,0 @@
-name: NBW Class Registration Submission
-type: module
-description: Class Registration Submission entity
-package: NBW
-core_version_requirement: ^9 || ^10

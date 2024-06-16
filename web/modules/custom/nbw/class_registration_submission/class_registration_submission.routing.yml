@@ -1,7 +1,0 @@
-entity.class_registration_submission.settings:
-  path: 'admin/structure/class-registration-submission'
-  defaults:
-    _form: '\Drupal\class_registration_submission\Form\ClassRegistrationSubmissionSettingsForm'
-    _title: 'Class Registration Submission'
-  requirements:
-    _permission: 'administer class registration submission'

@@ -1,5 +1,0 @@
-name: NBW Volunteer Time Record
-type: module
-description: Volunteer Time Record entity to keep track of the volunteer time at NBW
-package: NBW
-core_version_requirement: ^9 || ^10

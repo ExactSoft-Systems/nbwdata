@@ -1,7 +1,0 @@
-entity.adult_patron_attendance_record.settings:
-  path: 'admin/structure/adult-patron-attendance-record'
-  defaults:
-    _form: '\Drupal\adult_patron_attendance_record\Form\AdultPatronAttendanceRecordSettingsForm'
-    _title: 'Adult Patron Attendance Record'
-  requirements:
-    _permission: 'administer adult patron attendance record'

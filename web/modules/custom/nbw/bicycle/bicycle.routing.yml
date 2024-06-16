@@ -1,7 +1,0 @@
-entity.bike.settings:
-  path: 'admin/structure/bike'
-  defaults:
-    _form: '\Drupal\bicycle\Form\BikeSettingsForm'
-    _title: 'Bike'
-  requirements:
-    _permission: 'administer bike'

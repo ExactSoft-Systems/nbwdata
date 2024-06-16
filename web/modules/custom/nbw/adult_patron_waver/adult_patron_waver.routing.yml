@@ -1,7 +1,0 @@
-entity.adult_patron_waver.settings:
-  path: 'admin/structure/adult-patron-waver'
-  defaults:
-    _form: '\Drupal\adult_patron_waver\Form\AdultPatronWaverSettingsForm'
-    _title: 'Bike Church Patron Waiver'
-  requirements:
-    _permission: 'administer bike church patron waiver'

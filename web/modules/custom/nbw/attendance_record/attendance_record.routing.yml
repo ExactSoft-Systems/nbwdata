@@ -1,7 +1,0 @@
-entity.attendance_record.settings:
-  path: 'admin/structure/attendance-record'
-  defaults:
-    _form: '\Drupal\attendance_record\Form\AttendanceRecordSettingsForm'
-    _title: 'Attendance Record'
-  requirements:
-    _permission: 'administer attendance record'

@@ -1,5 +1,0 @@
-bike_in_kind_donation.add_form:
-  title: 'Add bicycle/in-kind donation receipt'
-  route_name: entity.bike_in_kind_donation.add_form
-  appears_on:
-    - entity.bike_in_kind_donation.collection

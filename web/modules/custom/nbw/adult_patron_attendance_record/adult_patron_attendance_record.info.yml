@@ -1,5 +1,0 @@
-name: NBW Adult Patron Attendance Record
-type: module
-description: Attendance Record for adult programs like Bike Church
-package: NBW
-core_version_requirement: ^9 || ^10
