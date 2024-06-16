@@ -1,5 +1,0 @@
-name: NBW Youth Application Waiver
-type: module
-description: Youth Application Waiver is the first step for a Youth to join NBW. The creation of the record will also create Youth and Guardian (if didn't exist before) users
-package: NBW
-core_version_requirement: ^9 || ^10

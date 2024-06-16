@@ -1,7 +1,0 @@
-entity.volunteer_time_record.settings:
-  path: 'admin/structure/volunteer-time-record'
-  defaults:
-    _form: '\Drupal\volunteer_time_record\Form\VolunteerTimeRecordSettingsForm'
-    _title: 'Volunteer Time Record'
-  requirements:
-    _permission: 'administer volunteer time record'

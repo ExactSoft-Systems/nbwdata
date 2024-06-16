@@ -1,5 +1,0 @@
-name: NBW Address
-type: module
-description: NBW Address entity - to use for all user roles and persons in the system
-package: NBW
-core_version_requirement: ^9 || ^10

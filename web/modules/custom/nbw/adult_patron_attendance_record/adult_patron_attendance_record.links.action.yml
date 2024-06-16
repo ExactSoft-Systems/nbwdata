@@ -1,5 +1,0 @@
-adult_patron_attendance_record.add_form:
-  title: 'Add adult patron attendance record'
-  route_name: entity.adult_patron_attendance_record.add_form
-  appears_on:
-    - entity.adult_patron_attendance_record.collection

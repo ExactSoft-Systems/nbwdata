@@ -1,5 +1,0 @@
-name: NBW Adult Patron Waver
-type: module
-description: Waver entity/record for adult patrons for Bike Church program and the like
-package: NBW
-core_version_requirement: ^9 || ^10
