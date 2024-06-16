@@ -97,4 +97,5 @@
 #/.env
 .ddev/
 .idea/
+.vscode/
 web/sites/default/settings.ddev.php
