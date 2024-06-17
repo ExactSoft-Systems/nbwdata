@@ -142,20 +142,6 @@ class NbwUsersRegistrationWebformHandler extends UserRegistrationWebformHandler 
             }
             return;
           }
-          if($form['#webform_id'] == 'nbw_youth_application_waiver') {
-             if (!is_null($user_data['field_guardian_address']) && !isset($user_data['field_guardian_address']['country_code'])) {
-               if (isset($user_data['field_guardian_address']['country'])) {
-                 if ($user_data['field_guardian_address']['country'] == 'United States') {
-                   $user_data['field_guardian_address']['country_code'] = "US";
-                 }
-               }
-             }
-
-//            if (is_null($user_data['field_address']) && !empty($form['#webform_same']) && !empty($form['#webform_same']['same_as_guardian_address'])) {
-//              $user_data['field_address'] = $user_data['field_guardian_address'];
-//            }
-          }
-
 /*      if ($this->handler_id == 'nbw_youth_user_registration') {
         $user_data['field_guardian'] = $session->get('guardian_id');
       }*/
