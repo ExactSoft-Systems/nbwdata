@@ -45,7 +45,6 @@ module:
   dblog: 0
   dbtng_example: 0
   devel: 0
-  devel_generate: 0
   devel_kint_extras: 0
   download_statistics: 0
   ds_devel: 0
