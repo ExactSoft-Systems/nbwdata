@@ -39,6 +39,7 @@ dependencies:
   module:
     - datetime
     - options
+    - telephone
     - text
 id: profile.nbw_youth_profile.default
 targetEntityType: profile
@@ -134,9 +135,10 @@ content:
     weight: 6
     region: content
   field_emergency_contact_phone_nu:
-    type: basic_string
+    type: telephone_link
     label: above
-    settings: {  }
+    settings:
+      title: ''
     third_party_settings: {  }
     weight: 25
     region: content
