@@ -257,7 +257,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_school:
-    type: text_textfield
+    type: string_textfield
     weight: 34
     region: content
     settings:

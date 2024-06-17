@@ -1,17 +1,18 @@
-uuid: ad0903c3-f6a7-43d2-b4a9-07fd111b046b
+uuid: bc9ebf34-ff90-46fd-b990-60a3b15c93bc
 langcode: en
 status: true
 dependencies:
   module:
     - profile
-    - text
 id: profile.field_school
 field_name: field_school
 entity_type: profile
-type: text
+type: string
 settings:
   max_length: 255
-module: text
+  case_sensitive: false
+  is_ascii: false
+module: core
 locked: false
 cardinality: 1
 translatable: true
