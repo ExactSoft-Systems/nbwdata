@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f89646460a62975f64cea98a0cc3186",
+    "content-hash": "9c30fdd18a0ff1edc7114ca408ba2fd8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -11447,6 +11447,44 @@
                 }
             ],
             "time": "2024-05-31T14:49:08+00:00"
+        },
+        {
+            "name": "szeidler/composer-patches-cli",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/szeidler/composer-patches-cli.git",
+                "reference": "c460f3dcf757341ed689025de1d72da887634c69"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/szeidler/composer-patches-cli/zipball/c460f3dcf757341ed689025de1d72da887634c69",
+                "reference": "c460f3dcf757341ed689025de1d72da887634c69",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0",
+                "cweagans/composer-patches": "^1.7",
+                "php": "^7.0||^8.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "szeidler\\ComposerPatchesCLI\\Composer\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "szeidler\\ComposerPatchesCLI\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "support": {
+                "issues": "https://github.com/szeidler/composer-patches-cli/issues",
+                "source": "https://github.com/szeidler/composer-patches-cli/tree/1.0.7"
+            },
+            "time": "2023-11-24T22:27:56+00:00"
         },
         {
             "name": "thinkshout/mailchimp-api-php",
