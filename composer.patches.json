@@ -1,3 +1,7 @@
 {
-  "patches": {}
+  "patches": {
+    "drupal/entity_print": {
+      "#3383187-5 - Unexpected error with print engine PhpWkhtmlToPdf or DomPdf: Session has not been set": "https://www.drupal.org/files/issues/2023-12-06/3383187-5.patch"
+    }
+  }
 }
