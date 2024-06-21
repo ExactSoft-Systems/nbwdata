@@ -1,0 +1,9 @@
+name: 'NBW Migrations'
+type: module
+description: 'NBW Migrations.'
+package: NBW
+core_version_requirement: ^10 || ^11
+dependencies:
+  - migrate:migrate
+  - migrate_source_csv:migrate_source_csv
+  - webform:webform

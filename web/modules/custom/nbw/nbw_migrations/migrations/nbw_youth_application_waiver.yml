@@ -1,0 +1,73 @@
+id: nbw_youth_application_waiver
+label: NBW YOUTH APPLICATION WAIVER
+tags:
+  - NBW
+source:
+  plugin: csv
+  path: '/var/www/YBEEP REPORTS - FYALL.csv'
+  ids: [GUARDIAN_EMAILS,Timestamp]
+process:
+  webform_id:
+    - plugin: default_value
+      default_value: nbw_youth_application_waiver
+  uid:
+    - plugin: default_value
+      default_value: 1
+  remote_addr:
+    - plugin: default_value
+      default_value: '127.0.0.1'
+  in_draft:
+    - plugin: default_value
+      default_value: 0
+  locked:
+    - plugin: default_value
+      default_value: 0
+  sticky:
+    - plugin: default_value
+      default_value: 0
+  langcode:
+    - plugin: default_value
+      default_value: en
+  uri:
+    - plugin: default_value
+      default_value: '/form/nbw-youth-application-waiver'
+  # webform datas
+  'data/date_of_birth':
+    - plugin: format_date
+      source: DOB
+      from_format: 'n/j/y'
+      to_format: 'Y-m-d'
+  'data/male':
+    - plugin: static_map
+      source: GENDER
+      map:
+        male: 1
+      default_value: 0
+  'data/female':
+    - plugin: static_map
+      source: GENDER
+      map:
+        female: 1
+      default_value: 0
+  'data/transgender':
+    - plugin: static_map
+      source: GENDER
+      map:
+        transgender: 1
+      default_value: 0
+  'data/nonconforming':
+    - plugin: static_map
+      source: GENDER
+      map:
+        nonconforming: 1
+      default_value: 0
+
+
+
+  'data/email': GUARDIAN_EMAILS
+  'data/guardian_address/country_code':
+    - plugin: default_value
+      default_value: US
+  'data/guardian_address/locality': ADDRESS_CITY
+destination:
+  plugin: 'entity:webform_submission'
