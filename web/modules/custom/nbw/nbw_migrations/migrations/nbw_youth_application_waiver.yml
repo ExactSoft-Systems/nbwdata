@@ -61,9 +61,58 @@ process:
       map:
         nonconforming: 1
       default_value: 0
-
-
-
+  # race: black
+  _black1:
+    plugin: static_map
+    source: RACE1
+    map:
+      black: black
+    default_value: ''
+  _black2:
+    plugin: static_map
+    source: RACE2
+    map:
+      black: black
+    default_value: ''
+  'data/black_or_african_american':
+    -
+      plugin: concat
+      delimiter: ""
+      source:
+        - '@_black1'
+        - '@_black2'
+    -
+      plugin: static_map
+      map:
+        blackblack: 1
+        black: 1
+        "": 0
+  # race: white
+  _white1:
+    plugin: static_map
+    source: RACE1
+    map:
+      white: white
+    default_value: ''
+  _white2:
+    plugin: static_map
+    source: RACE2
+    map:
+      white: white
+    default_value: ''
+  'data/white_or_caucasian':
+    -
+      plugin: concat
+      delimiter: ""
+      source:
+        - '@_white1'
+        - '@_white2'
+    -
+      plugin: static_map
+      map:
+        whitewhite: 1
+        white: 1
+        "": 0
   'data/email': GUARDIAN_EMAILS
   'data/guardian_address/country_code':
     - plugin: default_value
