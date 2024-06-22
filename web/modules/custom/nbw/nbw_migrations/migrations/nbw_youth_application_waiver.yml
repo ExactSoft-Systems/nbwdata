@@ -3,6 +3,14 @@ label: NBW YOUTH APPLICATION WAIVER
 tags:
   - NBW
 source:
+  constants:
+    'true': true
+    black: black
+    white: white
+    latinx: latinx
+    asian: asian
+    native: native
+    other: other
   plugin: csv
   path: '/var/www/YBEEP REPORTS - FYALL.csv'
   ids: [GUARDIAN_EMAILS,Timestamp]
@@ -61,58 +69,60 @@ process:
       map:
         nonconforming: 1
       default_value: 0
-  # race: black
-  _black1:
-    plugin: static_map
-    source: RACE1
-    map:
-      black: black
-    default_value: ''
-  _black2:
-    plugin: static_map
-    source: RACE2
-    map:
-      black: black
-    default_value: ''
+  # races
+  _race_sources:
+    plugin: get
+    source:
+      - RACE1
+      - RACE2
   'data/black_or_african_american':
-    -
-      plugin: concat
-      delimiter: ""
-      source:
-        - '@_black1'
-        - '@_black2'
-    -
-      plugin: static_map
-      map:
-        blackblack: 1
-        black: 1
-        "": 0
-  # race: white
-  _white1:
-    plugin: static_map
-    source: RACE1
-    map:
-      white: white
-    default_value: ''
-  _white2:
-    plugin: static_map
-    source: RACE2
-    map:
-      white: white
-    default_value: ''
+    plugin: callback
+    callable: in_array
+    unpack_source: true
+    source:
+      - 'constants/black'
+      - '@_race_sources'
+      - 'constants/true'
   'data/white_or_caucasian':
-    -
-      plugin: concat
-      delimiter: ""
-      source:
-        - '@_white1'
-        - '@_white2'
-    -
-      plugin: static_map
-      map:
-        whitewhite: 1
-        white: 1
-        "": 0
+    plugin: callback
+    callable: in_array
+    unpack_source: true
+    source:
+      - 'constants/white'
+      - '@_race_sources'
+      - 'constants/true'
+  'data/hispanic_or_latinx':
+    plugin: callback
+    callable: in_array
+    unpack_source: true
+    source:
+      - 'constants/latinx'
+      - '@_race_sources'
+      - 'constants/true'
+  'data/asian':
+    plugin: callback
+    callable: in_array
+    unpack_source: true
+    source:
+      - 'constants/asian'
+      - '@_race_sources'
+      - 'constants/true'
+  'data/american_indian_or_alaska_native':
+    plugin: callback
+    callable: in_array
+    unpack_source: true
+    source:
+      - 'constants/native'
+      - '@_race_sources'
+      - 'constants/true'
+  'data/native_hawaiian_or_other_pacific_islander':
+    plugin: callback
+    callable: in_array
+    unpack_source: true
+    source:
+      - 'constants/other'
+      - '@_race_sources'
+      - 'constants/true'
   'data/email': GUARDIAN_EMAILS
   'data/guardian_address/country_code':
     - plugin: default_value
