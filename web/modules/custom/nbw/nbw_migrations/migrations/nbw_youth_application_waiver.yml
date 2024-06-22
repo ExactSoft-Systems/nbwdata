@@ -41,9 +41,9 @@ process:
       default_value: '/form/nbw-youth-application-waiver'
   # webform datas
   'data/date_of_birth':
-    - plugin: format_date
+    - plugin: convert_wild_date
       source: DOB
-      from_format: 'n/j/y'
+      from_format: '@(?<mon>\d+)[/-](?<day>\d+)[/-](?<year>\d+)@'
       to_format: 'Y-m-d'
   'data/male':
     - plugin: static_map
