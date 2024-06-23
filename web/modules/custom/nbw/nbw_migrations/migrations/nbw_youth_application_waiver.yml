@@ -13,7 +13,7 @@ source:
     other: other
   plugin: csv
   path: '/var/www/YBEEP REPORTS - FYALL.csv'
-  ids: [GUARDIAN_EMAILS,Timestamp]
+  ids: [GUARDIAN_EMAILS,Timestamp,'YOUTH_NAME']
 process:
   webform_id:
     - plugin: default_value
@@ -123,10 +123,62 @@ process:
       - 'constants/other'
       - '@_race_sources'
       - 'constants/true'
+  'data/public_assistance': PUBLIC_ASSISTANCE
+  'data/school': SCHOOL
+  'data/guardian_address/family_name':
+    - plugin: skip_on_empty
+      method: process
+    - plugin: explode
+      source: GUARDIAN_NAME
+      delimiter: ' '
+      limit: 2
+    - plugin: extract
+      index:
+        - 0
+  'data/guardian_address/given_name':
+    - plugin: skip_on_empty
+      method: process
+    - plugin: explode
+      source: GUARDIAN_NAME
+      delimiter: ' '
+      limit: 2
+    - plugin: extract
+      index:
+        - 1
+  'data/guardian_relationship_to_participant':
+    - plugin: static_map
+      source: GUARDIAN_RELATIONSHIP
+      map:
+        father: Father
+        mother: Mother
+      default_value: 'Legal Guardian'
+  'data/primary_phone': GUARDIAN_NUM1
+  'data/primary_phone_type':
+    - plugin: static_map
+      source: GUARDIAN_NUM1_TYPE
+      map:
+        Cell: cell
+        Home: home
+        Work: work
+      default_value: ''
+  'data/secondary_phone': GUARDIAN_NUM2
+  'data/secondary_phone_type':
+    - plugin: static_map
+      source: GUARDIAN_NUM2_TYPE
+      map:
+        Cell: cell
+        Home: home
+        Work: work
+      default_value: ''
   'data/email': GUARDIAN_EMAILS
   'data/guardian_address/country_code':
     - plugin: default_value
       default_value: US
+  'data/guardian_address/address_line1': ADDRESS_LINE1
+  'data/guardian_address/address_line2': ADDRESS_LINE2
   'data/guardian_address/locality': ADDRESS_CITY
+  'data/guardian_address/administrative_area': ADDRESS_STATE
+  'data/guardian_address/postal_code': ADDRESS_ZIP
+
 destination:
   plugin: 'entity:webform_submission'
