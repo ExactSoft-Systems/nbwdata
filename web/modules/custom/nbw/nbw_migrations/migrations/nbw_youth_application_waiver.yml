@@ -184,5 +184,26 @@ process:
       source: Timestamp
       from_format: '@(?<mon>\d+)[/-](?<day>\d+)[/-](?<year>\d+) (?<hour>\d+):(?<min>\d+)(:(?<sec>\d+))?@'
       to_format: 'U'
+  'data/youth_email': 'Email Address'
+  'data/youth_address/family_name':
+    - plugin: skip_on_empty
+      method: process
+    - plugin: explode
+      source: YOUTH_NAME
+      delimiter: ' '
+      limit: 2
+    - plugin: extract
+      index:
+        - 0
+  'data/youth_address/given_name':
+    - plugin: skip_on_empty
+      method: process
+    - plugin: explode
+      source: YOUTH_NAME
+      delimiter: ' '
+      limit: 2
+    - plugin: extract
+      index:
+        - 1
 destination:
   plugin: 'entity:webform_submission'
