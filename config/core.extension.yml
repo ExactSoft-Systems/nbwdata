@@ -45,6 +45,7 @@ module:
   dblog: 0
   dbtng_example: 0
   devel: 0
+  devel_generate: 0
   devel_kint_extras: 0
   download_statistics: 0
   ds_devel: 0
@@ -107,10 +108,12 @@ module:
   migrate: 0
   migrate_json_example: 0
   migrate_plus: 0
+  migrate_source_csv: 0
   migrate_tools: 0
   multiple_registration: 0
   mysql: 0
   nbw_data_app: 0
+  nbw_migrations: 0
   nbw_users_registration: 0
   node: 0
   node_type_example: 0
