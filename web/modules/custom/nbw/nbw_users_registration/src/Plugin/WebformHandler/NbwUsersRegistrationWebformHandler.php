@@ -143,17 +143,15 @@ class NbwUsersRegistrationWebformHandler extends UserRegistrationWebformHandler 
             return;
           }
           if($form['#webform_id'] == 'nbw_youth_application_waiver') {
-             if (!is_null($user_data['field_guardian_address']) && !isset($user_data['field_guardian_address']['country_code'])) {
-               if (isset($user_data['field_guardian_address']['country'])) {
-                 if ($user_data['field_guardian_address']['country'] == 'United States') {
-                   $user_data['field_guardian_address']['country_code'] = "US";
+             if (!is_null($user_data['address']) && !isset($user_data['address']['country_code'])) {
+               if (isset($user_data['address']['country'])) {
+                 if ($user_data['address']['country'] == 'United States') {
+                   $user_data['address']['country_code'] = "US";
                  }
                }
              }
 
-//            if (is_null($user_data['field_address']) && !empty($form['#webform_same']) && !empty($form['#webform_same']['same_as_guardian_address'])) {
-//              $user_data['field_address'] = $user_data['field_guardian_address'];
-//            }
+
           }
 
 /*      if ($this->handler_id == 'nbw_youth_user_registration') {
@@ -413,6 +411,18 @@ field_use_an_asthma_inhaler_dail   ::   	participant_have_and_use_an_asthma_inha
             }
             if (!empty($webform_data["job_opportunities_for_youth"]) && $webform_data["job_opportunities_for_youth"] == 1 ){
               $interestedIn[] = "Job Opportunities for Youth";
+            }
+            if (!empty($webform_data["summer_camp_mondays_and_wednesdays"]) && $webform_data["summer_camp_mondays_and_wednesdays"] == 1 ){
+              $interestedIn[] = "Summer Camp: Mondays and Wednesdays";
+            }
+            if (!empty($webform_data["summer_camp_tuesday_and_thursday"]) && $webform_data["summer_camp_tuesday_and_thursday"] == 1 ){
+              $interestedIn[] = "Summer Camp: Tuesday and Thursday";
+            }
+            if (!empty($webform_data["ride_club_monday_and_wednesday"]) && $webform_data["ride_club_monday_and_wednesday"] == 1 ){
+              $interestedIn[] = "Ride Club: Monday and Wednesday";
+            }
+            if (!empty($webform_data["ride_club_tuesday_and_thursdays"]) && $webform_data["ride_club_tuesday_and_thursdays"] == 1 ){
+              $interestedIn[] = "Ride Club: Tuesday and Thursdays";
             }
 
             //Permissions to contact
