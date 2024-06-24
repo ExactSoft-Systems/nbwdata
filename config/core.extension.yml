@@ -75,6 +75,7 @@ module:
   form_api_example: 0
   fullcalendar_view: 0
   gatsby_extras: 0
+  gnode: 0
   group: 0
   help: 0
   history: 0
@@ -106,8 +107,6 @@ module:
   menu_ui: 0
   message_banner: 0
   migrate: 0
-  migrate_drupal: 0
-  migrate_drupal_ui: 0
   migrate_json_example: 0
   migrate_plus: 0
   migrate_tools: 0
@@ -182,6 +181,7 @@ module:
   webform_example_element: 0
   webform_example_element_properties: 0
   webform_examples: 0
+  webform_group: 0
   webform_image_select: 0
   webform_jqueryui_datepicker: 0
   webform_location_places: 0
