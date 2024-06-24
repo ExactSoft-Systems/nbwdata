@@ -182,7 +182,7 @@ process:
   created:
     - plugin: convert_wild_date
       source: Timestamp
-      from_format: '@(?<mon>\d+)[/-](?<day>\d+)[/-](?<year>\d+) (?<hour>\d+):(?<min>\d+):(?<sec>\d+)@'
+      from_format: '@(?<mon>\d+)[/-](?<day>\d+)[/-](?<year>\d+) (?<hour>\d+):(?<min>\d+)(:(?<sec>\d+))?@'
       to_format: 'U'
 destination:
   plugin: 'entity:webform_submission'
