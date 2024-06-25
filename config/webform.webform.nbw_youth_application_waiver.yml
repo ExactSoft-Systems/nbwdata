@@ -114,7 +114,7 @@ elements: |-
       '#type': webform_horizontal_rule
     i_m_interested_in:
       '#type': fieldset
-      '#title': 'I''m interested in (check all that apply):'
+      '#title': "I'm interested in (check all that apply):"
       '#required': true
       earn_a_bike_monday_wednesday_:
         '#type': checkbox
@@ -128,6 +128,18 @@ elements: |-
       job_opportunities_for_youth:
         '#type': checkbox
         '#title': 'Job Opportunities for Youth'
+      summer_camp_mondays_and_wednesdays:
+        '#type': checkbox
+        '#title': 'Summer Camp: Mondays and Wednesdays'
+      summer_camp_tuesday_and_thursday:
+        '#type': checkbox
+        '#title': 'Summer Camp: Tuesday and Thursday'
+      ride_club_monday_and_wednesday:
+        '#type': checkbox
+        '#title': 'Ride Club: Monday and Wednesday'
+      ride_club_tuesday_and_thursdays:
+        '#type': checkbox
+        '#title': 'Ride Club: Tuesday and Thursdays'
       horizontal_rule_after_interests:
         '#type': webform_horizontal_rule
     youth_cell_phone:
@@ -266,7 +278,7 @@ elements: |-
       '#required': true
     any_medical_mobility_or_mental_health_concerns:
       '#type': textarea
-      '#title': 'Please describe any medical, mobility, or mental health concerns we should know about in order to best serve the participant''s needs:'
+      '#title': "Please describe any medical, mobility, or mental health concerns we should know about in order to best serve the participant's needs:"
       '#required': true
   emergency_contact_info_card:
     '#type': webform_card
@@ -326,7 +338,7 @@ elements: |-
       '#required': true
       participant_s_school:
         '#type': checkbox
-        '#title': 'Participant''s School'
+        '#title': "Participant's School"
       family:
         '#type': checkbox
         '#title': Family
