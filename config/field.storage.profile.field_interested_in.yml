@@ -23,10 +23,22 @@ settings:
     -
       value: 'Job Opportunities for Youth'
       label: 'Job Opportunities for Youth'
+    -
+      value: summer_camp_mondays_and_wednesdays
+      label: 'Summer Camp: Monday and Wednesday'
+    -
+      value: summer_camp_tuesday_and_thursday
+      label: 'Summer Camp: Tuesday and Thursday'
+    -
+      value: ride_club_monday_and_wednesday
+      label: 'Ride Club: Monday and Wednesday'
+    -
+      value: ride_club_tuesday_and_thursdays
+      label: 'Ride Club: Tuesday and Thursday'
   allowed_values_function: ''
 module: options
 locked: false
-cardinality: 4
+cardinality: 8
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
