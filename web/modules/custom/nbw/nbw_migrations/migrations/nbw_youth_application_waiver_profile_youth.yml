@@ -1,0 +1,112 @@
+x-name-source:
+  &name-source
+
+
+id: nbw_youth_application_waiver_profile_youth
+label: NBW YOUTH APPLICATION WAIVER - profile Youth
+tags:
+  - NBW
+source:
+  plugin: csv
+  path: '/var/www/YBEEP REPORTS - FYALL.csv'
+#  path: '/var/www/YBEEP_Recruitment__Youth_Application.csv'
+#  ids: [GUARDIAN_EMAILS,Timestamp,'YOUTH_NAME']
+  ids: [ROW_ID]
+
+process:
+  type:
+    - plugin: default_value
+      default_value: nbw_youth_profile
+  uid:
+    - plugin: create_hash
+      source:
+        - YOUTH NAME
+        - 'Email Address'
+      lenght: 12
+    - plugin: entity_lookup
+      entity_type: user
+      bundle: user
+      value_key: name
+      access_check: false
+    - plugin: skip_on_empty
+      method: row
+      message: 'Profile without user'
+  created:
+    - plugin: convert_wild_date
+      source: Timestamp
+      from_format: '@(?<mon>\d+)[/-](?<day>\d+)[/-](?<year>\d+) (?<hour>\d+):(?<min>\d+)(:(?<sec>\d+))?@'
+      to_format: 'U'
+  field_guardian:
+    - plugin: create_hash
+      source:
+        - GUARDIAN_NAME
+        - GUARDIAN_EMAILS
+      lenght: 12
+    - plugin: entity_lookup
+      entity_type: user
+      bundle: user
+      value_key: name
+      access_check: false
+    - plugin: skip_on_empty
+      method: process
+  field_hours_total: 'HOURS EARNED'
+  field_miles_total: 'MILES RIDDEN'
+  field_guardian_relationship_to_y:
+    - plugin: static_map
+      source: GUARDIAN_RELATIONSHIP
+      map:
+        mother: Mother
+        father: Father
+        'Legal Guardian': 'Legal Guardian'
+        aunt: 'Legal Guardian'
+        grandmother: 'Legal Guardian'
+        great-grandmother: 'Legal Guardian'
+        guardian: 'Legal Guardian'
+        parent: 'Legal Guardian'
+        step-father: 'Legal Guardian'
+        step-mother: 'Legal Guardian'
+      default_value: ''
+  field_public_assistance_eligible:
+    - plugin: static_map
+      source: PUBLIC_ASSISTANCE
+      map:
+        yes: Yes
+        no: No
+      default_value: ''
+#  field_interested_in:
+  field_date_of_birth:
+    - plugin: convert_wild_date
+      source: DOB
+      from_format: '@(?<mon>\d+)[/-](?<day>\d+)[/-](?<year>\d+)@'
+      to_format: 'Y-m-d'
+#  field_current_grade_level:
+#  field_height:
+#  field_permission_to_contact:
+#  field_allergies_the_participant_:
+#  field_may_administer_benadryl:
+#  field_use_an_asthma_inhaler_dail:
+#  field_any_medications_we_should_:
+#  field_may_wade_in_water:
+#  field_able_to_ride_a_bike:
+#  field_able_to_ride_for_20:
+#  field_any_additional_concerns:
+#  field__emergency_contact_name:
+#  field__emergency_contact_relatio:
+#  field_emergency_contact_phone_nu:
+#  field_leave_by_themselves:
+#  field_can_leave_with:
+#  field_bicycle_by_themsel:
+#  field_may_take_septa:
+#  field_have_a_weekly_transit_pass:
+#  field_need_a_token:
+#  field_how_did_you_hear:
+#  field_other_way_to_hear:
+#  field__consent_to_liability_waiv:
+#  field_media_feedback_release:
+  field_school: SCHOOL
+destination:
+  plugin: 'entity:profile'
+migration_dependencies:
+  required:
+#    - nbw_youth_application_waiver_user_guardian
+    - nbw_youth_application_waiver_user_youth

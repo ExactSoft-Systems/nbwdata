@@ -1,0 +1,142 @@
+x-race_map:
+  &race-map
+  black: 'Black or African American'
+  white: 'White or Caucasian'
+  latinx: 'Hispanic or Latinx'
+  asian: 'Asian'
+  native: 'American Indian or Alaska Native'
+  other: 'Native Hawaiian or other Pacific Islander'
+
+x-phone-type-map:
+  &phone-type-map:
+    cell: Cell
+    home: Home
+    work: Work
+
+x-name-source:
+  &name-source
+  plugin: create_hash
+  source:
+    - GUARDIAN_NAME
+    - GUARDIAN_EMAILS
+  lenght: 12
+
+
+id: nbw_youth_application_waiver_user_guardian
+label: NBW YOUTH APPLICATION WAIVER - user Guardian
+tags:
+  - NBW
+source:
+  plugin: csv
+  path: '/var/www/YBEEP REPORTS - FYALL.csv'
+#  path: '/var/www/YBEEP_Recruitment__Youth_Application.csv'
+#  ids: [GUARDIAN_EMAILS,Timestamp,'YOUTH NAME']
+  ids: [ROW_ID]
+
+process:
+  name:
+    - << : *name-source
+    - plugin: entity_lookup
+      entity_type: user
+      value_key: name
+      access_check: false
+    - plugin: skip_on_not_empty
+      method: row
+      message: 'Duplicated user'
+    - << : *name-source
+  mail:
+    - plugin: explode
+      source: GUARDIAN_EMAILS
+      delimiter: ','
+    - plugin: extract
+      index:
+        - 0
+    - plugin: callback
+      callable: trim
+  'field_address/country_code':
+    - plugin: default_value
+      default_value: US
+  'field_address/administrative_area': ADDRESS_STATE
+  'field_address/locality': ADDRESS_CITY
+  'field_address/postal_code': ADDRESS_ZIP
+  'field_address/address_line1': ADDRESS_LINE1
+  'field_address/address_line2': ADDRESS_LINE2
+  'field_address/given_name':
+    - plugin: skip_on_empty
+      source: GUARDIAN_NAME
+      method: process
+    - plugin: explode
+      delimiter: ' '
+      limit: 2
+    - plugin: extract
+      index:
+        - 1
+    - plugin: callback
+      callable: trim
+  'field_address/family_name':
+    - plugin: skip_on_empty
+      source: GUARDIAN_NAME
+      method: process
+    - plugin: explode
+      delimiter: ' '
+      limit: 2
+    - plugin: extract
+      index:
+        - 0
+    - plugin: callback
+      callable: trim
+  field_secondary_email:
+    - plugin: explode
+      source: GUARDIAN_EMAILS
+      delimiter: ','
+    - plugin: extract
+      index:
+        - 1
+      default: ''
+    - plugin: callback
+      callable: trim
+  field_primary_phone: GUARDIAN_NUM1
+  field_primary_phone_type:
+    - plugin: static_map
+      source: GUARDIAN_NUM1_TYPE
+      map:
+        << : *phone-type-map
+      default_value: ''
+  field_secondary_phone: GUARDIAN_NUM2
+  field_secondary_phone_type:
+    - plugin: static_map
+      source: GUARDIAN_NUM2_TYPE
+      map:
+        << : *phone-type-map
+      default_value: ''
+  field_gender:
+    - plugin: static_map
+      source: GENDER
+      map:
+        male: Male
+        female: Female
+        transgender: Transgender
+        nonconforming: Nonconforming
+      default_value: ''
+  field_race:
+    - plugin: static_map
+      source: RACE1
+      map:
+        << : *race-map
+      default_value: ''
+  field_race_other:
+    - plugin: static_map
+      source: RACE2
+      map:
+        << : *race-map
+      default_value: ''
+  created:
+    - plugin: convert_wild_date
+      source: Timestamp
+      from_format: '@(?<mon>\d+)[/-](?<day>\d+)[/-](?<year>\d+) (?<hour>\d+):(?<min>\d+)(:(?<sec>\d+))?@'
+      to_format: 'U'
+  roles:
+    - plugin: default_value
+      default_value: guardian
+destination:
+  plugin: 'entity:user'

@@ -1,0 +1,87 @@
+x-name-source:
+  &name-source
+  plugin: create_hash
+  source:
+    - YOUTH NAME
+    - 'Email Address'
+  lenght: 12
+
+
+id: nbw_youth_application_waiver_user_youth
+label: NBW YOUTH APPLICATION WAIVER - user Youth
+tags:
+  - NBW
+source:
+  plugin: csv
+  path: '/var/www/YBEEP REPORTS - FYALL.csv'
+#  path: '/var/www/YBEEP_Recruitment__Youth_Application.csv'
+  #  ids: [GUARDIAN_NAME,GUARDIAN_EMAILS,Timestamp,YOUTH_NAME,HOURS_EARNED]
+  ids: [ROW_ID]
+
+process:
+  name:
+    - << : *name-source
+    - plugin: entity_lookup
+      entity_type: user
+      value_key: name
+      access_check: false
+    - plugin: skip_on_not_empty
+      method: row
+      message: 'Duplicated user'
+    - << : *name-source
+  mail:
+    - plugin: explode
+      source: 'Email Address'
+      delimiter: ','
+    - plugin: extract
+      index:
+        - 0
+    - plugin: callback
+      callable: trim
+  'field_address/country_code':
+    - plugin: default_value
+      default_value: US
+  'field_address/given_name':
+    - plugin: skip_on_empty
+      source: YOUTH NAME
+      method: process
+    - plugin: explode
+      delimiter: ' '
+      limit: 2
+    - plugin: extract
+      index:
+        - 1
+    - plugin: callback
+      callable: trim
+  'field_address/family_name':
+    - plugin: skip_on_empty
+      source: YOUTH NAME
+      method: process
+    - plugin: explode
+      delimiter: ' '
+      limit: 2
+    - plugin: extract
+      index:
+        - 0
+    - plugin: callback
+      callable: trim
+  field_secondary_email:
+    - plugin: explode
+      source: 'Email Address'
+      delimiter: ','
+    - plugin: extract
+      index:
+        - 1
+      default: ''
+    - plugin: callback
+      callable: trim
+  created:
+    - plugin: convert_wild_date
+      source: Timestamp
+      from_format: '@(?<mon>\d+)[/-](?<day>\d+)[/-](?<year>\d+) (?<hour>\d+):(?<min>\d+)(:(?<sec>\d+))?@'
+      to_format: 'U'
+  roles:
+    - plugin: default_value
+      default_value: youth
+destination:
+  plugin: 'entity:user'
