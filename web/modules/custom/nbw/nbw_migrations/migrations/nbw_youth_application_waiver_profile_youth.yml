@@ -104,5 +104,5 @@ destination:
   plugin: 'entity:profile'
 migration_dependencies:
   required:
-#    - nbw_youth_application_waiver_user_guardian
+    - nbw_youth_application_waiver_user_guardian
     - nbw_youth_application_waiver_user_youth
