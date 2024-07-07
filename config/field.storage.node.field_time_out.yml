@@ -1,16 +1,14 @@
-uuid: 70a04544-67a9-4744-9957-c8a8811e182e
+uuid: c83a6827-9587-4829-98c7-b1e3991bf3b3
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - user
-id: node.field_students
-field_name: field_students
+id: node.field_time_out
+field_name: field_time_out
 entity_type: node
-type: entity_reference
-settings:
-  target_type: user
+type: timestamp
+settings: {  }
 module: core
 locked: false
 cardinality: 1

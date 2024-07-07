@@ -6,7 +6,12 @@ dependencies:
     - field.field.node.attendance_record.body
     - field.field.node.attendance_record.field_checkin_time
     - field.field.node.attendance_record.field_class_name
+    - field.field.node.attendance_record.field_hours_earned
+    - field.field.node.attendance_record.field_hours_lost
+    - field.field.node.attendance_record.field_miles_ridden
     - field.field.node.attendance_record.field_students
+    - field.field.node.attendance_record.field_time_in
+    - field.field.node.attendance_record.field_time_out
     - node.type.attendance_record
   module:
     - datetime
@@ -33,6 +38,39 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_hours_earned:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_hours_lost:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_miles_ridden:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 9
+    region: content
   field_students:
     type: entity_reference_label
     label: above
@@ -41,9 +79,48 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
+  field_time_in:
+    type: timestamp
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+      tooltip:
+        date_format: long
+        custom_date_format: ''
+      time_diff:
+        enabled: false
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: 2
+        refresh: 60
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_time_out:
+    type: timestamp
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+      tooltip:
+        date_format: long
+        custom_date_format: ''
+      time_diff:
+        enabled: false
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: 2
+        refresh: 60
+    third_party_settings: {  }
+    weight: 6
+    region: content
 hidden:
   body: true
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   links: true
+  search_api_excerpt: true

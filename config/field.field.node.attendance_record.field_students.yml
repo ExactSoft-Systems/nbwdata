@@ -9,17 +9,21 @@ id: node.attendance_record.field_students
 field_name: field_students
 entity_type: node
 bundle: attendance_record
-label: Students
+label: Student
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: views
+  handler: 'default:user'
   handler_settings:
-    view:
-      view_name: youth_name_and_username
-      display_name: entity_reference_1
-      arguments: {  }
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: false
 field_type: entity_reference

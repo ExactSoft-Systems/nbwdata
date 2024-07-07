@@ -130,6 +130,8 @@ module:
   responsive_image: 0
   rest: 0
   search: 0
+  search_api: 0
+  search_api_opensearch: 0
   serialization: 0
   session_example: 0
   shield: 0

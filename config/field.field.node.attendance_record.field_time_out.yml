@@ -1,0 +1,19 @@
+uuid: a9b4aad4-569b-4e7d-9fe4-4883ccf9ae08
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_time_out
+    - node.type.attendance_record
+id: node.attendance_record.field_time_out
+field_name: field_time_out
+entity_type: node
+bundle: attendance_record
+label: 'Time Out'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

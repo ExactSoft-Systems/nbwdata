@@ -11,7 +11,7 @@ id: node.attendance_record.field_checkin_time
 field_name: field_checkin_time
 entity_type: node
 bundle: attendance_record
-label: 'Check-in Time'
+label: Date
 description: ''
 required: false
 translatable: false

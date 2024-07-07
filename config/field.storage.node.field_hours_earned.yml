@@ -1,16 +1,16 @@
-uuid: 70a04544-67a9-4744-9957-c8a8811e182e
+uuid: 9dd7836c-0c35-4b63-a997-ac63b958a741
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - user
-id: node.field_students
-field_name: field_students
+id: node.field_hours_earned
+field_name: field_hours_earned
 entity_type: node
-type: entity_reference
+type: decimal
 settings:
-  target_type: user
+  precision: 10
+  scale: 2
 module: core
 locked: false
 cardinality: 1

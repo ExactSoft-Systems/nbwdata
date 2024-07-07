@@ -6,7 +6,12 @@ dependencies:
     - field.field.node.attendance_record.body
     - field.field.node.attendance_record.field_checkin_time
     - field.field.node.attendance_record.field_class_name
+    - field.field.node.attendance_record.field_hours_earned
+    - field.field.node.attendance_record.field_hours_lost
+    - field.field.node.attendance_record.field_miles_ridden
     - field.field.node.attendance_record.field_students
+    - field.field.node.attendance_record.field_time_in
+    - field.field.node.attendance_record.field_time_out
     - node.type.attendance_record
   module:
     - datetime
@@ -34,6 +39,27 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_hours_earned:
+    type: number
+    weight: 29
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_hours_lost:
+    type: number
+    weight: 30
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_miles_ridden:
+    type: number
+    weight: 31
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_students:
     type: entity_reference_autocomplete
     weight: 4
@@ -43,6 +69,18 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_time_in:
+    type: datetime_timestamp
+    weight: 27
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_time_out:
+    type: datetime_timestamp
+    weight: 28
+    region: content
+    settings: {  }
     third_party_settings: {  }
   title:
     type: string_textfield

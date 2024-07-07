@@ -1,0 +1,23 @@
+uuid: c74ca071-0ade-49e2-b9d1-1a41ad10f79a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hours_lost
+    - node.type.attendance_record
+id: node.attendance_record.field_hours_lost
+field_name: field_hours_lost
+entity_type: node
+bundle: attendance_record
+label: 'Hours Lost'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal
