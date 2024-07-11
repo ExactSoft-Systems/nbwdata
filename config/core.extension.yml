@@ -112,6 +112,7 @@ module:
   multiple_registration: 0
   mysql: 0
   nbw_data_app: 0
+  nbw_tools: 0
   nbw_users_registration: 0
   node: 0
   node_type_example: 0

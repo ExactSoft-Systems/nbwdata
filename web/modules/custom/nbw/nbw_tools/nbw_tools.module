@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for NBW tools module.
+ */
+
+/**
+ * Implements hook_field_views_data_alter().
+ */
+function nbw_tools_field_views_data_alter(array &$data, \Drupal\field\FieldStorageConfigInterface $field_storage) {
+  if ($field_storage->getType() === 'timestamp') {
+    foreach ($data as $table_name => $table_data) {
+      foreach ($table_data as $field_name => $field_data) {
+        if (isset($field_data['filter']) && $field_data['filter']['id'] === 'numeric') {
+          $data[$table_name][$field_name]['filter']['id'] = 'date';
+        }
+      }
+    }
+  }
+}
