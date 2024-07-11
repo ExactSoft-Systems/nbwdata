@@ -152,6 +152,7 @@ elements: |-
       '#type': date
       '#title': 'Date of Birth'
       '#required': true
+      '#date_date_max': 07/11/2024
       '#datepicker': true
     youth_address_label:
       '#type': label
@@ -171,6 +172,8 @@ elements: |-
       '#type': number
       '#title': 'Current Grade Level'
       '#required': true
+      '#min': 0
+      '#max': 12
     school:
       '#type': textarea
       '#title': School
@@ -245,6 +248,7 @@ elements: |-
     please_list_any_allergies_the_participant_has:
       '#type': textarea
       '#title': 'Please list any allergies the participant has:'
+      '#maxlength': 400
       '#required': true
     may_nbw_staff_administer_benadryl:
       '#type': radios
@@ -259,7 +263,8 @@ elements: |-
     participant_taking_any_medications_we_should_know:
       '#type': textarea
       '#title': 'Is the participant taking any medications we should know about? If so, please list with instructions:'
-      '#description': '<strong><span style="-webkit-text-stroke-width:0px; background-color:#ffffff; color:#202124; display:inline !important; float:none; font-family:Roboto,Arial,sans-serif; font-size:14.6667px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:400; letter-spacing:normal; orphans:2; text-align:start; text-decoration-color:initial; text-decoration-style:initial; text-decoration-thickness:initial; text-indent:0px; text-transform:none; white-space:normal; widows:2; word-spacing:0px">NBW is NOT responsible for administering medications. However, we will share this information with medical professionals in case of a medical emergency.</span></strong>'
+      '#description': '<p><span style="-webkit-text-stroke-width:0px;background-color:#ffffff;color:#202124;display:inline !important;float:none;font-family:Roboto,Arial,sans-serif;font-size:14.6667px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;"><strong>NBW is NOT responsible for administering medications. However, we will share this information with medical professionals in case of a medical emergency.</strong></span></p>'
+      '#maxlength': 400
       '#required': true
     may_participant_wade_in_water_while_supervised:
       '#type': radios
@@ -279,6 +284,7 @@ elements: |-
     any_medical_mobility_or_mental_health_concerns:
       '#type': textarea
       '#title': "Please describe any medical, mobility, or mental health concerns we should know about in order to best serve the participant's needs:"
+      '#maxlength': 400
       '#required': true
   emergency_contact_info_card:
     '#type': webform_card
@@ -309,6 +315,7 @@ elements: |-
     list_everyone_the_participant_can_leave_with:
       '#type': textarea
       '#title': 'If not, please list everyone the participant can leave with, and their relationship to the participant:'
+      '#maxlength': 254
     may_participant_leave_a_bicycle_by_themsel:
       '#type': radios
       '#title': 'May the participant leave NBW activities on a bicycle by themselves?'
@@ -397,6 +404,7 @@ elements: |-
     ask_us_anything:
       '#type': textarea
       '#title': 'Ask us anything!'
+      '#maxlength': 254
     ask_anything_horizontal_rule:
       '#type': webform_horizontal_rule
     copy_will_be_emailed_markup:

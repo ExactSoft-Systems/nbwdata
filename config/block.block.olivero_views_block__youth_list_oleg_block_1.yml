@@ -1,0 +1,30 @@
+uuid: 8eaaac87-5833-4f27-9905-6dfd667c9540
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.youth_list_oleg
+  module:
+    - system
+    - views
+  theme:
+    - olivero
+id: olivero_views_block__youth_list_oleg_block_1
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:youth_list_oleg-block_1'
+settings:
+  id: 'views_block:youth_list_oleg-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+  exposed: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
