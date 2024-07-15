@@ -19,3 +19,14 @@ function nbw_tools_field_views_data_alter(array &$data, \Drupal\field\FieldStora
     }
   }
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function nbw_tools_theme_suggestions_views_view_field(array $variables) {
+  $suggestions = [];
+  $suggestions[] = 'views_view_field__' . $variables['view']->id();
+  $suggestions[] = 'views_view_field__' . $variables['view']->id() . '__' . $variables['field']->field;
+  $suggestions[] = 'views_view_field__' . $variables['field']->field;
+  return $suggestions;
+}
