@@ -10,15 +10,15 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a nbw checkin form block.
+ * Provides a nbw checkout form block.
  *
  * @Block(
- *   id = "nbw_tools_nbw_checkin_form",
- *   admin_label = @Translation("NBW CheckIn Form"),
+ *   id = "nbw_tools_nbw_checkout_form",
+ *   admin_label = @Translation("NBW CheckOut Form"),
  *   category = @Translation("NBW"),
  * )
  */
-final class NbwCheckinFormBlock extends BlockBase implements ContainerFactoryPluginInterface {
+final class NbwCheckoutFormBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * Constructs the plugin instance.
@@ -48,7 +48,7 @@ final class NbwCheckinFormBlock extends BlockBase implements ContainerFactoryPlu
    * {@inheritdoc}
    */
   public function build(): array {
-    return $this->formBuilder->getForm('\Drupal\nbw_tools\Form\CheckIn');
+    return $this->formBuilder->getForm('\Drupal\nbw_tools\Form\CheckOut');
   }
 
 }

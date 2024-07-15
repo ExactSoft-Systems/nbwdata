@@ -8,15 +8,15 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Provides a NBW tools form (Check In).
+ * Provides a NBW tools form (Check Out).
  */
-final class CheckIn extends FormBase {
+final class CheckOut extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId(): string {
-    return 'nbw_tools_check_in';
+    return 'nbw_tools_check_out';
   }
 
   /**
@@ -26,7 +26,7 @@ final class CheckIn extends FormBase {
 
     $form['message'] = [
       '#type' => 'textarea',
-      '#title' => $this->t('Message (check_in)'),
+      '#title' => $this->t('Message (check_out)'),
       '#required' => TRUE,
     ];
 
