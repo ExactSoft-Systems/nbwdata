@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\nbw_tools\Form;
 
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -48,13 +49,100 @@ final class CheckInOut extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
-
-    $form['message'] = [
-      '#type' => 'textarea',
-      '#title' => $this->t('Message (check_in_out)'),
+    // Classes.
+    $node_classes = $this->entityTypeManager
+      ->getStorage('node')
+      ->loadByProperties(['type' => 'class']);
+    $node_list = [];
+    foreach ($node_classes as $nid => $node) {
+      $node_list[$nid] = $node->label();
+    }
+    $form['class'] = [
+      '#type' => 'select',
       '#required' => TRUE,
+      '#title' => $this->t('Class Name'),
+      '#empty_option' => $this->t('- Select -'),
+      '#empty_value' => '',
+      '#options' => $node_list,
+      '#ajax' => [
+        'callback' => '::ajaxStudents',
+        'wrapper' => 'students-container',
+      ],
+    ];
+    // Students.
+    $form['students_container'] = [
+      '#type' => 'container',
+      '#attributes' => ['id' => 'students-container'],
+    ];
+    $form['students_container']['students'] = [
+      '#markup' => $this->t('Please select a class.'),
+    ];
+    $selected_class = $form_state->getValue('class');
+    if ($selected_class !== NULL) {
+      $form['students_container']['students'] = [
+        '#type' => 'checkboxes',
+        '#required' => FALSE,
+        '#title' => $this->t('Students'),
+        '#default_value' => [],
+        '#options' => [],
+      ];
+      $class_roster = current($this->entityTypeManager
+        ->getStorage('node')
+        ->loadByProperties([
+          'type' => 'class_roster',
+          'field_class_name' => $selected_class,
+          'status' => TRUE,
+        ]));
+
+      foreach ($class_roster->field_students->referencedEntities() as $student) {
+        $form['students_container']['students']['#options'][$student->id()] = $student->label();
+      }
+    }
+    // Date
+    $form['date'] = [
+      '#type' => 'date',
+      '#title' => $this->t('Date'),
+      '#required' => TRUE,
+      '#default_value' => date('Y-m-d'),
+    ];
+    $form['check_in_out'] = [
+      '#type' => 'radios',
+      '#required' => TRUE,
+      '#title' => $this->t('Check In / Out'),
+      '#title_display' => 'invisible',
+      '#options' => [
+        'check_in' => $this->t('Check In'),
+        'check_out' => $this->t('Check Out'),
+      ],
+    ];
+    $form['time'] = [
+      '#type' => 'datetime',
+      '#date_date_element' => 'none',
+      '#date_time_element' => 'time',
+      '#default_value' => new DrupalDateTime('now'),
+    ];
+    // Hours & Miles.
+    $form['hours_wrapper'] = [
+      '#type' => 'container',
+    ];
+    $form['hours_wrapper']['hours'] = [
+      '#type' => 'number',
+      '#default_value' => 0,
+      '#title' => $this->t('Hours'),
+      '#description' => $this->t('Hours Lost / Earned'),
+    ];
+    $form['miles_wrapper'] = [
+      '#type' => 'container',
+    ];
+    $form['miles_wrapper']['hours'] = [
+      '#type' => 'number',
+      '#default_value' => 0,
+      '#title' => $this->t('Miles'),
+      '#description' => $this->t('Miles Reidden'),
     ];
 
+
+    // Notes & Submit.
     $form['actions'] = [
       '#type' => 'actions',
       'submit' => [
@@ -64,6 +152,13 @@ final class CheckInOut extends FormBase {
     ];
 
     return $form;
+  }
+
+  /**
+   * Return with students container.
+   */
+  public function ajaxStudents($form, FormStateInterface $form_state) {
+    return $form['students_container'];
   }
 
   /**
@@ -86,8 +181,7 @@ final class CheckInOut extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
-    $this->messenger()->addStatus($this->t('The message has been sent.'));
-    $form_state->setRedirect('<front>');
+    $aaaaaaaaaaaaaaaaaaaaaaaaa = 'a'; // TODO: DEBUG Breakpoint!
   }
 
 }
