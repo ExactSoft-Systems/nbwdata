@@ -1,0 +1,21 @@
+uuid: ff2ec55a-31ae-480b-8e2d-98ca156fd92c
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.sign_in_for_class
+id: sign_in_for_class-block_display-0
+label: 'Block page'
+weight: 0
+variant: block_display
+variant_settings:
+  id: block_display
+  label: null
+  weight: 0
+  uuid: 60ac0082-32f4-4dc9-be7a-59990da37e18
+  blocks: {  }
+  page_title: 'Sign in for class'
+page: sign_in_for_class
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
