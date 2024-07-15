@@ -119,6 +119,7 @@ module:
   options: 0
   page_cache: 0
   page_example: 0
+  page_manager: 0
   pager_example: 0
   path: 0
   path_alias: 0

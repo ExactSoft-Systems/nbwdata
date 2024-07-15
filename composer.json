@@ -74,7 +74,8 @@
     "drupal/verf": "^2.0",
     "pantheon-systems/drupal-integrations": "^10",
     "drupal/force_password_change": "^2.0",
-    "drupal/search_api_opensearch": "^2.0"
+    "drupal/search_api_opensearch": "^2.0",
+    "drupal/page_manager": "^4.0@RC"
   },
   "require-dev": {
     "drupal/core-dev": "^10"
