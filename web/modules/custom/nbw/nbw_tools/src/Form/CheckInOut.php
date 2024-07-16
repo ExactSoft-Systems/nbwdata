@@ -79,6 +79,17 @@ final class CheckInOut extends FormBase {
     ];
     $selected_class = $form_state->getValue('class');
     if ($selected_class !== NULL) {
+      $form['students_container']['students_select_all'] = [
+        '#type' => 'button',
+        '#value' => $this->t('Select All'),
+        '#internal_id' => 'students_select_all',
+        '#executes_submit_callback' => FALSE,
+        '#limit_validation_errors' => [['class']],
+        '#ajax' => [
+          'callback' => '::ajaxStudents',
+          'wrapper' => 'students-container',
+        ],
+      ];
       $form['students_container']['students'] = [
         '#type' => 'checkboxes',
         '#required' => FALSE,
@@ -93,7 +104,6 @@ final class CheckInOut extends FormBase {
           'field_class_name' => $selected_class,
           'status' => TRUE,
         ]));
-
       foreach ($class_roster->field_students->referencedEntities() as $student) {
         $form['students_container']['students']['#options'][$student->id()] = $student->label();
       }
@@ -158,6 +168,13 @@ final class CheckInOut extends FormBase {
    * Return with students container.
    */
   public function ajaxStudents($form, FormStateInterface $form_state) {
+    $triggering_element = $form_state->getTriggeringElement();
+    if (isset($triggering_element['#internal_id']) && $triggering_element['#internal_id'] === 'students_select_all') {
+      // TODO: Workaround, see: https://www.drupal.org/project/drupal/issues/1100170#comment-15586080
+      foreach ($form['students_container']['students']['#options'] as $key => $student) {
+        $form['students_container']['students'][$key]['#attributes']['checked'] = 'checked';
+      }
+    }
     return $form['students_container'];
   }
 
