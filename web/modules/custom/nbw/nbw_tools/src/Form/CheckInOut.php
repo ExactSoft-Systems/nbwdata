@@ -144,7 +144,7 @@ final class CheckInOut extends FormBase {
     $form['miles_wrapper'] = [
       '#type' => 'container',
     ];
-    $form['miles_wrapper']['hours'] = [
+    $form['miles_wrapper']['miles'] = [
       '#type' => 'number',
       '#default_value' => 0,
       '#title' => $this->t('Miles'),
