@@ -141,6 +141,14 @@ final class CheckInOut extends FormBase {
       '#title' => $this->t('Hours'),
       '#description' => $this->t('Hours Lost / Earned'),
     ];
+    $form['hours_wrapper']['earned_lost'] = [
+      '#type' => 'radios',
+      '#required' => TRUE,
+      '#options' => [
+        'earned' => $this->t('Earned'),
+        'lost' => $this->t('Lost'),
+      ],
+    ];
     $form['miles_wrapper'] = [
       '#type' => 'container',
     ];
@@ -150,9 +158,14 @@ final class CheckInOut extends FormBase {
       '#title' => $this->t('Miles'),
       '#description' => $this->t('Miles Reidden'),
     ];
-
-
     // Notes & Submit.
+    $form['notes'] = [
+      '#type' => 'textarea',
+      '#required' => FALSE,
+      '#title' => $this->t('Notes'),
+      '#cols' => 60,
+      '#rows' => 5,
+    ];
     $form['actions'] = [
       '#type' => 'actions',
       'submit' => [
