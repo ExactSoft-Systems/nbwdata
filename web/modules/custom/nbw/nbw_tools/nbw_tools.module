@@ -5,6 +5,8 @@
  * Primary module hooks for NBW tools module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Implements hook_field_views_data_alter().
  */
@@ -29,4 +31,24 @@ function nbw_tools_theme_suggestions_views_view_field(array $variables) {
   $suggestions[] = 'views_view_field__' . $variables['view']->id() . '__' . $variables['field']->field;
   $suggestions[] = 'views_view_field__' . $variables['field']->field;
   return $suggestions;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function nbw_tools_form_webform_submission_sign_in_for_class_add_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['elements']['class']['#ajax'] = [
+    'callback' => 'nbw_tools_webform_ajax_students',
+    'wrapper' => 'students-container',
+  ];
+  $form['elements']['students']['#prefix'] = '<div id="students-container">';
+  $form['elements']['students']['#suffix'] = '</div>';
+}
+
+
+/**
+ * Return with students container.
+ */
+function nbw_tools_webform_ajax_students($form, FormStateInterface $form_state) {
+  return $form['elements']['students'];
 }
