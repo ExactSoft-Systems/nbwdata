@@ -8,6 +8,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -50,12 +51,16 @@ final class CheckInOut extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
     // Classes.
-    $node_classes = $this->entityTypeManager
+    $query = $this->entityTypeManager
       ->getStorage('node')
-      ->loadByProperties(['type' => 'class']);
-    $node_list = [];
+      ->getQuery();
+    $query->condition('type', 'class_registration');
+    $query->sort('field_class_name.entity:node.title');
+    $node_classes = Node::loadMultiple($query->accessCheck(TRUE)
+      ->execute());
+    $class_list = [];
     foreach ($node_classes as $nid => $node) {
-      $node_list[$nid] = $node->label();
+      $class_list[$nid] = $node->field_class_name->entity->label();
     }
     $form['class'] = [
       '#type' => 'select',
@@ -63,7 +68,7 @@ final class CheckInOut extends FormBase {
       '#title' => $this->t('Class Name'),
       '#empty_option' => $this->t('- Select -'),
       '#empty_value' => '',
-      '#options' => $node_list,
+      '#options' => $class_list,
       '#ajax' => [
         'callback' => '::ajaxStudents',
         'wrapper' => 'students-container',
@@ -97,15 +102,15 @@ final class CheckInOut extends FormBase {
         '#default_value' => [],
         '#options' => [],
       ];
-      $class_roster = current($this->entityTypeManager
-        ->getStorage('node')
-        ->loadByProperties([
-          'type' => 'class_roster',
-          'field_class_name' => $selected_class,
-          'status' => TRUE,
-        ]));
-      foreach ($class_roster->field_students->referencedEntities() as $student) {
-        $form['students_container']['students']['#options'][$student->id()] = $student->label();
+      $class_registration = Node::load($selected_class);
+      foreach ($class_registration->field_students->referencedEntities() as $student) {
+        $name = [
+          $student->field_address->given_name,
+          $student->field_address->family_name,
+          $student->field_address->additional_name,
+        ];
+        $name = implode(' ', $name);
+        $form['students_container']['students']['#options'][$student->id()] = $name;
       }
     }
     // Date
