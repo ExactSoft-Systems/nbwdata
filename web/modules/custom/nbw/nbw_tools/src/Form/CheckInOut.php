@@ -63,7 +63,7 @@ final class CheckInOut extends FormBase {
     $query = $this->entityTypeManager
       ->getStorage('node')
       ->getQuery();
-    $query->condition('type', 'class_registration');
+    $query->condition('type', 'class_roster');
     $query->sort('field_class_name.entity:node.title');
     $node_classes = Node::loadMultiple($query->accessCheck(TRUE)
       ->execute());
@@ -115,7 +115,7 @@ final class CheckInOut extends FormBase {
       ];
       $form['students_container']['students'] = [
         '#type' => 'checkboxes',
-        '#required' => FALSE,
+        '#required' => TRUE,
         '#title' => $this->t('Students'),
         '#default_value' => [],
         '#options' => [],
@@ -135,6 +135,8 @@ final class CheckInOut extends FormBase {
       // Class not selected / prepopulated.
       $form['students_container']['students'] = [
         '#markup' => $this->t('Please select a class.'),
+        '#prefix' => '<strong>',
+        '#suffix' => '</strong>',
       ];
     }
     // Date
@@ -144,39 +146,90 @@ final class CheckInOut extends FormBase {
       '#required' => TRUE,
       '#default_value' => date('Y-m-d'),
     ];
-    $form['check_in_out'] = [
-      '#type' => 'radios',
-      '#required' => TRUE,
-      '#title' => $this->t('Check In / Out'),
-      '#title_display' => 'invisible',
-      '#options' => [
-        'check_in' => $this->t('Check In'),
-        'check_out' => $this->t('Check Out'),
+    $form['check_in_out_wrapper'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Check in / Out'),
+    ];
+    $form['check_in_out_wrapper']['checkin_wrapper'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => ['container-inline'],
       ],
     ];
-    $form['time'] = [
+    $form['check_in_out_wrapper']['checkin_wrapper']['checkin'] = [
+      '#type' => 'radio',
+      '#required' => TRUE,
+      '#title' => $this->t('Check In'),
+      '#parents' => ['check_in_out_wrapper'],
+      '#return_value' => 'checkin',
+    ];
+    $form['check_in_out_wrapper']['checkin_wrapper']['checkin_time'] = [
+      '#type' => 'datetime',
+      '#date_date_element' => 'none',
+      '#date_time_element' => 'time',
+      '#default_value' => new DrupalDateTime('now'),
+    ];
+    $form['check_in_out_wrapper']['checkout_wrapper'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => ['container-inline'],
+      ],
+    ];
+    $form['check_in_out_wrapper']['checkout_wrapper']['checkout'] = [
+      '#type' => 'radio',
+      '#required' => TRUE,
+      '#title' => $this->t('Check Out'),
+      '#parents' => ['check_in_out_wrapper'],
+      '#return_value' => 'checkout',
+    ];
+    $form['check_in_out_wrapper']['checkout_wrapper']['checkout_time'] = [
       '#type' => 'datetime',
       '#date_date_element' => 'none',
       '#date_time_element' => 'time',
       '#default_value' => new DrupalDateTime('now'),
     ];
     // Hours & Miles.
-    $form['hours_wrapper'] = [
-      '#type' => 'container',
+    $form['hours_earned_lost_wrapper'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Hours'),
     ];
-    $form['hours_wrapper']['hours'] = [
+    $form['hours_earned_lost_wrapper']['hours_earned_wrapper'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => ['container-inline'],
+      ],
+    ];
+    $form['hours_earned_lost_wrapper']['hours_earned_wrapper']['earned'] = [
+      '#type' => 'radio',
+      '#required' => TRUE,
+      '#title' => $this->t('Earned'),
+      '#parents' => ['hours_earned_lost_wrapper'],
+      '#return_value' => 'hours_earned',
+    ];
+    $form['hours_earned_lost_wrapper']['hours_earned_wrapper']['hours_earned'] = [
       '#type' => 'number',
       '#default_value' => 0,
-      '#title' => $this->t('Hours'),
-      '#description' => $this->t('Hours Lost / Earned'),
+      '#title' => $this->t('Hours earned'),
+      '#title_display' => 'invisible'
     ];
-    $form['hours_wrapper']['earned_lost'] = [
-      '#type' => 'radios',
-      '#required' => TRUE,
-      '#options' => [
-        'earned' => $this->t('Earned'),
-        'lost' => $this->t('Lost'),
+    $form['hours_earned_lost_wrapper']['hours_lost_wrapper'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => ['container-inline'],
       ],
+    ];
+    $form['hours_earned_lost_wrapper']['hours_lost_wrapper']['lost'] = [
+      '#type' => 'radio',
+      '#required' => TRUE,
+      '#title' => $this->t('Lost'),
+      '#parents' => ['hours_earned_lost_wrapper'],
+      '#return_value' => 'hours_lost',
+    ];
+    $form['hours_earned_lost_wrapper']['hours_lost_wrapper']['hours_lost'] = [
+      '#type' => 'number',
+      '#default_value' => 0,
+      '#title' => $this->t('Hours lost'),
+      '#title_display' => 'invisible'
     ];
     $form['miles_wrapper'] = [
       '#type' => 'container',
@@ -247,6 +300,19 @@ final class CheckInOut extends FormBase {
       ->add([
       'class' => $form_state->getValue('class')
     ]);
+    // Create node
+    Node::create([
+      'type' => 'attendance_record',
+      'field_class_name' => $form_state->getValue('class'),
+      'field_checkin_time' => $form_state->getValue('date'),
+      'field_hours_earned' => $form_state->getValue('hours_earned'),
+      'field_hours_lost' => $form_state->getValue('hours_lost'),
+      'field_miles_ridden' => $form_state->getValue('miles'),
+      'body' => $form_state->getValue('notes'),
+      'field_students' => $form_state->getValue('students'),
+      'field_time_in' => $form_state->getValue('checkin_time')->format('U'),
+      'field_time_out' => $form_state->getValue('checkout_time')->format('U'),
+    ])->save();
   }
 
 }
