@@ -10,6 +10,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Provides a NBW tools form (Check In/Check Out).
@@ -22,10 +23,17 @@ final class CheckInOut extends FormBase {
   protected $entityTypeManager;
 
   /**
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   * @var \Symfony\Component\HttpFoundation\RequestStack
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager) {
+  protected $requestStack;
+
+  /**
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
+   */
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, RequestStack $requestStack) {
     $this->entityTypeManager = $entityTypeManager;
+    $this->requestStack = $requestStack;
   }
 
   /**
@@ -35,7 +43,8 @@ final class CheckInOut extends FormBase {
     // Instantiates this form class.
     return new static(
     // Load the service required to construct this class.
-      $container->get('entity_type.manager')
+      $container->get('entity_type.manager'),
+      $container->get('request_stack')
     );
   }
 
@@ -69,6 +78,7 @@ final class CheckInOut extends FormBase {
       '#empty_option' => $this->t('- Select -'),
       '#empty_value' => '',
       '#options' => $class_list,
+      '#default_value' => $this->requestStack->getCurrentRequest()->query->get('class'),
       '#ajax' => [
         'callback' => '::ajaxStudents',
         'wrapper' => 'students-container',
@@ -79,10 +89,18 @@ final class CheckInOut extends FormBase {
       '#type' => 'container',
       '#attributes' => ['id' => 'students-container'],
     ];
-    $form['students_container']['students'] = [
-      '#markup' => $this->t('Please select a class.'),
-    ];
-    $selected_class = $form_state->getValue('class');
+    if ($form_state->hasValue('class')) {
+      $selected_class = $form_state->getValue('class');
+    }
+    elseif ($this->requestStack->getCurrentRequest()->query->has('class')) {
+      $selected_class = $this->requestStack
+        ->getCurrentRequest()
+        ->query
+        ->get('class');
+    }
+    else {
+      $selected_class = NULL;
+    }
     if ($selected_class !== NULL) {
       $form['students_container']['students_select_all'] = [
         '#type' => 'button',
@@ -112,6 +130,12 @@ final class CheckInOut extends FormBase {
         $name = implode(' ', $name);
         $form['students_container']['students']['#options'][$student->id()] = $name;
       }
+    }
+    else {
+      // Class not selected / prepopulated.
+      $form['students_container']['students'] = [
+        '#markup' => $this->t('Please select a class.'),
+      ];
     }
     // Date
     $form['date'] = [
@@ -216,7 +240,13 @@ final class CheckInOut extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
-    $aaaaaaaaaaaaaaaaaaaaaaaaa = 'a'; // TODO: DEBUG Breakpoint!
+    // Prepopulate class
+    $this->requestStack
+      ->getCurrentRequest()
+      ->query
+      ->add([
+      'class' => $form_state->getValue('class')
+    ]);
   }
 
 }
