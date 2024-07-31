@@ -2,6 +2,9 @@
   "patches": {
     "drupal/page_manager": {
       "#3455521-2: Fatal error: Declaration of PageBlockDisplayVariant::__sleep() must be compatible with BlockDisplayVariant::__sleep()": "https://www.drupal.org/files/issues/2024-06-18/3455521.0.patch"
+    },
+    "drupal/add_content_modal": {
+      "#3464808-2 - Fatal error, if module not configured": "https://www.drupal.org/files/issues/2024-07-31/3464808-2.patch"
     }
   }
 }

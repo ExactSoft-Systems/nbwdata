@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e00d672f2d8df386b37229bca89caf70",
+    "content-hash": "3d952b92158b61f92900dcfab8de6c88",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1821,6 +1821,50 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/add_content_by_bundle",
                 "issues": "https://www.drupal.org/project/issues/add_content_by_bundle"
+            }
+        },
+        {
+            "name": "drupal/add_content_modal",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/add_content_modal.git",
+                "reference": "1.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/add_content_modal-1.0.2.zip",
+                "reference": "1.0.2",
+                "shasum": "2ea5ca6c150e1100819a642be824b8bc60873bf9"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.2",
+                    "datestamp": "1666611216",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Mschudders",
+                    "homepage": "https://www.drupal.org/user/1314320"
+                }
+            ],
+            "description": "Allows to manage(add, edit, delete, translate) content in a modal (configurable which content types)",
+            "homepage": "https://www.drupal.org/project/add_content_modal",
+            "support": {
+                "source": "https://git.drupalcode.org/project/add_content_modal"
             }
         },
         {
