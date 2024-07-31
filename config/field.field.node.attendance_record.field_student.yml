@@ -1,12 +1,12 @@
-uuid: a0dc7a80-1fab-4e1f-8db4-5b9c5d208d7f
+uuid: 779204d6-e85d-42ea-bce2-dcb3b611c645
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_students
+    - field.storage.node.field_student
     - node.type.attendance_record
-id: node.attendance_record.field_students
-field_name: field_students
+id: node.attendance_record.field_student
+field_name: field_student
 entity_type: node
 bundle: attendance_record
 label: Student

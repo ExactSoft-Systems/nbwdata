@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.attendance_record.field_hours_earned
     - field.field.node.attendance_record.field_hours_lost
     - field.field.node.attendance_record.field_miles_ridden
-    - field.field.node.attendance_record.field_students
+    - field.field.node.attendance_record.field_student
     - field.field.node.attendance_record.field_time_in
     - field.field.node.attendance_record.field_time_out
     - node.type.attendance_record
@@ -60,7 +60,7 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_students:
+  field_student:
     type: entity_reference_autocomplete
     weight: 4
     region: content

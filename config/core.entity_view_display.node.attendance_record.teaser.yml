@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.attendance_record.field_hours_earned
     - field.field.node.attendance_record.field_hours_lost
     - field.field.node.attendance_record.field_miles_ridden
-    - field.field.node.attendance_record.field_students
+    - field.field.node.attendance_record.field_student
     - field.field.node.attendance_record.field_time_in
     - field.field.node.attendance_record.field_time_out
     - node.type.attendance_record
@@ -44,7 +44,7 @@ hidden:
   field_hours_earned: true
   field_hours_lost: true
   field_miles_ridden: true
-  field_students: true
+  field_student: true
   field_time_in: true
   field_time_out: true
   search_api_excerpt: true

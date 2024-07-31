@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.graduation_record.body
     - field.field.node.graduation_record.field_class_name
     - field.field.node.graduation_record.field_graduation_date
-    - field.field.node.graduation_record.field_students
+    - field.field.node.graduation_record.field_student
     - node.type.graduation_record
   module:
     - datetime
@@ -41,7 +41,7 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_students:
+  field_student:
     type: entity_reference_label
     label: above
     settings:
@@ -54,3 +54,4 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   links: true
+  search_api_excerpt: true
