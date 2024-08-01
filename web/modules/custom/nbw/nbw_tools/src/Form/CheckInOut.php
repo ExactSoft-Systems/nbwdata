@@ -64,6 +64,7 @@ final class CheckInOut extends FormBase {
       ->getStorage('node')
       ->getQuery();
     $query->condition('type', 'class_roster');
+    $query->condition('status', 1);
     $query->sort('field_class_name.entity:node.title');
     $node_classes = Node::loadMultiple($query->accessCheck(TRUE)
       ->execute());
@@ -300,19 +301,23 @@ final class CheckInOut extends FormBase {
       ->add([
       'class' => $form_state->getValue('class')
     ]);
-    // Create node
-    Node::create([
-      'type' => 'attendance_record',
-      'field_class_name' => $form_state->getValue('class'),
-      'field_checkin_time' => $form_state->getValue('date'),
-      'field_hours_earned' => $form_state->getValue('hours_earned'),
-      'field_hours_lost' => $form_state->getValue('hours_lost'),
-      'field_miles_ridden' => $form_state->getValue('miles'),
-      'body' => $form_state->getValue('notes'),
-      'field_students' => $form_state->getValue('students'),
-      'field_time_in' => $form_state->getValue('checkin_time')->format('U'),
-      'field_time_out' => $form_state->getValue('checkout_time')->format('U'),
-    ])->save();
+    // Create nodes
+    $class_roster = Node::load($form_state->getValue('class'));
+    foreach ($form_state->getValue('students') as $student_uid) {
+      if ($student_uid != 0) {
+        Node::create([
+          'type' => 'attendance_record',
+          'field_class_name' => $class_roster->field_class_name->target_id,
+          'field_checkin_time' => $form_state->getValue('date'),
+          'field_hours_earned' => $form_state->getValue('hours_earned'),
+          'field_hours_lost' => $form_state->getValue('hours_lost'),
+          'field_miles_ridden' => $form_state->getValue('miles'),
+          'body' => $form_state->getValue('notes'),
+          'field_student' => $student_uid,
+          'field_time_in' => $form_state->getValue('checkin_time')->format('U'),
+          'field_time_out' => $form_state->getValue('checkout_time')->format('U'),
+        ])->save();
+      }
+    }
   }
-
 }
