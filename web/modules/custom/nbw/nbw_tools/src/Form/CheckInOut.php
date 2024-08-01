@@ -11,6 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Provides a NBW tools form (Check In/Check Out).
@@ -122,6 +123,9 @@ final class CheckInOut extends FormBase {
         '#options' => [],
       ];
       $class_registration = Node::load($selected_class);
+      if (!$class_registration || $class_registration->getType() !== 'class_roster') {
+        throw new NotFoundHttpException();
+      }
       foreach ($class_registration->field_students->referencedEntities() as $student) {
         $name = [
           $student->field_address->given_name,
