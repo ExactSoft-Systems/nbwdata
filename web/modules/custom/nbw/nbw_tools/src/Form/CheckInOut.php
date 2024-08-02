@@ -60,6 +60,7 @@ final class CheckInOut extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
+    $triggering_element = $form_state->getTriggeringElement();
     // Classes.
     $query = $this->entityTypeManager
       ->getStorage('node')
@@ -116,11 +117,9 @@ final class CheckInOut extends FormBase {
         ],
       ];
       $form['students_container']['students'] = [
-        '#type' => 'checkboxes',
-        '#required' => TRUE,
+        '#type' => 'fieldset',
         '#title' => $this->t('Students'),
-        '#default_value' => [],
-        '#options' => [],
+        '#tree' => TRUE,
       ];
       $class_registration = Node::load($selected_class);
       if (!$class_registration || $class_registration->getType() !== 'class_roster') {
@@ -133,7 +132,18 @@ final class CheckInOut extends FormBase {
           $student->field_address->additional_name,
         ];
         $name = implode(' ', $name);
-        $form['students_container']['students']['#options'][$student->id()] = $name;
+        $form['students_container']['students'][$student->id()] = [
+          '#type' => 'checkbox',
+          '#title' => $name,
+          '#disabled' => FALSE,
+        ];
+        if (isset($triggering_element['#internal_id'])
+          && $triggering_element['#internal_id'] === 'students_select_all'
+          && !$form['students_container']['students'][$student->id()]['#disabled'])
+        {
+          // TODO: Workaround, see: https://www.drupal.org/project/drupal/issues/1100170#comment-15586080
+          $form['students_container']['students'][$student->id()]['#attributes']['checked'] = 'checked';
+        }
       }
     }
     else {
@@ -268,13 +278,6 @@ final class CheckInOut extends FormBase {
    * Return with students container.
    */
   public function ajaxStudents($form, FormStateInterface $form_state) {
-    $triggering_element = $form_state->getTriggeringElement();
-    if (isset($triggering_element['#internal_id']) && $triggering_element['#internal_id'] === 'students_select_all') {
-      // TODO: Workaround, see: https://www.drupal.org/project/drupal/issues/1100170#comment-15586080
-      foreach ($form['students_container']['students']['#options'] as $key => $student) {
-        $form['students_container']['students'][$key]['#attributes']['checked'] = 'checked';
-      }
-    }
     return $form['students_container'];
   }
 
@@ -282,16 +285,20 @@ final class CheckInOut extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state): void {
-    // @todo Validate the form here.
-    // Example:
-    // @code
-    //   if (mb_strlen($form_state->getValue('message')) < 10) {
-    //     $form_state->setErrorByName(
-    //       'message',
-    //       $this->t('Message should be at least 10 characters.'),
-    //     );
-    //   }
-    // @endcode
+    $triggering_element = $form_state->getTriggeringElement();
+    if ($triggering_element['#type'] === 'submit') {
+      // Check students list.
+      $empty_students = TRUE;
+      foreach ($form_state->getValue('students') as $item) {
+        if ($item) {
+          $empty_students = FALSE;
+          break;
+        }
+      }
+      if ($empty_students) {
+        $form_state->setErrorByName('students', 'Students should not be empty.');
+      }
+    }
   }
 
   /**
@@ -307,8 +314,8 @@ final class CheckInOut extends FormBase {
     ]);
     // Create nodes
     $class_roster = Node::load($form_state->getValue('class'));
-    foreach ($form_state->getValue('students') as $student_uid) {
-      if ($student_uid != 0) {
+    foreach ($form_state->getValue('students') as $student_uid => $value) {
+      if ($value != 0) {
         Node::create([
           'type' => 'attendance_record',
           'field_class_name' => $class_roster->field_class_name->target_id,
