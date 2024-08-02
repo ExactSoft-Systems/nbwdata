@@ -550,7 +550,7 @@ display:
           id: nid
           table: node_field_data
           field: nid
-          relationship: field_class_name_1
+          relationship: reverse__node__field_class_name
           group_type: group
           admin_label: ''
           entity_type: node
@@ -681,6 +681,16 @@ display:
           group_type: group
           admin_label: 'field_class_name: Content'
           plugin_id: standard
+          required: true
+        reverse__node__field_class_name:
+          id: reverse__node__field_class_name
+          table: node_field_data
+          field: reverse__node__field_class_name
+          relationship: field_class_name_1
+          group_type: group
+          admin_label: 'field_class_name (roster)'
+          entity_type: node
+          plugin_id: entity_reverse
           required: true
       header: {  }
       footer: {  }
