@@ -619,7 +619,7 @@ display:
             max: ''
             value: now
             type: date
-            granularity: month
+            granularity: day
           group: 1
           exposed: false
           expose:
