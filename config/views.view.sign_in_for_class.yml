@@ -253,7 +253,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Body
+          label: Notes
           exclude: false
           alter:
             alter_text: false
