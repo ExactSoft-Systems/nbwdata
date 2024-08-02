@@ -206,7 +206,7 @@ final class CheckInOut extends FormBase {
     ];
     $form['hours_earned_lost_wrapper']['hours_earned_wrapper']['earned'] = [
       '#type' => 'radio',
-      '#required' => TRUE,
+      '#required' => FALSE,
       '#title' => $this->t('Earned'),
       '#parents' => ['hours_earned_lost_wrapper'],
       '#return_value' => 'hours_earned',
@@ -225,7 +225,7 @@ final class CheckInOut extends FormBase {
     ];
     $form['hours_earned_lost_wrapper']['hours_lost_wrapper']['lost'] = [
       '#type' => 'radio',
-      '#required' => TRUE,
+      '#required' => FALSE,
       '#title' => $this->t('Lost'),
       '#parents' => ['hours_earned_lost_wrapper'],
       '#return_value' => 'hours_lost',
