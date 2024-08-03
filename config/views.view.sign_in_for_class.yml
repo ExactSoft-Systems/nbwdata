@@ -566,7 +566,7 @@ display:
           default_argument_type: query_parameter
           default_argument_options:
             query_param: class
-            fallback: ''
+            fallback: fallback_value
             multiple: and
           summary_options:
             base_path: ''
