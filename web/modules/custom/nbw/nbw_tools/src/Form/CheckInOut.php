@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Drupal\nbw_tools\Form;
 
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
@@ -84,7 +86,6 @@ final class CheckInOut extends FormBase {
       '#default_value' => $this->requestStack->getCurrentRequest()->query->get('class'),
       '#ajax' => [
         'callback' => '::ajaxStudents',
-        'wrapper' => 'students-container',
       ],
     ];
     // Students.
@@ -278,7 +279,16 @@ final class CheckInOut extends FormBase {
    * Return with students container.
    */
   public function ajaxStudents($form, FormStateInterface $form_state) {
-    return $form['students_container'];
+    $rebuild_view = [
+      '#type' => 'view',
+      '#name' => 'sign_in_for_class',
+      '#display_id' => 'block_1',
+      '#arguments' => [$form_state->getValue('class')],
+    ];
+    $ajax_response = new AjaxResponse();
+    $ajax_response->addCommand(new ReplaceCommand('#students-container', $form['students_container']));
+    $ajax_response->addCommand(new ReplaceCommand('#view-sign-in-for-class-result-wrapper', $rebuild_view));
+    return $ajax_response;
   }
 
   /**

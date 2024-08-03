@@ -30,3 +30,12 @@ function nbw_tools_theme_suggestions_views_view_field(array $variables) {
   $suggestions[] = 'views_view_field__' . $variables['field']->field;
   return $suggestions;
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function nbw_tools_theme_suggestions_views_view(array $variables) {
+  $suggestions = [];
+  $suggestions[] = 'views_view__' . $variables['view']->id();
+  return $suggestions;
+}
