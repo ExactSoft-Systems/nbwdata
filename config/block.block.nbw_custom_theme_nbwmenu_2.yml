@@ -1,0 +1,25 @@
+uuid: bc9b2ba5-bf71-4b33-ab96-76301e8210e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.nbw-menu
+  module:
+    - system
+  theme:
+    - nbw_custom_theme
+id: nbw_custom_theme_nbwmenu_2
+theme: nbw_custom_theme
+region: sidebar
+weight: -8
+provider: null
+plugin: 'system_menu_block:nbw-menu'
+settings:
+  id: 'system_menu_block:nbw-menu'
+  label: 'NBW Menu'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }
