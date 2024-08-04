@@ -11,6 +11,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -136,7 +137,7 @@ final class CheckInOut extends FormBase {
         $form['students_container']['students'][$student->id()] = [
           '#type' => 'checkbox',
           '#title' => $name,
-          '#disabled' => FALSE,
+          '#disabled' => $this->studentCheckInOutAlreadyTest($class_roster, $student, 'checkin'),
         ];
         if (isset($triggering_element['#internal_id'])
           && $triggering_element['#internal_id'] === 'students_select_all'
@@ -347,5 +348,52 @@ final class CheckInOut extends FormBase {
         Node::create($node_values)->save();
       }
     }
+  }
+
+  /**
+   * Check if the student has already applied to the roster?
+   *
+   * @param \Drupal\node\Entity\Node $class_roster
+   *   Class roster node object. (type = class_roster)
+   * @param \Drupal\user\Entity\User $student
+   *   Student account object.
+   * @param $type
+   *   "checkin", "checkout" or "both"
+   * @param $date
+   *   Date to check (Y-m-d format), or NULL to use current day.
+   *
+   * @return bool|NULL
+   *   - TRUE, if student checked in or checked out
+   *   - NULL: error
+   */
+  private function studentCheckInOutAlreadyTest(Node $class_roster, User $student, string $type, string $date = NULL) : ?bool {
+    if (!$date) {
+      $date = date('Y-m-d');
+    }
+    if ($class_roster->getType() !== 'class_roster') {
+      return NULL;
+    }
+    $query = $this->entityTypeManager
+      ->getStorage('node')
+      ->getQuery();
+    $query->condition('type', 'attendance_record');
+    $query->condition('field_checkin_time', $date);
+    $query->condition('field_class_name', $class_roster->field_class_name->target_id);
+    $query->condition('field_student', $student->id());
+    $query->condition('status', 1);
+    switch ($type) {
+      case 'checkin':
+        $query->exists('field_time_in');
+        break;
+      case 'checkout':
+        $query->exists('field_time_out');
+        break;
+      case 'both':
+        $query->exists('field_time_in');
+        $query->exists('field_time_out');
+        break;
+    }
+    $attendance_record_ids = $query->accessCheck(TRUE)->execute();
+    return !empty($attendance_record_ids);
   }
 }
