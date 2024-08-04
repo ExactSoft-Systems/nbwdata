@@ -64,7 +64,7 @@ final class CheckInOut extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
     $triggering_element = $form_state->getTriggeringElement();
-    // Classes.
+    // Get classes.
     $query = $this->entityTypeManager
       ->getStorage('node')
       ->getQuery();
@@ -89,7 +89,7 @@ final class CheckInOut extends FormBase {
         'callback' => '::ajaxStudents',
       ],
     ];
-    // Students.
+    // Get students.
     $form['students_container'] = [
       '#type' => 'container',
       '#attributes' => ['id' => 'students-container'],
@@ -98,6 +98,7 @@ final class CheckInOut extends FormBase {
       $sclass_roster_id = $form_state->getValue('class');
     }
     elseif ($this->requestStack->getCurrentRequest()->query->has('class')) {
+      // Get prepopulated class roster ID.
       $sclass_roster_id = $this->requestStack
         ->getCurrentRequest()
         ->query
@@ -128,6 +129,7 @@ final class CheckInOut extends FormBase {
         throw new NotFoundHttpException();
       }
       foreach ($class_roster->field_students->referencedEntities() as $student) {
+        // Create student real name.
         $name = [
           $student->field_address->given_name,
           $student->field_address->family_name,
@@ -149,6 +151,7 @@ final class CheckInOut extends FormBase {
           && $triggering_element['#internal_id'] === 'students_select_all'
           && !$form['students_container']['students'][$student->id()]['#disabled'])
         {
+          // Set check value for current student checkbox.
           // TODO: Workaround, see: https://www.drupal.org/project/drupal/issues/1100170#comment-15586080
           $form['students_container']['students'][$student->id()]['#attributes']['checked'] = 'checked';
         }
@@ -299,6 +302,7 @@ final class CheckInOut extends FormBase {
       '#arguments' => [$form_state->getValue('class')],
     ];
     $ajax_response = new AjaxResponse();
+    // Refresh student checkboxes and result set view.
     $ajax_response->addCommand(new ReplaceCommand('#students-container', $form['students_container']));
     $ajax_response->addCommand(new ReplaceCommand('#view-sign-in-for-class-result-wrapper', $rebuild_view));
     return $ajax_response;
@@ -319,6 +323,7 @@ final class CheckInOut extends FormBase {
         }
       }
       if ($empty_students) {
+        // At least one student is required.
         $form_state->setErrorByName('students', 'Students should not be empty.');
       }
     }
