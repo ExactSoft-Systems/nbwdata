@@ -94,18 +94,18 @@ final class CheckInOut extends FormBase {
       '#attributes' => ['id' => 'students-container'],
     ];
     if ($form_state->hasValue('class')) {
-      $selected_class = $form_state->getValue('class');
+      $sclass_roster_id = $form_state->getValue('class');
     }
     elseif ($this->requestStack->getCurrentRequest()->query->has('class')) {
-      $selected_class = $this->requestStack
+      $sclass_roster_id = $this->requestStack
         ->getCurrentRequest()
         ->query
         ->get('class');
     }
     else {
-      $selected_class = NULL;
+      $sclass_roster_id = NULL;
     }
-    if ($selected_class !== NULL) {
+    if ($sclass_roster_id !== NULL) {
       $form['students_container']['students_select_all'] = [
         '#type' => 'button',
         '#value' => $this->t('Select All'),
@@ -122,11 +122,11 @@ final class CheckInOut extends FormBase {
         '#title' => $this->t('Students'),
         '#tree' => TRUE,
       ];
-      $class_registration = Node::load($selected_class);
-      if (!$class_registration || $class_registration->getType() !== 'class_roster') {
+      $class_roster = Node::load($sclass_roster_id);
+      if (!$class_roster || $class_roster->getType() !== 'class_roster') {
         throw new NotFoundHttpException();
       }
-      foreach ($class_registration->field_students->referencedEntities() as $student) {
+      foreach ($class_roster->field_students->referencedEntities() as $student) {
         $name = [
           $student->field_address->given_name,
           $student->field_address->family_name,
