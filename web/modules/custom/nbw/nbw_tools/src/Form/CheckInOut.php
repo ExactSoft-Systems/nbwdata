@@ -326,7 +326,7 @@ final class CheckInOut extends FormBase {
     $class_roster = Node::load($form_state->getValue('class'));
     foreach ($form_state->getValue('students') as $student_uid => $value) {
       if ($value != 0) {
-        Node::create([
+        $node_values = [
           'type' => 'attendance_record',
           'field_class_name' => $class_roster->field_class_name->target_id,
           'field_checkin_time' => $form_state->getValue('date'),
@@ -335,9 +335,16 @@ final class CheckInOut extends FormBase {
           'field_miles_ridden' => $form_state->getValue('miles'),
           'body' => $form_state->getValue('notes'),
           'field_student' => $student_uid,
-          'field_time_in' => $form_state->getValue('checkin_time')->format('U'),
-          'field_time_out' => $form_state->getValue('checkout_time')->format('U'),
-        ])->save();
+        ];
+        if ($form_state->getValue('check_in_out_wrapper') === 'checkin') {
+          // checkin
+          $node_values['field_time_in'] = $form_state->getValue('checkin_time')->format('U');
+        }
+        else {
+          // checkout
+          $node_values['field_time_out'] = $form_state->getValue('checkout_time')->format('U');
+        }
+        Node::create($node_values)->save();
       }
     }
   }
