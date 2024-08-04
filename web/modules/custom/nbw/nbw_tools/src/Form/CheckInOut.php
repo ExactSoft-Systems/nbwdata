@@ -134,10 +134,16 @@ final class CheckInOut extends FormBase {
           $student->field_address->additional_name,
         ];
         $name = implode(' ', $name);
+        // Change "checkin" <-> "checkout" radios, get radiobutton value
+        $checkin_out_type = $form_state->getCompleteForm()['check_in_out_wrapper']['checkin_wrapper']['checkin']['#value'];
+        if (!$checkin_out_type) {
+          // default value
+          $checkin_out_type = 'checkin';
+        }
         $form['students_container']['students'][$student->id()] = [
           '#type' => 'checkbox',
           '#title' => $name,
-          '#disabled' => $this->studentCheckInOutAlreadyTest($class_roster, $student, 'checkin'),
+          '#disabled' => $this->studentCheckInOutAlreadyTest($class_roster, $student, $checkin_out_type),
         ];
         if (isset($triggering_element['#internal_id'])
           && $triggering_element['#internal_id'] === 'students_select_all'
@@ -179,6 +185,9 @@ final class CheckInOut extends FormBase {
       '#title' => $this->t('Check In'),
       '#parents' => ['check_in_out_wrapper'],
       '#return_value' => 'checkin',
+      '#ajax' => [
+        'callback' => '::ajaxStudents',
+      ],
     ];
     $form['check_in_out_wrapper']['checkin_wrapper']['checkin_time'] = [
       '#type' => 'datetime',
@@ -198,6 +207,9 @@ final class CheckInOut extends FormBase {
       '#title' => $this->t('Check Out'),
       '#parents' => ['check_in_out_wrapper'],
       '#return_value' => 'checkout',
+      '#ajax' => [
+        'callback' => '::ajaxStudents',
+      ],
     ];
     $form['check_in_out_wrapper']['checkout_wrapper']['checkout_time'] = [
       '#type' => 'datetime',
