@@ -129,8 +129,11 @@ final class CheckInOut extends FormBase {
         throw new NotFoundHttpException();
       }
       // Change "checkin" <-> "checkout" radios, get radiobutton value
-      $checkin_out_type = $form_state->getCompleteForm()['check_in_out_wrapper']['checkin_wrapper']['checkin']['#value'];
-      if (!$checkin_out_type) {
+      $complete_form = $form_state->getCompleteForm();
+      if ($complete_form) {
+        $checkin_out_type = $complete_form['check_in_out_wrapper']['checkin_wrapper']['checkin']['#value'];
+      }
+      else {
         // default value
         $checkin_out_type = 'checkin';
       }
@@ -351,25 +354,30 @@ final class CheckInOut extends FormBase {
     $class_roster = Node::load($form_state->getValue('class'));
     foreach ($form_state->getValue('students') as $student_uid => $value) {
       if ($value != 0) {
-        $node_values = [
-          'type' => 'attendance_record',
-          'field_class_name' => $class_roster->field_class_name->target_id,
-          'field_checkin_time' => $form_state->getValue('date'),
-          'field_hours_earned' => $form_state->getValue('hours_earned'),
-          'field_hours_lost' => $form_state->getValue('hours_lost'),
-          'field_miles_ridden' => $form_state->getValue('miles'),
-          'body' => $form_state->getValue('notes'),
-          'field_student' => $student_uid,
-        ];
         if ($form_state->getValue('check_in_out_wrapper') === 'checkin') {
-          // checkin
-          $node_values['field_time_in'] = $form_state->getValue('checkin_time')->format('U');
+          // Check in, create new "attendance_record" node.
+          $node_values = [
+            'type' => 'attendance_record',
+            'field_class_name' => $class_roster->field_class_name->target_id,
+            'field_checkin_time' => $form_state->getValue('date'),
+            'field_hours_earned' => $form_state->getValue('hours_earned'),
+            'field_hours_lost' => $form_state->getValue('hours_lost'),
+            'field_miles_ridden' => $form_state->getValue('miles'),
+            'body' => $form_state->getValue('notes'),
+            'field_student' => $student_uid,
+            'field_time_in' => $form_state->getValue('checkin_time')->format('U'),
+          ];
+          Node::create($node_values)->save();
         }
         else {
-          // checkout
-          $node_values['field_time_out'] = $form_state->getValue('checkout_time')->format('U');
+          // check out, get corresponding 'attendance_record' node.
+          $student = User::load($student_uid);
+          $attendance_record = $this->getAttendanceRecord($class_roster, $student);
+          if ($attendance_record) {
+            $attendance_record->field_time_out = $form_state->getValue('checkout_time')->format('U');
+            $attendance_record->save();
+          }
         }
-        Node::create($node_values)->save();
       }
     }
   }
