@@ -128,7 +128,20 @@ final class CheckInOut extends FormBase {
       if (!$class_roster || $class_roster->getType() !== 'class_roster') {
         throw new NotFoundHttpException();
       }
+      // Change "checkin" <-> "checkout" radios, get radiobutton value
+      $checkin_out_type = $form_state->getCompleteForm()['check_in_out_wrapper']['checkin_wrapper']['checkin']['#value'];
+      if (!$checkin_out_type) {
+        // default value
+        $checkin_out_type = 'checkin';
+      }
       foreach ($class_roster->field_students->referencedEntities() as $student) {
+        if ($checkin_out_type === 'checkout') {
+          $attendance_record = $this->getAttendanceRecord($class_roster, $student);
+          if (!$attendance_record) {
+            // If you are not check in, you cannot check out.
+            continue;
+          }
+        }
         // Create student real name.
         $name = [
           $student->field_address->given_name,
@@ -136,12 +149,6 @@ final class CheckInOut extends FormBase {
           $student->field_address->additional_name,
         ];
         $name = implode(' ', $name);
-        // Change "checkin" <-> "checkout" radios, get radiobutton value
-        $checkin_out_type = $form_state->getCompleteForm()['check_in_out_wrapper']['checkin_wrapper']['checkin']['#value'];
-        if (!$checkin_out_type) {
-          // default value
-          $checkin_out_type = 'checkin';
-        }
         $form['students_container']['students'][$student->id()] = [
           '#type' => 'checkbox',
           '#title' => $name,
