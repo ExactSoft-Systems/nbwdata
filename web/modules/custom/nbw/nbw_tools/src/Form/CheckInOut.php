@@ -384,6 +384,44 @@ final class CheckInOut extends FormBase {
    *   - NULL: error
    */
   private function studentCheckInOutAlreadyTest(Node $class_roster, User $student, string $type, string $date = NULL) : ?bool {
+    $attendance_record = $this->getAttendanceRecord($class_roster, $student, $date);
+    if ($attendance_record) {
+      $query = $this->entityTypeManager
+        ->getStorage('node')
+        ->getQuery();
+      $query->condition('nid', $attendance_record->id());
+      switch ($type) {
+        case 'checkin':
+          $query->exists('field_time_in');
+          break;
+        case 'checkout':
+          $query->exists('field_time_out');
+          break;
+        case 'both':
+          $query->exists('field_time_in');
+          $query->exists('field_time_out');
+          break;
+      }
+      $attendance_record_ids = $query->accessCheck(TRUE)->execute();
+      return !empty($attendance_record_ids);
+    }
+    return NULL;
+  }
+
+  /**
+   * Get corresponding attendance_record node.
+   *
+   * @param \Drupal\node\Entity\Node $class_roster
+   *   Class roster node object. (type = class_roster)
+   * @param \Drupal\user\Entity\User $student
+   *   Student account object.
+   * @param $date
+   *   Date to check (Y-m-d format), or NULL to use current day.
+   *
+   * * @return \Drupal\node\Entity\Node|NULL
+   *   - Corresponding attendance_record, if available, or NULL.
+   */
+  private function getAttendanceRecord(Node $class_roster, User $student, string $date = NULL) : ?Node {
     if (!$date) {
       $date = date('Y-m-d');
     }
@@ -398,19 +436,12 @@ final class CheckInOut extends FormBase {
     $query->condition('field_class_name', $class_roster->field_class_name->target_id);
     $query->condition('field_student', $student->id());
     $query->condition('status', 1);
-    switch ($type) {
-      case 'checkin':
-        $query->exists('field_time_in');
-        break;
-      case 'checkout':
-        $query->exists('field_time_out');
-        break;
-      case 'both':
-        $query->exists('field_time_in');
-        $query->exists('field_time_out');
-        break;
+    $result = $query->accessCheck(TRUE)->execute();
+    if ($result) {
+      return current(Node::loadMultiple($result));
     }
-    $attendance_record_ids = $query->accessCheck(TRUE)->execute();
-    return !empty($attendance_record_ids);
+    else {
+      return NULL;
+    }
   }
 }
