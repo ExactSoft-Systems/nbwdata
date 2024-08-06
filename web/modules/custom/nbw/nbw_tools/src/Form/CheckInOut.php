@@ -360,10 +360,6 @@ final class CheckInOut extends FormBase {
             'type' => 'attendance_record',
             'field_class_name' => $class_roster->field_class_name->target_id,
             'field_checkin_time' => $form_state->getValue('date'),
-            'field_hours_earned' => $form_state->getValue('hours_earned'),
-            'field_hours_lost' => $form_state->getValue('hours_lost'),
-            'field_miles_ridden' => $form_state->getValue('miles'),
-            'body' => $form_state->getValue('notes'),
             'field_student' => $student_uid,
             'field_time_in' => $form_state->getValue('checkin_time')->format('U'),
           ];
@@ -375,6 +371,10 @@ final class CheckInOut extends FormBase {
           $attendance_record = $this->getAttendanceRecord($class_roster, $student);
           if ($attendance_record) {
             $attendance_record->field_time_out = $form_state->getValue('checkout_time')->format('U');
+            $attendance_record->field_hours_earned = $form_state->getValue('hours_earned');
+            $attendance_record->field_hours_lost = $form_state->getValue('hours_lost');
+            $attendance_record->field_miles_ridden = $form_state->getValue('miles');
+            $attendance_record->body = $form_state->getValue('notes');
             $attendance_record->save();
           }
         }
