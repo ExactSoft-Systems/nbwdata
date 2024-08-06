@@ -107,7 +107,7 @@ final class CheckInOut extends FormBase {
     else {
       $sclass_roster_id = NULL;
     }
-    if ($sclass_roster_id !== NULL) {
+    if ($sclass_roster_id) {
       $form['students_container']['students_select_all'] = [
         '#type' => 'button',
         '#value' => $this->t('Select All'),
