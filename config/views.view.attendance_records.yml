@@ -6,6 +6,8 @@ dependencies:
     - field.storage.node.body
     - field.storage.node.field_checkin_time
     - field.storage.node.field_class_name
+    - field.storage.node.field_hours_earned
+    - field.storage.node.field_hours_lost
     - field.storage.node.field_time_in
     - field.storage.node.field_time_out
     - node.type.attendance_record
@@ -985,6 +987,138 @@ display:
           text: Edit
           output_url_as_text: false
           absolute: false
+        field_hours_earned:
+          id: field_hours_earned
+          table: node__field_hours_earned
+          field: field_hours_earned
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Hours Earned'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_decimal
+          settings:
+            thousand_separator: ''
+            decimal_separator: .
+            scale: 2
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_hours_lost:
+          id: field_hours_lost
+          table: node__field_hours_lost
+          field: field_hours_lost
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Hours Lost'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_decimal
+          settings:
+            thousand_separator: ''
+            decimal_separator: .
+            scale: 2
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: some
         options:
@@ -1059,6 +1193,8 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_checkin_time'
+        - 'config:field.storage.node.field_hours_earned'
+        - 'config:field.storage.node.field_hours_lost'
         - 'config:field.storage.node.field_time_in'
         - 'config:field.storage.node.field_time_out'
   page_1:
