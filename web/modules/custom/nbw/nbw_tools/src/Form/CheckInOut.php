@@ -237,7 +237,9 @@ final class CheckInOut extends FormBase {
     ];
     $form['hours_earned_lost_wrapper']['hours_earned_wrapper'] = [
       '#type' => 'container',
-      '#disabled' => TRUE,
+      '#attributes' => [
+        'disabled' => 'disabled', // Initially set as disabled using attributes.
+      ],
       '#states' => [
         'enabled' => [
           ':input[name="check_in_out_wrapper"]' => ['value' => 'checkout'],
@@ -246,23 +248,17 @@ final class CheckInOut extends FormBase {
       '#attributes' => [
         'class' => ['container-inline'],
       ],
-    ];
-    $form['hours_earned_lost_wrapper']['hours_earned_wrapper']['earned'] = [
-      '#type' => 'radio',
-      '#required' => FALSE,
-      '#title' => $this->t('Earned'),
-      '#parents' => ['hours_earned_lost_wrapper'],
-      '#return_value' => 'hours_earned',
     ];
     $form['hours_earned_lost_wrapper']['hours_earned_wrapper']['hours_earned'] = [
       '#type' => 'number',
       '#default_value' => 0,
       '#title' => $this->t('Hours earned'),
-      '#title_display' => 'invisible'
     ];
     $form['hours_earned_lost_wrapper']['hours_lost_wrapper'] = [
       '#type' => 'container',
-      '#disabled' => TRUE,
+      '#attributes' => [
+        'disabled' => 'disabled', // Initially set as disabled using attributes.
+      ],
       '#states' => [
         'enabled' => [
           ':input[name="check_in_out_wrapper"]' => ['value' => 'checkout'],
@@ -272,22 +268,18 @@ final class CheckInOut extends FormBase {
         'class' => ['container-inline'],
       ],
     ];
-    $form['hours_earned_lost_wrapper']['hours_lost_wrapper']['lost'] = [
-      '#type' => 'radio',
-      '#required' => FALSE,
-      '#title' => $this->t('Lost'),
-      '#parents' => ['hours_earned_lost_wrapper'],
-      '#return_value' => 'hours_lost',
-    ];
     $form['hours_earned_lost_wrapper']['hours_lost_wrapper']['hours_lost'] = [
       '#type' => 'number',
       '#default_value' => 0,
       '#title' => $this->t('Hours lost'),
-      '#title_display' => 'invisible'
     ];
     $form['miles_wrapper'] = [
-      '#type' => 'container',
-      '#disabled' => TRUE,
+      '#type' => 'fieldset',
+      '#title' => $this->t('Miles'),
+      //'#type' => 'container',
+      '#attributes' => [
+        'disabled' => 'disabled', // Initially set as disabled using attributes.
+      ],
       '#states' => [
         'enabled' => [
           ':input[name="check_in_out_wrapper"]' => ['value' => 'checkout'],
@@ -297,21 +289,30 @@ final class CheckInOut extends FormBase {
     $form['miles_wrapper']['miles'] = [
       '#type' => 'number',
       '#default_value' => 0,
-      '#title' => $this->t('Miles'),
-      '#description' => $this->t('Miles Reidden'),
+      //'#title' => $this->t('Miles'),
+      '#description' => $this->t('Miles Ridden'),
     ];
     // Notes & Submit.
-    $form['notes'] = [
-      '#type' => 'textarea',
-      '#required' => FALSE,
-      '#disabled' => TRUE,
+    $form['notes_wrapper'] = [
+      '#type' => 'fieldset',
       '#title' => $this->t('Notes'),
-      '#cols' => 60,
-      '#rows' => 5,
+      '#attributes' => [
+        'disabled' => 'disabled', // Initially set as disabled using attributes.
+        'class' => ['notes-fieldset'], // Add a custom class.
+      ],
       '#states' => [
         'enabled' => [
           ':input[name="check_in_out_wrapper"]' => ['value' => 'checkout'],
         ],
+      ],
+    ];
+    $form['notes_wrapper']['notes'] = [
+      '#type' => 'textarea',
+      '#required' => FALSE,
+      '#cols' => 60,
+      '#rows' => 5,
+      '#attributes' => [
+        'class' => ['notes-textarea'], // Add a custom class.
       ],
     ];
     $form['actions'] = [
@@ -483,4 +484,5 @@ final class CheckInOut extends FormBase {
       return NULL;
     }
   }
+
 }
