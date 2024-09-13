@@ -63,6 +63,10 @@ final class CheckInOut extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
+
+    // Get the selected date or default to today's date if not set.
+    //$selected_date = $form_state->getValue('date') ?? date('Y-m-d');
+
     $triggering_element = $form_state->getTriggeringElement();
     // Get classes.
     $query = $this->entityTypeManager
@@ -132,14 +136,18 @@ final class CheckInOut extends FormBase {
       $complete_form = $form_state->getCompleteForm();
       if ($complete_form) {
         $checkin_out_type = $complete_form['check_in_out_wrapper']['checkin_wrapper']['checkin']['#value'];
+        $selected_date = $complete_form['date']['#value'];
       }
       else {
         // default value
         $checkin_out_type = 'checkin';
+        $selected_date = $form_state->getValue('date') ?? date('Y-m-d');
       }
+
       foreach ($class_roster->field_students->referencedEntities() as $student) {
+
         if ($checkin_out_type === 'checkout') {
-          $attendance_record = $this->getAttendanceRecord($class_roster, $student);
+          $attendance_record = $this->getAttendanceRecord($class_roster, $student,$selected_date);
           if (!$attendance_record) {
             // If you are not check in, you cannot check out.
             continue;
@@ -155,7 +163,7 @@ final class CheckInOut extends FormBase {
         $form['students_container']['students'][$student->id()] = [
           '#type' => 'checkbox',
           '#title' => $name,
-          '#disabled' => $this->studentCheckInOutAlreadyTest($class_roster, $student, $checkin_out_type),
+          '#disabled' => $this->studentCheckInOutAlreadyTest($class_roster, $student, $checkin_out_type,$selected_date),
         ];
         if (isset($triggering_element['#internal_id'])
           && $triggering_element['#internal_id'] === 'students_select_all'
@@ -180,8 +188,14 @@ final class CheckInOut extends FormBase {
       '#type' => 'date',
       '#title' => $this->t('Date'),
       '#required' => TRUE,
-      '#default_value' => date('Y-m-d'),
+      '#default_value' => $form_state->getValue('date') ?? date('Y-m-d'),
+      '#ajax' => [
+        'callback' => '::ajaxStudents',
+        'event' => 'change',
+        'wrapper' => 'students-container',
+      ],
     ];
+
     $form['check_in_out_wrapper'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Check in / Out'),
@@ -330,6 +344,13 @@ final class CheckInOut extends FormBase {
    * Return with students container.
    */
   public function ajaxStudents($form, FormStateInterface $form_state) {
+    $selected_date = $form_state->getValue('date');
+    // Ensure the selected date is passed to the form rebuild process.
+    $form_state->setValue('date', $selected_date);
+    // Update the default value of the date field
+    $form['date']['#default_value'] = $selected_date;
+    $form_state->setRebuild();
+
     $rebuild_view = [
       '#type' => 'view',
       '#name' => 'sign_in_for_class',
@@ -368,6 +389,11 @@ final class CheckInOut extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
+    // Retrieve the selected date from the form state.
+    $selected_date = $form_state->getValue('date');
+
+    // Ensure the date is preserved after submission.
+    $form_state->setValue('date', $selected_date);
     // Prepopulate class
     $this->requestStack
       ->getCurrentRequest()
@@ -375,27 +401,33 @@ final class CheckInOut extends FormBase {
       ->add([
       'class' => $form_state->getValue('class')
     ]);
+    // Get the selected date
+    $selected_date = $form_state->getValue('date');
     // Create nodes
     $class_roster = Node::load($form_state->getValue('class'));
     foreach ($form_state->getValue('students') as $student_uid => $value) {
       if ($value != 0) {
+        // Combine selected date with the time for checkin
+        $checkin_datetime = new DrupalDateTime($selected_date . ' ' . $form_state->getValue('checkin_time')->format('H:i:s'));
+        $checkout_datetime = new DrupalDateTime($selected_date . ' ' . $form_state->getValue('checkout_time')->format('H:i:s'));
+
         if ($form_state->getValue('check_in_out_wrapper') === 'checkin') {
           // Check in, create new "attendance_record" node.
           $node_values = [
             'type' => 'attendance_record',
             'field_class_name' => $class_roster->field_class_name->target_id,
-            'field_checkin_time' => $form_state->getValue('date'),
+            'field_checkin_time' => $selected_date,
             'field_student' => $student_uid,
-            'field_time_in' => $form_state->getValue('checkin_time')->format('U'),
+            'field_time_in' => $checkin_datetime->getTimestamp(),
           ];
           Node::create($node_values)->save();
         }
         else {
           // check out, get corresponding 'attendance_record' node.
           $student = User::load($student_uid);
-          $attendance_record = $this->getAttendanceRecord($class_roster, $student);
+          $attendance_record = $this->getAttendanceRecord($class_roster, $student,$selected_date);
           if ($attendance_record) {
-            $attendance_record->field_time_out = $form_state->getValue('checkout_time')->format('U');
+            $attendance_record->field_time_out = $checkout_datetime->getTimestamp();
             $attendance_record->field_hours_earned = $form_state->getValue('hours_earned');
             $attendance_record->field_hours_lost = $form_state->getValue('hours_lost');
             $attendance_record->field_miles_ridden = $form_state->getValue('miles');
