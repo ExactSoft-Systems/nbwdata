@@ -12,7 +12,7 @@ third_party_settings:
 name: 'NBW Documents and Waivers'
 type: nbw_documents_and_wavers
 description: 'Here we will store texts of wavers, disclosures, media releases and other texts we use on forms and such  '
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: true

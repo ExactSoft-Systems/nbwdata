@@ -2,17 +2,17 @@ _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
   webform_clientside_validation: -1
+  auto_entitylabel: -100
   action: 0
   action_example: 0
   add_content_by_bundle: 0
+  add_content_modal: 0
   address: 0
   admin_toolbar: 0
-  admin_toolbar_links_access_filter: 0
   admin_toolbar_search: 0
   admin_toolbar_tools: 0
   ajax_example: 0
   allowed_formats: 0
-  auto_entitylabel: 0
   automated_cron: 0
   backup_migrate: 0
   basic_auth: 0
@@ -89,6 +89,7 @@ module:
   jsonapi_defaults: 0
   jsonapi_extras: 0
   layout_builder: 0
+  layout_builder_expose_all_field_blocks: 0
   layout_discovery: 0
   layout_paragraphs: 0
   link: 0
@@ -112,6 +113,7 @@ module:
   multiple_registration: 0
   mysql: 0
   nbw_data_app: 0
+  nbw_tools: 0
   nbw_users_registration: 0
   node: 0
   node_type_example: 0
@@ -213,4 +215,5 @@ theme:
   classy: 0
   uswds_base: 0
   nbw_uswds: 0
+  nbw_custom_theme: 0
 profile: standard

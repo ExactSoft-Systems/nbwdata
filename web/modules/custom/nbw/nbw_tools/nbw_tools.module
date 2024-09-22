@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for NBW tools module.
+ */
+
+/**
+ * Implements hook_field_views_data_alter().
+ */
+function nbw_tools_field_views_data_alter(array &$data, \Drupal\field\FieldStorageConfigInterface $field_storage) {
+  if ($field_storage->getType() === 'timestamp') {
+    foreach ($data as $table_name => $table_data) {
+      foreach ($table_data as $field_name => $field_data) {
+        if (isset($field_data['filter']) && $field_data['filter']['id'] === 'numeric') {
+          $data[$table_name][$field_name]['filter']['id'] = 'date';
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function nbw_tools_theme_suggestions_views_view_field(array $variables) {
+  $suggestions = [];
+  $suggestions[] = 'views_view_field__' . $variables['view']->id();
+  $suggestions[] = 'views_view_field__' . $variables['view']->id() . '__' . $variables['field']->field;
+  $suggestions[] = 'views_view_field__' . $variables['field']->field;
+  return $suggestions;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function nbw_tools_theme_suggestions_views_view(array $variables) {
+  $suggestions = [];
+  $suggestions[] = 'views_view__' . $variables['view']->id();
+  return $suggestions;
+}

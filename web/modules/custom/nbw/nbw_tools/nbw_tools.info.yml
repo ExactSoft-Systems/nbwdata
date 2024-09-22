@@ -1,0 +1,5 @@
+name: 'NBW tools'
+type: module
+description: 'Useful NBW tools and code snippets.'
+package: NBW
+core_version_requirement: ^10 || ^11

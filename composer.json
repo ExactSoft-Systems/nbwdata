@@ -15,7 +15,7 @@
   ],
   "require": {
     "pantheon-upstreams/upstream-configuration": "dev-main",
-    "composer/installers": "^1.9",
+    "composer/installers": "^2.0",
     "drupal/address": "^1.11",
     "drupal/admin_toolbar": "^3.3",
     "drupal/allowed_formats": "^2.0",
@@ -74,7 +74,9 @@
     "drupal/verf": "^2.0",
     "pantheon-systems/drupal-integrations": "^10",
     "drupal/force_password_change": "^2.0",
-    "drupal/search_api_opensearch": "^2.0"
+    "drupal/search_api_opensearch": "^2.0",
+    "szeidler/composer-patches-cli": "^1.0",
+    "drupal/add_content_modal": "^1.0"
   },
   "require-dev": {
     "drupal/core-dev": "^10"
@@ -134,7 +136,8 @@
     "patchLevel": {
       "drupal/core": "-p2"
     },
-    "enable-patching": true
+    "enable-patching": true,
+    "patches-file": "composer.patches.json"
   },
   "autoload": {
     "classmap": [
@@ -163,7 +166,8 @@
       "phpstan/extension-installer": true,
       "drupal/core-project-message": true,
       "oomphinc/composer-installers-extender": true,
-      "php-http/discovery": true
+      "php-http/discovery": true,
+      "szeidler/composer-patches-cli": true
     }
   }
 }

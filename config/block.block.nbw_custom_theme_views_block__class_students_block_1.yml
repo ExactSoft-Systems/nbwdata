@@ -1,0 +1,34 @@
+uuid: dc7640e1-123b-429e-8912-a2c453c4c0bc
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.class_students
+  module:
+    - node
+    - views
+  theme:
+    - nbw_custom_theme
+id: nbw_custom_theme_views_block__class_students_block_1
+theme: nbw_custom_theme
+region: content
+weight: -9
+provider: null
+plugin: 'views_block:class_students-block_1'
+settings:
+  id: 'views_block:class_students-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+  exposed: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      class: class

@@ -10,7 +10,7 @@ _core:
 name: 'Example: Locked Content Type'
 type: locked_content_type
 description: 'Demo of a locked content type. Locking must be done in code. You must uninstall this module before you can delete the content type.'
-help: ''
+help: null
 new_revision: false
 preview_mode: 1
 display_submitted: true

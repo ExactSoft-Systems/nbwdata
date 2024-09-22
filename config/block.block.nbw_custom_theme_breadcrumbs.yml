@@ -1,0 +1,22 @@
+uuid: 54862d9b-d1de-4cb9-93d1-45ef50f926cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nbw_custom_theme
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: nbw_custom_theme_breadcrumbs
+theme: nbw_custom_theme
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

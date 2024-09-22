@@ -1,0 +1,25 @@
+uuid: 2c08d0ac-a1eb-4d36-be49-bc51674beccc
+langcode: en
+status: true
+dependencies:
+  module:
+    - nbw_tools
+    - system
+  theme:
+    - nbw_custom_theme
+id: nbw_custom_theme_nbwcheckinform
+theme: nbw_custom_theme
+region: content
+weight: 0
+provider: null
+plugin: nbw_tools_nbw_checkin_form
+settings:
+  id: nbw_tools_nbw_checkin_form
+  label: 'NBW CheckIn Form'
+  label_display: visible
+  provider: nbw_tools
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /check-in-out-for-class

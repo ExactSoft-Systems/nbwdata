@@ -1,0 +1,8 @@
+_core:
+  default_config_hash: aL-OidHPI-nD5n_roFSAo4XmjSN4Qaq83OQQPMnWzso
+width_modal_node_add: 80%
+node_add_content_types_modal:
+  attendance_record: attendance_record
+  class: class
+  class_roster: class_roster
+type_of_dialog: modal

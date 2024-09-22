@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.graduation_record.body
     - field.field.node.graduation_record.field_class_name
     - field.field.node.graduation_record.field_graduation_date
-    - field.field.node.graduation_record.field_students
+    - field.field.node.graduation_record.field_student
     - node.type.graduation_record
   module:
     - text
@@ -36,4 +36,5 @@ hidden:
   entity_print_view_word_docx: true
   field_class_name: true
   field_graduation_date: true
-  field_students: true
+  field_student: true
+  search_api_excerpt: true

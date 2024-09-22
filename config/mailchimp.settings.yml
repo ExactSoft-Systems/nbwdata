@@ -1,9 +1,10 @@
 _core:
   default_config_hash: B-qrrA7oRcyy2W-a4OjHSgOhpMNFBK4dP9yb2KHC6v4
+langcode: en
 api_key: null
-api_timeout: 10
 domain: ''
 use_oauth: false
+api_timeout: 10
 cron: false
 batch_limit: 100
 api_classname: Mailchimp\Mailchimp

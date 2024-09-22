@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.graduation_record.body
     - field.field.node.graduation_record.field_class_name
     - field.field.node.graduation_record.field_graduation_date
-    - field.field.node.graduation_record.field_students
+    - field.field.node.graduation_record.field_student
     - node.type.graduation_record
   module:
     - datetime
@@ -45,7 +45,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_students:
+  field_student:
     type: entity_reference_autocomplete
     weight: 3
     region: content

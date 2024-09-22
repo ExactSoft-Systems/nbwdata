@@ -1,15 +1,15 @@
-uuid: 1bd96043-21fc-4cd1-81da-10c5892ce0d6
+uuid: 8fc56c11-be90-4b52-a3d9-0ff4e2aec703
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_students
+    - field.storage.node.field_student
     - node.type.graduation_record
-id: node.graduation_record.field_students
-field_name: field_students
+id: node.graduation_record.field_student
+field_name: field_student
 entity_type: node
 bundle: graduation_record
-label: Students
+label: Student
 description: ''
 required: false
 translatable: false

@@ -1,0 +1,22 @@
+uuid: ef3ed362-80eb-4e8a-b64f-3654db255638
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - nbw_custom_theme
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: nbw_custom_theme_help
+theme: nbw_custom_theme
+region: content_above
+weight: -7
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }
