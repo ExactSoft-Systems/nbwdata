@@ -1,6 +1,6 @@
 uuid: dc7640e1-123b-429e-8912-a2c453c4c0bc
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.class_students

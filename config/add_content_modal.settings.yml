@@ -4,4 +4,5 @@ width_modal_node_add: 80%
 node_add_content_types_modal:
   attendance_record: attendance_record
   class: class
+  class_roster: class_roster
 type_of_dialog: modal

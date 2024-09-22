@@ -12,7 +12,7 @@ third_party_settings:
 name: Class
 type: class
 description: 'Content that describes NBW classes - such as Yearn-A-Bike, Adult Repair Class and such'
-help: ''
+help: null
 new_revision: false
 preview_mode: 1
 display_submitted: false
