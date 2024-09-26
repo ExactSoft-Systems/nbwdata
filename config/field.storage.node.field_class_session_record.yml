@@ -1,0 +1,19 @@
+uuid: da23ae88-e70b-4053-939b-85535a719c5a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_class_session_record
+field_name: field_class_session_record
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

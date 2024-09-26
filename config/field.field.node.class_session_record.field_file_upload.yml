@@ -1,0 +1,29 @@
+uuid: 075fae1f-4e5a-4787-ab7c-20bab953c3dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_file_upload
+    - media.type.document
+    - node.type.class_session_record
+id: node.class_session_record.field_file_upload
+field_name: field_file_upload
+entity_type: node
+bundle: class_session_record
+label: 'File Upload'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

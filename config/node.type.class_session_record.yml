@@ -1,0 +1,18 @@
+uuid: bf06af45-fdd3-4329-8a29-c80f6d5ce69b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Class Session Record'
+type: class_session_record
+description: 'A record of a session of a class that happened on a specific date and time'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

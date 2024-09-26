@@ -1,0 +1,24 @@
+uuid: f41a5719-29ec-495c-985b-15d702d21b07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_checkin_time
+    - node.type.class_session_record
+  module:
+    - datetime
+id: node.class_session_record.field_checkin_time
+field_name: field_checkin_time
+entity_type: node
+bundle: class_session_record
+label: Date
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

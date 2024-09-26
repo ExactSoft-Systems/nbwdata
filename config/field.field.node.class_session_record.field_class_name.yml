@@ -1,0 +1,29 @@
+uuid: a5df1f76-e02d-4541-b615-efc55e01523d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_class_name
+    - node.type.class
+    - node.type.class_session_record
+id: node.class_session_record.field_class_name
+field_name: field_class_name
+entity_type: node
+bundle: class_session_record
+label: 'Class Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      class: class
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: class
+field_type: entity_reference

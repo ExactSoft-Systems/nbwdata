@@ -405,13 +405,97 @@ final class CheckInOut extends FormBase {
     $selected_date = $form_state->getValue('date');
     // Create nodes
     $class_roster = Node::load($form_state->getValue('class'));
+
+    // check if a Class Session Record for this class session exists, if it doesn't - create
+    $query = $this->entityTypeManager
+      ->getStorage('node')
+      ->getQuery();
+    $query->condition('type', 'class_session_record');
+    $query->condition('field_checkin_time', $selected_date);
+    $query->condition('field_class_name', $class_roster->field_class_name->target_id);
+    $query->condition('status', 1);
+    $resultClassSession = $query->accessCheck(TRUE)->execute();
+//    if ($result) {
+//      return current(Node::loadMultiple($result));
+//    }
+//    else {
+//      return NULL;
+//    }
+
+    // Neet to make sure we don't get here if there are no Students selected
+    $checkout_datetime = "";
+    $class_session_nid = "";
+
+    if ($form_state->getValue('check_in_out_wrapper') === 'checkin') {
+      //Check if Class Session Record for this day and class already exists, if not - create
+      if (empty($resultClassSession)) {
+        // Check in, create new "class_session_record" node.
+        $node_csr_values = [
+          'type' => 'class_session_record',
+          'field_class_name' => $class_roster->field_class_name->target_id,
+          'field_checkin_time' => $selected_date,
+        ];
+        // Create the node.
+        $new_class_session_node = Node::create($node_csr_values);
+
+        // Save the node.
+        $new_class_session_node->save();
+
+        // Get the node ID after saving.
+        $class_session_nid = $new_class_session_node->id();
+        $mess = "Created & saved a Cleass Session Record, node ID: " . $new_class_session_nid;
+        \Drupal::logger('CheckInCheckOut.php::submitForm')->notice($mess);
+        //$resultClassSession = $numResult; //So it would not to try creating a session again for the same "Submit" click
+      } else {
+        $currentClassSessionRecord = current(Node::loadMultiple($resultClassSession));
+        $class_session_nid = $currentClassSessionRecord->id();
+      }
+
+    } else {
+      $currentClassSessionRecord = current(Node::loadMultiple($resultClassSession));
+      $class_session_nid = $currentClassSessionRecord->id();
+      if ($currentClassSessionRecord) {
+        if (empty($checkout_datetime)) {
+          $checkout_datetime = new DrupalDateTime($selected_date . ' ' . $form_state->getValue('checkout_time')->format('H:i:s'));
+        }
+        // Get the current timestamp in human-readable form.
+        $current_timestamp = date('Y-m-d H:i:s', $checkout_datetime->getTimestamp());
+
+        // Get the new notes from the form state.
+        $new_notes = $form_state->getValue('notes');
+
+        // Fetch the existing notes from the field.
+        $existing_notes = $currentClassSessionRecord->body->value ?? '';
+
+        // Check if there are existing notes and prepare the updated notes accordingly.
+        if (!empty($existing_notes)) {
+          // If existing notes are present, append new notes with the timestamp and an empty line.
+          $updated_notes = trim($existing_notes) . "\n\n" . $current_timestamp . "\n" . $new_notes;
+        } else {
+          // If no existing notes, just add the timestamp and new notes.
+          $updated_notes = $current_timestamp . "\n" . $new_notes;
+        }
+        // Wrap the notes in <pre> tags to preserve formatting.
+        $updated_notes = '<pre>' . htmlspecialchars($updated_notes) . '</pre>';
+        
+        // Update the body field with the new notes.
+        //$currentClassSessionRecord->body->value = $updated_notes;
+        $currentClassSessionRecord->field_time_out = $checkout_datetime->getTimestamp();
+        $currentClassSessionRecord->body = $updated_notes;
+        $currentClassSessionRecord->save();
+      }
+    }
+
     foreach ($form_state->getValue('students') as $student_uid => $value) {
       if ($value != 0) {
         // Combine selected date with the time for checkin
         $checkin_datetime = new DrupalDateTime($selected_date . ' ' . $form_state->getValue('checkin_time')->format('H:i:s'));
-        $checkout_datetime = new DrupalDateTime($selected_date . ' ' . $form_state->getValue('checkout_time')->format('H:i:s'));
+        if (empty($checkout_datetime)) {
+          $checkout_datetime = new DrupalDateTime($selected_date . ' ' . $form_state->getValue('checkout_time')->format('H:i:s'));
+        }
 
         if ($form_state->getValue('check_in_out_wrapper') === 'checkin') {
+
           // Check in, create new "attendance_record" node.
           $node_values = [
             'type' => 'attendance_record',
@@ -419,10 +503,12 @@ final class CheckInOut extends FormBase {
             'field_checkin_time' => $selected_date,
             'field_student' => $student_uid,
             'field_time_in' => $checkin_datetime->getTimestamp(),
+            'field_class_session_record' => $class_session_nid,  // Reference the Class Session Record.
           ];
           Node::create($node_values)->save();
         }
         else {
+
           // check out, get corresponding 'attendance_record' node.
           $student = User::load($student_uid);
           $attendance_record = $this->getAttendanceRecord($class_roster, $student,$selected_date);

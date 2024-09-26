@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.attendance_record.body
     - field.field.node.attendance_record.field_checkin_time
     - field.field.node.attendance_record.field_class_name
+    - field.field.node.attendance_record.field_class_session_record
     - field.field.node.attendance_record.field_hours_earned
     - field.field.node.attendance_record.field_hours_lost
     - field.field.node.attendance_record.field_miles_ridden
@@ -49,6 +50,16 @@ content:
     weight: 1
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_class_session_record:
+    type: entity_reference_autocomplete
+    weight: 26
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_hours_earned:
     type: number
