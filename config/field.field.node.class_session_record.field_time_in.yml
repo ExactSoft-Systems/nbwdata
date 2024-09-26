@@ -1,0 +1,21 @@
+uuid: 913ee532-72f4-4df3-a66c-9405167ea894
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_time_in
+    - node.type.class_session_record
+id: node.class_session_record.field_time_in
+field_name: field_time_in
+entity_type: node
+bundle: class_session_record
+label: 'Start Time'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1727374516
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

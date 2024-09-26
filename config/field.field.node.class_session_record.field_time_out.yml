@@ -1,0 +1,19 @@
+uuid: 9ffb11f1-f63b-484a-8e70-21769d535dc3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_time_out
+    - node.type.class_session_record
+id: node.class_session_record.field_time_out
+field_name: field_time_out
+entity_type: node
+bundle: class_session_record
+label: 'End Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

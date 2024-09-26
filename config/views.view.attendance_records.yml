@@ -379,6 +379,7 @@ display:
         type: mini
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 10
           total_pages: null
           id: 0
@@ -393,7 +394,6 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          pagination_heading_level: h4
       exposed_form:
         type: bef
         options:
@@ -622,7 +622,7 @@ display:
     display_plugin: block
     position: 2
     display_options:
-      title: 'Attendance Records for this class'
+      title: 'Single-Youth Attendance Records for this class'
       fields:
         field_checkin_time:
           id: field_checkin_time
@@ -1203,7 +1203,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: add_content_by_bundle
-          label: 'Add attendance records for this class'
+          label: 'Add single-student attendance records for this class'
           empty: false
           bundle: attendance_record
           class: ''
