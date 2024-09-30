@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.class_roster.body
     - field.field.node.class_roster.field_class_name
+    - field.field.node.class_roster.field_mentors
     - field.field.node.class_roster.field_students
     - node.type.class_roster
   module:
@@ -30,6 +31,14 @@ content:
     third_party_settings: {  }
     weight: 102
     region: content
+  field_mentors:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
   field_students:
     type: entity_reference_label
     label: above
@@ -47,3 +56,4 @@ hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
+  search_api_excerpt: true

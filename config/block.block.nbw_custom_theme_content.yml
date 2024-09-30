@@ -11,7 +11,7 @@ _core:
 id: nbw_custom_theme_content
 theme: nbw_custom_theme
 region: content
-weight: -10
+weight: -12
 provider: null
 plugin: system_main_block
 settings:

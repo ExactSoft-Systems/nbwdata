@@ -476,7 +476,7 @@ final class CheckInOut extends FormBase {
           $updated_notes = $current_timestamp . "\n" . $new_notes;
         }
         // Wrap the notes in <pre> tags to preserve formatting.
-        $updated_notes = '<pre>' . htmlspecialchars($updated_notes) . '</pre>';
+        //$updated_notes = '<pre>' . htmlspecialchars($updated_notes) . '</pre>';
         
         // Update the body field with the new notes.
         //$currentClassSessionRecord->body->value = $updated_notes;
@@ -508,10 +508,9 @@ final class CheckInOut extends FormBase {
           Node::create($node_values)->save();
         }
         else {
-
           // check out, get corresponding 'attendance_record' node.
           $student = User::load($student_uid);
-          $attendance_record = $this->getAttendanceRecord($class_roster, $student,$selected_date);
+          $attendance_record = $this->getAttendanceRecord($class_roster, $student, $selected_date);
           if ($attendance_record) {
             $attendance_record->field_time_out = $checkout_datetime->getTimestamp();
             $attendance_record->field_hours_earned = $form_state->getValue('hours_earned');
@@ -519,6 +518,23 @@ final class CheckInOut extends FormBase {
             $attendance_record->field_miles_ridden = $form_state->getValue('miles');
             $attendance_record->body = $form_state->getValue('notes');
             $attendance_record->save();
+          }
+
+          // Get NBW profiles by the YouthID
+          $nbw_youth_profiles = \Drupal::entityTypeManager()
+            ->getStorage('profile')
+            ->loadByProperties([
+              'uid' => $student_uid,
+              'type' => 'nbw_youth_profile',
+            ]);
+
+          foreach ($nbw_youth_profiles as $profile) {
+            //dpm($profile->get('field_miles_total')->value);
+            $miles_total_new = floatval($profile->get('field_miles_total')->value) + $form_state->getValue('miles');
+            $hours_total_new = floatval($profile->get('field_hours_total')->value) + $form_state->getValue('hours_earned') - $form_state->getValue('hours_lost');
+            $profile->get('field_miles_total')->setValue($miles_total_new);
+            $profile->get('field_hours_total')->setValue($hours_total_new);
+            $profile->save();
           }
         }
       }

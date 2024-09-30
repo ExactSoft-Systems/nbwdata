@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.class_roster.body
     - field.field.node.class_roster.field_class_name
+    - field.field.node.class_roster.field_mentors
     - field.field.node.class_roster.field_students
     - node.type.class_roster
   module:
@@ -43,6 +44,16 @@ content:
     weight: 122
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_mentors:
+    type: entity_reference_autocomplete
+    weight: 124
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_students:
     type: entity_reference_autocomplete

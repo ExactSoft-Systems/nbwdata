@@ -1,0 +1,25 @@
+uuid: d06fa011-f3a4-4091-bfd9-c1c01790f3a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mentors
+    - node.type.class_roster
+id: node.class_roster.field_mentors
+field_name: field_mentors
+entity_type: node
+bundle: class_roster
+label: Mentors
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: mentor_name_and_username
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

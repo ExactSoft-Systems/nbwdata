@@ -1,0 +1,25 @@
+uuid: e4f04473-3182-48c8-bc8c-c9827b687041
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.nbw-forms
+  module:
+    - system
+  theme:
+    - nbw_custom_theme
+id: nbw_custom_theme_nbwformsandsurveys
+theme: nbw_custom_theme
+region: sidebar
+weight: 0
+provider: null
+plugin: 'system_menu_block:nbw-forms'
+settings:
+  id: 'system_menu_block:nbw-forms'
+  label: 'NBW Forms And Surveys'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

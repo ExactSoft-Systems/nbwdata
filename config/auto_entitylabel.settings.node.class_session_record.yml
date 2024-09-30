@@ -1,5 +1,5 @@
 status: 1
-pattern: 'Class Session Record created class [node:field_class_name] on [node:created:short]; updated on [node:changed:short]'
+pattern: '[node:field_class_name] session on [node:created:short]; updated on [node:changed:short]'
 escape: false
 preserve_titles: false
 save: false

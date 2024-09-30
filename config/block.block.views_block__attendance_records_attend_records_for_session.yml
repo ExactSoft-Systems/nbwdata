@@ -1,22 +1,22 @@
-uuid: dc7640e1-123b-429e-8912-a2c453c4c0bc
+uuid: f1fe6248-ab8f-4d5b-9d56-58245a21aee1
 langcode: en
-status: false
+status: true
 dependencies:
   config:
-    - views.view.class_students
+    - views.view.attendance_records
   module:
     - node
     - views
   theme:
     - nbw_custom_theme
-id: nbw_custom_theme_views_block__class_students_block_1
+id: views_block__attendance_records_attend_records_for_session
 theme: nbw_custom_theme
 region: content
-weight: -6
+weight: -8
 provider: null
-plugin: 'views_block:class_students-block_1'
+plugin: 'views_block:attendance_records-attend_records_for_session'
 settings:
-  id: 'views_block:class_students-block_1'
+  id: 'views_block:attendance_records-attend_records_for_session'
   label: ''
   label_display: visible
   provider: views
@@ -31,4 +31,4 @@ visibility:
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:
-      class: class
+      class_session_record: class_session_record
