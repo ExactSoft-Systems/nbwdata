@@ -12,6 +12,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 use Drupal\user\Entity\User;
+use Drupal\profile\Entity\Profile;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -527,6 +528,14 @@ final class CheckInOut extends FormBase {
               'uid' => $student_uid,
               'type' => 'nbw_youth_profile',
             ]);
+
+          if(empty($nbw_youth_profiles)){
+            $nbw_youth_profile = Profile::create([
+             'type' => 'nbw_youth_profile',
+             'uid' => $student_uid,
+            ]);
+            $nbw_youth_profiles[] = $nbw_youth_profile;
+          }
 
           foreach ($nbw_youth_profiles as $profile) {
             //dpm($profile->get('field_miles_total')->value);
