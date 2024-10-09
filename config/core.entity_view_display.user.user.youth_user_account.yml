@@ -22,6 +22,7 @@ dependencies:
     - address
     - image
     - layout_builder
+    - layout_discovery
     - options
     - telephone
     - user
@@ -110,3 +111,4 @@ hidden:
   nbw_staff_profile_profiles: true
   nbw_volunteer_profile_profiles: true
   nbw_youth_profile_profiles: true
+  search_api_excerpt: true

@@ -20,3 +20,11 @@ nbw_data_app.settings_form:
     _form: 'Drupal\nbw_data_app\Form\SettingsForm'
   requirements:
     _permission: 'administer nbw_data_app configuration'
+
+nbw_data_app.user.quick_view:
+  path: '/youth/quick_view/{user}'
+  defaults:
+    _entity_view: 'user.quick_view'
+  requirements:
+    _permission: 'access content'
+

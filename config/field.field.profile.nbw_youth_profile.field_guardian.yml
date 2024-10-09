@@ -24,17 +24,6 @@ settings:
       direction: ASC
     auto_create: false
     filter:
-      type: role
-      role:
-        guardian: guardian
-        content_editor: '0'
-        administrator: '0'
-        youth: '0'
-        volunteer: '0'
-        board_member: '0'
-        bike_church_patron: '0'
-        demo_region_admin: '0'
-        demo_region_user: '0'
-        staff: '0'
+      type: _none
     include_anonymous: true
 field_type: entity_reference

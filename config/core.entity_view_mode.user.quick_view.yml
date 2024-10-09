@@ -1,0 +1,11 @@
+uuid: 3762c5a1-6f3b-4a91-99ff-e7f0a96ac675
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.quick_view
+label: 'Quick View'
+description: ''
+targetEntityType: user
+cache: true

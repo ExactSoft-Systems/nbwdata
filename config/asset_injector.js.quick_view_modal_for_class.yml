@@ -1,0 +1,43 @@
+uuid: ad52b5f3-1ae5-4aef-9d32-f4646fd429e0
+langcode: en
+status: false
+dependencies:
+  module:
+    - node
+id: quick_view_modal_for_class
+label: 'Quick View Modal for Class'
+code: |
+  (function ($, Drupal) {
+    Drupal.behaviors.quickViewModal = {
+      attach: function (context, settings) {
+        $('.quick-view-link', context).once('quickViewModal').click(function (e) {
+          e.preventDefault();
+          var link = $(this).attr('href');
+
+          // Create the modal dialog
+          $('<div></div>')
+            .load(link + ' #content') // Load the Quick View mode content into the modal
+            .dialog({
+              title: 'Quick View',
+              width: 800,
+              modal: true
+            });
+        });
+      }
+    };
+  })(jQuery, Drupal);
+noscript: ''
+noscriptRegion: {  }
+jquery: true
+header: false
+preprocess: true
+conditions:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      class: class
+contexts: {  }
+conditions_require_all: true

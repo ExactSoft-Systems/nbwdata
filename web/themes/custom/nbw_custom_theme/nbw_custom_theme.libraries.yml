@@ -22,3 +22,18 @@ global:
       css/layout/layout.css: {}
     theme:
       css/theme/print.css: { media: print }
+
+#dialog:
+#  js:
+#    js/dialog.js: {}
+#  dependencies:
+#    - core/jquery
+#    - core/jquery.ui.dialog
+#
+#quick_view_modal:
+#  js:
+#    js/quick-view-modal.js: {}
+#  dependencies:
+#    - core/jquery
+#    - core/drupal
+

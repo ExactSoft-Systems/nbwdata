@@ -1,0 +1,11 @@
+uuid: 3d3e218c-7163-44fa-8103-37c82e513b22
+langcode: en
+status: true
+dependencies: {  }
+machine: local_ddev
+description: null
+name: 'Local DDEV'
+weight: null
+url: 'https://nbwdata.com.ddev.site'
+fg_color: '#ff8040'
+bg_color: '#8000ff'
