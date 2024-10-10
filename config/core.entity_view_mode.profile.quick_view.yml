@@ -1,0 +1,11 @@
+uuid: 54f47530-b17f-4419-815a-2381c3fb9602
+langcode: en
+status: true
+dependencies:
+  module:
+    - profile
+id: profile.quick_view
+label: 'Quick View'
+description: ''
+targetEntityType: profile
+cache: true

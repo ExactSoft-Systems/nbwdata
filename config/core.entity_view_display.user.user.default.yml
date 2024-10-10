@@ -46,9 +46,10 @@ content:
     weight: 16
     region: content
   field_emergency_contact_phone:
-    type: basic_string
+    type: telephone_link
     label: above
-    settings: {  }
+    settings:
+      title: ''
     third_party_settings: {  }
     weight: 17
     region: content
@@ -145,3 +146,4 @@ hidden:
   nbw_staff_profile_profiles: true
   nbw_volunteer_profile_profiles: true
   nbw_youth_profile_profiles: true
+  search_api_excerpt: true

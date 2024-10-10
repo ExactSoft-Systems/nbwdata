@@ -17,86 +17,15 @@ dependencies:
     - field.field.user.user.field_secondary_phone
     - field.field.user.user.field_secondary_phone_type
     - field.field.user.user.user_picture
-    - views.view.youth_names_and_guardian_info
   module:
     - layout_builder
-    - layout_discovery
     - telephone
     - text
     - user
-    - views
 third_party_settings:
   layout_builder:
-    enabled: true
+    enabled: false
     allow_custom: false
-    sections:
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-        components:
-          0dc7f09c-bd8c-464c-836b-fd411440424b:
-            uuid: 0dc7f09c-bd8c-464c-836b-fd411440424b
-            region: content
-            configuration:
-              id: 'field_block:user:user:field_primary_phone'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: telephone_link
-                label: above
-                settings:
-                  title: ''
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-          cd53a645-0b0b-48ec-84ca-24e78bdf3747:
-            uuid: cd53a645-0b0b-48ec-84ca-24e78bdf3747
-            region: content
-            configuration:
-              id: 'field_block:user:user:field_emergency_contact_name'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: text_default
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
-          f649a0aa-67f1-4f4b-bf51-38fc59c9cfbf:
-            uuid: f649a0aa-67f1-4f4b-bf51-38fc59c9cfbf
-            region: content
-            configuration:
-              id: 'field_block:user:user:field_emergency_contact_phone'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: telephone_link
-                label: above
-                settings:
-                  title: ''
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          4f4c7b2f-0939-4178-a610-e1388d1be160:
-            uuid: 4f4c7b2f-0939-4178-a610-e1388d1be160
-            region: content
-            configuration:
-              id: 'views_block:youth_names_and_guardian_info-block_1'
-              label: ''
-              label_display: visible
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: '1'
-              exposed: {  }
-            weight: 3
-            additional: {  }
-        third_party_settings: {  }
 _core:
   default_config_hash: mZLyuWM9CQx2ZJVqFGSbzgFnHzudVbHBYmdU256A5Wk
 id: user.user.quick_view
@@ -127,6 +56,15 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  nbw_youth_profile_profiles:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: quick_view
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
 hidden:
   demografics_profiles: true
   entity_print_view_epub: true
@@ -148,6 +86,5 @@ hidden:
   nbw_guardian_profile_profiles: true
   nbw_staff_profile_profiles: true
   nbw_volunteer_profile_profiles: true
-  nbw_youth_profile_profiles: true
   search_api_excerpt: true
   user_picture: true

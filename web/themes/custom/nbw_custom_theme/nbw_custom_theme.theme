@@ -28,8 +28,8 @@ function nbw_custom_theme_preprocess_node(array &$variables): void {
 
 }
 
-function nbw_custom_theme_preprocess_block(array &$variables): void {
-  if ($variables['base_plugin_id'] === 'views_block:class_roaster-block_1') {
-    $variables['#attached']['library'][] = 'nbw_custom_theme/quick_view_modal';
-  }
-}
+//function nbw_custom_theme_preprocess_block(array &$variables): void {
+//  if ($variables['base_plugin_id'] === 'views_block:class_roaster-block_1') {
+//    $variables['#attached']['library'][] = 'nbw_custom_theme/quick_view_modal';
+//  }
+//}

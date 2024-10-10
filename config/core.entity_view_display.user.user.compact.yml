@@ -19,7 +19,9 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - address
     - image
+    - telephone
     - user
 _core:
   default_config_hash: 00zr_RBdTjPjBGITD3h4c1ESQZimjdVCcHGt1trLqIY
@@ -28,6 +30,21 @@ targetEntityType: user
 bundle: user
 mode: compact
 content:
+  field_address:
+    type: address_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_primary_phone:
+    type: telephone_link
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
   user_picture:
     type: image
     label: hidden
@@ -44,12 +61,10 @@ hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
-  field_address: true
   field_emergency_contact_name: true
   field_emergency_contact_phone: true
   field_gender: true
   field_gender_other: true
-  field_primary_phone: true
   field_primary_phone_type: true
   field_race: true
   field_race_other: true
@@ -64,3 +79,4 @@ hidden:
   nbw_staff_profile_profiles: true
   nbw_volunteer_profile_profiles: true
   nbw_youth_profile_profiles: true
+  search_api_excerpt: true
