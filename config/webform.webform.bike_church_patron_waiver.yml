@@ -1,7 +1,20 @@
 uuid: c603f190-c50d-4791-a015-a0f2bad11a31
 langcode: en
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - webform_entity_print
+third_party_settings:
+  webform_entity_print:
+    template:
+      header: ''
+      footer: ''
+      css: ''
+    export_types:
+      pdf:
+        enabled: true
+        link_text: ''
+        link_attributes: {  }
 weight: 0
 open: null
 close: null
@@ -10,8 +23,9 @@ template: false
 archive: false
 id: bike_church_patron_waiver
 title: 'Bike Church Patron Waiver'
-description: 'the waiver for an adult workshop (Bike Church)'
-categories: {  }
+description: '<p>the waiver for an adult workshop (Bike Church)</p>'
+categories:
+  - 'NBW Forms'
 elements: |-
   welcome_to_bike_church_:
     '#type': webform_card

@@ -94,6 +94,91 @@ final class CheckInOut extends FormBase {
         'callback' => '::ajaxStudents',
       ],
     ];
+
+
+    // Date
+    $form['date'] = [
+      '#type' => 'date',
+      '#title' => $this->t('Date'),
+      '#required' => TRUE,
+      '#default_value' => $form_state->getValue('date') ?? date('Y-m-d'),
+      '#ajax' => [
+        'callback' => '::ajaxStudents',
+        'event' => 'change',
+        'wrapper' => 'students-container',
+      ],
+    ];
+
+
+    // Duplicate Submit button near Date control.
+    $form['actions_above_checkin'] = [
+      'submit_above' => [
+        '#type' => 'submit',
+        '#value' => $this->t('Submit'),
+        '#submit' => ['::submitForm'], // Same submit handler.
+        '#weight' => -8,
+        '#attributes' => [
+          'class' => ['button', 'button--primary'],
+        ],
+      ],
+    ];
+
+
+    $form['check_in_out_wrapper'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Check in / Out'),
+    ];
+    $form['check_in_out_wrapper']['checkin_wrapper'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => ['container-inline'],
+      ],
+    ];
+    $form['check_in_out_wrapper']['checkin_wrapper']['checkin'] = [
+      '#type' => 'radio',
+      '#required' => TRUE,
+      '#title' => $this->t('Check In'),
+      '#parents' => ['check_in_out_wrapper'],
+      '#return_value' => 'checkin',
+      '#ajax' => [
+        'callback' => '::ajaxStudents',
+      ],
+    ];
+    $form['check_in_out_wrapper']['checkin_wrapper']['checkin_time'] = [
+      '#type' => 'datetime',
+      '#date_date_element' => 'none',
+      '#date_time_element' => 'time',
+      '#default_value' => new DrupalDateTime('now'),
+      '#attributes' => [ //- this disables the seconds, but they are still there
+        'step' => 60,
+      ],
+    ];
+    $form['check_in_out_wrapper']['checkout_wrapper'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => ['container-inline'],
+      ],
+    ];
+    $form['check_in_out_wrapper']['checkout_wrapper']['checkout'] = [
+      '#type' => 'radio',
+      '#required' => TRUE,
+      '#title' => $this->t('Check Out'),
+      '#parents' => ['check_in_out_wrapper'],
+      '#return_value' => 'checkout',
+      '#ajax' => [
+        'callback' => '::ajaxStudents',
+      ],
+    ];
+    $form['check_in_out_wrapper']['checkout_wrapper']['checkout_time'] = [
+      '#type' => 'datetime',
+      '#date_date_element' => 'none',
+      '#date_time_element' => 'time',
+      '#default_value' => new DrupalDateTime('now'),
+      '#attributes' => [ //- this disables the seconds, but they are still there
+        'step' => 60,
+      ],
+    ];
+
     // Get students.
     $form['students_container'] = [
       '#type' => 'container',
@@ -112,6 +197,7 @@ final class CheckInOut extends FormBase {
     else {
       $sclass_roster_id = NULL;
     }
+    $class_duration_hours = "";
     if ($sclass_roster_id) {
       $form['students_container']['students_select_all'] = [
         '#type' => 'button',
@@ -143,6 +229,23 @@ final class CheckInOut extends FormBase {
         // default value
         $checkin_out_type = 'checkin';
         $selected_date = $form_state->getValue('date') ?? date('Y-m-d');
+      }
+
+      // Ensure we have a valid class roster.
+      if ($class_roster->hasField('field_class_name')) {
+        $class_id = $class_roster->field_class_name->target_id;
+        $class_node = Node::load($class_id);
+
+        // Ensure the class node exists and has a valid date range.
+        if ($class_node && $class_node->hasField('field_when') && !$class_node->get('field_when')->isEmpty()) {
+          $class_date_range = $class_node->get('field_when')->first()->getValue();
+          //$start_time = strtotime($class_date_range['value']);
+          //$end_time = strtotime($class_date_range['end_value']);
+          $class_duration_hours = round(($class_date_range['end_value'] - $class_date_range['value']) / 3600, 2); // duration is in minutes.
+
+          // Store the class duration in the form state for later use in submission.
+          $form_state->set('class_duration_hours', $class_duration_hours);
+        }
       }
 
       foreach ($class_roster->field_students->referencedEntities() as $student) {
@@ -184,71 +287,19 @@ final class CheckInOut extends FormBase {
         '#suffix' => '</strong>',
       ];
     }
-    // Date
-    $form['date'] = [
-      '#type' => 'date',
-      '#title' => $this->t('Date'),
-      '#required' => TRUE,
-      '#default_value' => $form_state->getValue('date') ?? date('Y-m-d'),
-      '#ajax' => [
-        'callback' => '::ajaxStudents',
-        'event' => 'change',
-        'wrapper' => 'students-container',
-      ],
-    ];
+    //$form['hours_earned_lost_wrapper']['class_hours_earned'] = [
 
-    $form['check_in_out_wrapper'] = [
-      '#type' => 'fieldset',
-      '#title' => $this->t('Check in / Out'),
-    ];
-    $form['check_in_out_wrapper']['checkin_wrapper'] = [
-      '#type' => 'container',
-      '#attributes' => [
-        'class' => ['container-inline'],
-      ],
-    ];
-    $form['check_in_out_wrapper']['checkin_wrapper']['checkin'] = [
-      '#type' => 'radio',
-      '#required' => TRUE,
-      '#title' => $this->t('Check In'),
-      '#parents' => ['check_in_out_wrapper'],
-      '#return_value' => 'checkin',
-      '#ajax' => [
-        'callback' => '::ajaxStudents',
-      ],
-    ];
-    $form['check_in_out_wrapper']['checkin_wrapper']['checkin_time'] = [
-      '#type' => 'datetime',
-      '#date_date_element' => 'none',
-      '#date_time_element' => 'time',
-      '#default_value' => new DrupalDateTime('now'),
-    ];
-    $form['check_in_out_wrapper']['checkout_wrapper'] = [
-      '#type' => 'container',
-      '#attributes' => [
-        'class' => ['container-inline'],
-      ],
-    ];
-    $form['check_in_out_wrapper']['checkout_wrapper']['checkout'] = [
-      '#type' => 'radio',
-      '#required' => TRUE,
-      '#title' => $this->t('Check Out'),
-      '#parents' => ['check_in_out_wrapper'],
-      '#return_value' => 'checkout',
-      '#ajax' => [
-        'callback' => '::ajaxStudents',
-      ],
-    ];
-    $form['check_in_out_wrapper']['checkout_wrapper']['checkout_time'] = [
-      '#type' => 'datetime',
-      '#date_date_element' => 'none',
-      '#date_time_element' => 'time',
-      '#default_value' => new DrupalDateTime('now'),
-    ];
     // Hours & Miles.
     $form['hours_earned_lost_wrapper'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Hours'),
+    ];
+    // Add the calculated class duration to the form.
+    $form['hours_earned_lost_wrapper']['class_hours_earned'] = [
+      '#type' => 'markup',
+      '#markup' => $this->t('Earned @hours hours by attending this class.', ['@hours' => $class_duration_hours]),
+      '#prefix' => '<p><strong>',
+      '#suffix' => '</strong></p>',
     ];
     $form['hours_earned_lost_wrapper']['hours_earned_wrapper'] = [
       '#type' => 'container',
@@ -264,10 +315,11 @@ final class CheckInOut extends FormBase {
         'class' => ['container-inline'],
       ],
     ];
+
     $form['hours_earned_lost_wrapper']['hours_earned_wrapper']['hours_earned'] = [
       '#type' => 'number',
       '#default_value' => 0,
-      '#title' => $this->t('Hours earned'),
+      '#title' => $this->t('Additional Hours Earned'),
     ];
     $form['hours_earned_lost_wrapper']['hours_lost_wrapper'] = [
       '#type' => 'container',
@@ -334,7 +386,7 @@ final class CheckInOut extends FormBase {
       '#type' => 'actions',
       'submit' => [
         '#type' => 'submit',
-        '#value' => $this->t('Send'),
+        '#value' => $this->t('Submit'),
       ],
     ];
 
@@ -487,6 +539,15 @@ final class CheckInOut extends FormBase {
       }
     }
 
+    // Get the class duration from the form state.
+    $class_duration_hours = $form_state->get('class_duration_hours') ?? 0;
+
+    // Get the additional hours entered by the user.
+    //$additional_hours = $form_state->getValue(['hours_earned_lost_wrapper', 'hours_earned_wrapper', 'hours_earned']) ?? 0;
+
+    // Calculate the total hours earned.
+    //$total_hours_earned = $class_duration_hours + $additional_hours;
+
     foreach ($form_state->getValue('students') as $student_uid => $value) {
       if ($value != 0) {
         // Combine selected date with the time for checkin
@@ -514,7 +575,7 @@ final class CheckInOut extends FormBase {
           $attendance_record = $this->getAttendanceRecord($class_roster, $student, $selected_date);
           if ($attendance_record) {
             $attendance_record->field_time_out = $checkout_datetime->getTimestamp();
-            $attendance_record->field_hours_earned = $form_state->getValue('hours_earned');
+            $attendance_record->field_hours_earned = $class_duration_hours + $form_state->getValue('hours_earned');
             $attendance_record->field_hours_lost = $form_state->getValue('hours_lost');
             $attendance_record->field_miles_ridden = $form_state->getValue('miles');
             $attendance_record->body = $form_state->getValue('notes');
@@ -540,7 +601,7 @@ final class CheckInOut extends FormBase {
           foreach ($nbw_youth_profiles as $profile) {
             //dpm($profile->get('field_miles_total')->value);
             $miles_total_new = floatval($profile->get('field_miles_total')->value) + $form_state->getValue('miles');
-            $hours_total_new = floatval($profile->get('field_hours_total')->value) + $form_state->getValue('hours_earned') - $form_state->getValue('hours_lost');
+            $hours_total_new = floatval($profile->get('field_hours_total')->value) + $class_duration_hours + $form_state->getValue('hours_earned') - $form_state->getValue('hours_lost');
             $profile->get('field_miles_total')->setValue($miles_total_new);
             $profile->get('field_hours_total')->setValue($hours_total_new);
             $profile->save();

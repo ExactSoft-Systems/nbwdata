@@ -1,0 +1,20 @@
+uuid: f8c9a81c-361f-43df-a857-e14faacaf477
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_bike_condition
+field_name: field_bike_condition
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

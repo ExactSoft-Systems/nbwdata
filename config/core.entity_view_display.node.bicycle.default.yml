@@ -1,0 +1,50 @@
+uuid: 72dd24c5-0d44-4e7b-8024-16ea5ba9c545
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.bicycle.body
+    - field.field.node.bicycle.field_bike_brand
+    - field.field.node.bicycle.field_bike_condition
+    - node.type.bicycle
+  module:
+    - text
+    - user
+id: node.bicycle.default
+targetEntityType: node
+bundle: bicycle
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_bike_brand:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_bike_condition:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true

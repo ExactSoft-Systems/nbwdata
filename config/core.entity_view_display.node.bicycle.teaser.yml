@@ -1,0 +1,38 @@
+uuid: eef851a2-3692-4bba-934a-b65f121ebe87
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.bicycle.body
+    - field.field.node.bicycle.field_bike_brand
+    - field.field.node.bicycle.field_bike_condition
+    - node.type.bicycle
+  module:
+    - text
+    - user
+id: node.bicycle.teaser
+targetEntityType: node
+bundle: bicycle
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_bike_brand: true
+  field_bike_condition: true
+  search_api_excerpt: true

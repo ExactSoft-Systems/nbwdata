@@ -1,0 +1,18 @@
+uuid: 8975afdc-55f7-45e5-9a81-cfc878e6a843
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.grantor
+id: node.grantor.title
+field_name: title
+entity_type: node
+bundle: grantor
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

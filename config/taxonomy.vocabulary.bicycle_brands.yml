@@ -1,0 +1,9 @@
+uuid: 731b5ef9-2f99-4bc3-b0f8-0c946ee318c2
+langcode: en
+status: true
+dependencies: {  }
+name: 'Bicycle Brands'
+vid: bicycle_brands
+description: 'Bicycle Brand Names'
+weight: 0
+new_revision: false

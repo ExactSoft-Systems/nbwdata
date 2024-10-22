@@ -1,0 +1,18 @@
+uuid: f8e06148-b62d-4ee3-90ef-db10df3db4f6
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Grant
+type: grant
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

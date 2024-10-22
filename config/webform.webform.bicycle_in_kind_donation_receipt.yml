@@ -1,7 +1,20 @@
 uuid: 48807390-fb6a-456e-8aa9-5d6470ee133a
 langcode: en
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - webform_entity_print
+third_party_settings:
+  webform_entity_print:
+    template:
+      header: ''
+      footer: ''
+      css: ''
+    export_types:
+      pdf:
+        enabled: true
+        link_text: ''
+        link_attributes: {  }
 weight: 0
 open: null
 close: null
@@ -11,7 +24,8 @@ archive: false
 id: bicycle_in_kind_donation_receipt
 title: 'Bicycle/In-Kind Donation Receipt'
 description: ''
-categories: {  }
+categories:
+  - 'NBW Forms'
 elements: |-
   in_kind_donation_description_markup:
     '#type': webform_markup

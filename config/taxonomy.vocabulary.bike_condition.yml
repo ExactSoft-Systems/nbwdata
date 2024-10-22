@@ -1,0 +1,9 @@
+uuid: e8f01018-c66a-4a2c-b20e-f68b6403a351
+langcode: en
+status: true
+dependencies: {  }
+name: 'Bike Condition'
+vid: bike_condition
+description: null
+weight: 0
+new_revision: false

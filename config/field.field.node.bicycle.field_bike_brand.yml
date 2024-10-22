@@ -1,0 +1,29 @@
+uuid: c86e8c3d-c7e1-4238-87b6-50ccffa83518
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bike_brand
+    - node.type.bicycle
+    - taxonomy.vocabulary.bicycle_brands
+id: node.bicycle.field_bike_brand
+field_name: field_bike_brand
+entity_type: node
+bundle: bicycle
+label: 'Bike Brand'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      bicycle_brands: bicycle_brands
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

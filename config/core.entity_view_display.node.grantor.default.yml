@@ -1,0 +1,41 @@
+uuid: d74f42a8-1ebf-4fb0-8de8-aff22abdcbf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.grantor.body
+    - field.field.node.grantor.field_grantor_org_type
+    - node.type.grantor
+  module:
+    - text
+    - user
+id: node.grantor.default
+targetEntityType: node
+bundle: grantor
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_grantor_org_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true

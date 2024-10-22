@@ -1,0 +1,18 @@
+uuid: 3989526f-3cda-449c-b5c8-0ae14fe6b595
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Bicycle
+type: bicycle
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

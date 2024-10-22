@@ -1,0 +1,9 @@
+uuid: 4bc08522-cd40-401b-844e-28016d75a779
+langcode: en
+status: true
+dependencies: {  }
+name: 'Grant Org Types'
+vid: grant_org_types
+description: null
+weight: 0
+new_revision: false

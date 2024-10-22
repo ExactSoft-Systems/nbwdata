@@ -1,0 +1,29 @@
+uuid: b84cb845-63ba-485e-a36f-db22267347f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bike_condition
+    - node.type.bicycle
+    - taxonomy.vocabulary.bike_condition
+id: node.bicycle.field_bike_condition
+field_name: field_bike_condition
+entity_type: node
+bundle: bicycle
+label: 'Bike Condition'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      bike_condition: bike_condition
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
